@@ -10,7 +10,6 @@
 		3265BA2A290925DD00532CA4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3265BA29290925DD00532CA4 /* AppDelegate.swift */; };
 		3265BA2C290925DD00532CA4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3265BA2B290925DD00532CA4 /* SceneDelegate.swift */; };
 		3265BA2E290925DD00532CA4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3265BA2D290925DD00532CA4 /* ViewController.swift */; };
-		3265BA31290925DD00532CA4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3265BA2F290925DD00532CA4 /* Main.storyboard */; };
 		3265BA33290925DE00532CA4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3265BA32290925DE00532CA4 /* Assets.xcassets */; };
 		3265BA36290925DE00532CA4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3265BA34290925DE00532CA4 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -20,7 +19,6 @@
 		3265BA29290925DD00532CA4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3265BA2B290925DD00532CA4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		3265BA2D290925DD00532CA4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		3265BA30290925DD00532CA4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3265BA32290925DE00532CA4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3265BA35290925DE00532CA4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3265BA37290925DE00532CA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -59,7 +57,6 @@
 				3265BA29290925DD00532CA4 /* AppDelegate.swift */,
 				3265BA2B290925DD00532CA4 /* SceneDelegate.swift */,
 				3265BA2D290925DD00532CA4 /* ViewController.swift */,
-				3265BA2F290925DD00532CA4 /* Main.storyboard */,
 				3265BA32290925DE00532CA4 /* Assets.xcassets */,
 				3265BA34290925DE00532CA4 /* LaunchScreen.storyboard */,
 				3265BA37290925DE00532CA4 /* Info.plist */,
@@ -127,7 +124,6 @@
 			files = (
 				3265BA36290925DE00532CA4 /* LaunchScreen.storyboard in Resources */,
 				3265BA33290925DE00532CA4 /* Assets.xcassets in Resources */,
-				3265BA31290925DD00532CA4 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -147,14 +143,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		3265BA2F290925DD00532CA4 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3265BA30290925DD00532CA4 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		3265BA34290925DE00532CA4 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -285,14 +273,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = FRZRS5Y9L6;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = FRZRS5Y9L6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Relay/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -300,8 +290,10 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.GoodGood.Relay;
+				PRODUCT_BUNDLE_IDENTIFIER = com.GoodGood;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = GoodGoodForDevelopment;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -313,14 +305,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = FRZRS5Y9L6;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = FRZRS5Y9L6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Relay/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -328,8 +322,10 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.GoodGood.Relay;
+				PRODUCT_BUNDLE_IDENTIFIER = com.GoodGood;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = GoodGoodForDevelopment;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
