@@ -10,6 +10,43 @@ import SnapKit
 
 class RelayProfileUserInfoView: UIView {
     
+    private lazy var userImageView: UIImageView = {
+        let imageView = UIImageView()
+        
+        return imageView
+    }()
+    
+    private lazy var userNameLabel: UILabel = {
+        let label = UILabel()
+        
+        return label
+    }()
+    
+    private lazy var startedNovelLabel: UILabel = {
+        let label = UILabel()
+        
+        return label
+    }()
+    
+    private lazy var participatedNovelLabel: UILabel = {
+        let label = UILabel()
+        
+        return label
+    }()
+    
+    private lazy var startedNovelCountLabel: UILabel = {
+        let label = UILabel()
+        
+        return label
+    }()
+    
+    private lazy var participatedNovelCountLabel: UILabel = {
+        let label = UILabel()
+        
+        return label
+    }()
+    
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
