@@ -57,6 +57,22 @@ class RelayProfileUserInfoView: UIView {
         return label
     }()
     
+    private lazy var novelStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .horizontal
+        stackView.distribution = .equalSpacing
+        stackView.spacing = 8.0
+        
+        [
+            startedNovelLabel,
+            startedNovelCountLabel,
+            participatedNovelLabel,
+            participatedNovelCountLabel
+        ].forEach { stackView.addArrangedSubview($0) }
+        
+        return stackView
+    }()
+    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
