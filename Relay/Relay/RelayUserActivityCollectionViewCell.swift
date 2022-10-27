@@ -9,5 +9,21 @@ import UIKit
 import SnapKit
 
 final class RelayUserActivityCollectionViewCell: UICollectionViewCell {
+    private lazy var novelActivityLabel: UILabel = {
+        let label = UILabel()
+        
+        return label
+    }()
     
+    private lazy var novelActivityNumberLabel: UILabel = {
+        let label = UILabel()
+        
+        return label
+    }()
+    
+    private lazy var arrowLabel: UILabel = {
+        let label = UILabel()
+        
+        return label
+    }()
 }
