@@ -49,7 +49,10 @@ extension RelayProfileUserActivityView: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return UICollectionViewCell()
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RelayUserActivityCollectionViewCell.id, for: indexPath) as? RelayUserActivityCollectionViewCell
+        cell?.setupLayout()
+        
+        return cell ?? UICollectionViewCell()
     }
     
     
