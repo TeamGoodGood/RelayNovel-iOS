@@ -9,6 +9,10 @@ import UIKit
 import SnapKit
 
 final class RelayUserActivityCollectionViewCell: UICollectionViewCell {
+    static var id: String {
+        return NSStringFromClass(Self.self).components(separatedBy: ".").last!
+    }
+    
     private lazy var novelActivityLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 17.0, weight: .bold)

@@ -24,6 +24,7 @@ class RelayProfileUserActivityView: UIView {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.showsVerticalScrollIndicator = false
+        collectionView.register(RelayUserActivityCollectionViewCell.self, forCellWithReuseIdentifier: RelayUserActivityCollectionViewCell.id)
         
         return collectionView
     }()
