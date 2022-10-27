@@ -9,6 +9,18 @@ import UIKit
 import SnapKit
 
 class RelayProfileUserActivityView: UIView {
+    private lazy var activiyLabel: UILabel = {
+        let label = UILabel()
+        
+        return label
+    }()
+    
+    private lazy var userActivityCollectionView: UICollectionView = {
+        let collectionView = UICollectionView()
+        
+        return collectionView
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
