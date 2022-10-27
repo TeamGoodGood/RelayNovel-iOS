@@ -32,4 +32,28 @@ final class RelayUserActivityCollectionViewCell: UICollectionViewCell {
         
         return label
     }()
+    
+    //TODO: configure 함수 구현할 때 private 설정 후 configure 함수 내부로 들어갈 예정
+    func setupLayout() {
+        [
+            novelActivityLabel,
+            novelActivityNumberLabel,
+            arrowLabel
+        ].forEach { addSubview($0) }
+        
+        novelActivityLabel.snp.makeConstraints {
+            $0.leading.equalToSuperview().inset(16.0)
+            $0.top.equalToSuperview().inset(20.0)
+        }
+        
+        novelActivityNumberLabel.snp.makeConstraints {
+            $0.leading.equalTo(novelActivityLabel.snp.leading)
+            $0.top.equalTo(novelActivityLabel.snp.bottom).offset(8.0)
+        }
+        
+        arrowLabel.snp.makeConstraints {
+            $0.centerY.equalToSuperview()
+            $0.trailing.equalToSuperview().inset(-16.0)
+        }
+    }
 }
