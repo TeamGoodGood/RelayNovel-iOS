@@ -14,6 +14,7 @@
 		3265BA36290925DE00532CA4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3265BA34290925DE00532CA4 /* LaunchScreen.storyboard */; };
 		55FDCEB1290A5DB2000AB345 /* RelayProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FDCEB0290A5DB2000AB345 /* RelayProfileViewController.swift */; };
 		55FDCEB3290A6440000AB345 /* RelayProfileUserInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FDCEB2290A6440000AB345 /* RelayProfileUserInfoView.swift */; };
+		55FDCEB5290A711C000AB345 /* RelayProfileUserActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FDCEB4290A711C000AB345 /* RelayProfileUserActivityView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		3265BA37290925DE00532CA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		55FDCEB0290A5DB2000AB345 /* RelayProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayProfileViewController.swift; sourceTree = "<group>"; };
 		55FDCEB2290A6440000AB345 /* RelayProfileUserInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayProfileUserInfoView.swift; sourceTree = "<group>"; };
+		55FDCEB4290A711C000AB345 /* RelayProfileUserActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayProfileUserActivityView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				3265BA2D290925DD00532CA4 /* ViewController.swift */,
 				55FDCEB0290A5DB2000AB345 /* RelayProfileViewController.swift */,
 				55FDCEB2290A6440000AB345 /* RelayProfileUserInfoView.swift */,
+				55FDCEB4290A711C000AB345 /* RelayProfileUserActivityView.swift */,
 				3265BA32290925DE00532CA4 /* Assets.xcassets */,
 				3265BA34290925DE00532CA4 /* LaunchScreen.storyboard */,
 				3265BA37290925DE00532CA4 /* Info.plist */,
@@ -147,6 +150,7 @@
 				3265BA2E290925DD00532CA4 /* ViewController.swift in Sources */,
 				3265BA2A290925DD00532CA4 /* AppDelegate.swift in Sources */,
 				55FDCEB3290A6440000AB345 /* RelayProfileUserInfoView.swift in Sources */,
+				55FDCEB5290A711C000AB345 /* RelayProfileUserActivityView.swift in Sources */,
 				3265BA2C290925DD00532CA4 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
