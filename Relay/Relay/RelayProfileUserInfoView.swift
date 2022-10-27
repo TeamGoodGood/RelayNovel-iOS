@@ -57,6 +57,15 @@ class RelayProfileUserInfoView: UIView {
         return label
     }()
     
+    private lazy var textSeparatorView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .black
+        view.frame.size.width = 1.0
+        view.frame.size.height = 18.0
+        
+        return view
+    }()
+    
     private lazy var novelStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .horizontal
@@ -66,6 +75,7 @@ class RelayProfileUserInfoView: UIView {
         [
             startedNovelLabel,
             startedNovelCountLabel,
+            textSeparatorView,
             participatedNovelLabel,
             participatedNovelCountLabel
         ].forEach { stackView.addArrangedSubview($0) }
