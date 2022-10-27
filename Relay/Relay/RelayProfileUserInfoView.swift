@@ -12,36 +12,47 @@ class RelayProfileUserInfoView: UIView {
     
     private lazy var userImageView: UIImageView = {
         let imageView = UIImageView()
+        imageView.backgroundColor = .brown
         
         return imageView
     }()
     
     private lazy var userNameLabel: UILabel = {
         let label = UILabel()
+        label.font = .systemFont(ofSize: 24.0)
+        label.text = "이름님"
         
         return label
     }()
     
     private lazy var startedNovelLabel: UILabel = {
         let label = UILabel()
+        label.font = .systemFont(ofSize: 15.0)
+        label.text = "시작한 소설"
         
         return label
     }()
     
     private lazy var participatedNovelLabel: UILabel = {
         let label = UILabel()
+        label.font = .systemFont(ofSize: 15.0)
+        label.text = "참여한 소설"
         
         return label
     }()
     
     private lazy var startedNovelCountLabel: UILabel = {
         let label = UILabel()
+        label.font = .systemFont(ofSize: 15.0, weight: .bold)
+        label.text = "10"
         
         return label
     }()
     
     private lazy var participatedNovelCountLabel: UILabel = {
         let label = UILabel()
+        label.font = .systemFont(ofSize: 15.0, weight: .bold)
+        label.text = "4"
         
         return label
     }()
