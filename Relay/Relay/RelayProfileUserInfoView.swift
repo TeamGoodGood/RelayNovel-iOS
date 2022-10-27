@@ -82,3 +82,31 @@ class RelayProfileUserInfoView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 }
+
+extension RelayProfileUserInfoView {
+    private func setupLayout() {
+        [
+            userImageView,
+            userNameLabel,
+            novelStackView
+        ].forEach { addSubview($0) }
+        
+        
+        userImageView.snp.makeConstraints {
+            $0.top.equalToSuperview().inset(30.0)
+            $0.centerX.equalToSuperview()
+            $0.width.equalTo(100.0)
+            $0.height.equalTo(100.0)
+        }
+        
+        userNameLabel.snp.makeConstraints {
+            $0.top.equalTo(userImageView.snp.bottom).offset(24.0)
+            $0.centerX.equalToSuperview()
+        }
+        
+        novelStackView.snp.makeConstraints {
+            $0.top.equalTo(userNameLabel.snp.bottom).offset(12.0)
+            $0.centerX.equalToSuperview()
+        }
+    }
+}
