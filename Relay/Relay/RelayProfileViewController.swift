@@ -40,13 +40,65 @@ class RelayProfileViewController: UIViewController {
     
     private lazy var environmentSettingButton: UIButton = {
         let button = UIButton()
-        button.setTitle("􀣋", for: .normal)
-        button.setTitleColor(.gray, for: .normal)
+        
+        var titleAttribute = AttributedString("􀣋")
+        titleAttribute.font = .systemFont(ofSize: 22.0)
+        titleAttribute.foregroundColor = .black
+        
+        button.setAttributedTitle(NSAttributedString(titleAttribute), for: .normal)
         
         return button
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setupLayout()
+    }
+}
+
+extension RelayProfileViewController {
+    private func setupLayout() {
+        [
+            profileSettingButton,
+            environmentSettingButton,
+            profileUserInfoView,
+            separatorView,
+            profileUserActivityView
+        ].forEach { view.addSubview($0) }
+        
+        environmentSettingButton.snp.makeConstraints {
+            $0.top.equalToSuperview().inset(62.0)
+            $0.trailing.equalToSuperview().inset(-20.0)
+            $0.width.equalTo(27.0)
+            $0.height.equalTo(27.0)
+        }
+        
+        profileSettingButton.snp.makeConstraints {
+            $0.top.equalTo(environmentSettingButton.snp.top)
+            $0.trailing.equalTo(environmentSettingButton.snp.leading).offset(8.0)
+            $0.width.equalTo(83.0)
+            $0.height.equalTo(30.0)
+        }
+        
+        profileUserInfoView.snp.makeConstraints {
+            $0.top.equalTo(profileSettingButton.snp.bottom).offset(24.0)
+            $0.centerX.equalToSuperview()
+            $0.height.equalTo(183.0)
+        }
+        
+        separatorView.snp.makeConstraints {
+            $0.top.equalTo(profileUserInfoView.snp.bottom).offset(52.0)
+            $0.leading.equalToSuperview().inset(20.0)
+            $0.trailing.equalToSuperview().inset(20.0)
+            $0.height.equalTo(1.0)
+        }
+        
+        profileUserActivityView.snp.makeConstraints {
+            $0.top.equalTo(separatorView.snp.bottom).offset(28.0)
+            $0.leading.equalToSuperview().inset(20.0)
+            $0.trailing.equalToSuperview().inset(20.0)
+            $0.bottom.equalToSuperview()
+        }
     }
 }
