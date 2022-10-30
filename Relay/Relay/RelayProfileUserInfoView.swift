@@ -9,6 +9,10 @@ import UIKit
 import SnapKit
 
 class RelayProfileUserInfoView: UIView {
+    private var startedNovelCount: Int?
+    private var participatedNovelCount: Int?
+    private var userName: String?
+    
     
     private lazy var userImageView: UIImageView = {
         let imageView = UIImageView()
@@ -42,7 +46,6 @@ class RelayProfileUserInfoView: UIView {
     private lazy var startedNovelCountLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 15.0, weight: .bold)
-        label.text = "10"
         
         return label
     }()
@@ -50,7 +53,6 @@ class RelayProfileUserInfoView: UIView {
     private lazy var participatedNovelCountLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 15.0, weight: .bold)
-        label.text = "4"
         
         return label
     }()
@@ -88,8 +90,9 @@ class RelayProfileUserInfoView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
+        fetchUserData()
+        configure()
         setupLayout()
-        configureLabel()
     }
     
     required init?(coder: NSCoder) {
@@ -124,13 +127,13 @@ extension RelayProfileUserInfoView {
         }
     }
     
-    private func configureLabel() {
+    private func configureUserNameLabel(_ name: String) {
         let nameAttributes: [NSAttributedString.Key: Any] = [
             NSAttributedString.Key.font: UIFont.systemFont(ofSize: 24.0, weight: .bold)]
         let postPositionAttributes: [NSAttributedString.Key: Any] = [
             NSAttributedString.Key.font: UIFont.systemFont(ofSize: 24.0, weight: .regular)]
         
-        let name = "이름"
+        let name = name
         let postPoint = "님"
         let joinText = [name, postPoint].joined(separator: "")
         let attributedString = NSMutableAttributedString(string: joinText)
@@ -141,5 +144,18 @@ extension RelayProfileUserInfoView {
         attributedString.addAttributes(postPositionAttributes, range: range2)
         
         userNameLabel.attributedText = attributedString
+    }
+    
+    func configure() {
+        startedNovelCountLabel.text = "\(startedNovelCount ?? 0)"
+        participatedNovelCountLabel.text = "\(participatedNovelCount ?? 0)"
+        configureUserNameLabel(userName ?? "이름")
+    }
+    
+    func fetchUserData() {
+        // TestData
+        startedNovelCount = 10
+        participatedNovelCount = 4
+        userName = "커리"
     }
 }
