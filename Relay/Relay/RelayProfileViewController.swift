@@ -35,13 +35,8 @@ class RelayProfileViewController: UIViewController {
     
     private lazy var environmentSettingButton: UIButton = {
         let button = UIButton()
-        
-        //TODO: Image로 변경
-        var titleAttribute = AttributedString("􀣋")
-        titleAttribute.font = .systemFont(ofSize: 22.0)
-        titleAttribute.foregroundColor = .black
-        
-        button.setAttributedTitle(NSAttributedString(titleAttribute), for: .normal)
+        button.setImage(UIImage(systemName: "gearshape"), for: .normal)
+        button.tintColor = .black
         
         return button
     }()
