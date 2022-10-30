@@ -20,21 +20,15 @@ class RelayProfileViewController: UIViewController {
     
     private lazy var profileSettingButton: UIButton = {
         let button = UIButton()
-        var configure = button.configuration
         
-        //TODO: Button설정 모두 변경
         var titleAttribute = AttributedString("프로필 수정")
-        titleAttribute.font = .systemFont(ofSize: 12.0)
+        titleAttribute.font = .systemFont(ofSize: 12.0, weight: .regular)
         titleAttribute.foregroundColor = .gray
         
-        configure?.attributedTitle = titleAttribute
-        configure?.baseBackgroundColor = .systemBackground
-        configure?.titleAlignment = .center
-        configure?.contentInsets = NSDirectionalEdgeInsets(top: 8.0, leading: 12.0, bottom: 8.0, trailing: 12.0)
-        configure?.cornerStyle = .capsule
-        
+        button.setAttributedTitle(NSAttributedString(titleAttribute), for: .normal)
         button.layer.borderColor = UIColor.gray.cgColor
         button.layer.borderWidth = 1.0
+        button.layer.cornerRadius = 16.0
         
         return button
     }()
