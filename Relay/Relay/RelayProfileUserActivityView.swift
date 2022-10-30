@@ -18,8 +18,8 @@ class RelayProfileUserActivityView: UIView {
     }()
     
     private lazy var userActivityCollectionView: UICollectionView = {
-        let collectionView = UICollectionView()
-        let layout = UICollectionViewLayout()
+        let layout = UICollectionViewFlowLayout()
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -47,6 +47,10 @@ extension RelayProfileUserActivityView: UICollectionViewDelegateFlowLayout {
         let height = 87.0
         
         return CGSize(width: width, height: height)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        UIEdgeInsets(top: 0.0, left: 0.0, bottom: 16.0, right: 0.0)
     }
     
 }
