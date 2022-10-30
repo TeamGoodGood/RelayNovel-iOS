@@ -31,6 +31,8 @@ class RelayProfileUserActivityView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
+        setupLayout()
     }
     
     required init?(coder: NSCoder) {
@@ -61,5 +63,25 @@ extension RelayProfileUserActivityView: UICollectionViewDataSource {
         return cell ?? UICollectionViewCell()
     }
     
-    
+}
+
+extension RelayProfileUserActivityView {
+    private func setupLayout() {
+        [
+            activityLabel,
+            userActivityCollectionView
+        ].forEach{ addSubview($0) }
+        
+        activityLabel.snp.makeConstraints {
+            $0.top.equalToSuperview()
+            $0.leading.equalToSuperview().inset(20.0)
+        }
+        
+        userActivityCollectionView.snp.makeConstraints {
+            $0.top.equalTo(activityLabel.snp.bottom).offset(20.0)
+            $0.leading.equalToSuperview().inset(20.0)
+            $0.trailing.equalToSuperview().inset(20.0)
+            $0.bottom.equalToSuperview()
+        }
+    }
 }
