@@ -60,8 +60,6 @@ class RelayProfileUserInfoView: UIView {
     private lazy var textSeparatorView: UIView = {
         let view = UIView()
         view.backgroundColor = .black
-        view.frame.size.width = 1.0
-        view.frame.size.height = 18.0
         
         return view
     }()
@@ -71,6 +69,11 @@ class RelayProfileUserInfoView: UIView {
         stackView.axis = .horizontal
         stackView.distribution = .equalSpacing
         stackView.spacing = 8.0
+        
+        textSeparatorView.snp.makeConstraints {
+            $0.width.equalTo(1.0)
+            $0.height.equalTo(18.0)
+        }
         
         [
             startedNovelLabel,
