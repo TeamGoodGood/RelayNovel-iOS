@@ -29,20 +29,25 @@ final class RelayUserActivityCollectionViewCell: UICollectionViewCell {
         return label
     }()
     
-    private lazy var arrowLabel: UILabel = {
-        let label = UILabel()
-        label.font = .systemFont(ofSize: 22.0)
-        label.text = "􀯻"
+    private lazy var arrowImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(systemName: "chevron.right")
+        imageView.tintColor = .black
         
-        return label
+        return imageView
     }()
     
     //TODO: configure 함수 구현할 때 private 설정 후 configure 함수 내부로 들어갈 예정
     func setupLayout() {
+        layer.cornerRadius = 5.0
+        layer.borderWidth = 1.0
+        layer.borderColor = UIColor.black.cgColor
+        backgroundColor = .systemGray6
+        
         [
             novelActivityLabel,
             novelActivityNumberLabel,
-            arrowLabel
+            arrowImageView
         ].forEach { addSubview($0) }
         
         novelActivityLabel.snp.makeConstraints {
@@ -55,9 +60,11 @@ final class RelayUserActivityCollectionViewCell: UICollectionViewCell {
             $0.top.equalTo(novelActivityLabel.snp.bottom).offset(8.0)
         }
         
-        arrowLabel.snp.makeConstraints {
+        arrowImageView.snp.makeConstraints {
             $0.centerY.equalToSuperview()
-            $0.trailing.equalToSuperview().inset(-16.0)
+            $0.width.equalTo(16.0)
+            $0.height.equalTo(26.0)
+            $0.trailing.equalToSuperview().inset(16.0)
         }
     }
 }
