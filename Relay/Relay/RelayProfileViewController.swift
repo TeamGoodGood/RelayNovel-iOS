@@ -22,6 +22,7 @@ class RelayProfileViewController: UIViewController {
         let button = UIButton()
         var configure = button.configuration
         
+        //TODO: Button설정 모두 변경
         var titleAttribute = AttributedString("프로필 수정")
         titleAttribute.font = .systemFont(ofSize: 12.0)
         titleAttribute.foregroundColor = .gray
@@ -41,6 +42,7 @@ class RelayProfileViewController: UIViewController {
     private lazy var environmentSettingButton: UIButton = {
         let button = UIButton()
         
+        //TODO: Image로 변경
         var titleAttribute = AttributedString("􀣋")
         titleAttribute.font = .systemFont(ofSize: 22.0)
         titleAttribute.foregroundColor = .black
@@ -97,8 +99,8 @@ extension RelayProfileViewController {
         
         profileUserActivityView.snp.makeConstraints {
             $0.top.equalTo(separatorView.snp.bottom).offset(28.0)
-            $0.leading.equalToSuperview().inset(20.0)
-            $0.trailing.equalToSuperview().inset(20.0)
+            $0.leading.equalToSuperview()
+            $0.trailing.equalToSuperview()
             $0.bottom.equalToSuperview()
         }
     }
