@@ -86,6 +86,8 @@ class RelayProfileUserInfoView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
+        setupLayout()
     }
     
     required init?(coder: NSCoder) {
