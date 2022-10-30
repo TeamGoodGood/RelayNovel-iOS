@@ -40,12 +40,18 @@ class RelayProfileUserActivityView: UIView {
 }
 
 extension RelayProfileUserActivityView: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = collectionView.frame.width
+        let height = 87.0
+        
+        return CGSize(width: width, height: height)
+    }
     
 }
 
 extension RelayProfileUserActivityView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        0
+        3
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
