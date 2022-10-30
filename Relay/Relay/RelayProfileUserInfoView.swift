@@ -19,8 +19,6 @@ class RelayProfileUserInfoView: UIView {
     
     private lazy var userNameLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 24.0)
-        label.text = "이름님"
         
         return label
     }()
@@ -91,6 +89,7 @@ class RelayProfileUserInfoView: UIView {
         super.init(frame: frame)
         
         setupLayout()
+        configureLabel()
     }
     
     required init?(coder: NSCoder) {
@@ -123,5 +122,24 @@ extension RelayProfileUserInfoView {
             $0.top.equalTo(userNameLabel.snp.bottom).offset(12.0)
             $0.centerX.equalToSuperview()
         }
+    }
+    
+    private func configureLabel() {
+        let nameAttributes: [NSAttributedString.Key: Any] = [
+            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 24.0, weight: .bold)]
+        let postPositionAttributes: [NSAttributedString.Key: Any] = [
+            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 24.0, weight: .regular)]
+        
+        let name = "이름"
+        let postPoint = "님"
+        let joinText = [name, postPoint].joined(separator: "")
+        let attributedString = NSMutableAttributedString(string: joinText)
+        let range1 = attributedString.mutableString.range(of: name)
+        let range2 = attributedString.mutableString.range(of: postPoint)
+        
+        attributedString.addAttributes(nameAttributes, range: range1)
+        attributedString.addAttributes(postPositionAttributes, range: range2)
+        
+        userNameLabel.attributedText = attributedString
     }
 }
