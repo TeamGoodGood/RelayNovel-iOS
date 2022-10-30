@@ -52,6 +52,7 @@ class RelayProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .systemBackground
         
         setupLayout()
     }
@@ -69,14 +70,14 @@ extension RelayProfileViewController {
         
         environmentSettingButton.snp.makeConstraints {
             $0.top.equalToSuperview().inset(62.0)
-            $0.trailing.equalToSuperview().inset(-20.0)
+            $0.trailing.equalToSuperview().inset(20.0)
             $0.width.equalTo(27.0)
             $0.height.equalTo(27.0)
         }
         
         profileSettingButton.snp.makeConstraints {
             $0.top.equalTo(environmentSettingButton.snp.top)
-            $0.trailing.equalTo(environmentSettingButton.snp.leading).offset(8.0)
+            $0.trailing.equalTo(environmentSettingButton.snp.leading).offset(-8.0)
             $0.width.equalTo(83.0)
             $0.height.equalTo(30.0)
         }
