@@ -10,7 +10,7 @@ import SnapKit
 
 class RelayLoginViewController: UIViewController {
     
-    let titleLabel: UILabel = {
+    private let titleLabel: UILabel = {
         let label = UILabel()
         
         label.text = "릴레이"
@@ -20,7 +20,7 @@ class RelayLoginViewController: UIViewController {
         return label
     }()
     
-    let loginImageView: UIImageView = {
+    private let loginImageView: UIImageView = {
         let imageView = UIImageView(frame: .zero)
         let myImage: UIImage = UIImage(named: "Lilla")!
         
@@ -28,7 +28,7 @@ class RelayLoginViewController: UIViewController {
         return imageView
     }()
     
-    let noLoginLabel: UILabel = {
+    private let noLoginLabel: UILabel = {
         let label = UILabel()
         let attributedString = NSMutableAttributedString.init(string: "로그인 없이 둘러보기")
         
@@ -46,9 +46,7 @@ class RelayLoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemGray4
-        view.addSubview(titleLabel)
-        view.addSubview(loginImageView)
-        view.addSubview(noLoginLabel)
+        setupLayout()
         
         titleLabel.snp.makeConstraints {
             $0.top.equalToSuperview().inset(202.0)
@@ -70,13 +68,17 @@ class RelayLoginViewController: UIViewController {
         }
         
         
-        
-        
-        
-        
-        
     }
     
+    private func setupLayout() {
+        [
+            titleLabel,
+            loginImageView,
+            noLoginLabel
+            
+        ].forEach { view.addSubview($0) }
+    }
+    
+    
 }
-
 
