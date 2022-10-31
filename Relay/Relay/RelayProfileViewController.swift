@@ -47,7 +47,8 @@ class RelayProfileViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         
-        setupLayout()
+        setupButtonsLayout()
+        setupProfileViewsLayout()
     }
 }
 
@@ -56,13 +57,10 @@ extension RelayProfileViewController {
         self.isLogined = isLogined
     }
     
-    private func setupLayout() {
+    private func setupButtonsLayout() {
         [
             profileSettingButton,
-            environmentSettingButton,
-            profileUserInfoView,
-            separatorView,
-            profileUserActivityView
+            environmentSettingButton
         ].forEach { view.addSubview($0) }
         
         environmentSettingButton.snp.makeConstraints {
@@ -78,6 +76,14 @@ extension RelayProfileViewController {
             $0.width.equalTo(83.0)
             $0.height.equalTo(30.0)
         }
+    }
+    
+    private func setupProfileViewsLayout() {
+        [
+            profileUserInfoView,
+            separatorView,
+            profileUserActivityView
+        ].forEach { view.addSubview($0) }
         
         profileUserInfoView.snp.makeConstraints {
             $0.top.equalTo(profileSettingButton.snp.bottom).offset(24.0)
