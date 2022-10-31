@@ -28,6 +28,14 @@ class RelayOnboardingViewController: UIViewController {
         return content
     }()
     
+    private let onboardingImageView: UIImageView = {
+        let imageView = UIImageView()
+        let myImage: UIImage = UIImage(named: "onboardingImage")!
+        imageView.image = myImage
+        
+        return imageView
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -38,6 +46,7 @@ class RelayOnboardingViewController: UIViewController {
         [
             titleLabel,
             contentLabel,
+            onboardingImageView
         ].forEach { view.addSubview($0) }
         
         titleLabel.snp.makeConstraints {
@@ -47,6 +56,12 @@ class RelayOnboardingViewController: UIViewController {
         contentLabel.snp.makeConstraints {
             $0.top.equalToSuperview().inset(233.0)
             $0.leading.equalToSuperview().inset(50.0)
+        }
+        onboardingImageView.snp.makeConstraints {
+            $0.top.equalToSuperview().inset(408.0)
+            $0.centerX.equalToSuperview()
+            $0.width.equalTo(116.0)
+            $0.height.equalTo(125.0)
         }
     }
 }
