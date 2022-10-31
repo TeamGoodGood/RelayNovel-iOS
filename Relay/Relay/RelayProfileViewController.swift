@@ -9,6 +9,8 @@ import UIKit
 import SnapKit
 
 class RelayProfileViewController: UIViewController {
+    private var isLogined: Bool = false
+    
     private lazy var profileUserInfoView = RelayProfileUserInfoView(frame: .zero)
     private lazy var profileUserActivityView = RelayProfileUserActivityView(frame: .zero)
     private let separatorView: UIView = {
@@ -50,6 +52,10 @@ class RelayProfileViewController: UIViewController {
 }
 
 extension RelayProfileViewController {
+    func checkLoginStatus(_ isLogined: Bool) {
+        self.isLogined = isLogined
+    }
+    
     private func setupLayout() {
         [
             profileSettingButton,
