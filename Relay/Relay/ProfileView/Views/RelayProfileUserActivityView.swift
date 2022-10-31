@@ -11,7 +11,7 @@ import SnapKit
 class RelayProfileUserActivityView: UIView {
     private lazy var activityLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 17.0, weight: .bold)
+        label.font = .systemFont(ofSize: 20.0, weight: .bold)
         label.text = "나의 활동"
         
         return label
@@ -44,7 +44,7 @@ class RelayProfileUserActivityView: UIView {
 extension RelayProfileUserActivityView: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = collectionView.frame.width
-        let height = 87.0
+        let height = 100.0
         
         return CGSize(width: width, height: height)
     }
