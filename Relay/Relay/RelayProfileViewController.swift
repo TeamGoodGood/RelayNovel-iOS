@@ -48,14 +48,25 @@ class RelayProfileViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         
-        setupButtonsLayout()
-        setupProfileViewsLayout()
+        //TestData
+        checkLoginStatus(true)
+        setupLayout()
     }
 }
 
 extension RelayProfileViewController {
     func checkLoginStatus(_ isLogined: Bool) {
         self.isLogined = isLogined
+    }
+    
+    private func setupLayout() {
+        setupButtonsLayout()
+        
+        if isLogined {
+            setupProfileViewsLayout()
+        } else {
+            setupNonLoingViewLayout()
+        }
     }
     
     private func setupButtonsLayout() {
