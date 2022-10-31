@@ -15,6 +15,7 @@ class RelayProfileUserInfoView: UIView {
     
     private lazy var userNameLabel: UILabel = {
         let label = UILabel()
+        label.font = .systemFont(ofSize: 28.0, weight: .medium)
         
         return label
     }()
@@ -101,7 +102,7 @@ extension RelayProfileUserInfoView {
         
         userNameLabel.snp.makeConstraints {
             $0.top.equalToSuperview().inset(31.0)
-            $0.centerX.equalToSuperview()
+            $0.leading.equalToSuperview().inset(20.0)
         }
         
         novelStackView.snp.makeConstraints {
@@ -110,29 +111,10 @@ extension RelayProfileUserInfoView {
         }
     }
     
-    private func configureUserNameLabel(_ name: String) {
-        let nameAttributes: [NSAttributedString.Key: Any] = [
-            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 24.0, weight: .bold)]
-        let postPositionAttributes: [NSAttributedString.Key: Any] = [
-            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 24.0, weight: .regular)]
-        
-        let name = name
-        let postPosition = "님"
-        let joinText = [name, postPosition].joined(separator: "")
-        let attributedString = NSMutableAttributedString(string: joinText)
-        let range1 = attributedString.mutableString.range(of: name)
-        let range2 = attributedString.mutableString.range(of: postPosition)
-        
-        attributedString.addAttributes(nameAttributes, range: range1)
-        attributedString.addAttributes(postPositionAttributes, range: range2)
-        
-        userNameLabel.attributedText = attributedString
-    }
-    
     func configure() {
         startedNovelCountLabel.text = "\(startedNovelCount ?? 0)"
         participatedNovelCountLabel.text = "\(participatedNovelCount ?? 0)"
-        configureUserNameLabel(userName ?? "이름")
+        userNameLabel.text = userName
     }
     
     func fetchUserData() {
