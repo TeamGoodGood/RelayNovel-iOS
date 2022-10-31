@@ -13,14 +13,6 @@ class RelayProfileUserInfoView: UIView {
     private var participatedNovelCount: Int?
     private var userName: String?
     
-    
-    private lazy var userImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.backgroundColor = .brown
-        
-        return imageView
-    }()
-    
     private lazy var userNameLabel: UILabel = {
         let label = UILabel()
         
@@ -103,21 +95,12 @@ class RelayProfileUserInfoView: UIView {
 extension RelayProfileUserInfoView {
     private func setupLayout() {
         [
-            userImageView,
             userNameLabel,
             novelStackView
         ].forEach { addSubview($0) }
         
-        
-        userImageView.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(30.0)
-            $0.centerX.equalToSuperview()
-            $0.width.equalTo(100.0)
-            $0.height.equalTo(100.0)
-        }
-        
         userNameLabel.snp.makeConstraints {
-            $0.top.equalTo(userImageView.snp.bottom).offset(24.0)
+            $0.top.equalToSuperview().inset(31.0)
             $0.centerX.equalToSuperview()
         }
         
