@@ -74,4 +74,29 @@ final class RelayUserActivityCollectionViewCell: UICollectionViewCell {
             $0.trailing.equalToSuperview().inset(20.0)
         }
     }
+    
+    private func setnovelActivityNumberLabel(_ relayCount: Int) {
+        let textAttributes: [NSAttributedString.Key: Any] = [
+            .font: UIFont.systemFont(ofSize: 15.0)
+        ]
+        
+        let numberAttributes: [NSAttributedString.Key: Any] = [
+            .font: UIFont.systemFont(ofSize: 15.0, weight: .bold),
+            .foregroundColor: UIColor.magenta
+        ]
+        
+        let countStr = "\(relayCount)"
+        let postPosition = "개"
+        
+        let joinText = [countStr, postPosition].joined(separator: "")
+        let attributedString = NSMutableAttributedString(string: joinText)
+        
+        let range1 = attributedString.mutableString.range(of: countStr)
+        let range2 = attributedString.mutableString.range(of: postPosition)
+        
+        attributedString.addAttributes(textAttributes, range: range1)
+        attributedString.addAttributes(numberAttributes, range: range2)
+        
+        novelActivityNumberLabel.attributedText = attributedString
+    }
 }
