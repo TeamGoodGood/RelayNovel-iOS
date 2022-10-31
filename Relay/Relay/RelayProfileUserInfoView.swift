@@ -134,11 +134,11 @@ extension RelayProfileUserInfoView {
             NSAttributedString.Key.font: UIFont.systemFont(ofSize: 24.0, weight: .regular)]
         
         let name = name
-        let postPoint = "님"
-        let joinText = [name, postPoint].joined(separator: "")
+        let postPosition = "님"
+        let joinText = [name, postPosition].joined(separator: "")
         let attributedString = NSMutableAttributedString(string: joinText)
         let range1 = attributedString.mutableString.range(of: name)
-        let range2 = attributedString.mutableString.range(of: postPoint)
+        let range2 = attributedString.mutableString.range(of: postPosition)
         
         attributedString.addAttributes(nameAttributes, range: range1)
         attributedString.addAttributes(postPositionAttributes, range: range2)
