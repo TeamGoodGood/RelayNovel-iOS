@@ -41,7 +41,7 @@ final class RelayUserActivityCollectionViewCell: UICollectionViewCell {
 extension RelayUserActivityCollectionViewCell {
     func configure(_ index: Int, _ relayCount: Int) {
         setRelayActivityLabel(index)
-        setnovelActivityNumberLabel(relayCount)
+        setRelayActivityNumberLabel(relayCount)
         setupLayout()
     }
     
@@ -81,7 +81,7 @@ extension RelayUserActivityCollectionViewCell {
         }
     }
     
-    private func setnovelActivityNumberLabel(_ relayCount: Int) {
+    private func setRelayActivityNumberLabel(_ relayCount: Int) {
         let textAttributes: [NSAttributedString.Key: Any] = [
             .font: UIFont.systemFont(ofSize: 15.0)
         ]
