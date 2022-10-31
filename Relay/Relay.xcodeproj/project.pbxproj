@@ -13,6 +13,7 @@
 		3265BA33290925DE00532CA4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3265BA32290925DE00532CA4 /* Assets.xcassets */; };
 		3265BA36290925DE00532CA4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3265BA34290925DE00532CA4 /* LaunchScreen.storyboard */; };
 		329918A0290A5D8800372C13 /* RelayLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3299189F290A5D8800372C13 /* RelayLoginViewController.swift */; };
+		32F83527290FECC300E2CC4A /* ChangwonDangamAsac-Bold_0712.otf in Resources */ = {isa = PBXBuildFile; fileRef = 32F83526290FECC300E2CC4A /* ChangwonDangamAsac-Bold_0712.otf */; };
 		55FDCEAF290A5667000AB345 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 55FDCEAE290A5667000AB345 /* SnapKit */; };
 /* End PBXBuildFile section */
 
@@ -26,6 +27,7 @@
 		3265BA35290925DE00532CA4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3265BA37290925DE00532CA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3299189F290A5D8800372C13 /* RelayLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayLoginViewController.swift; sourceTree = "<group>"; };
+		32F83526290FECC300E2CC4A /* ChangwonDangamAsac-Bold_0712.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ChangwonDangamAsac-Bold_0712.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 		3265BA28290925DD00532CA4 /* Relay */ = {
 			isa = PBXGroup;
 			children = (
+				32F83525290FECB700E2CC4A /* Font */,
 				32308E43290F983E0012B5A2 /* Relay.entitlements */,
 				3299189B290A5C8500372C13 /* Login */,
 				3265BA29290925DD00532CA4 /* AppDelegate.swift */,
@@ -78,6 +81,14 @@
 				3299189F290A5D8800372C13 /* RelayLoginViewController.swift */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		32F83525290FECB700E2CC4A /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				32F83526290FECC300E2CC4A /* ChangwonDangamAsac-Bold_0712.otf */,
+			);
+			path = Font;
 			sourceTree = "<group>";
 		};
 		55FDCEAB290A55FF000AB345 /* Frameworks */ = {
@@ -152,6 +163,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3265BA36290925DE00532CA4 /* LaunchScreen.storyboard in Resources */,
+				32F83527290FECC300E2CC4A /* ChangwonDangamAsac-Bold_0712.otf in Resources */,
 				3265BA33290925DE00532CA4 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
