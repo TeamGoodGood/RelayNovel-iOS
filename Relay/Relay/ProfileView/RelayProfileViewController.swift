@@ -37,6 +37,16 @@ extension RelayProfileViewController {
         self.isLogined = isLogined
     }
     
+    //TODO: tappedSettingButton 메소드 동작구현
+    @objc func tappedSettingButton() {
+        print("touched SettingButton")
+    }
+    
+    //TODO: tappedNoticeButton 메소드 동작구현
+    @objc func tappedNoticeButton() {
+        print("touched NoticeButton")
+    }
+    
     private func setupLayout() {
         setupButtonsLayout()
         
@@ -51,15 +61,15 @@ extension RelayProfileViewController {
         let settingButton = UIBarButtonItem(
             image: UIImage(systemName: "gearshape"),
             style: .plain,
-            target: nil,
-            action: nil
+            target: self,
+            action: #selector(tappedSettingButton)
         )
         
         let noticeButton = UIBarButtonItem(
             image: UIImage(systemName: "bell"),
             style: .plain,
-            target: nil,
-            action: nil
+            target: self,
+            action: #selector(tappedNoticeButton)
         )
         
         settingButton.tintColor = .black
