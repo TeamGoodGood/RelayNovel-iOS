@@ -13,7 +13,8 @@ class RelayProfileViewController: UIViewController {
     
     private lazy var profileUserInfoView = RelayProfileUserInfoView(frame: .zero)
     private lazy var profileUserActivityView = RelayProfileUserActivityView(frame: .zero)
-    private let separatorView: UIView = {
+    private lazy var nonLoginView = RelayNonLoginView(frame: .zero)
+    private lazy var separatorView: UIView = {
         let view = UIView()
         view.backgroundColor = .black
         
@@ -100,6 +101,17 @@ extension RelayProfileViewController {
         
         profileUserActivityView.snp.makeConstraints {
             $0.top.equalTo(separatorView.snp.bottom).offset(28.0)
+            $0.leading.equalToSuperview()
+            $0.trailing.equalToSuperview()
+            $0.bottom.equalToSuperview()
+        }
+    }
+    
+    private func setupNonLoingViewLayout() {
+        view.addSubview(nonLoginView)
+        
+        nonLoginView.snp.makeConstraints {
+            $0.top.equalTo(profileSettingButton.snp.bottom)
             $0.leading.equalToSuperview()
             $0.trailing.equalToSuperview()
             $0.bottom.equalToSuperview()
