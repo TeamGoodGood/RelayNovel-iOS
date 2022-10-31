@@ -37,9 +37,15 @@ final class RelayUserActivityCollectionViewCell: UICollectionViewCell {
         
         return imageView
     }()
+}
+
+extension RelayUserActivityCollectionViewCell {
+    func configure(_ relayCount: Int) {
+        setnovelActivityNumberLabel(relayCount)
+        setupLayout()
+    }
     
-    //TODO: configure 함수 구현할 때 private 설정 후 configure 함수 내부로 들어갈 예정
-    func setupLayout() {
+    private func setupLayout() {
         layer.cornerRadius = 16.0
         backgroundColor = .systemGray6
         
