@@ -107,10 +107,8 @@ class RelayLoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        view.addSubview(Arrow())
         setupLayout()
-        
-        
+        messageAnimation()
     }
     
     private func setupLayout() {
@@ -181,6 +179,12 @@ class RelayLoginViewController: UIViewController {
         controller.delegate = self
         controller.presentationContextProvider = self as? ASAuthorizationControllerPresentationContextProviding
         controller.performRequests()
+    }
+    
+    func messageAnimation(){
+        UIView.animate(withDuration: 1.0, delay: 0.5, options: [.repeat, .autoreverse, .curveEaseInOut], animations: {
+            self.tipMessageView.center.y -= 2
+        })
     }
 
 }
