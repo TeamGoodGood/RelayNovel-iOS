@@ -158,8 +158,8 @@ class RelayLoginViewController: UIViewController {
         }
         tipMessageLabel.snp.makeConstraints {
             $0.top.equalToSuperview().inset(6.0)
-            $0.leading.equalToSuperview().inset(23.0)
-            $0.trailing.equalToSuperview().inset(23.0)
+            $0.leading.equalToSuperview().inset(19.0)
+            $0.trailing.equalToSuperview().inset(18.0)
             $0.bottom.equalToSuperview().inset(6.0)
 
         }
