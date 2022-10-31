@@ -47,16 +47,15 @@ class RelayLoginViewController: UIViewController {
     
     private let tipMessageView: UIView = {
         let tipView = UIView()
-        
-        tipView.widthAnchor.constraint(equalToConstant: 155.0)
-        tipView.heightAnchor.constraint(equalToConstant: 26.0)
+
         tipView.layer.cornerRadius = 16
         tipView.backgroundColor = .white
         tipView.layer.masksToBounds = false
         tipView.layer.shadowColor = UIColor.black.cgColor
         tipView.layer.shadowOffset = CGSize(width: 0, height: 10)
-        tipView.layer.shadowOpacity = 0.8
+        tipView.layer.shadowOpacity = 0.4
         tipView.layer.shadowRadius = 16
+        
         
         return tipView
     }()
@@ -109,6 +108,7 @@ class RelayLoginViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         setupLayout()
+        
     }
     
     private func setupLayout() {
@@ -118,7 +118,7 @@ class RelayLoginViewController: UIViewController {
             loginImageView,
             noLoginButton,
             tipMessageView,
-            loginButton
+            loginButton,
             
         ].forEach { view.addSubview($0) }
         
@@ -168,6 +168,12 @@ class RelayLoginViewController: UIViewController {
             $0.trailing.equalToSuperview().inset(26.0)
             $0.bottom.equalToSuperview().inset(134.0)
         }
+        hi().snp.makeConstraints{
+            $0.top.equalToSuperview().inset(652.0)
+            $0.leading.equalToSuperview().inset(25.0)
+            $0.trailing.equalToSuperview().inset(26.0)
+            $0.bottom.equalToSuperview().inset(134.0)
+        }
     }
     
 
@@ -199,6 +205,3 @@ extension RelayLoginViewController : ASAuthorizationControllerDelegate {
         print("error \(error)")
     }
 }
-
-
-
