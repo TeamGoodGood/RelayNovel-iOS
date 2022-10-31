@@ -11,32 +11,6 @@ import AuthenticationServices
 
 class RelayLoginViewController: UIViewController {
     
-    private let tipMessageLabel: UILabel = {
-        let label = UILabel()
-        
-        label.text = "3초만에 빠른 회원가입!"
-        label.font = .systemFont(ofSize: 12)
-        label.textColor = .black
-        
-        return label
-    }()
-    
-    private let tipMessageView: UIView = {
-        let tipView = UIView()
-        
-        tipView.widthAnchor.constraint(equalToConstant: 155.0)
-        tipView.heightAnchor.constraint(equalToConstant: 26.0)
-        tipView.layer.cornerRadius = 16
-        tipView.backgroundColor = .white
-        tipView.layer.masksToBounds = false
-        tipView.layer.shadowColor = UIColor.black.cgColor
-        tipView.layer.shadowOffset = CGSize(width: 0, height: 10)
-        tipView.layer.shadowOpacity = 0.8
-        tipView.layer.shadowRadius = 16
-        
-        return tipView
-    }()
-    
     private let loginButtonImageView: UIImageView = {
         let imageView = UIImageView(frame: .zero)
         let myImage: UIImage = UIImage(named: "AppleLogo")!
@@ -69,6 +43,32 @@ class RelayLoginViewController: UIViewController {
         imageView.contentMode = .scaleAspectFit
         imageView.image = myImage
         return imageView
+    }()
+    
+    private let tipMessageView: UIView = {
+        let tipView = UIView()
+        
+        tipView.widthAnchor.constraint(equalToConstant: 155.0)
+        tipView.heightAnchor.constraint(equalToConstant: 26.0)
+        tipView.layer.cornerRadius = 16
+        tipView.backgroundColor = .white
+        tipView.layer.masksToBounds = false
+        tipView.layer.shadowColor = UIColor.black.cgColor
+        tipView.layer.shadowOffset = CGSize(width: 0, height: 10)
+        tipView.layer.shadowOpacity = 0.8
+        tipView.layer.shadowRadius = 16
+        
+        return tipView
+    }()
+    
+    private let tipMessageLabel: UILabel = {
+        let label = UILabel()
+        
+        label.text = "3초만에 빠른 회원가입!"
+        label.font = .systemFont(ofSize: 12)
+        label.textColor = .black
+        
+        return label
     }()
     
     private let loginButton: UIButton = {
@@ -169,6 +169,7 @@ class RelayLoginViewController: UIViewController {
             $0.bottom.equalToSuperview().inset(134.0)
         }
     }
+    
 
     @objc func loginHandler() {
         let request = ASAuthorizationAppleIDProvider().createRequest()
