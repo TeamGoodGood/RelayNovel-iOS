@@ -23,7 +23,6 @@ final class RelayUserActivityCollectionViewCell: UICollectionViewCell {
     private lazy var relayActivityLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 16.0, weight: .medium)
-        label.text = "내가 시작한 릴레이"
         
         return label
     }()
@@ -40,7 +39,8 @@ final class RelayUserActivityCollectionViewCell: UICollectionViewCell {
 }
 
 extension RelayUserActivityCollectionViewCell {
-    func configure(_ relayCount: Int) {
+    func configure(_ index: Int, _ relayCount: Int) {
+        setRelayActivityLabel(index)
         setnovelActivityNumberLabel(relayCount)
         setupLayout()
     }
@@ -104,5 +104,15 @@ extension RelayUserActivityCollectionViewCell {
         attributedString.addAttributes(textAttributes, range: textRange)
         
         relayActivityNumberLabel.attributedText = attributedString
+    }
+    
+    private func setRelayActivityLabel(_ index: Int) {
+        if index == 0 {
+            relayActivityLabel.text = "내가 시작한 릴레이"
+        } else if index == 1{
+            relayActivityLabel.text = "내가 참여한 릴레이"
+        } else {
+            relayActivityLabel.text = "좋아요한 릴레이"
+        }
     }
 }
