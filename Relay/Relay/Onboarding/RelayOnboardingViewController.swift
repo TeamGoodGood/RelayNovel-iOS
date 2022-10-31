@@ -9,6 +9,15 @@ import UIKit
 import SnapKit
 
 class RelayOnboardingViewController: UIViewController {
+    private let skipButton: UIButton = {
+        let button = UIButton()
+        
+        button.setTitle("건너뛰기", for: .normal)
+        button.setTitleColor(.systemGray, for: .normal)
+        button.addTarget(self, action: #selector(pressedSkipButton), for: .touchUpInside)
+        return button
+    }()
+    
     private let titleLabel: UILabel = {
         let title = UILabel()
         
@@ -44,11 +53,16 @@ class RelayOnboardingViewController: UIViewController {
     
     private func setupLayout(){
         [
+            skipButton,
             titleLabel,
             contentLabel,
             onboardingImageView
         ].forEach { view.addSubview($0) }
         
+        skipButton.snp.makeConstraints {
+            $0.top.equalToSuperview().inset(64.0)
+            $0.trailing.equalToSuperview().inset(20.0)
+        }
         titleLabel.snp.makeConstraints {
             $0.top.equalToSuperview().inset(160.0)
             $0.leading.equalToSuperview().inset(50.0)
@@ -63,5 +77,8 @@ class RelayOnboardingViewController: UIViewController {
             $0.width.equalTo(116.0)
             $0.height.equalTo(125.0)
         }
+    }
+    @objc private func pressedSkipButton(_ sender: UIButton) {
+        //건너뛰기 기능 구현 예정
     }
 }
