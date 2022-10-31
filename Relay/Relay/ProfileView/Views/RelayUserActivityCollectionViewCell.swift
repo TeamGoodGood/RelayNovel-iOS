@@ -20,7 +20,7 @@ final class RelayUserActivityCollectionViewCell: UICollectionViewCell {
         return imageView
     }()
     
-    private lazy var novelActivityLabel: UILabel = {
+    private lazy var relayActivityLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 16.0, weight: .medium)
         label.text = "내가 시작한 릴레이"
@@ -28,7 +28,7 @@ final class RelayUserActivityCollectionViewCell: UICollectionViewCell {
         return label
     }()
     
-    private lazy var novelActivityNumberLabel = UILabel()
+    private lazy var relayActivityNumberLabel = UILabel()
     
     private lazy var arrowImageView: UIImageView = {
         let imageView = UIImageView()
@@ -51,8 +51,8 @@ extension RelayUserActivityCollectionViewCell {
         
         [
             imageView,
-            novelActivityLabel,
-            novelActivityNumberLabel,
+            relayActivityLabel,
+            relayActivityNumberLabel,
             arrowImageView
         ].forEach { addSubview($0) }
         
@@ -63,14 +63,14 @@ extension RelayUserActivityCollectionViewCell {
             $0.height.equalTo(43.1)
         }
         
-        novelActivityLabel.snp.makeConstraints {
+        relayActivityLabel.snp.makeConstraints {
             $0.leading.equalTo(imageView.snp.trailing).offset(20.0)
             $0.top.equalTo(imageView.snp.top)
         }
         
-        novelActivityNumberLabel.snp.makeConstraints {
-            $0.leading.equalTo(novelActivityLabel.snp.leading)
-            $0.top.equalTo(novelActivityLabel.snp.bottom).offset(4.0)
+        relayActivityNumberLabel.snp.makeConstraints {
+            $0.leading.equalTo(relayActivityLabel.snp.leading)
+            $0.top.equalTo(relayActivityLabel.snp.bottom).offset(4.0)
         }
         
         arrowImageView.snp.makeConstraints {
@@ -103,6 +103,6 @@ extension RelayUserActivityCollectionViewCell {
         attributedString.addAttributes(numberAttributes, range: countRange)
         attributedString.addAttributes(textAttributes, range: textRange)
         
-        novelActivityNumberLabel.attributedText = attributedString
+        relayActivityNumberLabel.attributedText = attributedString
     }
 }
