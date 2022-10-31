@@ -115,20 +115,6 @@ class RelayLoginViewController: UIViewController {
         }
     }
 
-//    func addAppleLoginButton() {
-//        let button = ASAuthorizationAppleIDButton(authorizationButtonType: .continue, authorizationButtonStyle: .black)
-//        button.addTarget(self, action: #selector(loginHandler), for: .touchUpInside)
-//        self.view.addSubview(button)
-//
-//        button.snp.makeConstraints {
-//            $0.top.equalToSuperview().inset(652.0)
-//            $0.leading.equalToSuperview().inset(25.0)
-//            $0.trailing.equalToSuperview().inset(26.0)
-//            $0.bottom.equalToSuperview().inset(134.0)
-//        }
-//        button.cornerRadius = 30
-//    }
-    
     @objc func loginHandler() {
         let request = ASAuthorizationAppleIDProvider().createRequest()
         request.requestedScopes = [.fullName, .email]
