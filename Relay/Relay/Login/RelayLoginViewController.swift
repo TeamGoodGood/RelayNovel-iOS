@@ -107,7 +107,9 @@ class RelayLoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        view.addSubview(Arrow())
         setupLayout()
+        
         
     }
     
@@ -118,7 +120,8 @@ class RelayLoginViewController: UIViewController {
             loginImageView,
             noLoginButton,
             tipMessageView,
-            loginButton,
+            loginButton
+            
             
         ].forEach { view.addSubview($0) }
         
@@ -163,12 +166,6 @@ class RelayLoginViewController: UIViewController {
 
         }
         loginButton.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(652.0)
-            $0.leading.equalToSuperview().inset(25.0)
-            $0.trailing.equalToSuperview().inset(26.0)
-            $0.bottom.equalToSuperview().inset(134.0)
-        }
-        hi().snp.makeConstraints{
             $0.top.equalToSuperview().inset(652.0)
             $0.leading.equalToSuperview().inset(25.0)
             $0.trailing.equalToSuperview().inset(26.0)
