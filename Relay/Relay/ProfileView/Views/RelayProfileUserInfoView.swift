@@ -20,65 +20,7 @@ class RelayProfileUserInfoView: UIView {
         return label
     }()
     
-    private lazy var startedNovelLabel: UILabel = {
-        let label = UILabel()
-        label.font = .systemFont(ofSize: 15.0)
-        label.text = "시작한 소설"
-        
-        return label
-    }()
-    
-    private lazy var participatedNovelLabel: UILabel = {
-        let label = UILabel()
-        label.font = .systemFont(ofSize: 15.0)
-        label.text = "참여한 소설"
-        
-        return label
-    }()
-    
-    private lazy var startedNovelCountLabel: UILabel = {
-        let label = UILabel()
-        label.font = .systemFont(ofSize: 15.0, weight: .bold)
-        
-        return label
-    }()
-    
-    private lazy var participatedNovelCountLabel: UILabel = {
-        let label = UILabel()
-        label.font = .systemFont(ofSize: 15.0, weight: .bold)
-        
-        return label
-    }()
-    
-    private lazy var textSeparatorView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .black
-        
-        return view
-    }()
-    
-    private lazy var novelStackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .horizontal
-        stackView.distribution = .equalSpacing
-        stackView.spacing = 8.0
-        
-        textSeparatorView.snp.makeConstraints {
-            $0.width.equalTo(1.0)
-            $0.height.equalTo(18.0)
-        }
-        
-        [
-            startedNovelLabel,
-            startedNovelCountLabel,
-            textSeparatorView,
-            participatedNovelLabel,
-            participatedNovelCountLabel
-        ].forEach { stackView.addArrangedSubview($0) }
-        
-        return stackView
-    }()
-    
+    private lazy var usersRelayCountLabel = UILabel()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -97,7 +39,7 @@ extension RelayProfileUserInfoView {
     private func setupLayout() {
         [
             userNameLabel,
-            novelStackView
+            usersRelayCountLabel
         ].forEach { addSubview($0) }
         
         userNameLabel.snp.makeConstraints {
@@ -105,16 +47,46 @@ extension RelayProfileUserInfoView {
             $0.leading.equalToSuperview().inset(20.0)
         }
         
-        novelStackView.snp.makeConstraints {
-            $0.top.equalTo(userNameLabel.snp.bottom).offset(12.0)
-            $0.centerX.equalToSuperview()
+        usersRelayCountLabel.snp.makeConstraints {
+            $0.top.equalTo(userNameLabel.snp.bottom).offset(16.0)
+            $0.leading.equalTo(userNameLabel.snp.leading)
         }
     }
     
+    private func setUsersRelayCountLabel(_ startedRelayCount: Int, _ participatedRelayCount: Int) {
+        let textAttributes: [NSAttributedString.Key: Any] = [
+            .font: UIFont.systemFont(ofSize: 15.0)
+        ]
+        
+        let numberAttributes: [NSAttributedString.Key: Any] = [
+            .font: UIFont.systemFont(ofSize: 15.0, weight: .bold),
+            .foregroundColor: UIColor.magenta
+        ]
+        
+        let startedStr = "시작한 릴레이"
+        let participatedStr = "참여한 릴레이"
+        let dot = "·"
+        let startedRelaysStr = "\(startedRelayCount)"
+        let participatedRelaysStr = "\(participatedRelayCount)"
+        
+        let joinText = [startedStr, startedRelaysStr, dot, participatedStr, participatedRelaysStr].joined(separator: " ")
+        let attributedString = NSMutableAttributedString(string: joinText)
+        
+        let range1 = attributedString.mutableString.range(of: startedStr)
+        let range2 = attributedString.mutableString.range(of: startedRelaysStr)
+        let range3 = attributedString.mutableString.range(of: dot)
+        let range4 = attributedString.mutableString.range(of: participatedStr)
+        let range5 = attributedString.mutableString.range(of: participatedRelaysStr)
+        
+        [range1, range3, range4].forEach { attributedString.addAttributes(textAttributes, range: $0) }
+        [range2, range5].forEach { attributedString.addAttributes(numberAttributes, range: $0) }
+        
+        usersRelayCountLabel.attributedText = attributedString
+    }
+    
     func configure() {
-        startedNovelCountLabel.text = "\(startedNovelCount ?? 0)"
-        participatedNovelCountLabel.text = "\(participatedNovelCount ?? 0)"
         userNameLabel.text = userName
+        setUsersRelayCountLabel(startedNovelCount ?? 0, participatedNovelCount ?? 0)
     }
     
     func fetchUserData() {
