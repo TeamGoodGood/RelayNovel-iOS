@@ -7,8 +7,36 @@
 
 import UIKit
 import SnapKit
+import AuthenticationServices
 
 class RelayLoginViewController: UIViewController {
+    
+    
+    private let loginButton: UIButton = {
+        let button = UIButton(type: .custom)
+        let image = UIImage(named: "AppleLogo")
+        button.backgroundColor = .black
+        button.setTitle("Apple로 로그인", for: .normal)
+        button.titleLabel?.font = .boldSystemFont(ofSize: 16)
+        button.setImage(UIImage(named: "AppleLogo"), for: .normal)
+        button.contentHorizontalAlignment = .center
+        button.semanticContentAttribute = .forceLeftToRight //<- 중요
+        button.imageEdgeInsets = .init(top: 0, left: 0, bottom: 0, right: 170)
+        
+        
+        button.layer.cornerRadius = 16
+        return button
+    }()
+    
+    
+    private let loginButtonImageView: UIImageView = {
+        let imageView = UIImageView(frame: .zero)
+        let myImage: UIImage = UIImage(named: "AppleLogo")!
+        
+        imageView.image = myImage
+        return imageView
+    }()
+
     private let titleLabel: UILabel = {
         let label = UILabel()
         
@@ -23,6 +51,7 @@ class RelayLoginViewController: UIViewController {
         let imageView = UIImageView(frame: .zero)
         let myImage: UIImage = UIImage(named: "Lilla")!
         
+        imageView.contentMode = .scaleAspectFit
         imageView.image = myImage
         return imageView
     }()
@@ -48,7 +77,7 @@ class RelayLoginViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemGray4
+        view.backgroundColor = .white
         setupLayout()
     }
     
@@ -56,7 +85,8 @@ class RelayLoginViewController: UIViewController {
         [
             titleLabel,
             loginImageView,
-            noLoginButton
+            noLoginButton,
+            loginButton
             
         ].forEach { view.addSubview($0) }
         
@@ -80,6 +110,53 @@ class RelayLoginViewController: UIViewController {
             $0.trailing.equalToSuperview().inset(129.0)
             $0.bottom.equalToSuperview().inset(89.0)
         }
+        loginButton.snp.makeConstraints {
+            $0.top.equalToSuperview().inset(652.0)
+            $0.leading.equalToSuperview().inset(25.0)
+            $0.trailing.equalToSuperview().inset(26.0)
+            $0.bottom.equalToSuperview().inset(134.0)
+        }
     }
+
+//    func addAppleLoginButton() {
+//        let button = ASAuthorizationAppleIDButton(authorizationButtonType: .continue, authorizationButtonStyle: .black)
+//        button.addTarget(self, action: #selector(loginHandler), for: .touchUpInside)
+//        self.view.addSubview(button)
+//
+//        button.snp.makeConstraints {
+//            $0.top.equalToSuperview().inset(652.0)
+//            $0.leading.equalToSuperview().inset(25.0)
+//            $0.trailing.equalToSuperview().inset(26.0)
+//            $0.bottom.equalToSuperview().inset(134.0)
+//        }
+//        button.cornerRadius = 30
+//    }
+    
+//    @objc func loginHandler() {
+//        let request = ASAuthorizationAppleIDProvider().createRequest()
+//        request.requestedScopes = [.fullName, .email]
+//        let controller = ASAuthorizationController(authorizationRequests: [request])
+//        controller.delegate = self
+//        controller.presentationContextProvider = self as? ASAuthorizationControllerPresentationContextProviding
+//        controller.performRequests()
+//    }
+
 }
+
+
+//extension RelayLoginViewController : ASAuthorizationControllerDelegate {
+//    func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
+//        if let credential = authorization.credential as? ASAuthorizationAppleIDCredential {
+//            let user = credential.user
+//            print("아이디 \(user)")
+//            if let email = credential.email {
+//                print("📧 \(email)")
+//            }
+//        }
+//    }
+//
+//    func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
+//        print("error \(error)")
+//    }
+//}
 
