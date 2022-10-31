@@ -24,7 +24,7 @@ class RelayLoginViewController: UIViewController {
         
         label.text = "소설 이어쓰기 커뮤니티"
         label.font = UIFont(name: "CWDangamAsac-Bold", size: 20.0)
-        label.textColor = .label
+        label.textColor = UIColor(named: "MainColor")
         return label
     }()
     
@@ -33,7 +33,7 @@ class RelayLoginViewController: UIViewController {
         
         label.text = "릴레이"
         label.font = UIFont(name: "CWDangamAsac-Bold", size: 57.0)
-        label.textColor = .label
+        label.textColor = UIColor(named: "MainColor")
         return label
     }()
     
