@@ -53,7 +53,7 @@ extension RelayProfileViewController {
         if isLogined {
             setupProfileViewsLayout()
         } else {
-            setupNonLoingViewLayout()
+            setupNonLoginViewLayout()
         }
     }
     
@@ -107,7 +107,7 @@ extension RelayProfileViewController {
         }
     }
     
-    private func setupNonLoingViewLayout() {
+    private func setupNonLoginViewLayout() {
         view.addSubview(nonLoginView)
         
         nonLoginView.snp.makeConstraints {
