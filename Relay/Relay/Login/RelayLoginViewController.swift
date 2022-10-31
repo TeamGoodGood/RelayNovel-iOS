@@ -88,6 +88,7 @@ class RelayLoginViewController: UIViewController {
     
     private func setupLayout() {
         [
+            subTitleLabel,
             titleLabel,
             loginImageView,
             noLoginButton,
@@ -96,6 +97,13 @@ class RelayLoginViewController: UIViewController {
         ].forEach { view.addSubview($0) }
         
         noLoginButton.addSubview(noLoginLabel)
+        
+        subTitleLabel.snp.makeConstraints {
+            $0.top.equalToSuperview().inset(188.0)
+            $0.leading.equalToSuperview().inset(53.0)
+            $0.trailing.equalToSuperview().inset(140.0)
+            $0.bottom.equalToSuperview().inset(632.0)
+        }
         
         titleLabel.snp.makeConstraints {
             $0.top.equalToSuperview().inset(202.0)
