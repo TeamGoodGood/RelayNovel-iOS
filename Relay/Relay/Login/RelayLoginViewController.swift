@@ -16,18 +16,30 @@ class RelayLoginViewController: UIViewController {
         
         label.text = "3초만에 빠른 회원가입!"
         label.font = .systemFont(ofSize: 12)
-        label.backgroundColor = .red
-        label.textAlignment = .center
-        label.clipsToBounds = true
-        label.layer.cornerRadius = 16
+        label.textColor = .black
         
         return label
+    }()
+    
+    private let tipMessageView: UIView = {
+        let tipView = UIView()
+        
+        tipView.widthAnchor.constraint(equalToConstant: 155.0)
+        tipView.heightAnchor.constraint(equalToConstant: 26.0)
+        tipView.layer.cornerRadius = 16
+        tipView.backgroundColor = .white
+        tipView.layer.masksToBounds = false
+        tipView.layer.shadowColor = UIColor.black.cgColor
+        tipView.layer.shadowOffset = CGSize(width: 0, height: 10)
+        tipView.layer.shadowOpacity = 0.8
+        tipView.layer.shadowRadius = 16
+        
+        return tipView
     }()
     
     private let loginButtonImageView: UIImageView = {
         let imageView = UIImageView(frame: .zero)
         let myImage: UIImage = UIImage(named: "AppleLogo")!
-        
         imageView.image = myImage
         return imageView
     }()
@@ -105,12 +117,13 @@ class RelayLoginViewController: UIViewController {
             titleLabel,
             loginImageView,
             noLoginButton,
-            tipMessageLabel,
+            tipMessageView,
             loginButton
             
         ].forEach { view.addSubview($0) }
         
         noLoginButton.addSubview(noLoginLabel)
+        tipMessageView.addSubview(tipMessageLabel)
         
         subTitleLabel.snp.makeConstraints {
             $0.top.equalToSuperview().inset(188.0)
@@ -136,11 +149,18 @@ class RelayLoginViewController: UIViewController {
             $0.trailing.equalToSuperview().inset(129.0)
             $0.bottom.equalToSuperview().inset(89.0)
         }
-        tipMessageLabel.snp.makeConstraints {
+        tipMessageView.snp.makeConstraints {
             $0.top.equalToSuperview().inset(602.0)
             $0.leading.equalToSuperview().inset(117.0)
             $0.trailing.equalToSuperview().inset(118.0)
             $0.bottom.equalToSuperview().inset(216.0)
+        }
+        tipMessageLabel.snp.makeConstraints {
+            $0.top.equalToSuperview().inset(6.0)
+            $0.leading.equalToSuperview().inset(23.0)
+            $0.trailing.equalToSuperview().inset(23.0)
+            $0.bottom.equalToSuperview().inset(6.0)
+
         }
         loginButton.snp.makeConstraints {
             $0.top.equalToSuperview().inset(652.0)
