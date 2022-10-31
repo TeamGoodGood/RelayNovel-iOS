@@ -53,6 +53,10 @@ extension RelayProfileUserActivityView: UICollectionViewDelegateFlowLayout {
         UIEdgeInsets(top: 0.0, left: 0.0, bottom: 16.0, right: 0.0)
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        //TODO: 세부페이지로 이동 구현
+        print("tapped \(indexPath.row) cell")
+    }
 }
 
 extension RelayProfileUserActivityView: UICollectionViewDataSource {
