@@ -1,5 +1,5 @@
 //
-//  RelayListCollectionView.swift
+//  RelayListView.swift
 //  Relay
 //
 //  Created by 이재웅 on 2022/11/01.
@@ -8,8 +8,8 @@
 import UIKit
 import SnapKit
 
-class RelayListCollectionView: UIView {
-    private lazy var collectionView: UICollectionView = {
+class RelayListView: UIView {
+    private lazy var listCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         
@@ -20,11 +20,11 @@ class RelayListCollectionView: UIView {
     }()
 }
 
-extension RelayListCollectionView: UICollectionViewDelegateFlowLayout {
+extension RelayListView: UICollectionViewDelegateFlowLayout {
     
 }
 
-extension RelayListCollectionView: UICollectionViewDataSource {
+extension RelayListView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         0
     }
