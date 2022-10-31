@@ -19,12 +19,20 @@ class RelayLoginViewController: UIViewController {
         return imageView
     }()
 
+    private let subTitleLabel: UILabel = {
+        let label = UILabel()
+        
+        label.text = "소설 이어쓰기 커뮤니티"
+        label.font = UIFont(name: "CWDangamAsac-Bold", size: 20.0)
+        label.textColor = .label
+        return label
+    }()
+    
     private let titleLabel: UILabel = {
         let label = UILabel()
         
         label.text = "릴레이"
-        label.sizeToFit()
-        label.font = .systemFont(ofSize: 57)
+        label.font = UIFont(name: "CWDangamAsac-Bold", size: 57.0)
         label.textColor = .label
         return label
     }()
