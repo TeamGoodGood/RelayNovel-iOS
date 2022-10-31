@@ -14,34 +14,12 @@ class RelayProfileViewController: UIViewController {
     private lazy var profileUserInfoView = RelayProfileUserInfoView(frame: .zero)
     private lazy var profileUserActivityView = RelayProfileUserActivityView(frame: .zero)
     private lazy var nonLoginView = RelayNonLoginView(frame: .zero)
+    
     private lazy var separatorView: UIView = {
         let view = UIView()
         view.backgroundColor = .black
         
         return view
-    }()
-    
-    private lazy var profileSettingButton: UIButton = {
-        let button = UIButton()
-        
-        var titleAttribute = AttributedString("프로필 수정")
-        titleAttribute.font = .systemFont(ofSize: 12.0, weight: .regular)
-        titleAttribute.foregroundColor = .gray
-        
-        button.setAttributedTitle(NSAttributedString(titleAttribute), for: .normal)
-        button.layer.borderColor = UIColor.gray.cgColor
-        button.layer.borderWidth = 1.0
-        button.layer.cornerRadius = 16.0
-        
-        return button
-    }()
-    
-    private lazy var environmentSettingButton: UIButton = {
-        let button = UIButton()
-        button.setImage(UIImage(systemName: "gearshape"), for: .normal)
-        button.tintColor = .black
-        
-        return button
     }()
     
     override func viewDidLoad() {
@@ -70,24 +48,24 @@ extension RelayProfileViewController {
     }
     
     private func setupButtonsLayout() {
-        [
-            profileSettingButton,
-            environmentSettingButton
-        ].forEach { view.addSubview($0) }
+        let settingButton = UIBarButtonItem(
+            image: UIImage(systemName: "gearshape"),
+            style: .plain,
+            target: nil,
+            action: nil
+        )
         
-        environmentSettingButton.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(62.0)
-            $0.trailing.equalToSuperview().inset(20.0)
-            $0.width.equalTo(27.0)
-            $0.height.equalTo(27.0)
-        }
+        let noticeButton = UIBarButtonItem(
+            image: UIImage(systemName: "bell"),
+            style: .plain,
+            target: nil,
+            action: nil
+        )
         
-        profileSettingButton.snp.makeConstraints {
-            $0.top.equalTo(environmentSettingButton.snp.top)
-            $0.trailing.equalTo(environmentSettingButton.snp.leading).offset(-8.0)
-            $0.width.equalTo(83.0)
-            $0.height.equalTo(30.0)
-        }
+        settingButton.tintColor = .black
+        noticeButton.tintColor = .black
+        
+        navigationItem.rightBarButtonItems = [noticeButton, settingButton]
     }
     
     private func setupProfileViewsLayout() {
@@ -98,7 +76,7 @@ extension RelayProfileViewController {
         ].forEach { view.addSubview($0) }
         
         profileUserInfoView.snp.makeConstraints {
-            $0.top.equalTo(profileSettingButton.snp.bottom)
+            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top)
             $0.leading.equalToSuperview()
             $0.trailing.equalToSuperview()
             $0.height.equalTo(98.0)
@@ -123,7 +101,7 @@ extension RelayProfileViewController {
         view.addSubview(nonLoginView)
         
         nonLoginView.snp.makeConstraints {
-            $0.top.equalTo(profileSettingButton.snp.bottom)
+            $0.top.equalToSuperview()
             $0.leading.equalToSuperview()
             $0.trailing.equalToSuperview()
             $0.bottom.equalToSuperview()
