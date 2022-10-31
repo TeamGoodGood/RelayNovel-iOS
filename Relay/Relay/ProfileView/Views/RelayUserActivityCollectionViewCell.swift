@@ -97,11 +97,11 @@ extension RelayUserActivityCollectionViewCell {
         let joinText = [countStr, postPosition].joined(separator: "")
         let attributedString = NSMutableAttributedString(string: joinText)
         
-        let range1 = attributedString.mutableString.range(of: countStr)
-        let range2 = attributedString.mutableString.range(of: postPosition)
+        let countRange = attributedString.mutableString.range(of: countStr)
+        let textRange = attributedString.mutableString.range(of: postPosition)
         
-        attributedString.addAttributes(textAttributes, range: range1)
-        attributedString.addAttributes(numberAttributes, range: range2)
+        attributedString.addAttributes(numberAttributes, range: countRange)
+        attributedString.addAttributes(textAttributes, range: textRange)
         
         novelActivityNumberLabel.attributedText = attributedString
     }
