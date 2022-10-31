@@ -57,6 +57,7 @@ class RelayOnboardingViewController: UIViewController {
             titleLabel,
             contentLabel,
             onboardingImageView
+          
         ].forEach { view.addSubview($0) }
         
         skipButton.snp.makeConstraints {
@@ -68,16 +69,17 @@ class RelayOnboardingViewController: UIViewController {
             $0.leading.equalToSuperview().inset(50.0)
         }
         contentLabel.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(233.0)
-            $0.leading.equalToSuperview().inset(50.0)
+            $0.top.equalTo(titleLabel.snp.bottom).offset(43.0)
+            $0.leading.equalToSuperview().offset(50.0)
         }
         onboardingImageView.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(408.0)
+            $0.top.equalTo(contentLabel.snp.bottom).offset(105.0)
             $0.centerX.equalToSuperview()
             $0.width.equalTo(116.0)
             $0.height.equalTo(125.0)
         }
     }
+    
     @objc private func pressedSkipButton(_ sender: UIButton) {
         //건너뛰기 기능 구현 예정
     }

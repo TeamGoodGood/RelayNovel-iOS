@@ -15,7 +15,6 @@
 		329918A0290A5D8800372C13 /* RelayLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3299189F290A5D8800372C13 /* RelayLoginViewController.swift */; };
 		55FDCEAF290A5667000AB345 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 55FDCEAE290A5667000AB345 /* SnapKit */; };
 		B5C0B4BD290F7C9A00077B5F /* RelayOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C0B4BC290F7C9A00077B5F /* RelayOnboardingViewController.swift */; };
-		B5C0B500290FB50700077B5F /* RelayOnboardingDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C0B4FF290FB50600077B5F /* RelayOnboardingDataModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,7 +27,6 @@
 		3265BA37290925DE00532CA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3299189F290A5D8800372C13 /* RelayLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayLoginViewController.swift; sourceTree = "<group>"; };
 		B5C0B4BC290F7C9A00077B5F /* RelayOnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayOnboardingViewController.swift; sourceTree = "<group>"; };
-		B5C0B4FF290FB50600077B5F /* RelayOnboardingDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayOnboardingDataModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,7 +92,6 @@
 			isa = PBXGroup;
 			children = (
 				B5C0B4BC290F7C9A00077B5F /* RelayOnboardingViewController.swift */,
-				B5C0B4FF290FB50600077B5F /* RelayOnboardingDataModel.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -175,7 +172,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B5C0B500290FB50700077B5F /* RelayOnboardingDataModel.swift in Sources */,
 				B5C0B4BD290F7C9A00077B5F /* RelayOnboardingViewController.swift in Sources */,
 				3265BA2E290925DD00532CA4 /* ViewController.swift in Sources */,
 				3265BA2A290925DD00532CA4 /* AppDelegate.swift in Sources */,
