@@ -18,7 +18,8 @@
 		55FDCEB3290A6440000AB345 /* RelayProfileUserInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FDCEB2290A6440000AB345 /* RelayProfileUserInfoView.swift */; };
 		55FDCEB5290A711C000AB345 /* RelayProfileUserActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FDCEB4290A711C000AB345 /* RelayProfileUserActivityView.swift */; };
 		55FDCEB7290ABB0C000AB345 /* RelayUserActivityCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FDCEB6290ABB0C000AB345 /* RelayUserActivityCollectionViewCell.swift */; };
-		55FDCEBA290ACB06000AB345 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 55FDCEB9290ACB06000AB345 /* SnapKit */; };
+		329918A0290A5D8800372C13 /* RelayLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3299189F290A5D8800372C13 /* RelayLoginViewController.swift */; };
+		55FDCEAF290A5667000AB345 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 55FDCEAE290A5667000AB345 /* SnapKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		55FDCEB2290A6440000AB345 /* RelayProfileUserInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayProfileUserInfoView.swift; sourceTree = "<group>"; };
 		55FDCEB4290A711C000AB345 /* RelayProfileUserActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayProfileUserActivityView.swift; sourceTree = "<group>"; };
 		55FDCEB6290ABB0C000AB345 /* RelayUserActivityCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayUserActivityCollectionViewCell.swift; sourceTree = "<group>"; };
+		3299189F290A5D8800372C13 /* RelayLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayLoginViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,7 +44,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				55FDCEBA290ACB06000AB345 /* SnapKit in Frameworks */,
+				55FDCEAF290A5667000AB345 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,7 +56,7 @@
 			children = (
 				3265BA28290925DD00532CA4 /* Relay */,
 				3265BA27290925DD00532CA4 /* Products */,
-				55FDCEB8290ACB06000AB345 /* Frameworks */,
+				55FDCEAB290A55FF000AB345 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -69,6 +71,7 @@
 		3265BA28290925DD00532CA4 /* Relay */ = {
 			isa = PBXGroup;
 			children = (
+				3299189B290A5C8500372C13 /* Login */,
 				3265BA29290925DD00532CA4 /* AppDelegate.swift */,
 				3265BA2B290925DD00532CA4 /* SceneDelegate.swift */,
 				3265BA2D290925DD00532CA4 /* ViewController.swift */,
@@ -101,7 +104,15 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		55FDCEB8290ACB06000AB345 /* Frameworks */ = {
+		3299189B290A5C8500372C13 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				3299189F290A5D8800372C13 /* RelayLoginViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		55FDCEAB290A55FF000AB345 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 			);
@@ -125,7 +136,7 @@
 			);
 			name = Relay;
 			packageProductDependencies = (
-				55FDCEB9290ACB06000AB345 /* SnapKit */,
+				55FDCEAE290A5667000AB345 /* SnapKit */,
 			);
 			productName = Relay;
 			productReference = 3265BA26290925DD00532CA4 /* Relay.app */;
@@ -193,6 +204,7 @@
 				556F3093290FA59A005D7AF4 /* Extension+UILabel.swift in Sources */,
 				556F3091290F9A09005D7AF4 /* RelayNonLoginView.swift in Sources */,
 				3265BA2C290925DD00532CA4 /* SceneDelegate.swift in Sources */,
+				329918A0290A5D8800372C13 /* RelayLoginViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,6 +353,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -373,6 +386,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -423,7 +437,7 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		55FDCEB9290ACB06000AB345 /* SnapKit */ = {
+		55FDCEAE290A5667000AB345 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 327138A42909284700592714 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
