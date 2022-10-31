@@ -11,6 +11,19 @@ import AuthenticationServices
 
 class RelayLoginViewController: UIViewController {
     
+    private let tipMessageLabel: UILabel = {
+        let label = UILabel()
+        
+        label.text = "3초만에 빠른 회원가입!"
+        label.font = .systemFont(ofSize: 12)
+        label.backgroundColor = .red
+        label.textAlignment = .center
+        label.clipsToBounds = true
+        label.layer.cornerRadius = 16
+        
+        return label
+    }()
+    
     private let loginButtonImageView: UIImageView = {
         let imageView = UIImageView(frame: .zero)
         let myImage: UIImage = UIImage(named: "AppleLogo")!
@@ -92,6 +105,7 @@ class RelayLoginViewController: UIViewController {
             titleLabel,
             loginImageView,
             noLoginButton,
+            tipMessageLabel,
             loginButton
             
         ].forEach { view.addSubview($0) }
@@ -104,7 +118,6 @@ class RelayLoginViewController: UIViewController {
             $0.trailing.equalToSuperview().inset(140.0)
             $0.bottom.equalToSuperview().inset(632.0)
         }
-        
         titleLabel.snp.makeConstraints {
             $0.top.equalToSuperview().inset(202.0)
             $0.leading.equalToSuperview().inset(53.0)
@@ -122,6 +135,12 @@ class RelayLoginViewController: UIViewController {
             $0.leading.equalToSuperview().inset(128.0)
             $0.trailing.equalToSuperview().inset(129.0)
             $0.bottom.equalToSuperview().inset(89.0)
+        }
+        tipMessageLabel.snp.makeConstraints {
+            $0.top.equalToSuperview().inset(602.0)
+            $0.leading.equalToSuperview().inset(117.0)
+            $0.trailing.equalToSuperview().inset(118.0)
+            $0.bottom.equalToSuperview().inset(216.0)
         }
         loginButton.snp.makeConstraints {
             $0.top.equalToSuperview().inset(652.0)
@@ -159,4 +178,6 @@ extension RelayLoginViewController : ASAuthorizationControllerDelegate {
         print("error \(error)")
     }
 }
+
+
 
