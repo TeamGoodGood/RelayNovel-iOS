@@ -17,6 +17,7 @@
 		556F3093290FA59A005D7AF4 /* Extension+UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556F3092290FA59A005D7AF4 /* Extension+UILabel.swift */; };
 		556F309729102F83005D7AF4 /* RelayListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556F309629102F83005D7AF4 /* RelayListView.swift */; };
 		556F309929103676005D7AF4 /* RelayListHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556F309829103676005D7AF4 /* RelayListHeaderView.swift */; };
+		556F309B29117E1F005D7AF4 /* RelayListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556F309A29117E1F005D7AF4 /* RelayListCollectionViewCell.swift */; };
 		55FDCEAF290A5667000AB345 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 55FDCEAE290A5667000AB345 /* SnapKit */; };
 		55FDCEB1290A5DB2000AB345 /* RelayProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FDCEB0290A5DB2000AB345 /* RelayProfileViewController.swift */; };
 		55FDCEB3290A6440000AB345 /* RelayProfileUserInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FDCEB2290A6440000AB345 /* RelayProfileUserInfoView.swift */; };
@@ -37,6 +38,7 @@
 		556F3092290FA59A005D7AF4 /* Extension+UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UILabel.swift"; sourceTree = "<group>"; };
 		556F309629102F83005D7AF4 /* RelayListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayListView.swift; sourceTree = "<group>"; };
 		556F309829103676005D7AF4 /* RelayListHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayListHeaderView.swift; sourceTree = "<group>"; };
+		556F309A29117E1F005D7AF4 /* RelayListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayListCollectionViewCell.swift; sourceTree = "<group>"; };
 		55FDCEB0290A5DB2000AB345 /* RelayProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayProfileViewController.swift; sourceTree = "<group>"; };
 		55FDCEB2290A6440000AB345 /* RelayProfileUserInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayProfileUserInfoView.swift; sourceTree = "<group>"; };
 		55FDCEB4290A711C000AB345 /* RelayProfileUserActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayProfileUserActivityView.swift; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 				556F3092290FA59A005D7AF4 /* Extension+UILabel.swift */,
 				556F309629102F83005D7AF4 /* RelayListView.swift */,
 				556F309829103676005D7AF4 /* RelayListHeaderView.swift */,
+				556F309A29117E1F005D7AF4 /* RelayListCollectionViewCell.swift */,
 				556F3094290FDFC9005D7AF4 /* ProfileView */,
 				3265BA32290925DE00532CA4 /* Assets.xcassets */,
 				3265BA34290925DE00532CA4 /* LaunchScreen.storyboard */,
@@ -203,6 +206,7 @@
 			files = (
 				55FDCEB1290A5DB2000AB345 /* RelayProfileViewController.swift in Sources */,
 				55FDCEB7290ABB0C000AB345 /* RelayUserActivityCollectionViewCell.swift in Sources */,
+				556F309B29117E1F005D7AF4 /* RelayListCollectionViewCell.swift in Sources */,
 				3265BA2E290925DD00532CA4 /* ViewController.swift in Sources */,
 				3265BA2A290925DD00532CA4 /* AppDelegate.swift in Sources */,
 				55FDCEB3290A6440000AB345 /* RelayProfileUserInfoView.swift in Sources */,
