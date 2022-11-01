@@ -59,7 +59,7 @@ extension RelayProfileUserInfoView {
         ]
         
         let numberAttributes: [NSAttributedString.Key: Any] = [
-            .font: UIFont.systemFont(ofSize: 15.0, weight: .bold),
+            .font: UIFont.systemFont(ofSize: 15.0),
             .foregroundColor: UIColor.magenta
         ]
         
