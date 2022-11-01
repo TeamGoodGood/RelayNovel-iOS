@@ -80,6 +80,14 @@ class RelayAgreementViewController: UIViewController {
         return btn
     }()
     
+    private lazy var submitButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("확인", for: .normal)
+        button.setTitleColor(.black, for: .normal)
+        button.isHidden = true
+        return button
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -95,7 +103,8 @@ class RelayAgreementViewController: UIViewController {
             firstAgreeButton,
             secondAgreeButton,
             thirdAgreeButton,
-            forthAgreeButton
+            forthAgreeButton,
+            submitButton
             
         ].forEach { view.addSubview($0) }
         
@@ -139,6 +148,10 @@ class RelayAgreementViewController: UIViewController {
             $0.leading.equalToSuperview().inset(20.0)
             $0.width.equalTo(250.0)
         }
+        submitButton.snp.makeConstraints {
+            $0.bottom.equalToSuperview().inset(20)
+            $0.centerX.equalToSuperview()
+        }
     }
     
     private func makeButton(text: String) -> (UIButton){
@@ -174,8 +187,9 @@ class RelayAgreementViewController: UIViewController {
         else {
             sender.tintColor = .systemGray5
         }
-//        test2(sender: sender)
+        checkNextStep()
     }
+    
     @objc
     func allAgreeCheck(sender: UIButton) {
         if sender.tintColor == .systemGray5 {
@@ -184,6 +198,7 @@ class RelayAgreementViewController: UIViewController {
             secondAgreeButton.tintColor = UIColor(named: "MainColor")
             thirdAgreeButton.tintColor = UIColor(named: "MainColor")
             forthAgreeButton.tintColor = UIColor(named: "MainColor")
+            submitButton.isHidden = false
         }
         else {
             sender.tintColor = .systemGray5
@@ -191,6 +206,17 @@ class RelayAgreementViewController: UIViewController {
             secondAgreeButton.tintColor = .systemGray5
             thirdAgreeButton.tintColor = .systemGray5
             forthAgreeButton.tintColor = .systemGray5
+            submitButton.isHidden = true
+        }
+    }
+    
+    func checkNextStep() {
+        let checkColor = UIColor(named: "MainColor")
+        
+        if firstAgreeButton.tintColor == checkColor && secondAgreeButton.tintColor == checkColor && thirdAgreeButton.tintColor == checkColor {
+            submitButton.isHidden = false
+        } else {
+            submitButton.isHidden = true
         }
     }
 }
