@@ -34,10 +34,30 @@ class RelayListHeaderView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
+        setupLayout()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+}
+
+extension RelayListHeaderView {
+    private func setupLayout() {
+        [
+            listTitleLabel,
+            listMenuButton
+        ].forEach { addSubview($0) }
+        
+        listTitleLabel.snp.makeConstraints {
+            $0.leading.equalToSuperview().inset(20.0)
+            $0.bottom.equalToSuperview().inset(21.0)
+        }
+        
+        listMenuButton.snp.makeConstraints {
+            $0.trailing.equalToSuperview().inset(20.0)
+            $0.centerY.equalTo(listTitleLabel.snp.centerY)
+        }
     }
 }
 
