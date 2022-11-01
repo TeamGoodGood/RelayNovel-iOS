@@ -13,10 +13,11 @@ class RelayListCollectionViewCell: UICollectionViewCell {
         return NSStringFromClass(Self.self).components(separatedBy: ".").last!
     }
     
-    private lazy var statusLabel: UILabel = {
-        let label = UILabel()
+    private lazy var statusLabel: BasePaddingLabel = {
+        let label = BasePaddingLabel()
         label.font = .systemFont(ofSize: 13.0)
         label.textColor = .white
+        
         
         label.clipsToBounds = true
         label.backgroundColor = .systemPink
