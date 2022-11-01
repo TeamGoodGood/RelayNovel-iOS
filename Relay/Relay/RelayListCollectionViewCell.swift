@@ -59,6 +59,17 @@ class RelayListCollectionViewCell: UICollectionViewCell {
 }
 
 extension RelayListCollectionViewCell {
+    func configure() {
+        statusLabel.text = "달리는중"
+        stepCountLabel.text = "8/20 터치"
+        relayTitleLabel.text = "릴레이 소설 제목입니다"
+        bgmTagLabel.text = "􀑪 #판타지 #모험 #대항해시대 #해적 #극적인"
+        creationTimeLabel.text = "1일 전"
+        heartCountLabel.text = "􀊵 17"
+        
+        setupLayout()
+    }
+    
     private func setupLayout() {
         [
             statusLabel,
