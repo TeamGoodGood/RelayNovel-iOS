@@ -13,8 +13,9 @@ class RelayLoginViewController: UIViewController {
     
     private let backButton: UIButton = {
         let button = UIButton(type: .custom)
+        let image = UIImage(systemName: "arrow.left")
         
-        button.setImage(systemName: "arrow.left")
+        button.setImage(imageName: image!)
         button.tintColor = .black
         
         return button

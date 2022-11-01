@@ -63,7 +63,6 @@
 		3265BA1D290925DD00532CA4 = {
 			isa = PBXGroup;
 			children = (
-				32F835412911571B00E2CC4A /* Extension+UIImage.swift */,
 				3265BA28290925DD00532CA4 /* Relay */,
 				3265BA27290925DD00532CA4 /* Products */,
 				55FDCEAB290A55FF000AB345 /* Frameworks */,
@@ -87,6 +86,7 @@
 				3299189B290A5C8500372C13 /* Login */,
 				3265BA29290925DD00532CA4 /* AppDelegate.swift */,
 				32F835352911008400E2CC4A /* Extension+UIButton.swift */,
+				32F835412911571B00E2CC4A /* Extension+UIImage.swift */,
 				3265BA2B290925DD00532CA4 /* SceneDelegate.swift */,
 				3265BA2D290925DD00532CA4 /* ViewController.swift */,
 				556F3092290FA59A005D7AF4 /* Extension+UILabel.swift */,

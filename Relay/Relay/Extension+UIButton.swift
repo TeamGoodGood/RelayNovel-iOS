@@ -8,13 +8,13 @@
 import UIKit
 
 extension UIButton {
-    func setImage(systemName: String) {
+    func setImage(imageName: UIImage) {
         contentHorizontalAlignment = .fill
         contentVerticalAlignment = .fill
         
         imageView?.contentMode = .scaleAspectFit
         
-        setImage(UIImage(systemName: systemName), for: .normal)
+        setImage(imageName, for: .normal)
     }
 }
 

@@ -11,9 +11,9 @@ import SnapKit
 class RelayAgreementViewController: UIViewController {
     private let backButton: UIButton = {
         let button = UIButton(type: .custom)
+        let image = UIImage(systemName: "arrow.left")?.imageWithColor(color: .black)
         
-        button.setImage(systemName: "arrow.left")
-        button.tintColor = .black
+        button.setImage(imageName: image!)
         
         return button
     }()
@@ -29,17 +29,14 @@ class RelayAgreementViewController: UIViewController {
     
     private let allAgreeButton: UIButton = {
         let button = UIButton(type: .custom)
-        let image = UIImage(systemName: "checkmark.circle.fill")
-      
-        
-//        button.backgroundColor = .black
+        let image = UIImage(systemName: "checkmark.circle.fill")?.imageWithColor(color: .gray)
         
         button.setTitle("전체 동의하기", for: .normal)
         button.titleLabel?.font = .boldSystemFont(ofSize: 16)
         button.setTitleColor(.black, for: .normal)
+        button.titleEdgeInsets = .init(top: 0, left: 10, bottom: 0, right: 0)
         
-        button.setImage(image, for: .normal)
-        
+        button.setImage(imageName: image!)
         
         
         return button
