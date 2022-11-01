@@ -30,7 +30,7 @@ class RelayListHeaderView: UIView {
         return label
     }()
     
-    private lazy var categoryButton: UIButton = {
+    private lazy var listFilterButton: UIButton = {
         let button = UIButton()
         let image = UIImage(systemName: "slider.horizontal.3")
         
@@ -119,9 +119,9 @@ extension RelayListHeaderView {
     private func setupListTitleLayout(_ viewType: ViewType) {
         switch viewType {
         case .browse:
-            addSubview(categoryButton)
+            addSubview(listFilterButton)
             
-            categoryButton.snp.makeConstraints {
+            listFilterButton.snp.makeConstraints {
                 $0.leading.equalToSuperview().inset(20.0)
                 $0.centerY.equalToSuperview()
             }
