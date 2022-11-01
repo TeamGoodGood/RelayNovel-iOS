@@ -59,7 +59,7 @@ class RelayListHeaderView: UIView {
         
         button.tintColor = .black
         button.setTitle("최신순", for: .normal)
-        button.titleLabel?.font = .systemFont(ofSize: 13.0, weight: .bold)
+        button.titleLabel?.font = .systemFont(ofSize: 13.0, weight: .regular)
         button.setTitleColor(.black, for: .normal)
         
         button.setImage(image, for: .normal)
