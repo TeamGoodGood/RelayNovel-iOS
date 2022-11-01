@@ -67,7 +67,7 @@ extension RelayListView {
             $0.top.equalToSuperview()
             $0.leading.equalToSuperview()
             $0.trailing.equalToSuperview()
-            $0.height.equalTo(84.0)
+            $0.height.equalTo(60.0)
         }
         
         listCollectionView.snp.makeConstraints {
