@@ -30,6 +30,29 @@ class RelayListHeaderView: UIView {
         return label
     }()
     
+    private lazy var categoryButton: UIButton = {
+        let button = UIButton()
+        let image = UIImage(systemName: "slider.horizontal.3")
+        
+        button.tintColor = .black
+        button.setTitle("카테고리 전체", for: .normal)
+        button.titleLabel?.font = .systemFont(ofSize: 13.0, weight: .regular)
+        button.setTitleColor(.black, for: .normal)
+        
+        button.setImage(image, for: .normal)
+        button.contentHorizontalAlignment = .center
+        button.semanticContentAttribute = .forceRightToLeft
+        button.imageEdgeInsets = UIEdgeInsets(top: 0.0, left: 8.0, bottom: 0.0, right: 0.0)
+        button.titleEdgeInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 0.0, right: 0.0)
+        button.contentEdgeInsets = UIEdgeInsets(top: 5.0, left: 12.0, bottom: 5.0, right: 18.0)
+        
+        
+        button.layer.cornerRadius = 14.0
+        button.layer.borderWidth = 1.0
+        
+        return button
+    }()
+    
     private lazy var listMenuButton: UIButton = {
         let button = UIButton()
         let image = UIImage(systemName: "chevron.down")
@@ -59,8 +82,7 @@ class RelayListHeaderView: UIView {
     init(frame: CGRect, type: ViewType) {
         super.init(frame: frame)
         
-        setListTitle(type)
-        setupLayout()
+        setupLayout(type)
     }
     
     required init?(coder: NSCoder) {
@@ -83,29 +105,36 @@ extension RelayListHeaderView {
         case like = "좋아요한 릴레이"
     }
     
-    private func setupLayout() {
-        [
-            listTitleLabel,
-            listMenuButton
-        ].forEach { addSubview($0) }
+    private func setupLayout(_ viewType: ViewType) {
+        setupListTitleLayout(viewType)
         
-        listTitleLabel.snp.makeConstraints {
-            $0.leading.equalToSuperview().inset(20.0)
-            $0.bottom.equalToSuperview().inset(21.0)
-        }
+        addSubview(listMenuButton)
         
         listMenuButton.snp.makeConstraints {
             $0.trailing.equalToSuperview().inset(20.0)
-            $0.centerY.equalTo(listTitleLabel.snp.centerY)
+            $0.centerY.equalToSuperview()
         }
     }
     
-    private func setListTitle(_ viewType: ViewType) {
+    private func setupListTitleLayout(_ viewType: ViewType) {
         switch viewType {
         case .browse:
-            print("")
+            addSubview(categoryButton)
+            
+            categoryButton.snp.makeConstraints {
+                $0.leading.equalToSuperview().inset(20.0)
+                $0.centerY.equalToSuperview()
+            }
+            
         default:
             listTitleLabel.text = viewType.rawValue
+            
+            addSubview(listTitleLabel)
+            
+            listTitleLabel.snp.makeConstraints {
+                $0.leading.equalToSuperview().inset(20.0)
+                $0.centerY.equalToSuperview()
+            }
         }
     }
     
