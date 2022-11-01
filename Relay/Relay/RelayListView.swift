@@ -16,6 +16,7 @@ class RelayListView: UIView {
         
         collectionView.delegate = self
         collectionView.dataSource = self
+        collectionView.register(RelayListCollectionViewCell.self, forCellWithReuseIdentifier: RelayListCollectionViewCell.id)
         
         return collectionView
     }()
@@ -33,16 +34,24 @@ class RelayListView: UIView {
 }
 
 extension RelayListView: UICollectionViewDelegateFlowLayout {
-    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = collectionView.frame.width
+        let height = 118.0
+        
+        return CGSize(width: width, height: height)
+    }
 }
 
 extension RelayListView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        0
+        4
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        UICollectionViewCell()
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RelayListCollectionViewCell.id, for: indexPath) as? RelayListCollectionViewCell else { return UICollectionViewCell() }
+        cell.configure()
+        
+        return cell
     }
 
 }
