@@ -64,15 +64,20 @@ class RelayLoginViewController: UIViewController {
     private let loginButton: UIButton = {
         let button = UIButton(type: .custom)
         let image = UIImage(named: "AppleLogo")
+        
         button.backgroundColor = .black
+        
         button.setTitle("Apple로 로그인", for: .normal)
         button.titleLabel?.font = .boldSystemFont(ofSize: 16)
+        
         button.setImage(UIImage(named: "AppleLogo"), for: .normal)
         button.contentHorizontalAlignment = .center
         button.semanticContentAttribute = .forceLeftToRight
         button.imageEdgeInsets = .init(top: 0, left: 0, bottom: 0, right: 170)
-        button.addTarget(self, action: #selector(loginHandler), for: .touchUpInside)
+        
         button.layer.cornerRadius = 16
+        
+        button.addTarget(self, action: #selector(loginHandler), for: .touchUpInside)
         
         return button
     }()
