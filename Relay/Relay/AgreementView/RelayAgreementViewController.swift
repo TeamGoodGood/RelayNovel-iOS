@@ -29,7 +29,7 @@ class RelayAgreementViewController: UIViewController {
     
     private let allAgreeButton: UIButton = {
         let button = UIButton(type: .custom)
-        let image = UIImage(systemName: "checkmark.circle.fill")?.imageWithColor(color: .gray)
+        let image = UIImage(systemName: "checkmark.circle.fill")?.imageWithColor(color: .systemGray5)
         
         button.setTitle("전체 동의하기", for: .normal)
         button.titleLabel?.font = .boldSystemFont(ofSize: 16)
@@ -40,6 +40,13 @@ class RelayAgreementViewController: UIViewController {
         button.contentHorizontalAlignment = .leading
         
         return button
+    }()
+    
+    private let divider: UIView = {
+        let view = UIView()
+        view.backgroundColor = .systemGray5
+        
+        return view
     }()
     
     // 정해진 약관이 없어서 이름 이렇게 해놨습니다
@@ -78,6 +85,7 @@ class RelayAgreementViewController: UIViewController {
             backButton,
             titleLabel,
             allAgreeButton,
+            divider,
             firstAgreeButton,
             secondAgreeButton,
             thridAgreeButton,
@@ -98,6 +106,12 @@ class RelayAgreementViewController: UIViewController {
             $0.top.equalTo(titleLabel.snp.bottom).offset(50.0)
             $0.leading.equalToSuperview().inset(20.0)
             $0.width.equalTo(250.0)
+        }
+        divider.snp.makeConstraints {
+            $0.top.equalTo(allAgreeButton.snp.bottom).offset(25.0)
+            $0.leading.equalToSuperview().inset(20.0)
+            $0.trailing.equalToSuperview().inset(20.0)
+            $0.height.equalTo(1.0)
         }
         firstAgreeButton.snp.makeConstraints {
             $0.top.equalTo(allAgreeButton.snp.bottom).offset(49.0)
@@ -124,7 +138,7 @@ class RelayAgreementViewController: UIViewController {
     private func makeButton(text: String) -> (UIButton){
         let agreeButton: UIButton = {
             let button = UIButton(type: .custom)
-            let image = UIImage(systemName: "checkmark.circle.fill")?.imageWithColor(color: .gray)
+            let image = UIImage(systemName: "checkmark.circle.fill")?.imageWithColor(color: .systemGray5)
             
             button.setTitle(text, for: .normal)
             button.titleLabel?.font = .systemFont(ofSize: 16)
