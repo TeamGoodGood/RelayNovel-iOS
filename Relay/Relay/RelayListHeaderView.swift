@@ -26,7 +26,6 @@ class RelayListHeaderView: UIView {
     private lazy var listTitleLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 24.0, weight: .bold)
-        label.text = "내가 시작한 릴레이"
         
         return label
     }()
@@ -57,9 +56,10 @@ class RelayListHeaderView: UIView {
         return button
     }()
     
-    override init(frame: CGRect) {
+    init(frame: CGRect, type: ViewType) {
         super.init(frame: frame)
         
+        setListTitle(type)
         setupLayout()
     }
     
@@ -76,6 +76,13 @@ extension RelayListHeaderView {
         case popularity = 2
     }
     
+    enum ViewType: String {
+        case browse
+        case started = "내가 시작한 릴레이"
+        case participated = "내가 참여한 릴레이"
+        case like = "좋아요한 릴레이"
+    }
+    
     private func setupLayout() {
         [
             listTitleLabel,
@@ -90,6 +97,15 @@ extension RelayListHeaderView {
         listMenuButton.snp.makeConstraints {
             $0.trailing.equalToSuperview().inset(20.0)
             $0.centerY.equalTo(listTitleLabel.snp.centerY)
+        }
+    }
+    
+    private func setListTitle(_ viewType: ViewType) {
+        switch viewType {
+        case .browse:
+            print("")
+        default:
+            listTitleLabel.text = viewType.rawValue
         }
     }
     

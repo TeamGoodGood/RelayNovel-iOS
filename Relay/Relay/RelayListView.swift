@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 
 class RelayListView: UIView {
-    private lazy var listHeaderView = RelayListHeaderView(frame: .zero)
+    private var listHeaderView: RelayListHeaderView?
     private lazy var listCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -20,9 +20,10 @@ class RelayListView: UIView {
         return collectionView
     }()
     
-    override init(frame: CGRect) {
+    init(frame: CGRect, type: ViewType) {
         super.init(frame: frame)
         
+        setRelayListHeaderView(type)
         setupLayout()
     }
     
@@ -47,7 +48,16 @@ extension RelayListView: UICollectionViewDataSource {
 }
 
 extension RelayListView {
+    enum ViewType {
+        case browse
+        case started
+        case participated
+        case like
+    }
+    
     private func setupLayout() {
+        guard let listHeaderView = listHeaderView else { return }
+        
         [
             listHeaderView,
             listCollectionView
@@ -65,6 +75,19 @@ extension RelayListView {
             $0.leading.equalToSuperview()
             $0.trailing.equalToSuperview()
             $0.bottom.equalToSuperview()
+        }
+    }
+    
+    private func setRelayListHeaderView(_ viewType: ViewType) {
+        switch viewType {
+        case .browse:
+            listHeaderView = RelayListHeaderView(frame: .zero, type: .browse)
+        case .like:
+            listHeaderView = RelayListHeaderView(frame: .zero, type: .like)
+        case .started:
+            listHeaderView = RelayListHeaderView(frame: .zero, type: .started)
+        case .participated:
+            listHeaderView = RelayListHeaderView(frame: .zero, type: .participated)
         }
     }
 }
