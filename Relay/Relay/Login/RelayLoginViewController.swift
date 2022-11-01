@@ -77,7 +77,7 @@ class RelayLoginViewController: UIViewController {
         
         button.layer.cornerRadius = 16
         
-        button.addTarget(self, action: #selector(loginHandler), for: .touchUpInside)
+        button.addTarget(self, action: #selector(addLoginHandler), for: .touchUpInside)
         
         return button
     }()
