@@ -11,9 +11,18 @@ import AuthenticationServices
 
 class RelayLoginViewController: UIViewController {
     
+    private let backButton: UIButton = {
+        let button = UIButton(type: .custom)
+        
+        button.setImage(systemName: "arrow.left")
+        button.tintColor = .black
+        return button
+    }()
+    
     private let loginButtonImageView: UIImageView = {
         let imageView = UIImageView(frame: .zero)
         let myImage: UIImage = UIImage(named: "AppleLogo")!
+        
         imageView.image = myImage
         return imageView
     }()
@@ -44,32 +53,7 @@ class RelayLoginViewController: UIViewController {
         imageView.image = myImage
         return imageView
     }()
-    
-    private let tipMessageView: UIView = {
-        let tipView = UIView()
 
-        tipView.layer.cornerRadius = 16
-        tipView.backgroundColor = .white
-        tipView.layer.masksToBounds = false
-        tipView.layer.shadowColor = UIColor.black.cgColor
-        tipView.layer.shadowOffset = CGSize(width: 0, height: 10)
-        tipView.layer.shadowOpacity = 0.4
-        tipView.layer.shadowRadius = 16
-        
-        
-        return tipView
-    }()
-    
-    private let tipMessageLabel: UILabel = {
-        let label = UILabel()
-        
-        label.text = "3초만에 빠른 회원가입!"
-        label.font = .systemFont(ofSize: 12)
-        label.textColor = .black
-        
-        return label
-    }()
-    
     private let loginButton: UIButton = {
         let button = UIButton(type: .custom)
         let image = UIImage(named: "AppleLogo")
@@ -108,23 +92,28 @@ class RelayLoginViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         setupLayout()
-        messageAnimation()
     }
     
     private func setupLayout() {
         [
+            backButton,
             subTitleLabel,
             titleLabel,
             loginImageView,
             noLoginButton,
-            tipMessageView,
             loginButton
             
             
         ].forEach { view.addSubview($0) }
         
         noLoginButton.addSubview(noLoginLabel)
-        tipMessageView.addSubview(tipMessageLabel)
+        
+        backButton.snp.makeConstraints {
+            $0.top.equalToSuperview().inset(59.0)
+            $0.leading.equalToSuperview().inset(18.0)
+            $0.trailing.equalToSuperview().inset(344.0)
+            $0.bottom.equalToSuperview().inset(756.0)
+        }
         
         subTitleLabel.snp.makeConstraints {
             $0.top.equalToSuperview().inset(188.0)
@@ -150,19 +139,6 @@ class RelayLoginViewController: UIViewController {
             $0.trailing.equalToSuperview().inset(129.0)
             $0.bottom.equalToSuperview().inset(89.0)
         }
-        tipMessageView.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(602.0)
-            $0.leading.equalToSuperview().inset(117.0)
-            $0.trailing.equalToSuperview().inset(118.0)
-            $0.bottom.equalToSuperview().inset(216.0)
-        }
-        tipMessageLabel.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(6.0)
-            $0.leading.equalToSuperview().inset(19.0)
-            $0.trailing.equalToSuperview().inset(18.0)
-            $0.bottom.equalToSuperview().inset(6.0)
-
-        }
         loginButton.snp.makeConstraints {
             $0.top.equalToSuperview().inset(652.0)
             $0.leading.equalToSuperview().inset(25.0)
@@ -179,12 +155,6 @@ class RelayLoginViewController: UIViewController {
         controller.delegate = self
         controller.presentationContextProvider = self as? ASAuthorizationControllerPresentationContextProviding
         controller.performRequests()
-    }
-    
-    func messageAnimation(){
-        UIView.animate(withDuration: 1.0, delay: 0.5, options: [.repeat, .autoreverse, .curveEaseInOut], animations: {
-            self.tipMessageView.center.y -= 2
-        })
     }
 
 }
@@ -206,3 +176,15 @@ extension RelayLoginViewController : ASAuthorizationControllerDelegate {
         print("error \(error)")
     }
 }
+
+extension UIButton {
+    func setImage(systemName: String) {
+        contentHorizontalAlignment = .fill
+        contentVerticalAlignment = .fill
+        
+        imageView?.contentMode = .scaleAspectFit
+        
+        setImage(UIImage(systemName: systemName), for: .normal)
+    }
+}
+
