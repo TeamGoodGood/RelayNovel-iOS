@@ -83,8 +83,15 @@ class RelayAgreementViewController: UIViewController {
     private lazy var submitButton: UIButton = {
         let button = UIButton()
         button.setTitle("확인", for: .normal)
-        button.setTitleColor(.black, for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.titleLabel?.font = .boldSystemFont(ofSize: 17)
+        
+        button.backgroundColor = .black
+        
+        button.layer.cornerRadius = 8
+        
         button.isHidden = true
+        
         return button
     }()
     
@@ -149,8 +156,10 @@ class RelayAgreementViewController: UIViewController {
             $0.width.equalTo(250.0)
         }
         submitButton.snp.makeConstraints {
-            $0.bottom.equalToSuperview().inset(20)
-            $0.centerX.equalToSuperview()
+            $0.bottom.equalToSuperview().inset(34.44)
+            $0.height.equalTo(52.56)
+            $0.leading.equalToSuperview().inset(15.0)
+            $0.trailing.equalToSuperview().inset(15.0)
         }
     }
     
