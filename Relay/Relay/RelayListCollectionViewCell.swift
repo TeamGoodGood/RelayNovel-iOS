@@ -43,6 +43,7 @@ class RelayListCollectionViewCell: UICollectionViewCell {
     private lazy var bgmTagLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 13.0)
+        label.sizeToFit()
         
         return label
     }()
@@ -58,6 +59,7 @@ class RelayListCollectionViewCell: UICollectionViewCell {
         let label = UILabel()
         label.font = .systemFont(ofSize: 13.0)
         label.textColor = .systemPink
+        label.sizeToFit()
         
         return label
     }()
@@ -68,11 +70,39 @@ extension RelayListCollectionViewCell {
         statusLabel.text = "달리는중"
         stepCountLabel.text = "8/20 터치"
         relayTitleLabel.text = "릴레이 소설 제목입니다"
-        bgmTagLabel.text = "􀑪 #판타지 #모험 #대항해시대 #해적 #극적인"
+        bgmTagLabel.attributedText = setLabelwithNoteImage("#판타지 #모험 #대항해시대 #해적 #극적인")
         creationTimeLabel.text = "1일 전"
-        heartCountLabel.text = "􀊵 17"
+        heartCountLabel.attributedText = setLabelwithHeartImage("17")
+        
+        heartCountLabel.sizeToFit()
+        bgmTagLabel.sizeToFit()
         
         setupLayout()
+    }
+    
+    private func setLabelwithNoteImage(_ text: String) -> NSMutableAttributedString {
+        let attributedString = NSMutableAttributedString(string: "")
+        let imageAttachment = NSTextAttachment()
+        imageAttachment.image = UIImage(systemName: "music.note") ?? UIImage()
+        imageAttachment.bounds = CGRect(x: 0.0, y: -3.0, width: 11.0, height: 15.0)
+        
+        attributedString.append(NSAttributedString(attachment: imageAttachment))
+        attributedString.append(NSAttributedString(string: " " + text))
+        
+        return attributedString
+    }
+    
+    private func setLabelwithHeartImage(_ text: String) -> NSMutableAttributedString {
+        let attributedString = NSMutableAttributedString(string: "")
+        let imageAttachment = NSTextAttachment()
+        imageAttachment.image = UIImage(systemName: "heart.fill") ?? UIImage()
+        imageAttachment.image = imageAttachment.image?.withTintColor(.systemPink)
+        imageAttachment.bounds = CGRect(x: 0.0, y: -3.0, width: 17.0, height: 14.0)
+        
+        attributedString.append(NSAttributedString(attachment: imageAttachment))
+        attributedString.append(NSAttributedString(string: " " + text))
+        
+        return attributedString
     }
     
     private func setupLayout() {
