@@ -9,6 +9,10 @@ import UIKit
 import SnapKit
 
 class RelayListCollectionViewCell: UICollectionViewCell {
+    static var id: String {
+        return NSStringFromClass(Self.self).components(separatedBy: ".").last!
+    }
+    
     private lazy var statusLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 13.0)
