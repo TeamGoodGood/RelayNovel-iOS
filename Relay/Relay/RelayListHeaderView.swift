@@ -12,6 +12,7 @@ class RelayListHeaderView: UIView {
     private lazy var listTitleLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 24.0, weight: .bold)
+        label.text = "내가 시작한 릴레이"
         
         return label
     }()
@@ -23,10 +24,12 @@ class RelayListHeaderView: UIView {
         button.tintColor = .black
         button.setTitle("최신순", for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 13.0, weight: .bold)
+        button.setTitleColor(.black, for: .normal)
         
         button.setImage(image, for: .normal)
         button.contentHorizontalAlignment = .center
         button.semanticContentAttribute = .forceRightToLeft
+        button.imageEdgeInsets = UIEdgeInsets(top: 0.0, left: 4.0, bottom: 0.0, right: 0.0)
         
         return button
     }()
