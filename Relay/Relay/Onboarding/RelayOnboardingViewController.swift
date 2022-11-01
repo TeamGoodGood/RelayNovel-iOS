@@ -45,6 +45,19 @@ class RelayOnboardingViewController: UIViewController {
         return imageView
     }()
     
+    private let startButton: UIButton = {
+        let button = UIButton()
+        
+        button.setTitle("시작하기", for: .normal)
+        button.backgroundColor = .black
+        button.setTitleColor(.white, for: .normal)
+        button.layer.cornerRadius = 16
+        button.titleLabel?.font = UIFont(name: "SF Pro", size: 16)
+        button.addTarget(self, action: #selector(pressedStartButton), for: .touchUpInside)
+        
+        return button
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -56,7 +69,8 @@ class RelayOnboardingViewController: UIViewController {
             skipButton,
             titleLabel,
             contentLabel,
-            onboardingImageView
+            onboardingImageView,
+            startButton
           
         ].forEach { view.addSubview($0) }
         
@@ -78,9 +92,20 @@ class RelayOnboardingViewController: UIViewController {
             $0.width.equalTo(116.0)
             $0.height.equalTo(125.0)
         }
+        startButton.snp.makeConstraints {
+            $0.bottom.equalToSuperview().inset(75.0)
+            $0.centerX.equalToSuperview()
+            $0.width.equalTo(350.0)
+            $0.height.equalTo(56.0)
+            $0.leading.equalToSuperview().inset(20.0)
+            $0.trailing.equalToSuperview().inset(20.0)
+        }
     }
     
     @objc private func pressedSkipButton(_ sender: UIButton) {
         //건너뛰기 기능 구현 예정
+    }
+    @objc private func pressedStartButton(_ sender: UIButton) {
+        //시작하기 기능 구현 예정
     }
 }
