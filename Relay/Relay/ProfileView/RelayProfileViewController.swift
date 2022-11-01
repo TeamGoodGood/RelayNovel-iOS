@@ -22,6 +22,21 @@ class RelayProfileViewController: UIViewController {
         return view
     }()
     
+    private lazy var settingButton = UIBarButtonItem(
+        image: UIImage(systemName: "gearshape"),
+        style: .plain,
+        target: self,
+        action: #selector(tappedSettingButton)
+    )
+    
+    //TODO: 알림이 있을 때 Image가 변경되도록 구현
+    private lazy var noticeButton = UIBarButtonItem(
+        image: UIImage(systemName: "bell"),
+        style: .plain,
+        target: self,
+        action: #selector(tappedNoticeButton)
+    )
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
@@ -58,20 +73,6 @@ extension RelayProfileViewController {
     }
     
     private func setupButtonsLayout() {
-        let settingButton = UIBarButtonItem(
-            image: UIImage(systemName: "gearshape"),
-            style: .plain,
-            target: self,
-            action: #selector(tappedSettingButton)
-        )
-        
-        let noticeButton = UIBarButtonItem(
-            image: UIImage(systemName: "bell"),
-            style: .plain,
-            target: self,
-            action: #selector(tappedNoticeButton)
-        )
-        
         settingButton.tintColor = .black
         noticeButton.tintColor = .black
         
