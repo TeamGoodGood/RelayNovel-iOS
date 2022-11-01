@@ -57,27 +57,27 @@ class RelayAgreementViewController: UIViewController {
     
     // 정해진 약관이 없어서 이름 이렇게 해놨습니다
     private lazy var firstAgreeButton: UIButton = {
-        let btn = makeButton(text: "만 14세 이상입니다.")
+        let button = makeButton(text: "만 14세 이상입니다.")
         
-        return btn
+        return button
     }()
     
     private lazy var secondAgreeButton: UIButton = {
-        let btn = makeButton(text: "(필수) 서비스 이용약관")
+        let button = makeButton(text: "(필수) 서비스 이용약관")
         
-        return btn
+        return button
     }()
     
     private lazy var thirdAgreeButton: UIButton = {
-        let btn = makeButton(text: "(필수) 개인정보 처리방침")
+        let button = makeButton(text: "(필수) 개인정보 처리방침")
         
-        return btn
+        return button
     }()
     
     private lazy var forthAgreeButton: UIButton = {
-        let btn = makeButton(text: "(선택) 마케팅 정보 수신동의")
+        let button = makeButton(text: "(선택) 마케팅 정보 수신동의")
         
-        return btn
+        return button
     }()
     
     private lazy var submitButton: UIButton = {
