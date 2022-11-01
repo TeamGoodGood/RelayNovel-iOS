@@ -57,3 +57,47 @@ class RelayListCollectionViewCell: UICollectionViewCell {
         return label
     }()
 }
+
+extension RelayListCollectionViewCell {
+    private func setupLayout() {
+        [
+            statusLabel,
+            stepCountLabel,
+            relayTitleLabel,
+            bgmTagLabel,
+            creationTimeLabel,
+            heartCountLabel
+        ].forEach { addSubview($0) }
+        
+        statusLabel.snp.makeConstraints {
+            $0.top.equalToSuperview().inset(20.0)
+            $0.leading.equalToSuperview().inset(20.0)
+        }
+        
+        stepCountLabel.snp.makeConstraints {
+            $0.leading.equalTo(statusLabel.snp.trailing).offset(5.0)
+            $0.centerY.equalTo(statusLabel.snp.centerY)
+        }
+        
+        relayTitleLabel.snp.makeConstraints {
+            $0.leading.equalTo(statusLabel.snp.leading)
+            $0.top.equalTo(statusLabel.snp.bottom).offset(8.0)
+        }
+        
+        bgmTagLabel.snp.makeConstraints {
+            $0.leading.equalTo(statusLabel.snp.leading)
+            $0.top.equalTo(relayTitleLabel.snp.bottom).offset(10.0)
+            
+        }
+        
+        creationTimeLabel.snp.makeConstraints {
+            $0.trailing.equalToSuperview().inset(20.0)
+            $0.centerY.equalTo(statusLabel.snp.centerY)
+        }
+        
+        heartCountLabel.snp.makeConstraints {
+            $0.trailing.equalTo(creationTimeLabel.snp.trailing)
+            $0.centerY.equalTo(bgmTagLabel.snp.centerY)
+        }
+    }
+}
