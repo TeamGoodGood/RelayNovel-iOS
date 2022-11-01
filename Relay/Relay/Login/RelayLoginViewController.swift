@@ -16,6 +16,7 @@ class RelayLoginViewController: UIViewController {
         
         button.setImage(systemName: "arrow.left")
         button.tintColor = .black
+        
         return button
     }()
     
@@ -24,6 +25,7 @@ class RelayLoginViewController: UIViewController {
         let myImage: UIImage = UIImage(named: "AppleLogo")!
         
         imageView.image = myImage
+        
         return imageView
     }()
 
@@ -33,6 +35,7 @@ class RelayLoginViewController: UIViewController {
         label.text = "소설 이어쓰기 커뮤니티"
         label.font = UIFont(name: "CWDangamAsac-Bold", size: 20.0)
         label.textColor = UIColor(named: "MainColor")
+        
         return label
     }()
     
@@ -42,6 +45,7 @@ class RelayLoginViewController: UIViewController {
         label.text = "릴레이"
         label.font = UIFont(name: "CWDangamAsac-Bold", size: 57.0)
         label.textColor = UIColor(named: "MainColor")
+        
         return label
     }()
     
@@ -51,6 +55,7 @@ class RelayLoginViewController: UIViewController {
         
         imageView.contentMode = .scaleAspectFit
         imageView.image = myImage
+        
         return imageView
     }()
 
@@ -66,11 +71,13 @@ class RelayLoginViewController: UIViewController {
         button.imageEdgeInsets = .init(top: 0, left: 0, bottom: 0, right: 170)
         button.addTarget(self, action: #selector(loginHandler), for: .touchUpInside)
         button.layer.cornerRadius = 16
+        
         return button
     }()
     
     private let noLoginButton: UIButton = {
         let button = UIButton()
+        
         return button
     }()
     
@@ -85,6 +92,7 @@ class RelayLoginViewController: UIViewController {
         label.sizeToFit()
         label.font = .systemFont(ofSize: 15)
         label.textColor = .label
+        
         return label
     }()
 
