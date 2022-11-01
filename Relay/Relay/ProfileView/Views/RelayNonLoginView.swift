@@ -35,7 +35,7 @@ class RelayNonLoginView: UIView {
         let button = UIButton()
         
         var titleAttribute = AttributedString("로그인/회원가입")
-        titleAttribute.font = .systemFont(ofSize: 16.0, weight: .bold)
+        titleAttribute.font = .systemFont(ofSize: 17.0, weight: .bold)
         titleAttribute.foregroundColor = .white
         
         button.setAttributedTitle(NSAttributedString(titleAttribute), for: .normal)
@@ -65,12 +65,12 @@ class RelayNonLoginView: UIView {
         logoImageView.snp.makeConstraints {
             $0.top.equalToSuperview().inset(193.0)
             $0.centerX.equalToSuperview()
-            $0.width.equalTo(142.0)
-            $0.height.equalTo(107.0)
+            $0.width.equalTo(114.0)
+            $0.height.equalTo(123.0)
         }
         
         descriptionLabel.snp.makeConstraints {
-            $0.top.equalTo(logoImageView.snp.bottom).offset(24.0)
+            $0.top.equalTo(logoImageView.snp.bottom).offset(28.0)
             $0.centerX.equalToSuperview()
         }
         
