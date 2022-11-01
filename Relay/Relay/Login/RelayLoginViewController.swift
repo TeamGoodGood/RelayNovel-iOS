@@ -142,10 +142,11 @@ class RelayLoginViewController: UIViewController {
             $0.height.equalTo(77.0)
         }
         loginImageView.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(346.0)
+            $0.top.equalTo(titleLabel.snp.bottom).offset(64.3)
             $0.leading.equalToSuperview().inset(55.0)
             $0.trailing.equalToSuperview().inset(55.0)
-            $0.bottom.equalToSuperview().inset(288.0)
+            $0.width.equalTo(167.0)
+            $0.height.equalTo(179.99)
         }
         noLoginButton.snp.makeConstraints {
             $0.top.equalToSuperview().inset(737.0)
