@@ -160,7 +160,7 @@ class RelayLoginViewController: UIViewController {
     }
     
 
-    @objc func loginHandler() {
+    @objc func addLoginHandler() {
         let request = ASAuthorizationAppleIDProvider().createRequest()
         request.requestedScopes = [.fullName, .email]
         let controller = ASAuthorizationController(authorizationRequests: [request])
