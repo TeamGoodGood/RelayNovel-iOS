@@ -119,8 +119,6 @@ class RelayLoginViewController: UIViewController {
             loginImageView,
             noLoginButton,
             loginButton
-            
-            
         ].forEach { view.addSubview($0) }
         
         noLoginButton.addSubview(noLoginLabel)
