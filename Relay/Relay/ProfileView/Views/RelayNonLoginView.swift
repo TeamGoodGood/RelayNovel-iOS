@@ -35,7 +35,7 @@ class RelayNonLoginView: UIView {
         let button = UIButton()
         
         var titleAttribute = AttributedString("로그인/회원가입")
-        titleAttribute.font = .systemFont(ofSize: 16.0, weight: .medium)
+        titleAttribute.font = .systemFont(ofSize: 16.0, weight: .bold)
         titleAttribute.foregroundColor = .white
         
         button.setAttributedTitle(NSAttributedString(titleAttribute), for: .normal)

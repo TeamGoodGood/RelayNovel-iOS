@@ -15,7 +15,7 @@ class RelayProfileUserInfoView: UIView {
     
     private lazy var userNameLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 28.0, weight: .medium)
+        label.font = .systemFont(ofSize: 28.0, weight: .bold)
         
         return label
     }()

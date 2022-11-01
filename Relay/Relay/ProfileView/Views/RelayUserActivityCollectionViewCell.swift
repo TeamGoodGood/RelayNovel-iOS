@@ -22,7 +22,7 @@ final class RelayUserActivityCollectionViewCell: UICollectionViewCell {
     
     private lazy var relayActivityLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 16.0, weight: .medium)
+        label.font = .systemFont(ofSize: 16.0, weight: .bold)
         
         return label
     }()
