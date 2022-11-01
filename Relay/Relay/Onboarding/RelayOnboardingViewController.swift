@@ -14,6 +14,7 @@ class RelayOnboardingViewController: UIViewController {
         
         button.setTitle("건너뛰기", for: .normal)
         button.setTitleColor(.systemGray, for: .normal)
+        button.titleLabel?.font = UIFont(name: "SF Pro", size: 16)
         button.addTarget(self, action: #selector(pressedSkipButton), for: .touchUpInside)
         return button
     }()
