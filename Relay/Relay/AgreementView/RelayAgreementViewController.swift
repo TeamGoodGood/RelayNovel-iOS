@@ -29,7 +29,8 @@ class RelayAgreementViewController: UIViewController {
     
     private let allAgreeButton: UIButton = {
         let button = UIButton(type: .custom)
-        let image = UIImage(systemName: "checkmark.circle.fill")?.imageWithColor(color: .systemGray5)
+        let config = UIImage.SymbolConfiguration(pointSize: 22)
+        let image = UIImage(systemName: "checkmark.circle.fill", withConfiguration: config)
         
         button.setTitle("전체 동의하기", for: .normal)
         button.titleLabel?.font = .boldSystemFont(ofSize: 16)
@@ -37,6 +38,11 @@ class RelayAgreementViewController: UIViewController {
         button.titleEdgeInsets = .init(top: 0, left: 10, bottom: 0, right: 0)
         
         button.setImage(image, for: .normal)
+        
+        button.tintColor = .systemGray5
+        
+        button.addTarget(self, action: #selector(allAgreeCheck(sender:)), for: .touchUpInside)
+        
         button.contentHorizontalAlignment = .leading
         
         return button
@@ -62,7 +68,7 @@ class RelayAgreementViewController: UIViewController {
         return btn
     }()
     
-    private lazy var thridAgreeButton: UIButton = {
+    private lazy var thirdAgreeButton: UIButton = {
         let btn = makeButton(text: "(필수) 개인정보 처리방침")
         
         return btn
@@ -88,7 +94,7 @@ class RelayAgreementViewController: UIViewController {
             divider,
             firstAgreeButton,
             secondAgreeButton,
-            thridAgreeButton,
+            thirdAgreeButton,
             forthAgreeButton
             
         ].forEach { view.addSubview($0) }
@@ -123,13 +129,13 @@ class RelayAgreementViewController: UIViewController {
             $0.leading.equalToSuperview().inset(20.0)
             $0.width.equalTo(250.0)
         }
-        thridAgreeButton.snp.makeConstraints {
+        thirdAgreeButton.snp.makeConstraints {
             $0.top.equalTo(secondAgreeButton.snp.bottom).offset(31.0)
             $0.leading.equalToSuperview().inset(20.0)
             $0.width.equalTo(250.0)
         }
         forthAgreeButton.snp.makeConstraints {
-            $0.top.equalTo(thridAgreeButton.snp.bottom).offset(31.0)
+            $0.top.equalTo(thirdAgreeButton.snp.bottom).offset(31.0)
             $0.leading.equalToSuperview().inset(20.0)
             $0.width.equalTo(250.0)
         }
@@ -138,7 +144,8 @@ class RelayAgreementViewController: UIViewController {
     private func makeButton(text: String) -> (UIButton){
         let agreeButton: UIButton = {
             let button = UIButton(type: .custom)
-            let image = UIImage(systemName: "checkmark.circle.fill")?.imageWithColor(color: .systemGray5)
+            let config = UIImage.SymbolConfiguration(pointSize: 22)
+            let image = UIImage(systemName: "checkmark.circle.fill", withConfiguration: config)
             
             button.setTitle(text, for: .normal)
             button.titleLabel?.font = .systemFont(ofSize: 16)
@@ -146,12 +153,44 @@ class RelayAgreementViewController: UIViewController {
             button.titleEdgeInsets = .init(top: 0, left: 10, bottom: 0, right: 0)
 
             button.setImage(image, for: .normal)
+            button.tintColor = .systemGray5
             
             button.contentHorizontalAlignment = .leading
+            
+            button.addTarget(self, action: #selector(agreeCheck(sender:)), for: .touchUpInside)
             
             return button
         }()
         
         return agreeButton
+    }
+    
+    @objc
+    func agreeCheck(sender: UIButton) {
+        print(sender.currentImage)
+        if sender.tintColor == .systemGray5 {
+            sender.tintColor = UIColor(named: "MainColor")
+        }
+        else {
+            sender.tintColor = .systemGray5
+        }
+//        test2(sender: sender)
+    }
+    @objc
+    func allAgreeCheck(sender: UIButton) {
+        if sender.tintColor == .systemGray5 {
+            sender.tintColor = UIColor(named: "MainColor")
+            firstAgreeButton.tintColor = UIColor(named: "MainColor")
+            secondAgreeButton.tintColor = UIColor(named: "MainColor")
+            thirdAgreeButton.tintColor = UIColor(named: "MainColor")
+            forthAgreeButton.tintColor = UIColor(named: "MainColor")
+        }
+        else {
+            sender.tintColor = .systemGray5
+            firstAgreeButton.tintColor = .systemGray5
+            secondAgreeButton.tintColor = .systemGray5
+            thirdAgreeButton.tintColor = .systemGray5
+            forthAgreeButton.tintColor = .systemGray5
+        }
     }
 }
