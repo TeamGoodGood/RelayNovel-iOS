@@ -36,10 +36,35 @@ class RelayAgreementViewController: UIViewController {
         button.setTitleColor(.black, for: .normal)
         button.titleEdgeInsets = .init(top: 0, left: 10, bottom: 0, right: 0)
         
-        button.setImage(imageName: image!)
-        
+        button.setImage(image, for: .normal)
+        button.contentHorizontalAlignment = .leading
         
         return button
+    }()
+    
+    // 정해진 약관이 없어서 이름 이렇게 해놨습니다
+    private lazy var firstButton: UIButton = {
+        let btn = makeButton(text: "만 14세 이상입니다.")
+        
+        return btn
+    }()
+    
+    private lazy var secondButton: UIButton = {
+        let btn = makeButton(text: "(필수) 서비스 이용약관")
+        
+        return btn
+    }()
+    
+    private lazy var thridButton: UIButton = {
+        let btn = makeButton(text: "(필수) 개인정보 처리방침")
+        
+        return btn
+    }()
+    
+    private lazy var forthButton: UIButton = {
+        let btn = makeButton(text: "(선택) 마케팅 정보 수신동의")
+        
+        return btn
     }()
     
     override func viewDidLoad() {
@@ -52,7 +77,11 @@ class RelayAgreementViewController: UIViewController {
         [
             backButton,
             titleLabel,
-            allAgreeButton
+            allAgreeButton,
+            firstButton,
+            secondButton,
+            thridButton,
+            forthButton
             
         ].forEach { view.addSubview($0) }
         
@@ -68,20 +97,41 @@ class RelayAgreementViewController: UIViewController {
         allAgreeButton.snp.makeConstraints {
             $0.top.equalTo(titleLabel.snp.bottom).offset(50.0)
             $0.leading.equalToSuperview().inset(20.0)
-            $0.width.equalTo(125.0)
+            $0.width.equalTo(250.0)
         }
-//        makeButton(text: "만 14세 이상입니다").snp.makeConstraints {
-//
-//        }
+        firstButton.snp.makeConstraints {
+            $0.top.equalTo(allAgreeButton.snp.bottom).offset(49.0)
+            $0.leading.equalToSuperview().inset(20.0)
+            $0.width.equalTo(250.0)
+        }
+        secondButton.snp.makeConstraints {
+            $0.top.equalTo(firstButton.snp.bottom).offset(31.0)
+            $0.leading.equalToSuperview().inset(20.0)
+            $0.width.equalTo(250.0)
+        }
+        thridButton.snp.makeConstraints {
+            $0.top.equalTo(secondButton.snp.bottom).offset(31.0)
+            $0.leading.equalToSuperview().inset(20.0)
+            $0.width.equalTo(250.0)
+        }
+        forthButton.snp.makeConstraints {
+            $0.top.equalTo(thridButton.snp.bottom).offset(31.0)
+            $0.leading.equalToSuperview().inset(20.0)
+            $0.width.equalTo(250.0)
+        }
     }
     
-    func makeButton(text: String) -> (UIButton){
+    private func makeButton(text: String) -> (UIButton){
         let agreeButton: UIButton = {
             let button = UIButton(type: .custom)
-            let image = UIImage(systemName: "checkmark.circle.fill")
+            let image = UIImage(systemName: "checkmark.circle.fill")?.imageWithColor(color: .gray)
             
             button.setTitle(text, for: .normal)
             button.titleLabel?.font = .systemFont(ofSize: 16)
+            button.setTitleColor(.black, for: .normal)
+            button.titleEdgeInsets = .init(top: 0, left: 10, bottom: 0, right: 0)
+
+            button.setImage(image, for: .normal)
             
             button.contentHorizontalAlignment = .leading
             
