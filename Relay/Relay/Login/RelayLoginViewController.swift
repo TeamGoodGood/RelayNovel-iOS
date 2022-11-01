@@ -135,7 +135,7 @@ class RelayLoginViewController: UIViewController {
             $0.height.equalTo(24.0)
         }
         titleLabel.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(202.0)
+            $0.top.equalTo(subTitleLabel.snp.bottom)
             $0.leading.equalToSuperview().inset(53.0)
             $0.height.equalTo(77.0)
         }
