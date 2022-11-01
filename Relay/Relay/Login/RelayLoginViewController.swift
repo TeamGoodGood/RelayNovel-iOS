@@ -126,8 +126,7 @@ class RelayLoginViewController: UIViewController {
         backButton.snp.makeConstraints {
             $0.top.equalToSuperview().inset(59.0)
             $0.leading.equalToSuperview().inset(18.0)
-            $0.trailing.equalToSuperview().inset(344.0)
-            $0.bottom.equalToSuperview().inset(756.0)
+            $0.width.height.equalTo(26)
         }
         
         subTitleLabel.snp.makeConstraints {
