@@ -33,6 +33,7 @@ class RelayLoginViewController: UIViewController {
         let label = UILabel()
         
         label.text = "소설 이어쓰기 커뮤니티"
+        //TODO: 디자인시스템 완성 후 extension 활용으로 리팩토링
         label.font = UIFont(name: "CWDangamAsac-Bold", size: 20.0)
         label.textColor = UIColor(named: "MainColor")
         
@@ -43,6 +44,7 @@ class RelayLoginViewController: UIViewController {
         let label = UILabel()
         
         label.text = "릴레이"
+        //TODO: 디자인시스템 완성 후 extension 활용으로 리팩토링
         label.font = UIFont(name: "CWDangamAsac-Bold", size: 57.0)
         label.textColor = UIColor(named: "MainColor")
         
@@ -67,7 +69,7 @@ class RelayLoginViewController: UIViewController {
         button.titleLabel?.font = .boldSystemFont(ofSize: 16)
         button.setImage(UIImage(named: "AppleLogo"), for: .normal)
         button.contentHorizontalAlignment = .center
-        button.semanticContentAttribute = .forceLeftToRight //<- 중요
+        button.semanticContentAttribute = .forceLeftToRight
         button.imageEdgeInsets = .init(top: 0, left: 0, bottom: 0, right: 170)
         button.addTarget(self, action: #selector(loginHandler), for: .touchUpInside)
         button.layer.cornerRadius = 16
