@@ -82,6 +82,8 @@ class RelayLoginViewController: UIViewController {
         return button
     }()
     
+    
+    // button 액션 추가 예정
     private let noLoginButton: UIButton = {
         let button = UIButton()
         
