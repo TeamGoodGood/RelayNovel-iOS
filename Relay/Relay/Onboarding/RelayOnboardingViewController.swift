@@ -58,7 +58,18 @@ class RelayOnboardingViewController: UIViewController {
         
         return button
     }()
-
+    
+    private var pageController: UIPageControl = {
+        let controller = UIPageControl()
+        
+        controller.currentPage = 0
+        controller.numberOfPages = 3
+        controller.currentPageIndicatorTintColor = .systemPink
+        controller.pageIndicatorTintColor = .systemGray
+        
+        return controller
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -71,7 +82,8 @@ class RelayOnboardingViewController: UIViewController {
             titleLabel,
             contentLabel,
             onboardingImageView,
-            startButton
+            startButton,
+            pageController
           
         ].forEach { view.addSubview($0) }
         
@@ -100,6 +112,10 @@ class RelayOnboardingViewController: UIViewController {
             $0.height.equalTo(56.0)
             $0.leading.equalToSuperview().inset(20.0)
             $0.trailing.equalToSuperview().inset(20.0)
+        }
+        pageController.snp.makeConstraints {
+            $0.bottom.equalToSuperview().inset(50.0)
+            $0.centerX.equalToSuperview()
         }
     }
     
