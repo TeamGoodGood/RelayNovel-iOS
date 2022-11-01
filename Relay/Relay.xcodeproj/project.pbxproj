@@ -14,6 +14,7 @@
 		3265BA36290925DE00532CA4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3265BA34290925DE00532CA4 /* LaunchScreen.storyboard */; };
 		329918A0290A5D8800372C13 /* RelayLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3299189F290A5D8800372C13 /* RelayLoginViewController.swift */; };
 		32F83527290FECC300E2CC4A /* ChangwonDangamAsac-Bold_0712.otf in Resources */ = {isa = PBXBuildFile; fileRef = 32F83526290FECC300E2CC4A /* ChangwonDangamAsac-Bold_0712.otf */; };
+		32F835362911008400E2CC4A /* Extension+UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F835352911008400E2CC4A /* Extension+UIButton.swift */; };
 		55FDCEAF290A5667000AB345 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 55FDCEAE290A5667000AB345 /* SnapKit */; };
 /* End PBXBuildFile section */
 
@@ -28,6 +29,7 @@
 		3265BA37290925DE00532CA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3299189F290A5D8800372C13 /* RelayLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayLoginViewController.swift; sourceTree = "<group>"; };
 		32F83526290FECC300E2CC4A /* ChangwonDangamAsac-Bold_0712.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ChangwonDangamAsac-Bold_0712.otf"; sourceTree = "<group>"; };
+		32F835352911008400E2CC4A /* Extension+UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIButton.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				32308E43290F983E0012B5A2 /* Relay.entitlements */,
 				3299189B290A5C8500372C13 /* Login */,
 				3265BA29290925DD00532CA4 /* AppDelegate.swift */,
+				32F835352911008400E2CC4A /* Extension+UIButton.swift */,
 				3265BA2B290925DD00532CA4 /* SceneDelegate.swift */,
 				3265BA2D290925DD00532CA4 /* ViewController.swift */,
 				3265BA32290925DE00532CA4 /* Assets.xcassets */,
@@ -176,6 +179,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3265BA2E290925DD00532CA4 /* ViewController.swift in Sources */,
+				32F835362911008400E2CC4A /* Extension+UIButton.swift in Sources */,
 				3265BA2A290925DD00532CA4 /* AppDelegate.swift in Sources */,
 				3265BA2C290925DD00532CA4 /* SceneDelegate.swift in Sources */,
 				329918A0290A5D8800372C13 /* RelayLoginViewController.swift in Sources */,
