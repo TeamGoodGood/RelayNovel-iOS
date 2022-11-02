@@ -82,7 +82,7 @@ extension RelayUserActivityCollectionViewCell {
     }
     
     private func setRelayActivityNumberLabel(_ relayCount: Int) {
-        let numberAttributes: [NSAttributedString.Key: Any] = [.foregroundColor: UIColor.magenta]
+        let numberAttributes: [NSAttributedString.Key: Any] = [.foregroundColor: UIColor.relayPink1]
         
         let countStr = "\(relayCount)"
         let postPosition = "개"

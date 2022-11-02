@@ -55,7 +55,7 @@ extension RelayProfileUserInfoView {
     
     private func setUsersRelayCountLabel(_ startedRelayCount: Int, _ participatedRelayCount: Int) {
         let numberAttributes: [NSAttributedString.Key: Any] = [
-            .foregroundColor: UIColor.magenta
+            .foregroundColor: UIColor.relayPink1
         ]
         
         let startedStr = "시작한 릴레이"
