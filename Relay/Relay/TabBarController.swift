@@ -14,7 +14,7 @@ class TabBarController: UITabBarController {
         let viewController = UINavigationController(rootViewController: UIViewController())
         let tabBarItems = UITabBarItem(
             title: "워밍업",
-            image: nil,
+            image: UIImage(systemName: "flag"),
             tag: 0
         )
         
@@ -29,7 +29,7 @@ class TabBarController: UITabBarController {
         let viewController = UINavigationController(rootViewController: UIViewController())
         let tabBarItems = UITabBarItem(
             title: "릴레이",
-            image: nil,
+            image: UIImage(systemName: "book"),
             tag: 2
         )
 
@@ -43,7 +43,7 @@ class TabBarController: UITabBarController {
         let viewController = UINavigationController(rootViewController: RelayProfileViewController())
         let tabBarItems = UITabBarItem(
             title: "내 기록",
-            image: nil,
+            image: UIImage(systemName: "person.fill"),
             tag: 2
         )
         
