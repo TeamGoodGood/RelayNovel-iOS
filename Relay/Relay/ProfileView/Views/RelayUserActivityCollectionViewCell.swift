@@ -15,7 +15,7 @@ final class RelayUserActivityCollectionViewCell: UICollectionViewCell {
     
     private lazy var imageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.backgroundColor = .brown
+        imageView.image = UIImage(named: "Lilla")
         
         return imageView
     }()
