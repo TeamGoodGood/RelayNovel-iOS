@@ -36,6 +36,8 @@ extension UILabel {
         case display1
     }
     
+    /// Relay 폰트를 설정할 수 있는 메소드
+    /// - Warning: body2 폰트를 사용하는 경우, 해당 label에 text를 먼저 설정한 후 메소드를 실행해야 작동됩니다.
     func setFont(_ font: RelayFont) {
         switch font {
         case .body1:
