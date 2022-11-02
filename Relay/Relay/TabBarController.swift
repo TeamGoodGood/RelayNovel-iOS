@@ -71,6 +71,9 @@ extension TabBarController {
             relayProfileViewController
         ]
         
+        let systemFontAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 11.0, weight: .bold)]
+        UITabBarItem.appearance().setTitleTextAttributes(systemFontAttributes, for: .normal)
+        
         tabBar.isTranslucent = false
         tabBar.tintColor = .systemPink
         tabBar.layer.borderWidth = 1.0
