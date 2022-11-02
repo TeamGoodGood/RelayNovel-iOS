@@ -32,12 +32,23 @@ class RelayPenNameViewController: UIViewController {
     private let subTitleLabel: UILabel = {
         let label = UILabel()
         
-        label.text = "필명은 12자 이하로 입력해주세요."
+        label.text = "필명은 설정 후 수정 불가합니다."
         label.numberOfLines = 0
         label.font = .systemFont(ofSize: 12)
         label.tintColor = .systemGray5
         
         return label
+    }()
+    
+    private let penNameTextField: UITextField = {
+        let textField = UITextField()
+        
+        textField.layer.cornerRadius = 8.0
+        textField.clearButtonMode = .whileEditing
+        textField.backgroundColor = .systemGray3
+        textField.placeholder = "필명을 입력해주세요."
+        
+        return textField
     }()
     
     override func viewDidLoad() {
@@ -52,7 +63,8 @@ extension RelayPenNameViewController {
         [
             backButton,
             titleLabel,
-            subTitleLabel
+            subTitleLabel,
+            penNameTextField
         ].forEach { view.addSubview($0) }
         
         backButton.snp.makeConstraints {
@@ -68,6 +80,12 @@ extension RelayPenNameViewController {
         subTitleLabel.snp.makeConstraints {
             $0.top.equalTo(titleLabel.snp.bottom).offset(12.0)
             $0.leading.equalToSuperview().inset(21.0)
+        }
+        penNameTextField.snp.makeConstraints {
+            $0.top.equalTo(subTitleLabel.snp.bottom).offset(40.0)
+            $0.leading.equalToSuperview().inset(21.0)
+            $0.width.equalTo(350.0)
+            $0.height.equalTo(41.0)
         }
     }
 }
