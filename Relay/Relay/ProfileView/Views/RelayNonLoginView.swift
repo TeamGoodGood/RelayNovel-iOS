@@ -12,7 +12,7 @@ class RelayNonLoginView: UIView {
     private lazy var logoImageView: UIImageView = {
         let imageView = UIImageView()
         //TODO: backgroundColor를 Logo Image로 변경필요
-        imageView.backgroundColor = .blue
+        imageView.image = UIImage(named: "Lilla")
         
         return imageView
     }()
