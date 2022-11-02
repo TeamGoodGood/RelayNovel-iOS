@@ -8,7 +8,12 @@
 import UIKit
 import SnapKit
 
-class ThirdViewController: UIViewController {
+class RelayThirdViewController: UIViewController {
+    
+    // MARK: - Property
+    weak var label: UILabel?
+    let index = 2
+    
     private let titleLabel: UILabel = {
         let title = UILabel()
         
@@ -36,6 +41,7 @@ class ThirdViewController: UIViewController {
         return imageView
     }()
     
+    // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupLayout()
@@ -65,4 +71,3 @@ class ThirdViewController: UIViewController {
         }
     }
 }
-
