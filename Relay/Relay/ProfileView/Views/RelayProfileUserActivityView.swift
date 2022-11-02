@@ -11,8 +11,8 @@ import SnapKit
 class RelayProfileUserActivityView: UIView {
     private lazy var activityLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 20.0, weight: .bold)
         label.text = "나의 활동"
+        label.setFont(.body1)
         
         return label
     }()
