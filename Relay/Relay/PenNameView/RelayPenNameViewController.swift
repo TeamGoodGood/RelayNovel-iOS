@@ -80,6 +80,7 @@ extension RelayPenNameViewController {
             penNameTextField,
             submitButton
         ].forEach { view.addSubview($0) }
+        penNameTextField.delegate = self
         
         backButton.snp.makeConstraints {
             $0.top.equalToSuperview().inset(59.0)
@@ -107,5 +108,19 @@ extension RelayPenNameViewController {
             $0.leading.equalToSuperview().inset(15.0)
             $0.trailing.equalToSuperview().inset(15.0)
         }
+    }
+}
+
+extension RelayPenNameViewController: UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        print(string)
+        if let char = string.cString(using: String.Encoding.utf8) {
+            let isBackSpace = strcmp(char, "\\b")
+            if isBackSpace == -92 {
+                return true
+            }
+        }
+        guard textField.text!.count < 10 else { return false }
+        return true
     }
 }
