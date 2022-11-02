@@ -42,6 +42,7 @@ extension UILabel {
             self.font = .systemFont(ofSize: 17.0, weight: .bold)
         case .body2:
             self.font = .systemFont(ofSize: 16.0, weight: .regular)
+            self.setLineSpacing(spacing: 25.0)
         case .caption1:
             self.font = .systemFont(ofSize: 15.0, weight: .regular)
         case .caption2:
@@ -55,5 +56,20 @@ extension UILabel {
         case .display1:
             self.font = .systemFont(ofSize: 24.0, weight: .bold)
         }
+    }
+    
+    func setLineSpacing(spacing: CGFloat) {
+        guard let text = text else { return }
+        
+        let attributeString = NSMutableAttributedString(string: text)
+        let style = NSMutableParagraphStyle()
+        
+        style.lineSpacing = spacing
+        attributeString.addAttribute(.paragraphStyle,
+                                     value: style,
+                                     range: NSRange(location: 0, length: attributeString.length)
+        )
+        
+        attributedText = attributeString
     }
 }
