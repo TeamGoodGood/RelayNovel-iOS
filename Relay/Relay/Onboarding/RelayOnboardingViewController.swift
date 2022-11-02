@@ -9,7 +9,6 @@ import UIKit
 import SnapKit
 
 class RelayOnboardingViewController: UIViewController {
-    
     private let skipButton: UIButton = {
         let button = UIButton()
         
@@ -62,6 +61,13 @@ class RelayOnboardingViewController: UIViewController {
         }
     }
     
+    // MARK: - View Life Cycle
+    override func loadView() {
+        let view = UIView()
+        view.backgroundColor = .white
+        self.view = view
+
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -76,7 +82,7 @@ class RelayOnboardingViewController: UIViewController {
             pageController
             
         ].forEach { view.addSubview($0) }
-        
+    
         skipButton.snp.makeConstraints {
             $0.top.equalToSuperview().inset(64.0)
             $0.trailing.equalToSuperview().inset(20.0)
@@ -101,4 +107,11 @@ class RelayOnboardingViewController: UIViewController {
     @objc private func pressedStartButton(_ sender: UIButton) {
         //시작하기 기능 구현 예정
     }
-}
+    
+    let viewList:[UIViewController] = {
+        let vc1 = RelayFirstViewController()
+        let vc2 = RelaySecondViewController()
+        let vc3 = RelayThirdViewController()
+        
+        return [vc1, vc2, vc3]
+    }()
