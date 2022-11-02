@@ -40,7 +40,7 @@ class RelayNonLoginView: UIView {
         titleAttribute.foregroundColor = .white
         
         button.setAttributedTitle(NSAttributedString(titleAttribute), for: .normal)
-        button.backgroundColor = .black
+        button.backgroundColor = .relayPink1
         button.layer.cornerRadius = 12.0
         
         return button
