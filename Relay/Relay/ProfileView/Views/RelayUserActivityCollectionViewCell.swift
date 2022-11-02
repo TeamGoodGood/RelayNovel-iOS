@@ -22,7 +22,7 @@ final class RelayUserActivityCollectionViewCell: UICollectionViewCell {
     
     private lazy var relayActivityLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 16.0, weight: .bold)
+        label.setFont(.body1)
         
         return label
     }()
@@ -82,28 +82,19 @@ extension RelayUserActivityCollectionViewCell {
     }
     
     private func setRelayActivityNumberLabel(_ relayCount: Int) {
-        let textAttributes: [NSAttributedString.Key: Any] = [
-            .font: UIFont.systemFont(ofSize: 15.0)
-        ]
-        
-        let numberAttributes: [NSAttributedString.Key: Any] = [
-            .font: UIFont.systemFont(ofSize: 15.0),
-            .foregroundColor: UIColor.magenta
-        ]
+        let numberAttributes: [NSAttributedString.Key: Any] = [.foregroundColor: UIColor.magenta]
         
         let countStr = "\(relayCount)"
         let postPosition = "개"
         
         let joinText = [countStr, postPosition].joined(separator: "")
         let attributedString = NSMutableAttributedString(string: joinText)
-        
         let countRange = attributedString.mutableString.range(of: countStr)
-        let textRange = attributedString.mutableString.range(of: postPosition)
         
         attributedString.addAttributes(numberAttributes, range: countRange)
-        attributedString.addAttributes(textAttributes, range: textRange)
         
         relayActivityNumberLabel.attributedText = attributedString
+        relayActivityNumberLabel.setFont(.caption1)
     }
     
     private func setRelayActivityLabel(_ index: Int) {
