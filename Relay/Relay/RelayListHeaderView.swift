@@ -146,13 +146,18 @@ extension RelayListHeaderView {
             popularity: UIMenuElement.State.off
         )
         
+        var typeString = ""
+        
         switch type {
         case .latest:
             state.latest = .on
+            typeString = "최신순"
         case .oldest:
             state.oldest = .on
+            typeString = "오래된순"
         case .popularity:
             state.popularity = .on
+            typeString = "인기순"
         }
         
         let menuItems: [UIAction] = {
@@ -169,6 +174,7 @@ extension RelayListHeaderView {
             return [latest, oldest, popularity]
         }()
         
+        listMenuButton.setTitle(typeString, for: .normal)
         listMenuButton.menu = UIMenu(children: menuItems)
     }
 
