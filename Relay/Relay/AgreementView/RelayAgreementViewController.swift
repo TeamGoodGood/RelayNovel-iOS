@@ -296,7 +296,6 @@ extension RelayAgreementViewController {
         default:
             return
         }
-        
         setupButtonCheck()
         checkNextStep()
     }
