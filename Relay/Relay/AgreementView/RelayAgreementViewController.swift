@@ -217,7 +217,7 @@ extension RelayAgreementViewController {
         return agreeButton
     }
     
-    private func makeDetailButton() -> (UIButton) {
+    private func makeDetailButton() -> UIButton {
         let detailVC = view
         let detailButton: UIButton = {
             let button = UIButton(type: .custom)
