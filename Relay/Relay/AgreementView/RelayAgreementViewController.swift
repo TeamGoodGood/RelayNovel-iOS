@@ -32,9 +32,11 @@ class RelayAgreementViewController: UIViewController {
         
         button.tintColor = .systemGray5
         
-        button.addTarget(self, action: #selector(allAgreeCheck(sender:)), for: .touchUpInside)
+        button.addTarget(self, action: #selector(agreeCheck(sender:)), for: .touchUpInside)
         
         button.contentHorizontalAlignment = .leading
+        
+        button.tag = 3
         
         return button
     }()
@@ -46,16 +48,26 @@ class RelayAgreementViewController: UIViewController {
         return view
     }()
     
+    private var allAgreeCheck = false
+    private var firstAgreeCheck = false
+    private var secondAgreeCheck = false
+    private var thirdAgreeCheck = false
+    private var forthAgreeCheck = false
+    
     // TODO: 차후에 collectionView로 리펙토링 필요
     // 정해진 약관이 없어서 이름 이렇게 해놨습니다
     private lazy var firstAgreeButton: UIButton = {
         let button = makeAgreeButton(text: "만 14세 이상입니다.")
         
+        button.tag = 4
+        
         return button
     }()
-        
+    
     private lazy var secondAgreeButton: UIButton = {
         let button = makeAgreeButton(text: "(필수) 서비스 이용약관")
+        
+        button.tag = 5
         
         return button
     }()
@@ -69,6 +81,9 @@ class RelayAgreementViewController: UIViewController {
     
     private lazy var thirdAgreeButton: UIButton = {
         let button = makeAgreeButton(text: "(필수) 개인정보 처리방침")
+        
+        button.tag = 6
+        
         return button
     }()
     
@@ -81,6 +96,8 @@ class RelayAgreementViewController: UIViewController {
     
     private lazy var forthAgreeButton: UIButton = {
         let button = makeAgreeButton(text: "(선택) 마케팅 정보 수신동의")
+        
+        button.tag = 7
         
         return button
     }()
@@ -203,7 +220,7 @@ extension RelayAgreementViewController {
             button.titleLabel?.font = .systemFont(ofSize: 16)
             button.setTitleColor(.black, for: .normal)
             button.titleEdgeInsets = .init(top: 0, left: 10, bottom: 0, right: 0)
-
+            
             button.setImage(image, for: .normal)
             button.tintColor = .systemGray5
             
@@ -228,7 +245,7 @@ extension RelayAgreementViewController {
             button.tintColor = .black
             
             button.addTarget(self, action: #selector(goToDetailView(sender:)), for: .touchUpInside)
-
+            
             return button
         }()
         
@@ -241,9 +258,9 @@ extension RelayAgreementViewController {
         
         if let sheet = detailVC.sheetPresentationController {
             sheet.detents = [.medium(), .large()]
-
+            
             sheet.delegate = self
-
+            
             sheet.prefersGrabberVisible = true
         }
         switch sender.tag {
@@ -264,50 +281,81 @@ extension RelayAgreementViewController {
     
     @objc
     func agreeCheck(sender: UIButton) {
-        if sender.tintColor == .systemGray5 {
-            sender.tintColor = UIColor(named: "MainColor")
+        switch sender.tag {
+        case 3:
+            allAgreeCheck.toggle()
+            allToggle(allAgreeCheck)
+        case 4:
+            firstAgreeCheck.toggle()
+        case 5:
+            secondAgreeCheck.toggle()
+        case 6:
+            thirdAgreeCheck.toggle()
+        case 7:
+            forthAgreeCheck.toggle()
+        default:
+            return
         }
-        else {
-            sender.tintColor = .systemGray5
-        }
+        
+        setupButtonCheck()
         checkNextStep()
     }
     
-    @objc
-    func allAgreeCheck(sender: UIButton) {
-        if sender.tintColor == .systemGray5 {
-            sender.tintColor = UIColor(named: "MainColor")
+    func allToggle(_ allCheck: Bool) {
+        if allCheck {
+            firstAgreeCheck = true
+            secondAgreeCheck = true
+            thirdAgreeCheck = true
+            forthAgreeCheck = true
+        } else {
+            firstAgreeCheck = false
+            secondAgreeCheck = false
+            thirdAgreeCheck = false
+            forthAgreeCheck = false
+        }
+    }
+    
+    func setupButtonCheck() {
+        if allAgreeCheck {
+            allAgreeButton.tintColor = UIColor(named: "MainColor")
+        } else {
+            allAgreeButton.tintColor = .systemGray5
+        }
+        
+        if firstAgreeCheck {
             firstAgreeButton.tintColor = UIColor(named: "MainColor")
-            secondAgreeButton.tintColor = UIColor(named: "MainColor")
-            thirdAgreeButton.tintColor = UIColor(named: "MainColor")
-            forthAgreeButton.tintColor = UIColor(named: "MainColor")
-//            submitButton.isEnabled = true
-//            submitButton.tintColor = .black
-//            submitButton.setTitleColor(.white, for: .normal)
-        }
-        else {
-            sender.tintColor = .systemGray5
+        } else {
             firstAgreeButton.tintColor = .systemGray5
-            secondAgreeButton.tintColor = .systemGray5
-            thirdAgreeButton.tintColor = .systemGray5
-            forthAgreeButton.tintColor = .systemGray5
-//            submitButton.isEnabled = false
         }
-        checkNextStep()
+        
+        if secondAgreeCheck {
+            secondAgreeButton.tintColor = UIColor(named: "MainColor")
+        } else {
+            secondAgreeButton.tintColor = .systemGray5
+        }
+        
+        if thirdAgreeCheck {
+            thirdAgreeButton.tintColor = UIColor(named: "MainColor")
+        } else {
+            thirdAgreeButton.tintColor = .systemGray5
+        }
+        
+        if forthAgreeCheck {
+            forthAgreeButton.tintColor = UIColor(named: "MainColor")
+        } else {
+            forthAgreeButton.tintColor = .systemGray5
+        }
     }
     
     func checkNextStep() {
-        let checkColor = UIColor(named: "MainColor")
-        
-        if firstAgreeButton.tintColor == checkColor && secondAgreeButton.tintColor == checkColor && thirdAgreeButton.tintColor == checkColor {
+        if firstAgreeCheck && secondAgreeCheck && thirdAgreeCheck {
             submitButton.backgroundColor = .black
             submitButton.setTitleColor(.white, for: .normal)
             submitButton.isEnabled = true
         } else {
-            submitButton.backgroundColor = .systemGray3
-            submitButton.setTitleColor(.systemGray5, for: .normal)
+            submitButton.backgroundColor = .systemGray5
+            submitButton.setTitleColor(.systemGray3, for: .normal)
             submitButton.isEnabled = false
         }
     }
-    
 }
