@@ -46,6 +46,7 @@ class RelayAgreementViewController: UIViewController {
         return view
     }()
     
+    // TODO: 차후에 collectionView로 리펙토링 필요
     // 정해진 약관이 없어서 이름 이렇게 해놨습니다
     private lazy var firstAgreeButton: UIButton = {
         let button = makeAgreeButton(text: "만 14세 이상입니다.")
