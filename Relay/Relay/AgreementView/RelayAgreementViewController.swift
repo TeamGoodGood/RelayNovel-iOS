@@ -7,7 +7,7 @@
 
 import UIKit
 import SnapKit
-
+// TODO: 색깔 임의로 지정했기 때문에 extension 나오면 수정 필요
 class RelayAgreementViewController: UIViewController {
     private let titleLabel: UILabel = {
         let label = UILabel()
