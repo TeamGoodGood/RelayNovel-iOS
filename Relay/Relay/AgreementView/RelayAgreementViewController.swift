@@ -9,15 +9,6 @@ import UIKit
 import SnapKit
 
 class RelayAgreementViewController: UIViewController {
-    private let backButton: UIButton = {
-        let button = UIButton(type: .custom)
-        let image = UIImage(systemName: "arrow.left")?.imageWithColor(color: .black)
-        
-        button.setImage(imageName: image!)
-        
-        return button
-    }()
-    
     private let titleLabel: UILabel = {
         let label = UILabel()
         
@@ -121,7 +112,6 @@ class RelayAgreementViewController: UIViewController {
     
     private func setupLayout() {
         [
-            backButton,
             titleLabel,
             allAgreeButton,
             divider,
@@ -136,13 +126,8 @@ class RelayAgreementViewController: UIViewController {
             
         ].forEach { view.addSubview($0) }
         
-        backButton.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(59.0)
-            $0.leading.equalToSuperview().inset(18.0)
-            $0.width.height.equalTo(26.0)
-        }
         titleLabel.snp.makeConstraints {
-            $0.top.equalTo(backButton.snp.bottom).offset(27.0)
+            $0.top.equalToSuperview().inset(115.0)
             $0.leading.equalToSuperview().inset(21.0)
         }
         allAgreeButton.snp.makeConstraints {
@@ -291,7 +276,6 @@ class RelayAgreementViewController: UIViewController {
             submitButton.isHidden = true
         }
     }
-    
 }
 
 extension RelayAgreementViewController: UISheetPresentationControllerDelegate {
