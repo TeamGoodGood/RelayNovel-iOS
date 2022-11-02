@@ -54,12 +54,7 @@ extension RelayProfileUserInfoView {
     }
     
     private func setUsersRelayCountLabel(_ startedRelayCount: Int, _ participatedRelayCount: Int) {
-        let textAttributes: [NSAttributedString.Key: Any] = [
-            .font: UIFont.systemFont(ofSize: 15.0)
-        ]
-        
         let numberAttributes: [NSAttributedString.Key: Any] = [
-            .font: UIFont.systemFont(ofSize: 15.0),
             .foregroundColor: UIColor.magenta
         ]
         
@@ -72,16 +67,13 @@ extension RelayProfileUserInfoView {
         let joinText = [startedStr, startedRelaysStr, dot, participatedStr, participatedRelaysStr].joined(separator: " ")
         let attributedString = NSMutableAttributedString(string: joinText)
         
-        let range1 = attributedString.mutableString.range(of: startedStr)
-        let range2 = attributedString.mutableString.range(of: startedRelaysStr)
-        let range3 = attributedString.mutableString.range(of: dot)
-        let range4 = attributedString.mutableString.range(of: participatedStr)
-        let range5 = attributedString.mutableString.range(of: participatedRelaysStr)
+        let range1 = attributedString.mutableString.range(of: startedRelaysStr)
+        let range2 = attributedString.mutableString.range(of: participatedRelaysStr)
         
-        [range1, range3, range4].forEach { attributedString.addAttributes(textAttributes, range: $0) }
-        [range2, range5].forEach { attributedString.addAttributes(numberAttributes, range: $0) }
+        [range1, range2].forEach { attributedString.addAttributes(numberAttributes, range: $0) }
         
         usersRelayCountLabel.attributedText = attributedString
+        usersRelayCountLabel.setFont(.caption1)
     }
     
     func configure() {
