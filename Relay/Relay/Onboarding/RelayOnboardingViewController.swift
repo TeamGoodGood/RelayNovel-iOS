@@ -72,6 +72,7 @@ class RelayOnboardingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupLayout()
+        initPageViewController()
     }
     
     // MARK: - func
@@ -115,3 +116,56 @@ class RelayOnboardingViewController: UIViewController {
         
         return [vc1, vc2, vc3]
     }()
+    
+    func initPageViewController() {
+        let pageViewController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal)
+        pageViewController.dataSource = self
+        pageViewController.delegate = self
+        
+        pageViewController.view.frame = CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height)
+        
+        let viewController = [RelayFirstViewController()]
+        pageViewController.setViewControllers(viewController, direction: .reverse, animated: true, completion: nil)
+        
+        view.addSubview(pageViewController.view)
+        self.addChild(pageViewController)
+    }
+    
+    //페이지 컨트롤러 변환
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        let width = scrollView.frame.width
+        currentPage = Int(scrollView.contentOffset.x / width)
+    }
+}
+
+extension RelayOnboardingViewController: UIPageViewControllerDataSource, UIPageViewControllerDelegate {
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
+        print("before")
+        print(currentPage)
+        currentPage = currentPage - 1
+        print(currentPage)
+        print("-")
+        if currentPage == 1 {
+            print("second")
+            return RelaySecondViewController()
+        }else if currentPage == 0 {
+            print("first")
+            return RelayFirstViewController()
+        }else {return nil}
+    }
+    
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
+        print("after")
+        print(currentPage)
+        currentPage = currentPage + 1
+        print(currentPage)
+        print("-")
+        if currentPage == 1 {
+            print("second")
+            return RelaySecondViewController()
+        }else if currentPage == 2 {
+            print("third")
+            return RelayThirdViewController()
+        } else {return nil}
+    }
+}
