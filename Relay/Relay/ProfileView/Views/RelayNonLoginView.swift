@@ -65,17 +65,17 @@ class RelayNonLoginView: UIView {
         logoImageView.snp.makeConstraints {
             $0.top.equalToSuperview().inset(193.0)
             $0.centerX.equalToSuperview()
-            $0.width.equalTo(114.0)
-            $0.height.equalTo(123.0)
+            $0.width.equalTo(111.3)
+            $0.height.equalTo(120.0)
         }
         
         descriptionLabel.snp.makeConstraints {
-            $0.top.equalTo(logoImageView.snp.bottom).offset(28.0)
+            $0.top.equalTo(logoImageView.snp.bottom).offset(30.0)
             $0.centerX.equalToSuperview()
         }
         
         loginButton.snp.makeConstraints {
-            $0.top.equalTo(descriptionLabel.snp.bottom).offset(24.0)
+            $0.top.equalTo(descriptionLabel.snp.bottom).offset(30.0)
             $0.leading.equalToSuperview().inset(20.0)
             $0.trailing.equalToSuperview().inset(20.0)
             $0.height.equalTo(56.0)
