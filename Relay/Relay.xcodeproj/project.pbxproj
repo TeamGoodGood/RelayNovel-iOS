@@ -106,6 +106,13 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
+		32DA1B7D29123F3100C6FDC1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		32F83525290FECB700E2CC4A /* Font */ = {
 			isa = PBXGroup;
 			children = (
@@ -117,6 +124,7 @@
 		32F8353729113F4500E2CC4A /* AgreementView */ = {
 			isa = PBXGroup;
 			children = (
+				32DA1B7D29123F3100C6FDC1 /* View */,
 				32F8353F29114F0E00E2CC4A /* RelayAgreementViewController.swift */,
 			);
 			path = AgreementView;

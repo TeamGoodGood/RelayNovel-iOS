@@ -61,9 +61,15 @@ class RelayAgreementViewController: UIViewController {
         
         return button
     }()
-    
+        
     private lazy var secondAgreeButton: UIButton = {
         let button = makeAgreeButton(text: "(필수) 서비스 이용약관")
+        
+        return button
+    }()
+    
+    private lazy var secondDetailButton: UIButton = {
+        let button = makeDetailButton(text: "")
         
         return button
     }()
@@ -74,8 +80,20 @@ class RelayAgreementViewController: UIViewController {
         return button
     }()
     
+    private lazy var thirdDetailButton: UIButton = {
+        let button = makeDetailButton(text: "")
+        
+        return button
+    }()
+    
     private lazy var forthAgreeButton: UIButton = {
         let button = makeAgreeButton(text: "(선택) 마케팅 정보 수신동의")
+        
+        return button
+    }()
+    
+    private lazy var forthDetailButton: UIButton = {
+        let button = makeDetailButton(text: "")
         
         return button
     }()
@@ -109,8 +127,11 @@ class RelayAgreementViewController: UIViewController {
             divider,
             firstAgreeButton,
             secondAgreeButton,
+            secondDetailButton,
             thirdAgreeButton,
+            thirdDetailButton,
             forthAgreeButton,
+            forthDetailButton,
             submitButton
             
         ].forEach { view.addSubview($0) }
@@ -145,15 +166,27 @@ class RelayAgreementViewController: UIViewController {
             $0.leading.equalToSuperview().inset(20.0)
             $0.width.equalTo(250.0)
         }
+        secondDetailButton.snp.makeConstraints {
+            $0.top.equalTo(secondAgreeButton.snp.top)
+            $0.trailing.equalToSuperview().inset(22.0)
+        }
         thirdAgreeButton.snp.makeConstraints {
             $0.top.equalTo(secondAgreeButton.snp.bottom).offset(31.0)
             $0.leading.equalToSuperview().inset(20.0)
             $0.width.equalTo(250.0)
         }
+        thirdDetailButton.snp.makeConstraints {
+            $0.top.equalTo(thirdAgreeButton)
+            $0.trailing.equalToSuperview().inset(22.0)
+        }
         forthAgreeButton.snp.makeConstraints {
             $0.top.equalTo(thirdAgreeButton.snp.bottom).offset(31.0)
             $0.leading.equalToSuperview().inset(20.0)
             $0.width.equalTo(250.0)
+        }
+        forthDetailButton.snp.makeConstraints {
+            $0.top.equalTo(forthAgreeButton)
+            $0.trailing.equalToSuperview().inset(22.0)
         }
         submitButton.snp.makeConstraints {
             $0.bottom.equalToSuperview().inset(34.44)
@@ -163,7 +196,7 @@ class RelayAgreementViewController: UIViewController {
         }
     }
     
-    private func makeAgreeButton(text: String) -> (UIButton){
+    private func makeAgreeButton(text: String) -> (UIButton) {
         let agreeButton: UIButton = {
             let button = UIButton(type: .custom)
             let config = UIImage.SymbolConfiguration(pointSize: 22)
@@ -187,9 +220,23 @@ class RelayAgreementViewController: UIViewController {
         return agreeButton
     }
     
+    private func makeDetailButton(text: String) -> (UIButton) {
+        let detailButton: UIButton = {
+            let button = UIButton(type: .custom)
+            let config = UIImage.SymbolConfiguration(pointSize: 16)
+            let image = UIImage(systemName: "chevron.right", withConfiguration: config)
+            
+            button.setImage(image, for: .normal)
+            button.tintColor = .black
+            
+            return button
+        }()
+        
+        return detailButton
+    }
+    
     @objc
     func agreeCheck(sender: UIButton) {
-        print(sender.currentImage)
         if sender.tintColor == .systemGray5 {
             sender.tintColor = UIColor(named: "MainColor")
         }
@@ -228,4 +275,5 @@ class RelayAgreementViewController: UIViewController {
             submitButton.isHidden = true
         }
     }
+    
 }
