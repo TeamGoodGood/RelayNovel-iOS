@@ -9,6 +9,7 @@ import UIKit
 import SnapKit
 
 class RelayOnboardingViewController: UIViewController {
+    
     private let skipButton: UIButton = {
         let button = UIButton()
         
@@ -16,6 +17,7 @@ class RelayOnboardingViewController: UIViewController {
         button.setTitleColor(.systemGray, for: .normal)
         button.titleLabel?.font = UIFont(name: "SF Pro", size: 16)
         button.addTarget(self, action: #selector(pressedSkipButton), for: .touchUpInside)
+        
         return button
     }()
     
@@ -28,6 +30,7 @@ class RelayOnboardingViewController: UIViewController {
         button.layer.cornerRadius = 16
         button.titleLabel?.font = UIFont(name: "SF Pro", size: 16)
         button.addTarget(self, action: #selector(pressedStartButton), for: .touchUpInside)
+        button.isHidden = true
         
         return button
     }()
@@ -43,18 +46,35 @@ class RelayOnboardingViewController: UIViewController {
         return controller
     }()
     
+    private var currentPage = 0 {
+        didSet {
+            pageController.currentPage = currentPage
+            if currentPage != 3 {
+                startButton.isHidden = true
+                skipButton.isHidden = false
+                pageController.isHidden = false
+            }
+            else {
+                startButton.isHidden = false
+                skipButton.isHidden = true
+                pageController.isHidden = true
+            }
+        }
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
         setupLayout()
     }
     
+    // MARK: - func
     private func setupLayout(){
         [
             skipButton,
             startButton,
             pageController
-          
+            
         ].forEach { view.addSubview($0) }
         
         skipButton.snp.makeConstraints {
@@ -64,13 +84,13 @@ class RelayOnboardingViewController: UIViewController {
         startButton.snp.makeConstraints {
             $0.bottom.equalToSuperview().inset(75.0)
             $0.centerX.equalToSuperview()
-            $0.width.equalTo(350.0)
-            $0.height.equalTo(56.0)
             $0.leading.equalToSuperview().inset(20.0)
             $0.trailing.equalToSuperview().inset(20.0)
+            $0.width.equalTo(350.0)
+            $0.height.equalTo(56.0)
         }
         pageController.snp.makeConstraints {
-            $0.bottom.equalToSuperview().inset(50.0)
+            $0.bottom.equalToSuperview().inset(85.0)
             $0.centerX.equalToSuperview()
         }
     }
