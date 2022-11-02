@@ -91,7 +91,7 @@ class RelayAgreementViewController: UIViewController {
         return button
     }()
     
-    private lazy var defaultSubmitButton: UIButton = {
+    private lazy var submitButton: UIButton = {
         let button = UIButton()
         button.setTitle("확인", for: .normal)
         button.setTitleColor(.systemGray3, for: .normal)
@@ -101,22 +101,7 @@ class RelayAgreementViewController: UIViewController {
         
         button.layer.cornerRadius = 8
         
-        button.isHidden = false
-        
-        return button
-    }()
-    
-    private lazy var submitButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("확인", for: .normal)
-        button.setTitleColor(.white, for: .normal)
-        button.titleLabel?.font = .boldSystemFont(ofSize: 17)
-        
-        button.backgroundColor = .black
-        
-        button.layer.cornerRadius = 8
-        
-        button.isHidden = true
+        button.isEnabled = false
         
         return button
     }()
@@ -139,7 +124,6 @@ class RelayAgreementViewController: UIViewController {
             thirdDetailButton,
             forthAgreeButton,
             forthDetailButton,
-            defaultSubmitButton,
             submitButton
             
         ].forEach { view.addSubview($0) }
@@ -190,12 +174,6 @@ class RelayAgreementViewController: UIViewController {
         forthDetailButton.snp.makeConstraints {
             $0.top.equalTo(forthAgreeButton)
             $0.trailing.equalToSuperview().inset(22.0)
-        }
-        defaultSubmitButton.snp.makeConstraints {
-            $0.bottom.equalToSuperview().inset(34.44)
-            $0.height.equalTo(52.56)
-            $0.leading.equalToSuperview().inset(15.0)
-            $0.trailing.equalToSuperview().inset(15.0)
         }
         submitButton.snp.makeConstraints {
             $0.bottom.equalToSuperview().inset(34.44)
@@ -293,7 +271,9 @@ class RelayAgreementViewController: UIViewController {
             secondAgreeButton.tintColor = UIColor(named: "MainColor")
             thirdAgreeButton.tintColor = UIColor(named: "MainColor")
             forthAgreeButton.tintColor = UIColor(named: "MainColor")
-            submitButton.isHidden = false
+//            submitButton.isEnabled = true
+//            submitButton.tintColor = .black
+//            submitButton.setTitleColor(.white, for: .normal)
         }
         else {
             sender.tintColor = .systemGray5
@@ -301,17 +281,22 @@ class RelayAgreementViewController: UIViewController {
             secondAgreeButton.tintColor = .systemGray5
             thirdAgreeButton.tintColor = .systemGray5
             forthAgreeButton.tintColor = .systemGray5
-            submitButton.isHidden = true
+//            submitButton.isEnabled = false
         }
+        checkNextStep()
     }
     
     func checkNextStep() {
         let checkColor = UIColor(named: "MainColor")
         
         if firstAgreeButton.tintColor == checkColor && secondAgreeButton.tintColor == checkColor && thirdAgreeButton.tintColor == checkColor {
-            submitButton.isHidden = false
+            submitButton.backgroundColor = .black
+            submitButton.setTitleColor(.white, for: .normal)
+            submitButton.isEnabled = true
         } else {
-            submitButton.isHidden = true
+            submitButton.backgroundColor = .systemGray3
+            submitButton.setTitleColor(.systemGray5, for: .normal)
+            submitButton.isEnabled = false
         }
     }
 }
