@@ -48,11 +48,51 @@ class RelayAgreementViewController: UIViewController {
         return view
     }()
     
-    private var allAgreeCheck = false
-    private var firstAgreeCheck = false
-    private var secondAgreeCheck = false
-    private var thirdAgreeCheck = false
-    private var forthAgreeCheck = false
+    private var allAgreeCheck = false {
+        didSet {
+            if allAgreeCheck {
+                allAgreeButton.tintColor = UIColor(named: "MainColor")
+            } else {
+                allAgreeButton.tintColor = .systemGray5
+            }
+        }
+    }
+    private var firstAgreeCheck = false {
+        didSet {
+            if firstAgreeCheck {
+                firstAgreeButton.tintColor = UIColor(named: "MainColor")
+            } else {
+                firstAgreeButton.tintColor = .systemGray5
+            }
+        }
+    }
+    private var secondAgreeCheck = false {
+        didSet {
+            if secondAgreeCheck {
+                secondAgreeButton.tintColor = UIColor(named: "MainColor")
+            } else {
+                secondAgreeButton.tintColor = .systemGray5
+            }
+        }
+    }
+    private var thirdAgreeCheck = false {
+        didSet {
+            if thirdAgreeCheck {
+                thirdAgreeButton.tintColor = UIColor(named: "MainColor")
+            } else {
+                thirdAgreeButton.tintColor = .systemGray5
+            }
+        }
+    }
+    private var forthAgreeCheck = false {
+        didSet {
+            if forthAgreeCheck {
+                forthAgreeButton.tintColor = UIColor(named: "MainColor")
+            } else {
+                forthAgreeButton.tintColor = .systemGray5
+            }
+        }
+    }
     
     // TODO: 차후에 collectionView로 리펙토링 필요
     // 정해진 약관이 없어서 이름 이렇게 해놨습니다
@@ -296,7 +336,6 @@ extension RelayAgreementViewController {
         default:
             return
         }
-        setupButtonCheck()
         checkNextStep()
     }
     
@@ -311,38 +350,6 @@ extension RelayAgreementViewController {
             secondAgreeCheck = false
             thirdAgreeCheck = false
             forthAgreeCheck = false
-        }
-    }
-    
-    func setupButtonCheck() {
-        if allAgreeCheck {
-            allAgreeButton.tintColor = UIColor(named: "MainColor")
-        } else {
-            allAgreeButton.tintColor = .systemGray5
-        }
-        
-        if firstAgreeCheck {
-            firstAgreeButton.tintColor = UIColor(named: "MainColor")
-        } else {
-            firstAgreeButton.tintColor = .systemGray5
-        }
-        
-        if secondAgreeCheck {
-            secondAgreeButton.tintColor = UIColor(named: "MainColor")
-        } else {
-            secondAgreeButton.tintColor = .systemGray5
-        }
-        
-        if thirdAgreeCheck {
-            thirdAgreeButton.tintColor = UIColor(named: "MainColor")
-        } else {
-            thirdAgreeButton.tintColor = .systemGray5
-        }
-        
-        if forthAgreeCheck {
-            forthAgreeButton.tintColor = UIColor(named: "MainColor")
-        } else {
-            forthAgreeButton.tintColor = .systemGray5
         }
     }
     
