@@ -8,6 +8,7 @@
 import UIKit
 
 extension CALayer {
+    /// 원하는 방향의 edge를 전달해서 해당 edge에만 border를 설정할 수 있는 메소드
     func addBorder(_ edges: [UIRectEdge], color: UIColor, width: CGFloat) {
         for edge in edges {
             let border = CALayer()
