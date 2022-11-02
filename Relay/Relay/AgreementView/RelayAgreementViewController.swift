@@ -60,7 +60,7 @@ class RelayAgreementViewController: UIViewController {
     }()
     
     private lazy var secondDetailButton: UIButton = {
-        let button = makeDetailButton(view: DetailViewController())
+        let button = makeDetailButton()
         button.tag = 0
         
         return button
@@ -72,7 +72,7 @@ class RelayAgreementViewController: UIViewController {
     }()
     
     private lazy var thirdDetailButton: UIButton = {
-        let button = makeDetailButton(view: DetailViewController())
+        let button = makeDetailButton()
         button.tag = 1
         
         return button
@@ -85,7 +85,7 @@ class RelayAgreementViewController: UIViewController {
     }()
     
     private lazy var forthDetailButton: UIButton = {
-        let button = makeDetailButton(view: DetailViewController())
+        let button = makeDetailButton()
         button.tag = 2
         
         return button
@@ -229,7 +229,7 @@ class RelayAgreementViewController: UIViewController {
         return agreeButton
     }
     
-    private func makeDetailButton(view: UIViewController) -> (UIButton) {
+    private func makeDetailButton() -> (UIButton) {
         let detailVC = view
         let detailButton: UIButton = {
             let button = UIButton(type: .custom)
