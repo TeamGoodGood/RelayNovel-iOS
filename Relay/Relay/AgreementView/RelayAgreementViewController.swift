@@ -111,6 +111,15 @@ class RelayAgreementViewController: UIViewController {
         view.backgroundColor = .white
         setupLayout()
     }
+}
+
+extension RelayAgreementViewController: UISheetPresentationControllerDelegate {
+    func sheetPresentationControllerDidChangeSelectedDetentIdentifier(_ sheetPresentationController: UISheetPresentationController) {
+        // 크기 변경 감지 경우
+    }
+}
+
+extension RelayAgreementViewController {
     
     private func setupLayout() {
         [
@@ -299,10 +308,5 @@ class RelayAgreementViewController: UIViewController {
             submitButton.isEnabled = false
         }
     }
-}
-
-extension RelayAgreementViewController: UISheetPresentationControllerDelegate {
-    func sheetPresentationControllerDidChangeSelectedDetentIdentifier(_ sheetPresentationController: UISheetPresentationController) {
-        // 크기 변경 감지 경우
-    }
+    
 }
