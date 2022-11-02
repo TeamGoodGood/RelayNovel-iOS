@@ -25,7 +25,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         // 제일 처음 viewController
         let viewController = ViewController()
-    ()
         
         // 위에서 만든 viewController를 첫 화면으로 띄우기
         window?.rootViewController = viewController
