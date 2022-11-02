@@ -46,7 +46,6 @@ class RelayListHeaderView: UIView {
         button.titleEdgeInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 0.0, right: 0.0)
         button.contentEdgeInsets = UIEdgeInsets(top: 5.0, left: 12.0, bottom: 5.0, right: 18.0)
         
-        
         button.layer.cornerRadius = 14.0
         button.layer.borderWidth = 1.0
         
