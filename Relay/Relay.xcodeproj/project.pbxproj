@@ -14,6 +14,8 @@
 		3265BA36290925DE00532CA4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3265BA34290925DE00532CA4 /* LaunchScreen.storyboard */; };
 		329918A0290A5D8800372C13 /* RelayLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3299189F290A5D8800372C13 /* RelayLoginViewController.swift */; };
 		32DA1B7F29123F7500C6FDC1 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DA1B7E29123F7500C6FDC1 /* DetailViewController.swift */; };
+		32F83527290FECC300E2CC4A /* ChangwonDangamAsac-Bold_0712.otf in Resources */ = {isa = PBXBuildFile; fileRef = 32F83526290FECC300E2CC4A /* ChangwonDangamAsac-Bold_0712.otf */; };
+		32F835362911008400E2CC4A /* Extension+UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F835352911008400E2CC4A /* Extension+UIButton.swift */; };
 		32F8354029114F0E00E2CC4A /* RelayAgreementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F8353F29114F0E00E2CC4A /* RelayAgreementViewController.swift */; };
 		32F835422911571B00E2CC4A /* Extension+UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F835412911571B00E2CC4A /* Extension+UIImage.swift */; };
 		556F3091290F9A09005D7AF4 /* RelayNonLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556F3090290F9A09005D7AF4 /* RelayNonLoginView.swift */; };
@@ -23,14 +25,12 @@
 		556F309B29117E1F005D7AF4 /* RelayListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556F309A29117E1F005D7AF4 /* RelayListCollectionViewCell.swift */; };
 		556F309D29118823005D7AF4 /* BasePaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556F309C29118823005D7AF4 /* BasePaddingLabel.swift */; };
 		55867E0C29123C8500C79FFC /* Extension+CALayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55867E0B29123C8500C79FFC /* Extension+CALayer.swift */; };
+		55867E152912B7DA00C79FFC /* Extension+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55867E142912B7DA00C79FFC /* Extension+UIColor.swift */; };
 		55FDCEAF290A5667000AB345 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 55FDCEAE290A5667000AB345 /* SnapKit */; };
 		55FDCEB1290A5DB2000AB345 /* RelayProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FDCEB0290A5DB2000AB345 /* RelayProfileViewController.swift */; };
 		55FDCEB3290A6440000AB345 /* RelayProfileUserInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FDCEB2290A6440000AB345 /* RelayProfileUserInfoView.swift */; };
 		55FDCEB5290A711C000AB345 /* RelayProfileUserActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FDCEB4290A711C000AB345 /* RelayProfileUserActivityView.swift */; };
 		55FDCEB7290ABB0C000AB345 /* RelayUserActivityCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FDCEB6290ABB0C000AB345 /* RelayUserActivityCollectionViewCell.swift */; };
-		329918A0290A5D8800372C13 /* RelayLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3299189F290A5D8800372C13 /* RelayLoginViewController.swift */; };
-		32F83527290FECC300E2CC4A /* ChangwonDangamAsac-Bold_0712.otf in Resources */ = {isa = PBXBuildFile; fileRef = 32F83526290FECC300E2CC4A /* ChangwonDangamAsac-Bold_0712.otf */; };
-		32F835362911008400E2CC4A /* Extension+UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F835352911008400E2CC4A /* Extension+UIButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +55,7 @@
 		556F309A29117E1F005D7AF4 /* RelayListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayListCollectionViewCell.swift; sourceTree = "<group>"; };
 		556F309C29118823005D7AF4 /* BasePaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePaddingLabel.swift; sourceTree = "<group>"; };
 		55867E0B29123C8500C79FFC /* Extension+CALayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+CALayer.swift"; sourceTree = "<group>"; };
+		55867E142912B7DA00C79FFC /* Extension+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIColor.swift"; sourceTree = "<group>"; };
 		55FDCEB0290A5DB2000AB345 /* RelayProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayProfileViewController.swift; sourceTree = "<group>"; };
 		55FDCEB2290A6440000AB345 /* RelayProfileUserInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayProfileUserInfoView.swift; sourceTree = "<group>"; };
 		55FDCEB4290A711C000AB345 /* RelayProfileUserActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayProfileUserActivityView.swift; sourceTree = "<group>"; };
@@ -120,14 +121,6 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
-		556F3094290FDFC9005D7AF4 /* ProfileView */ = {
-			isa = PBXGroup;
-			children = (
-				3299189F290A5D8800372C13 /* RelayLoginViewController.swift */,
-			);
-			path = Login;
-			sourceTree = "<group>";
-		};
 		32F83525290FECB700E2CC4A /* Font */ = {
 			isa = PBXGroup;
 			children = (
@@ -143,7 +136,27 @@
 				32F8353F29114F0E00E2CC4A /* RelayAgreementViewController.swift */,
 			);
 			path = AgreementView;
-      sourceTree = "<group>";
+			sourceTree = "<group>";
+		};
+		556F3094290FDFC9005D7AF4 /* ProfileView */ = {
+			isa = PBXGroup;
+			children = (
+				55FDCEB0290A5DB2000AB345 /* RelayProfileViewController.swift */,
+				556F3095290FE011005D7AF4 /* Views */,
+			);
+			path = ProfileView;
+			sourceTree = "<group>";
+		};
+		556F3095290FE011005D7AF4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				55FDCEB2290A6440000AB345 /* RelayProfileUserInfoView.swift */,
+				55FDCEB4290A711C000AB345 /* RelayProfileUserActivityView.swift */,
+				55FDCEB6290ABB0C000AB345 /* RelayUserActivityCollectionViewCell.swift */,
+				556F3090290F9A09005D7AF4 /* RelayNonLoginView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
 		};
 		55867E0D291258FD00C79FFC /* RelayListView */ = {
 			isa = PBXGroup;
@@ -169,28 +182,9 @@
 			children = (
 				556F3092290FA59A005D7AF4 /* Extension+UILabel.swift */,
 				55867E0B29123C8500C79FFC /* Extension+CALayer.swift */,
+				55867E142912B7DA00C79FFC /* Extension+UIColor.swift */,
 			);
 			path = "Extension+";
-			sourceTree = "<group>";
-		};
-		556F3094290FDFC9005D7AF4 /* ProfileView */ = {
-			isa = PBXGroup;
-			children = (
-				55FDCEB0290A5DB2000AB345 /* RelayProfileViewController.swift */,
-				556F3095290FE011005D7AF4 /* Views */,
-			);
-			path = ProfileView;
-			sourceTree = "<group>";
-		};
-		556F3095290FE011005D7AF4 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				55FDCEB2290A6440000AB345 /* RelayProfileUserInfoView.swift */,
-				55FDCEB4290A711C000AB345 /* RelayProfileUserActivityView.swift */,
-				55FDCEB6290ABB0C000AB345 /* RelayUserActivityCollectionViewCell.swift */,
-				556F3090290F9A09005D7AF4 /* RelayNonLoginView.swift */,
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 		55FDCEAB290A55FF000AB345 /* Frameworks */ = {
@@ -288,6 +282,7 @@
 				3265BA2A290925DD00532CA4 /* AppDelegate.swift in Sources */,
 				55FDCEB3290A6440000AB345 /* RelayProfileUserInfoView.swift in Sources */,
 				556F309929103676005D7AF4 /* RelayListHeaderView.swift in Sources */,
+				55867E152912B7DA00C79FFC /* Extension+UIColor.swift in Sources */,
 				55FDCEB5290A711C000AB345 /* RelayProfileUserActivityView.swift in Sources */,
 				556F3093290FA59A005D7AF4 /* Extension+UILabel.swift in Sources */,
 				55867E0C29123C8500C79FFC /* Extension+CALayer.swift in Sources */,
