@@ -210,7 +210,7 @@ extension RelayAgreementViewController {
         }
     }
     
-    private func makeAgreeButton(text: String) -> (UIButton) {
+    private func makeAgreeButton(text: String) -> UIButton {
         let agreeButton: UIButton = {
             let button = UIButton(type: .custom)
             let config = UIImage.SymbolConfiguration(pointSize: 22)
