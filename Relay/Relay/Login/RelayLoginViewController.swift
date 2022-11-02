@@ -13,8 +13,9 @@ class RelayLoginViewController: UIViewController {
     
     private let backButton: UIButton = {
         let button = UIButton(type: .custom)
+        let image = UIImage(systemName: "arrow.left")
         
-        button.setImage(systemName: "arrow.left")
+        button.setImage(image: image!)
         button.tintColor = .black
         
         return button
@@ -119,8 +120,6 @@ class RelayLoginViewController: UIViewController {
             loginImageView,
             noLoginButton,
             loginButton
-            
-            
         ].forEach { view.addSubview($0) }
         
         noLoginButton.addSubview(noLoginLabel)
