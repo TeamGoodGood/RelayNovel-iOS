@@ -25,7 +25,6 @@
 		556F309B29117E1F005D7AF4 /* RelayListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556F309A29117E1F005D7AF4 /* RelayListCollectionViewCell.swift */; };
 		556F309D29118823005D7AF4 /* BasePaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556F309C29118823005D7AF4 /* BasePaddingLabel.swift */; };
 		55867E0C29123C8500C79FFC /* Extension+CALayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55867E0B29123C8500C79FFC /* Extension+CALayer.swift */; };
-		55867E132912AE7300C79FFC /* Extension+UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55867E122912AE7300C79FFC /* Extension+UIFont.swift */; };
 		55FDCEAF290A5667000AB345 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 55FDCEAE290A5667000AB345 /* SnapKit */; };
 		55FDCEB1290A5DB2000AB345 /* RelayProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FDCEB0290A5DB2000AB345 /* RelayProfileViewController.swift */; };
 		55FDCEB3290A6440000AB345 /* RelayProfileUserInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FDCEB2290A6440000AB345 /* RelayProfileUserInfoView.swift */; };
@@ -55,7 +54,6 @@
 		556F309A29117E1F005D7AF4 /* RelayListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayListCollectionViewCell.swift; sourceTree = "<group>"; };
 		556F309C29118823005D7AF4 /* BasePaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePaddingLabel.swift; sourceTree = "<group>"; };
 		55867E0B29123C8500C79FFC /* Extension+CALayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+CALayer.swift"; sourceTree = "<group>"; };
-		55867E122912AE7300C79FFC /* Extension+UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIFont.swift"; sourceTree = "<group>"; };
 		55FDCEB0290A5DB2000AB345 /* RelayProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayProfileViewController.swift; sourceTree = "<group>"; };
 		55FDCEB2290A6440000AB345 /* RelayProfileUserInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayProfileUserInfoView.swift; sourceTree = "<group>"; };
 		55FDCEB4290A711C000AB345 /* RelayProfileUserActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayProfileUserActivityView.swift; sourceTree = "<group>"; };
@@ -181,7 +179,6 @@
 			isa = PBXGroup;
 			children = (
 				556F3092290FA59A005D7AF4 /* Extension+UILabel.swift */,
-				55867E122912AE7300C79FFC /* Extension+UIFont.swift */,
 				55867E0B29123C8500C79FFC /* Extension+CALayer.swift */,
 			);
 			path = "Extension+";
@@ -281,7 +278,6 @@
 				32F835362911008400E2CC4A /* Extension+UIButton.swift in Sources */,
 				3265BA2A290925DD00532CA4 /* AppDelegate.swift in Sources */,
 				55FDCEB3290A6440000AB345 /* RelayProfileUserInfoView.swift in Sources */,
-				55867E132912AE7300C79FFC /* Extension+UIFont.swift in Sources */,
 				556F309929103676005D7AF4 /* RelayListHeaderView.swift in Sources */,
 				55FDCEB5290A711C000AB345 /* RelayProfileUserActivityView.swift in Sources */,
 				556F3093290FA59A005D7AF4 /* Extension+UILabel.swift in Sources */,
