@@ -7,6 +7,7 @@
 
 import UIKit
 
+// UIImage Color변경
 extension UIImage {
     func imageWithColor(color: UIColor) -> UIImage {
         UIGraphicsBeginImageContextWithOptions(self.size, false, self.scale)
