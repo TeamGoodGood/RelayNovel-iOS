@@ -66,7 +66,7 @@ class RelayListCollectionViewCell: UICollectionViewCell {
 }
 
 extension RelayListCollectionViewCell {
-    func configure() {
+    func configure(_ index: Int) {
         statusLabel.text = "달리는중"
         stepCountLabel.text = "8/20 터치"
         relayTitleLabel.text = "릴레이 소설 제목입니다"
@@ -74,7 +74,7 @@ extension RelayListCollectionViewCell {
         creationTimeLabel.text = "1일 전"
         heartCountLabel.attributedText = setLabelwithHeartImage("17")
         
-        setupComponent()
+        setupComponent(index)
         setupLayout()
     }
     
@@ -103,12 +103,15 @@ extension RelayListCollectionViewCell {
         return attributedString
     }
     
-    private func setupComponent() {
+    private func setupComponent(_ index: Int) {
         heartCountLabel.sizeToFit()
         bgmTagLabel.sizeToFit()
         
-        layer.borderWidth = 1.0
-        layer.borderColor = UIColor.systemGray6.cgColor
+        if index == 0 {
+            layer.addBorder([.top, .bottom], color: .systemGray6, width: 1.0)
+        } else {
+            layer.addBorder([.bottom], color: .systemGray6, width: 1.0)
+        }
     }
     
     private func setupLayout() {
