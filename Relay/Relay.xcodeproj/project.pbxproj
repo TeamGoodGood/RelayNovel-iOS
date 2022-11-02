@@ -13,6 +13,7 @@
 		3265BA33290925DE00532CA4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3265BA32290925DE00532CA4 /* Assets.xcassets */; };
 		3265BA36290925DE00532CA4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3265BA34290925DE00532CA4 /* LaunchScreen.storyboard */; };
 		329918A0290A5D8800372C13 /* RelayLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3299189F290A5D8800372C13 /* RelayLoginViewController.swift */; };
+		32DA1B7F29123F7500C6FDC1 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DA1B7E29123F7500C6FDC1 /* DetailViewController.swift */; };
 		32F83527290FECC300E2CC4A /* ChangwonDangamAsac-Bold_0712.otf in Resources */ = {isa = PBXBuildFile; fileRef = 32F83526290FECC300E2CC4A /* ChangwonDangamAsac-Bold_0712.otf */; };
 		32F835362911008400E2CC4A /* Extension+UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F835352911008400E2CC4A /* Extension+UIButton.swift */; };
 		32F8354029114F0E00E2CC4A /* RelayAgreementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F8353F29114F0E00E2CC4A /* RelayAgreementViewController.swift */; };
@@ -36,6 +37,7 @@
 		3265BA35290925DE00532CA4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3265BA37290925DE00532CA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3299189F290A5D8800372C13 /* RelayLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayLoginViewController.swift; sourceTree = "<group>"; };
+		32DA1B7E29123F7500C6FDC1 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		32F83526290FECC300E2CC4A /* ChangwonDangamAsac-Bold_0712.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ChangwonDangamAsac-Bold_0712.otf"; sourceTree = "<group>"; };
 		32F835352911008400E2CC4A /* Extension+UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIButton.swift"; sourceTree = "<group>"; };
 		32F8353F29114F0E00E2CC4A /* RelayAgreementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayAgreementViewController.swift; sourceTree = "<group>"; };
@@ -106,13 +108,6 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
-		32DA1B7D29123F3100C6FDC1 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		32F83525290FECB700E2CC4A /* Font */ = {
 			isa = PBXGroup;
 			children = (
@@ -124,7 +119,7 @@
 		32F8353729113F4500E2CC4A /* AgreementView */ = {
 			isa = PBXGroup;
 			children = (
-				32DA1B7D29123F3100C6FDC1 /* View */,
+				32DA1B7E29123F7500C6FDC1 /* DetailViewController.swift */,
 				32F8353F29114F0E00E2CC4A /* RelayAgreementViewController.swift */,
 			);
 			path = AgreementView;
@@ -239,6 +234,7 @@
 				32F8354029114F0E00E2CC4A /* RelayAgreementViewController.swift in Sources */,
 				55FDCEB7290ABB0C000AB345 /* RelayUserActivityCollectionViewCell.swift in Sources */,
 				3265BA2E290925DD00532CA4 /* ViewController.swift in Sources */,
+				32DA1B7F29123F7500C6FDC1 /* DetailViewController.swift in Sources */,
 				32F835362911008400E2CC4A /* Extension+UIButton.swift in Sources */,
 				3265BA2A290925DD00532CA4 /* AppDelegate.swift in Sources */,
 				55FDCEB3290A6440000AB345 /* RelayProfileUserInfoView.swift in Sources */,

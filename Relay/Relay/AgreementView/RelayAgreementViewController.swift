@@ -69,7 +69,7 @@ class RelayAgreementViewController: UIViewController {
     }()
     
     private lazy var secondDetailButton: UIButton = {
-        let button = makeDetailButton(text: "")
+        let button = makeDetailButton(view: DetailViewController())
         
         return button
     }()
@@ -81,7 +81,7 @@ class RelayAgreementViewController: UIViewController {
     }()
     
     private lazy var thirdDetailButton: UIButton = {
-        let button = makeDetailButton(text: "")
+        let button = makeDetailButton(view: DetailViewController())
         
         return button
     }()
@@ -93,7 +93,7 @@ class RelayAgreementViewController: UIViewController {
     }()
     
     private lazy var forthDetailButton: UIButton = {
-        let button = makeDetailButton(text: "")
+        let button = makeDetailButton(view: DetailViewController())
         
         return button
     }()
@@ -220,7 +220,8 @@ class RelayAgreementViewController: UIViewController {
         return agreeButton
     }
     
-    private func makeDetailButton(text: String) -> (UIButton) {
+    private func makeDetailButton(view: UIViewController) -> (UIButton) {
+        let detailVC = view
         let detailButton: UIButton = {
             let button = UIButton(type: .custom)
             let config = UIImage.SymbolConfiguration(pointSize: 16)
@@ -229,10 +230,25 @@ class RelayAgreementViewController: UIViewController {
             button.setImage(image, for: .normal)
             button.tintColor = .black
             
+            button.addTarget(self, action: #selector(goToDetailView(sender:)), for: .touchUpInside)
+
             return button
         }()
         
         return detailButton
+    }
+    
+    @objc func goToDetailView(sender: UIViewController) {
+        let detailVC = DetailViewController()
+        
+        if let sheet = detailVC.sheetPresentationController {
+            sheet.detents = [.medium(), .large()]
+
+            sheet.delegate = self
+
+            sheet.prefersGrabberVisible = true
+        }
+        self.present(detailVC, animated: true, completion: nil)
     }
     
     @objc
@@ -276,4 +292,10 @@ class RelayAgreementViewController: UIViewController {
         }
     }
     
+}
+
+extension RelayAgreementViewController: UISheetPresentationControllerDelegate {
+    func sheetPresentationControllerDidChangeSelectedDetentIdentifier(_ sheetPresentationController: UISheetPresentationController) {
+        // 크기 변경 감지 경우
+    }
 }
