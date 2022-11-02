@@ -18,7 +18,6 @@ class RelayListCollectionViewCell: UICollectionViewCell {
         label.font = .systemFont(ofSize: 13.0)
         label.textColor = .white
         
-        
         label.clipsToBounds = true
         label.backgroundColor = .systemPink
         label.layer.cornerRadius = 12.0
