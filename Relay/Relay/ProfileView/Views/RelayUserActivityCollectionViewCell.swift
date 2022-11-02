@@ -47,7 +47,7 @@ extension RelayUserActivityCollectionViewCell {
     
     private func setupLayout() {
         layer.cornerRadius = 16.0
-        backgroundColor = .systemGray6
+        backgroundColor = .relayGray2
         
         [
             imageView,
