@@ -51,6 +51,19 @@ class RelayPenNameViewController: UIViewController {
         return textField
     }()
     
+    private lazy var submitButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("확인", for: .normal)
+        button.setTitleColor(.systemGray3, for: .normal)
+        button.titleLabel?.font = .boldSystemFont(ofSize: 17)
+        
+        button.backgroundColor = .systemGray5
+        
+        button.layer.cornerRadius = 8
+        
+        return button
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -64,7 +77,8 @@ extension RelayPenNameViewController {
             backButton,
             titleLabel,
             subTitleLabel,
-            penNameTextField
+            penNameTextField,
+            submitButton
         ].forEach { view.addSubview($0) }
         
         backButton.snp.makeConstraints {
@@ -86,6 +100,12 @@ extension RelayPenNameViewController {
             $0.leading.equalToSuperview().inset(21.0)
             $0.width.equalTo(350.0)
             $0.height.equalTo(41.0)
+        }
+        submitButton.snp.makeConstraints {
+            $0.bottom.equalToSuperview().inset(34.44)
+            $0.height.equalTo(52.56)
+            $0.leading.equalToSuperview().inset(15.0)
+            $0.trailing.equalToSuperview().inset(15.0)
         }
     }
 }
