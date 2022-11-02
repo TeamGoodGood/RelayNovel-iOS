@@ -23,7 +23,8 @@ class RelayNonLoginView: UIView {
 로그인하지 않은 상태입니다.
 로그인/회원가입 후 이용해주세요.
 """
-        label.font = .systemFont(ofSize: 15.0)
+        label.setFont(.caption1)
+        label.textColor = UIColor(red: 114/255, green: 113/255, blue: 111/255, alpha: 1.0)
         label.numberOfLines = 2
         label.setLineHeight(text: text, lineHeight: 24.0)
         label.textAlignment = .center
