@@ -74,9 +74,7 @@ extension RelayListCollectionViewCell {
         creationTimeLabel.text = "1일 전"
         heartCountLabel.attributedText = setLabelwithHeartImage("17")
         
-        heartCountLabel.sizeToFit()
-        bgmTagLabel.sizeToFit()
-        
+        setupComponent()
         setupLayout()
     }
     
@@ -103,6 +101,14 @@ extension RelayListCollectionViewCell {
         attributedString.append(NSAttributedString(string: " " + text))
         
         return attributedString
+    }
+    
+    private func setupComponent() {
+        heartCountLabel.sizeToFit()
+        bgmTagLabel.sizeToFit()
+        
+        layer.borderWidth = 1.0
+        layer.borderColor = UIColor.systemGray6.cgColor
     }
     
     private func setupLayout() {
