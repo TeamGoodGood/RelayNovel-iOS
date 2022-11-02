@@ -9,7 +9,7 @@ import UIKit
 
 class DetailViewController: UIViewController {
     
-    private let detailLabel: UILabel = {
+     let detailLabel: UILabel = {
         let label = UILabel()
         
         label.text = "약관"
@@ -32,7 +32,7 @@ class DetailViewController: UIViewController {
         detailLabel.snp.makeConstraints {
             $0.top.equalToSuperview().inset(59.0)
             $0.leading.equalToSuperview().inset(18.0)
-            $0.width.height.equalTo(26.0)
+            $0.width.height.equalTo(100.0)
         }
     }
 }
