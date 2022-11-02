@@ -18,6 +18,7 @@ class TabBarController: UITabBarController {
             tag: 0
         )
         
+        viewController.view.backgroundColor = .systemBackground
         viewController.tabBarItem = tabBarItems
         
         return viewController
@@ -31,7 +32,8 @@ class TabBarController: UITabBarController {
             image: nil,
             tag: 2
         )
-        
+
+        viewController.view.backgroundColor = .systemBackground
         viewController.tabBarItem = tabBarItems
         
         return viewController
@@ -54,6 +56,24 @@ class TabBarController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tabBar.backgroundColor = .systemBackground
+        setupTabBar()
     }
     
+}
+
+extension TabBarController {
+    private func setupTabBar() {
+        viewControllers = [
+            relayMainViewController,
+            relayBrowsingViewController,
+            relayProfileViewController
+        ]
+        
+        tabBar.isTranslucent = false
+        tabBar.tintColor = .systemPink
+        tabBar.layer.borderWidth = 1.0
+        tabBar.layer.borderColor = UIColor.systemGray6.cgColor
+    }
 }
