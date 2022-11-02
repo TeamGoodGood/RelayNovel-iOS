@@ -40,6 +40,10 @@ extension RelayListView: UICollectionViewDelegateFlowLayout {
         
         return CGSize(width: width, height: height)
     }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        0.0
+    }
 }
 
 extension RelayListView: UICollectionViewDataSource {
