@@ -28,6 +28,8 @@ class RelayBrowsingHeaderView: UIView {
         return stackView
     }()
     
+    private lazy var relayListView = RelayListView(frame: .zero, type: .browse)
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
