@@ -9,20 +9,29 @@ import UIKit
 import SnapKit
 
 class BrowsingTitleView: UIView {
+    var title: String
     
     private lazy var titleButton: UIButton = {
         let button = UIButton()
+        
+        var titleAttribute = AttributedString(title)
+        titleAttribute.font = .systemFont(ofSize: 24.0, weight: .bold)
+        titleAttribute.foregroundColor = .relayBlack
+        
+        button.setAttributedTitle(NSAttributedString(titleAttribute), for: .normal)
         
         return button
     }()
     
     private lazy var titleUnderLineView: UIView = {
         let view = UIView()
+        view.backgroundColor = .relayPink1
         
         return view
     }()
     
-    override init(frame: CGRect) {
+    init(frame: CGRect, title: String) {
+        self.title = title
         super.init(frame: frame)
         
     }
