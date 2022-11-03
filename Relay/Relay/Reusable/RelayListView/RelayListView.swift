@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 
 class RelayListView: UIView {
-    private var listHeaderView: RelayListHeaderView?
+    var listHeaderView: RelayListHeaderView?
     private lazy var listCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)

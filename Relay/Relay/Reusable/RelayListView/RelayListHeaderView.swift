@@ -30,7 +30,7 @@ class RelayListHeaderView: UIView {
         return label
     }()
     
-    private lazy var listFilterButton: UIButton = {
+    lazy var listFilterButton: UIButton = {
         let button = UIButton()
         let image = UIImage(systemName: "slider.horizontal.3")
         
