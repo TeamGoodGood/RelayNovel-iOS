@@ -17,7 +17,7 @@ class RelayProfileViewController: UIViewController {
     
     private lazy var separatorView: UIView = {
         let view = UIView()
-        view.backgroundColor = .black
+        view.backgroundColor = UIColor(red: 226/255, green: 226/255, blue: 226/255, alpha: 1.0)
         
         return view
     }()
