@@ -31,6 +31,7 @@ class RelayBrowsingHeaderView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
+        setupLayout()
     }
     
     required init?(coder: NSCoder) {
@@ -43,9 +44,8 @@ extension RelayBrowsingHeaderView {
         addSubview(stackView)
         
         stackView.snp.makeConstraints {
-            $0.top.equalToSuperview()
+            $0.centerY.equalToSuperview()
             $0.leading.equalToSuperview().inset(20.0)
-            $0.height.equalTo(60.0)
         }
     }
 }
