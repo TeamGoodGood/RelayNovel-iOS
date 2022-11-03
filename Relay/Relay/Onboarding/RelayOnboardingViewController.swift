@@ -70,13 +70,13 @@ class RelayOnboardingViewController: UIPageViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        setup()
+        setupView()
         setupLayout()
     }
 }
     extension RelayOnboardingViewController {
         
-        func setup() {
+        func setupView() {
             dataSource = self
             delegate = self
             
