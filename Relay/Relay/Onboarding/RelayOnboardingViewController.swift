@@ -10,10 +10,28 @@ import SnapKit
 
 class RelayOnboardingViewController: UIPageViewController {
     
+    //MARK: property
     var pages = [UIViewController]()
     let pageControl = UIPageControl()
     let initialPage = 0
+    private var currentpage = 0 {
+           didSet {
+               print("didSet \(currentpage)")
+               pageController.currentPage = currentpage
+               if currentpage != 2 {
+                   startButton.isHidden = true
+                   skipButton.isHidden = false
+                   pageController.isHidden = false
+               }
+               else {
+                   startButton.isHidden = false
+                   skipButton.isHidden = true
+                   pageController.isHidden = true
+               }
+           }
+       }
     
+    //MARK: UI Components
     private let skipButton: UIButton = {
         let button = UIButton()
         
@@ -50,23 +68,15 @@ class RelayOnboardingViewController: UIPageViewController {
         return controller
     }()
     
-    private var currentpage = 0 {
-           didSet {
-               print("didSet \(currentpage)")
-               pageController.currentPage = currentpage
-               if currentpage != 2 {
-                   startButton.isHidden = true
-                   skipButton.isHidden = false
-                   pageController.isHidden = false
-               }
-               else {
-                   startButton.isHidden = false
-                   skipButton.isHidden = true
-                   pageController.isHidden = true
-               }
-           }
-       }
+    // MARK: Life Cycle Method
+    override init(transitionStyle style: UIPageViewController.TransitionStyle, navigationOrientation: UIPageViewController.NavigationOrientation, options: [UIPageViewController.OptionsKey : Any]? = nil) {
+        super.init(transitionStyle: .scroll, navigationOrientation: .horizontal)
+        // transitionStyle이 default 값이 pagecurl이라 그 스타일을 scroll로 바꿔줬습니다.
+    }
     
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -75,8 +85,8 @@ class RelayOnboardingViewController: UIPageViewController {
     }
 }
     extension RelayOnboardingViewController {
-        
-        func setup() {
+        //MARK: Private func
+        private func setup() {
             dataSource = self
             delegate = self
             
@@ -90,7 +100,9 @@ class RelayOnboardingViewController: UIPageViewController {
             pages.append(page2)
             pages.append(page3)
             
-            setViewControllers([pages[initialPage]], direction: .reverse, animated: true, completion: nil)
+            
+            setViewControllers([pages[initialPage]], direction: .forward, animated: false, completion: nil)
+            
         }
         private func setupLayout(){
                 [
@@ -132,7 +144,7 @@ class RelayOnboardingViewController: UIPageViewController {
     extension RelayOnboardingViewController {
 
         @objc func pageControlTapped(_ sender: UIPageControl) {
-            setViewControllers([pages[sender.currentPage]], direction: .forward, animated: true, completion: nil)
+            setViewControllers([pages[sender.currentPage]], direction: .forward, animated: false, completion: nil)
         }
     }
     

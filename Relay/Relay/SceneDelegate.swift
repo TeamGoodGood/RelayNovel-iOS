@@ -24,7 +24,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         
         // 제일 처음 viewController
-        let viewController = ViewController()
+        let viewController = RelayOnboardingViewController()
         
         // 위에서 만든 viewController를 첫 화면으로 띄우기
         window?.rootViewController = viewController
