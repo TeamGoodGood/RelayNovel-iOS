@@ -10,6 +10,17 @@ import SnapKit
 
 class BrowsingTitleView: UIView {
     
+    private lazy var titleButton: UIButton = {
+        let button = UIButton()
+        
+        return button
+    }()
+    
+    private lazy var titleUnderLineView: UIView = {
+        let view = UIView()
+        
+        return view
+    }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
