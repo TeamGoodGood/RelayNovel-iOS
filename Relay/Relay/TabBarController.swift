@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 
 class TabBarController: UITabBarController {
-    private lazy var relayMainViewController: UIViewController = {
+    private lazy var mainViewController: UIViewController = {
         //TODO: RelayMainViewController 구현 후 변경
         let viewController = UINavigationController(rootViewController: UIViewController())
         let image = UIImage(systemName: "flag")?.resize(newWidth: 19.0)
@@ -28,7 +28,7 @@ class TabBarController: UITabBarController {
         return viewController
     }()
     
-    private lazy var relayBrowsingViewController: UIViewController = {
+    private lazy var browsingViewController: UIViewController = {
         //TODO: RelayBrowsingViewController 구현 후 변경
         let viewController = UINavigationController(rootViewController: UIViewController())
         let image = UIImage(systemName: "book")?.resize(newWidth: 23.0)
@@ -47,7 +47,7 @@ class TabBarController: UITabBarController {
         return viewController
     }()
     
-    private lazy var relayProfileViewController: UIViewController = {
+    private lazy var profileViewController: UIViewController = {
         let viewController = UINavigationController(rootViewController: RelayProfileViewController())
         let image = UIImage(systemName: "person")?.resize(newWidth: 18.0)
         let selectedImage = UIImage(systemName: "person.fill")?.resize(newWidth: 19.0)
@@ -78,9 +78,9 @@ class TabBarController: UITabBarController {
 extension TabBarController {
     private func setupTabBar() {
         viewControllers = [
-            relayMainViewController,
-            relayBrowsingViewController,
-            relayProfileViewController
+            mainViewController,
+            browsingViewController,
+            profileViewController
         ]
         
         let systemFontAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 11.0, weight: .bold)]
