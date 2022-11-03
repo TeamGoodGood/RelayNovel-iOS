@@ -122,7 +122,7 @@ extension RelayListHeaderView {
             
             listFilterButton.snp.makeConstraints {
                 $0.leading.equalToSuperview().inset(20.0)
-                $0.centerY.equalToSuperview()
+                $0.bottom.equalToSuperview().inset(16.0)
             }
             
         default:
