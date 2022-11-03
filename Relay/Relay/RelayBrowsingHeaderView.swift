@@ -9,9 +9,9 @@ import UIKit
 import SnapKit
 
 class RelayBrowsingHeaderView: UIView {
-    private lazy var entireTitleView = BrowsingTitleView(frame: .zero, title: "전체")
-    private lazy var runningTitleView = BrowsingTitleView(frame: .zero, title: "달리는중")
-    private lazy var completedTitleView = BrowsingTitleView(frame: .zero, title: "완주")
+    lazy var entireTitleView = BrowsingTitleView(frame: .zero, title: "전체")
+    lazy var runningTitleView = BrowsingTitleView(frame: .zero, title: "달리는중")
+    lazy var completedTitleView = BrowsingTitleView(frame: .zero, title: "완주")
     
     private lazy var stackView: UIStackView = {
         let stackView = UIStackView()

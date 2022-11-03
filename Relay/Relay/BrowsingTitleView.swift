@@ -11,7 +11,7 @@ import SnapKit
 class BrowsingTitleView: UIView {
     var title: String
     
-    private lazy var titleButton: UIButton = {
+    lazy var titleButton: UIButton = {
         let button = UIButton()
         
         var titleAttribute = AttributedString(title)
@@ -23,7 +23,7 @@ class BrowsingTitleView: UIView {
         return button
     }()
     
-    private lazy var titleUnderlineView: UIView = {
+    lazy var titleUnderlineView: UIView = {
         let view = UIView()
         view.backgroundColor = .relayPink1
         
