@@ -37,6 +37,19 @@ class RelayAllReadyViewController: UIViewController {
         return imageView
     }()
     
+    private let startButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("시작하기", for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.titleLabel?.font = .boldSystemFont(ofSize: 17)
+        
+        button.backgroundColor = .black
+        
+        button.layer.cornerRadius = 8
+        
+        return button
+    }()
+    
     override func viewDidLoad() {
         view.backgroundColor = .white
         setupLayout()
@@ -46,7 +59,8 @@ class RelayAllReadyViewController: UIViewController {
         [
             backButton,
             titleLabel,
-            allReadyImage
+            allReadyImage,
+            startButton
         ].forEach { view.addSubview($0) }
         
         backButton.snp.makeConstraints {
@@ -63,6 +77,12 @@ class RelayAllReadyViewController: UIViewController {
             $0.width.equalTo(116.0)
             $0.height.equalTo(125.03)
             $0.centerX.equalToSuperview()
+        }
+        startButton.snp.makeConstraints {
+            $0.bottom.equalToSuperview().inset(34.44)
+            $0.height.equalTo(52.56)
+            $0.leading.equalToSuperview().inset(20.0)
+            $0.trailing.equalToSuperview().inset(20.0)
         }
     }
 }
