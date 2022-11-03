@@ -51,7 +51,7 @@ class RelayPenNameViewController: UIViewController {
         textField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
         textField.addTarget(self, action: #selector(checkText), for: .editingChanged)
         
-        textField.leftView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: 12.0, height: 0.0))
+        textField.leftView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: 16.0, height: 0.0))
         textField.leftViewMode = .always
         
         return textField
@@ -80,11 +80,46 @@ class RelayPenNameViewController: UIViewController {
         return label
     }()
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.addKeyboardNotifications()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.removeKeyboardNotifications()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         setupLayout()
         NotificationCenter.default.addObserver(self, selector: #selector(textDidChange), name: UITextField.textDidChangeNotification, object: nil)
+    }
+    
+
+    func addKeyboardNotifications(){
+        // 키보드가 나타날 때 앱에게 알리는 메소드 추가
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification , object: nil)
+    }
+    
+    // 키보드가 나타났다는 알림을 받으면 실행할 메소드
+    @objc func keyboardWillShow(_ noti: NSNotification){
+        if let keyboardFrame: NSValue = noti.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
+            let keyboardRectangle = keyboardFrame.cgRectValue
+            let keyboardHeight = keyboardRectangle.height
+            
+            submitButton.snp.makeConstraints {
+                $0.bottom.equalToSuperview().inset(34.44 + keyboardHeight)
+                $0.height.equalTo(52.56)
+                $0.leading.equalToSuperview().inset(15.0)
+                $0.trailing.equalToSuperview().inset(15.0)
+            }
+        }
+    }
+
+    // 노티피케이션을 제거하는 메소드
+    func removeKeyboardNotifications(){
+        // 키보드가 나타날 때 앱에게 알리는 메소드 제거
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification , object: nil)
     }
     
     // 마지막 글자 한글 받침 사용하기 위해
