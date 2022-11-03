@@ -6,6 +6,7 @@
 //
 
 // TODO: 서버 연결 할때 로직 구현 필요
+import UIKit
 import SwiftUI
 import SwiftUIPager
 
