@@ -71,6 +71,7 @@ class RelayAllReadyViewController: UIViewController {
         titleLabel.snp.makeConstraints {
             $0.top.equalTo(backButton).offset(55.0)
             $0.leading.equalToSuperview().inset(40.0)
+            $0.height.equalTo(144.0)
         }
         allReadyImage.snp.makeConstraints {
             $0.top.equalTo(titleLabel.snp.bottom).offset(138.0)
