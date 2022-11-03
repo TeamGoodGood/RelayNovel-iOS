@@ -16,7 +16,7 @@ class RelayBrowsingHeaderView: UIView {
     private lazy var stackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .horizontal
-        stackView.distribution =. equalSpacing
+        stackView.distribution = .equalSpacing
         stackView.spacing = 16.0
         
         [
@@ -44,8 +44,9 @@ extension RelayBrowsingHeaderView {
         addSubview(stackView)
         
         stackView.snp.makeConstraints {
-            $0.centerY.equalToSuperview()
+            $0.top.equalToSuperview()
             $0.leading.equalToSuperview().inset(20.0)
+            $0.bottom.equalToSuperview()
         }
     }
 }
