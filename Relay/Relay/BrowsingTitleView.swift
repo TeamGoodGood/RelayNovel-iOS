@@ -23,7 +23,7 @@ class BrowsingTitleView: UIView {
         return button
     }()
     
-    private lazy var titleUnderLineView: UIView = {
+    private lazy var titleUnderlineView: UIView = {
         let view = UIView()
         view.backgroundColor = .relayPink1
         
