@@ -67,6 +67,8 @@ extension RelayBrowsingViewController {
         relayBrowsingHeaderView.entireTitleView.titleButton.addTarget(self, action: #selector(touchButton), for: .touchUpInside)
         relayBrowsingHeaderView.completedTitleView.titleButton.addTarget(self, action: #selector(touchButton), for: .touchUpInside)
         relayBrowsingHeaderView.runningTitleView.titleButton.addTarget(self, action: #selector(touchButton), for: .touchUpInside)
+        
+        relayListView.listHeaderView?.listFilterButton.addTarget(self, action: #selector(touchListViewFilterButton), for: .touchUpInside)
     }
     
     private func changeButtonsHighlight() {
@@ -154,5 +156,14 @@ extension RelayBrowsingViewController {
         default:
             break
         }
+    }
+    
+    @objc private func touchListViewFilterButton() {
+        print("리스트필터 버튼 터치됨")
+        
+        let vc = ViewController()
+        
+        vc.modalPresentationStyle = .popover
+        present(vc, animated: true)
     }
 }
