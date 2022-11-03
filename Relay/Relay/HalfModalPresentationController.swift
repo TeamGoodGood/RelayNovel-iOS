@@ -48,7 +48,9 @@ class HalfModalPresentationController: UIPresentationController {
     override func containerViewDidLayoutSubviews() {
         super.containerViewDidLayoutSubviews()
         blurEffectView.frame = containerView!.bounds
-        self.presentedView?.makeRoundedSpecificCorner(corners: [.topLeft, .topRight], cornerRadius: 15)
+        self.presentedView?.layer.cornerRadius = 16.0
+        self.presentedView?.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        self.presentedView?.layer.masksToBounds = true
     }
     
     @objc func dismissController() {
