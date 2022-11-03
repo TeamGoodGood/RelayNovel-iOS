@@ -11,8 +11,8 @@ import SnapKit
 class RelayProfileUserActivityView: UIView {
     private lazy var activityLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 20.0, weight: .bold)
         label.text = "나의 활동"
+        label.setFont(.body1)
         
         return label
     }()
@@ -20,6 +20,8 @@ class RelayProfileUserActivityView: UIView {
     private lazy var userActivityCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        
+        layout.minimumLineSpacing = 16.0
         
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -47,10 +49,6 @@ extension RelayProfileUserActivityView: UICollectionViewDelegateFlowLayout {
         let height = 100.0
         
         return CGSize(width: width, height: height)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        UIEdgeInsets(top: 0.0, left: 0.0, bottom: 16.0, right: 0.0)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
