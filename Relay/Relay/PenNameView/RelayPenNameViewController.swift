@@ -47,6 +47,7 @@ class RelayPenNameViewController: UIViewController {
         textField.clearButtonMode = .whileEditing
         textField.backgroundColor = .systemGray3
         textField.placeholder = "필명을 입력해주세요."
+        textField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
         
         return textField
     }()
@@ -64,10 +65,41 @@ class RelayPenNameViewController: UIViewController {
         return button
     }()
     
+    private lazy var textCountLabel: UILabel = {
+        let label = UILabel()
+        
+        label.text = "0/10자"
+        
+        return label
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         setupLayout()
+        NotificationCenter.default.addObserver(self, selector: #selector(textDidChange), name: UITextField.textDidChangeNotification, object: nil)
+    }
+    
+    // 마지막 글자 한글 받침 사용하기 위해
+    @objc
+    func textDidChange(noti: NSNotification) {
+            if let text = penNameTextField.text {
+                if text.count >= 10 {
+                    let fixedText = text.prefix(10)
+                    penNameTextField.text = fixedText + " "
+                    
+                    let when = DispatchTime.now() + 0.01
+                    DispatchQueue.main.asyncAfter(deadline: when) {
+                        self.penNameTextField.text = String(fixedText)
+                    }
+                }
+            }
+        }
+    
+    func checkText() {
+        if penNameTextField.text!.count > 0 {
+            submitButton.backgroundColor = .black
+        }
     }
 }
 
@@ -78,7 +110,8 @@ extension RelayPenNameViewController {
             titleLabel,
             subTitleLabel,
             penNameTextField,
-            submitButton
+            submitButton,
+            textCountLabel
         ].forEach { view.addSubview($0) }
         penNameTextField.delegate = self
         
@@ -108,19 +141,42 @@ extension RelayPenNameViewController {
             $0.leading.equalToSuperview().inset(15.0)
             $0.trailing.equalToSuperview().inset(15.0)
         }
+        textCountLabel.snp.makeConstraints {
+            $0.bottom.equalTo(submitButton.snp.top)
+        }
+    }
+    
+    // 텍스트 숫자 세기
+    @objc func textFieldDidChange(_ textField: UITextField) {
+        let string = textField.text
+        let strCount = string?.count
+        
+        if strCount ?? 0 > 10 {
+            textCountLabel.text = "10/10자"
+        } else {
+            textCountLabel.text = "\(String(describing: strCount ?? 0))/10자"
+        }
     }
 }
 
 extension RelayPenNameViewController: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        print(string)
+        
+        checkText()
+        
+        // 백 스페이스 가능하게 설정
         if let char = string.cString(using: String.Encoding.utf8) {
-            let isBackSpace = strcmp(char, "\\b")
-            if isBackSpace == -92 {
+                    let isBackSpace = strcmp(char, "\\b")
+                    if isBackSpace == -92 {
+                        return true
+                    }
+                }
+
+                guard let text = textField.text else { return false }
+                if text.count >= 11 {
+                    return false
+                }
+
                 return true
-            }
-        }
-        guard textField.text!.count < 10 else { return false }
-        return true
     }
 }
