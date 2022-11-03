@@ -28,8 +28,6 @@ class RelayBrowsingHeaderView: UIView {
         return stackView
     }()
     
-    private lazy var relayListView = RelayListView(frame: .zero, type: .browse)
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -37,5 +35,17 @@ class RelayBrowsingHeaderView: UIView {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+}
+
+extension RelayBrowsingHeaderView {
+    private func setupLayout() {
+        addSubview(stackView)
+        
+        stackView.snp.makeConstraints {
+            $0.top.equalToSuperview()
+            $0.leading.equalToSuperview().inset(20.0)
+            $0.height.equalTo(60.0)
+        }
     }
 }
