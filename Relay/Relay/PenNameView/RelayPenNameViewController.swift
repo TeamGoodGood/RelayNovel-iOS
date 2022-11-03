@@ -47,8 +47,12 @@ class RelayPenNameViewController: UIViewController {
         textField.clearButtonMode = .whileEditing
         textField.backgroundColor = .systemGray3
         textField.placeholder = "필명을 입력해주세요."
+        
         textField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
         textField.addTarget(self, action: #selector(checkText), for: .editingChanged)
+        
+        textField.leftView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: 12.0, height: 0.0))
+        textField.leftViewMode = .always
         
         return textField
     }()
