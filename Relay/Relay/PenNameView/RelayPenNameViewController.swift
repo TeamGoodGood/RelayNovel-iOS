@@ -48,6 +48,7 @@ class RelayPenNameViewController: UIViewController {
         textField.backgroundColor = .systemGray3
         textField.placeholder = "필명을 입력해주세요."
         textField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
+        textField.addTarget(self, action: #selector(checkText), for: .editingChanged)
         
         return textField
     }()
@@ -61,6 +62,7 @@ class RelayPenNameViewController: UIViewController {
         button.backgroundColor = .systemGray5
         
         button.layer.cornerRadius = 8
+        button.isEnabled = false
         
         return button
     }()
@@ -69,6 +71,7 @@ class RelayPenNameViewController: UIViewController {
         let label = UILabel()
         
         label.text = "0/10자"
+        label.font = .systemFont(ofSize: 13)
         
         return label
     }()
@@ -96,9 +99,28 @@ class RelayPenNameViewController: UIViewController {
             }
         }
     
+    @objc
     func checkText() {
         if penNameTextField.text!.count > 0 {
             submitButton.backgroundColor = .black
+            submitButton.setTitleColor(.white, for: .normal)
+            submitButton.isEnabled = true
+        } else {
+            submitButton.backgroundColor = .systemGray5
+            submitButton.setTitleColor(.systemGray3, for: .normal)
+            submitButton.isEnabled = false
+        }
+        
+    }
+    // 텍스트 숫자 세기
+    @objc func textFieldDidChange(_ textField: UITextField) {
+        let string = textField.text
+        let strCount = string?.count
+        
+        if strCount ?? 0 > 10 {
+            textCountLabel.text = "10/10자"
+        } else {
+            textCountLabel.text = "\(String(describing: strCount ?? 0))/10자"
         }
     }
 }
@@ -129,8 +151,12 @@ extension RelayPenNameViewController {
             $0.top.equalTo(titleLabel.snp.bottom).offset(12.0)
             $0.leading.equalToSuperview().inset(21.0)
         }
+        textCountLabel.snp.makeConstraints {
+            $0.top.equalTo(subTitleLabel.snp.bottom).offset(16.0)
+            $0.trailing.equalToSuperview().inset(19.0)
+        }
         penNameTextField.snp.makeConstraints {
-            $0.top.equalTo(subTitleLabel.snp.bottom).offset(40.0)
+            $0.top.equalTo(textCountLabel.snp.bottom).offset(8.0)
             $0.leading.equalToSuperview().inset(21.0)
             $0.width.equalTo(350.0)
             $0.height.equalTo(41.0)
@@ -141,29 +167,11 @@ extension RelayPenNameViewController {
             $0.leading.equalToSuperview().inset(15.0)
             $0.trailing.equalToSuperview().inset(15.0)
         }
-        textCountLabel.snp.makeConstraints {
-            $0.bottom.equalTo(submitButton.snp.top)
-        }
-    }
-    
-    // 텍스트 숫자 세기
-    @objc func textFieldDidChange(_ textField: UITextField) {
-        let string = textField.text
-        let strCount = string?.count
-        
-        if strCount ?? 0 > 10 {
-            textCountLabel.text = "10/10자"
-        } else {
-            textCountLabel.text = "\(String(describing: strCount ?? 0))/10자"
-        }
     }
 }
 
 extension RelayPenNameViewController: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        
-        checkText()
-        
         // 백 스페이스 가능하게 설정
         if let char = string.cString(using: String.Encoding.utf8) {
                     let isBackSpace = strcmp(char, "\\b")
