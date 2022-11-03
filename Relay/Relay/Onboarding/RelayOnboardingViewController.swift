@@ -142,7 +142,7 @@ class RelayOnboardingViewController: UIPageViewController {
     // MARK: - Actions
     
     extension RelayOnboardingViewController {
-
+        //FIXME: 해당 함수가 동작하지 않습니다.. 무언가 충돌이 일어나는 것 같아요! 다른 코드를 전부 해석해야 할 것 같아서 못 만졌습니다 ㅜㅜ
         @objc func pageControlTapped(_ sender: UIPageControl) {
             setViewControllers([pages[sender.currentPage]], direction: .forward, animated: false, completion: nil)
         }
@@ -151,7 +151,7 @@ class RelayOnboardingViewController: UIPageViewController {
     // MARK: - DataSources
     
     extension RelayOnboardingViewController: UIPageViewControllerDataSource {
-        
+        //FIXME: currentIndex didset에서 오류가 발생하는 듯 합니다. 이 또한 코드를 다 해석해야 할 것 같아... 못 했습니다..
         func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
             
             print("before")
