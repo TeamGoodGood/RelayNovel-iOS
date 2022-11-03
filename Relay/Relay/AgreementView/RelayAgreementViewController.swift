@@ -245,8 +245,8 @@ extension RelayAgreementViewController {
         submitButton.snp.makeConstraints {
             $0.bottom.equalToSuperview().inset(34.44)
             $0.height.equalTo(52.56)
-            $0.leading.equalToSuperview().inset(15.0)
-            $0.trailing.equalToSuperview().inset(15.0)
+            $0.leading.equalToSuperview().inset(20.0)
+            $0.trailing.equalToSuperview().inset(20.0)
         }
     }
     
