@@ -31,6 +31,12 @@ class RelayBrowsingViewController: UIViewController {
     }
 }
 
+extension RelayBrowsingViewController: UIViewControllerTransitioningDelegate {
+    func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
+            HalfModalPresentationController(presentedViewController: presented, presenting: presenting)
+        }
+}
+
 extension RelayBrowsingViewController {
     enum ButtonName: String {
         case entire = "전체"
@@ -159,11 +165,11 @@ extension RelayBrowsingViewController {
     }
     
     @objc private func touchListFilterButton() {
-        print("리스트필터 버튼 터치됨")
-        
         let vc = ViewController()
         
-        vc.modalPresentationStyle = .popover
+        //TODO: 모달테스트 후 ViewController 제거
+        vc.modalPresentationStyle = .custom
+        vc.transitioningDelegate = self
         present(vc, animated: true)
     }
 }
