@@ -29,6 +29,14 @@ class RelayAllReadyViewController: UIViewController {
         return label
     }()
     
+    private let allReadyImage: UIImageView = {
+        let imageView = UIImageView()
+        
+        imageView.image = UIImage(named: "Lilla")
+        
+        return imageView
+    }()
+    
     override func viewDidLoad() {
         view.backgroundColor = .white
         setupLayout()
@@ -37,7 +45,8 @@ class RelayAllReadyViewController: UIViewController {
     private func setupLayout() {
         [
             backButton,
-            titleLabel
+            titleLabel,
+            allReadyImage
         ].forEach { view.addSubview($0) }
         
         backButton.snp.makeConstraints {
@@ -48,6 +57,12 @@ class RelayAllReadyViewController: UIViewController {
         titleLabel.snp.makeConstraints {
             $0.top.equalTo(backButton).offset(55.0)
             $0.leading.equalToSuperview().inset(40.0)
+        }
+        allReadyImage.snp.makeConstraints {
+            $0.top.equalTo(titleLabel.snp.bottom).offset(138.0)
+            $0.width.equalTo(116.0)
+            $0.height.equalTo(125.03)
+            $0.centerX.equalToSuperview()
         }
     }
 }
