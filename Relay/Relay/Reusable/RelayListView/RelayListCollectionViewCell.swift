@@ -15,11 +15,11 @@ class RelayListCollectionViewCell: UICollectionViewCell {
     
     private lazy var statusLabel: BasePaddingLabel = {
         let label = BasePaddingLabel()
-        label.font = .systemFont(ofSize: 13.0)
+        label.setFont(.caption2)
         label.textColor = .white
         
         label.clipsToBounds = true
-        label.backgroundColor = .systemPink
+        label.backgroundColor = .relayPink1
         label.layer.cornerRadius = 12.0
         
         return label
@@ -27,21 +27,21 @@ class RelayListCollectionViewCell: UICollectionViewCell {
     
     private lazy var stepCountLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 13.0)
+        label.setFont(.caption2)
         
         return label
     }()
     
     private lazy var relayTitleLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 17.0, weight: .bold)
+        label.setFont(.body1)
         
         return label
     }()
     
     private lazy var bgmTagLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 13.0)
+        label.setFont(.caption2)
         label.sizeToFit()
         
         return label
@@ -49,15 +49,16 @@ class RelayListCollectionViewCell: UICollectionViewCell {
     
     private lazy var creationTimeLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 13.0)
+        label.setFont(.caption2)
+        label.textColor = .relayGray
         
         return label
     }()
     
     private lazy var heartCountLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 13.0)
-        label.textColor = .systemPink
+        label.setFont(.caption2)
+        label.textColor = .relayPink1
         label.sizeToFit()
         
         return label
@@ -70,8 +71,8 @@ extension RelayListCollectionViewCell {
         
         if isCompleted {
             statusLabel.text = "완주"
-            statusLabel.textColor = .systemPink
-            statusLabel.layer.borderColor = UIColor.systemPink.cgColor
+            statusLabel.textColor = .relayPink1
+            statusLabel.layer.borderColor = UIColor.relayPink1.cgColor
             statusLabel.layer.borderWidth = 1.0
             statusLabel.backgroundColor = .systemBackground
         } else {
@@ -104,7 +105,7 @@ extension RelayListCollectionViewCell {
         let attributedString = NSMutableAttributedString(string: "")
         let imageAttachment = NSTextAttachment()
         imageAttachment.image = UIImage(systemName: "heart.fill") ?? UIImage()
-        imageAttachment.image = imageAttachment.image?.withTintColor(.systemPink)
+        imageAttachment.image = imageAttachment.image?.withTintColor(.relayPink1)
         imageAttachment.bounds = CGRect(x: 0.0, y: -3.0, width: 17.0, height: 14.0)
         
         attributedString.append(NSAttributedString(attachment: imageAttachment))
@@ -118,9 +119,9 @@ extension RelayListCollectionViewCell {
         bgmTagLabel.sizeToFit()
         
         if index == 0 {
-            layer.addBorder([.top, .bottom], color: .systemGray6, width: 1.0)
+            layer.addBorder([.top, .bottom], color: .relayGray2, width: 1.0)
         } else {
-            layer.addBorder([.bottom], color: .systemGray6, width: 1.0)
+            layer.addBorder([.bottom], color: .relayGray2, width: 1.0)
         }
     }
     
