@@ -25,7 +25,7 @@ class RelayListHeaderView: UIView {
     
     private lazy var listTitleLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 24.0, weight: .bold)
+        label.setFont(.display1)
         
         return label
     }()
@@ -80,6 +80,7 @@ class RelayListHeaderView: UIView {
     
     init(frame: CGRect, type: ViewType) {
         super.init(frame: frame)
+        backgroundColor = .systemBackground
         
         setupLayout(type)
     }
