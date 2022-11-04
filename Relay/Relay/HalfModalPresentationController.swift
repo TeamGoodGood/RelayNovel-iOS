@@ -25,7 +25,7 @@ class HalfModalPresentationController: UIPresentationController {
     
     override var frameOfPresentedViewInContainerView: CGRect {
         CGRect(origin: CGPoint(x: 0,
-                               y: self.containerView!.frame.height * 198 / 800),
+                               y: self.containerView!.frame.height * 198 / 844),
                size: CGSize(width: self.containerView!.frame.width,
                             height: self.containerView!.frame.height * 646 / 844))
     }
