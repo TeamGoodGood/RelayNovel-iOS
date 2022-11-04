@@ -25,8 +25,8 @@ class RelayCategoryCollectionViewCell: UICollectionViewCell {
 }
 
 extension RelayCategoryCollectionViewCell {
-    func configure() {
-        categoryLabel.text = "로맨스"
+    func configure(_ text: String) {
+        categoryLabel.text = text
         categoryLabel.setFont(.body2)
         
         setupLayout()
