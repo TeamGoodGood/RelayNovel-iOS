@@ -14,6 +14,8 @@ class RelayCategoryViewController: UIViewController {
         let layout = UICollectionViewFlowLayout()
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         
+        
+        
         collectionView.delegate = self
         collectionView.dataSource = self
         
@@ -27,7 +29,16 @@ class RelayCategoryViewController: UIViewController {
 }
 
 extension RelayCategoryViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = collectionView.frame.width
+        let height = 53.0
+        
+        return CGSize(width: width, height: height)
+    }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        0.0
+    }
 }
 
 extension RelayCategoryViewController: UICollectionViewDataSource {
@@ -38,6 +49,4 @@ extension RelayCategoryViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         UICollectionViewCell()
     }
-    
-    
 }
