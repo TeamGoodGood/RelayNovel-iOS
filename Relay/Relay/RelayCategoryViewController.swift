@@ -29,6 +29,7 @@ class RelayCategoryViewController: UIViewController {
         titleAttribute.foregroundColor = .white
         
         button.setAttributedTitle(NSAttributedString(titleAttribute), for: .normal)
+        button.titleEdgeInsets = UIEdgeInsets(top: -11.0, left: 0.0, bottom: 11.0, right: 0.0)
         button.backgroundColor = .relayPink1
         
         return button
