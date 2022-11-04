@@ -10,10 +10,6 @@ import SnapKit
 
 class RelayFirstViewController: UIViewController {
     
-    // MARK: - Property
-    weak var label: UILabel?
-    let index = 0
-    
     private let titleLabel: UILabel = {
         let title = UILabel()
         

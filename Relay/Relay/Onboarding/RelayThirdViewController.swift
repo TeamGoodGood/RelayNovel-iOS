@@ -10,10 +10,6 @@ import SnapKit
 
 class RelayThirdViewController: UIViewController {
     
-    // MARK: - Property
-    weak var label: UILabel?
-    let index = 2
-    
     private let titleLabel: UILabel = {
         let title = UILabel()
         

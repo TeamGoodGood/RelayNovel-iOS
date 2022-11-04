@@ -9,11 +9,7 @@ import UIKit
 import SnapKit
 
 class RelaySecondViewController: UIViewController {
-    
-    // MARK: - Property
-    weak var label: UILabel?
-    let index = 1
-    
+
     private let titleLabel: UILabel = {
         let title = UILabel()
         
