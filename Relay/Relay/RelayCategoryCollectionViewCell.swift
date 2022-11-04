@@ -13,6 +13,8 @@ class RelayCategoryCollectionViewCell: UICollectionViewCell {
         return NSStringFromClass(Self.self).components(separatedBy: ".").last!
     }
     
+    private var cellIndex: Int?
+    
     private lazy var categoryLabel = UILabel()
     
     private lazy var checkButton: UIButton = {
@@ -26,10 +28,11 @@ class RelayCategoryCollectionViewCell: UICollectionViewCell {
 
 extension RelayCategoryCollectionViewCell {
     func configure(_ text: String, index: Int) {
+        cellIndex = index
         categoryLabel.text = text
         categoryLabel.setFont(.body2)
         
-        if index == 0 {
+        if cellIndex == 0 {
             layer.addBorder([.bottom], color: UIColor(red: 226/255, green: 226/255, blue: 226/255, alpha: 1.0), width: 1.0)
             
             checkButton.setImage(image: UIImage(systemName: "checkmark.circle") ?? UIImage())
