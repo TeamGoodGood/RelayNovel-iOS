@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3201622E2912A7950054803C /* RelayPenNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3201622D2912A7950054803C /* RelayPenNameViewController.swift */; };
 		32517E142913B733005E0F69 /* RelayAllReadyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32517E132913B733005E0F69 /* RelayAllReadyViewController.swift */; };
 		3265BA2A290925DD00532CA4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3265BA29290925DD00532CA4 /* AppDelegate.swift */; };
 		3265BA2C290925DD00532CA4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3265BA2B290925DD00532CA4 /* SceneDelegate.swift */; };
@@ -36,6 +37,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3201622D2912A7950054803C /* RelayPenNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayPenNameViewController.swift; sourceTree = "<group>"; };
 		32308E43290F983E0012B5A2 /* Relay.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Relay.entitlements; sourceTree = "<group>"; };
 		32517E132913B733005E0F69 /* RelayAllReadyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayAllReadyViewController.swift; sourceTree = "<group>"; };
 		3265BA26290925DD00532CA4 /* Relay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Relay.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -78,6 +80,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3201622C2912A77B0054803C /* PenNameView */ = {
+			isa = PBXGroup;
+			children = (
+				3201622D2912A7950054803C /* RelayPenNameViewController.swift */,
+			);
+			path = PenNameView;
+			sourceTree = "<group>";
 		32517E122913B71D005E0F69 /* AllReadyView */ = {
 			isa = PBXGroup;
 			children = (
@@ -106,6 +115,7 @@
 		3265BA28290925DD00532CA4 /* Relay */ = {
 			isa = PBXGroup;
 			children = (
+				3201622C2912A77B0054803C /* PenNameView */,
 				32517E122913B71D005E0F69 /* AllReadyView */,
 				32F8353729113F4500E2CC4A /* AgreementView */,
 				32F83525290FECB700E2CC4A /* Font */,
@@ -306,6 +316,7 @@
 				556F309729102F83005D7AF4 /* RelayListView.swift in Sources */,
 				556F3091290F9A09005D7AF4 /* RelayNonLoginView.swift in Sources */,
 				3265BA2C290925DD00532CA4 /* SceneDelegate.swift in Sources */,
+				3201622E2912A7950054803C /* RelayPenNameViewController.swift in Sources */,
 				329918A0290A5D8800372C13 /* RelayLoginViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
