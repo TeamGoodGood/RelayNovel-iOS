@@ -19,3 +19,18 @@ class RelayCategoryCollectionViewCell: UICollectionViewCell {
         return button
     }()
 }
+
+extension RelayCategoryCollectionViewCell {
+    private func setupLayout() {
+        [
+            categoryLabel,
+            checkButton
+        ].forEach { addSubview($0) }
+        
+        categoryLabel.snp.makeConstraints {
+            $0.top.equalToSuperview().inset(16.0)
+            $0.leading.equalToSuperview()
+            $0.bottom.equalToSuperview().inset(12.0)
+        }
+    }
+}
