@@ -165,11 +165,10 @@ extension RelayBrowsingViewController {
     }
     
     @objc private func touchListFilterButton() {
-        let vc = ViewController()
+        let modalViewController = RelayCategoryViewController()
         
-        //TODO: 모달테스트 후 ViewController 제거
-        vc.modalPresentationStyle = .custom
-        vc.transitioningDelegate = self
-        present(vc, animated: true)
+        modalViewController.modalPresentationStyle = .custom
+        modalViewController.transitioningDelegate = self
+        present(modalViewController, animated: true)
     }
 }
