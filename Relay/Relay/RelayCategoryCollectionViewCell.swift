@@ -42,6 +42,18 @@ extension RelayCategoryCollectionViewCell {
         setupLayout()
     }
     
+    func changeCheckButtonImage(at index: Int) {
+        let button = checkButton
+        
+        if index == cellIndex {
+            button.setImage(image: UIImage(systemName: "checkmark.circle") ?? UIImage())
+            button.tintColor = .relayPink1
+        } else {
+            button.setImage(image: UIImage(systemName: "circle") ?? UIImage())
+            button.tintColor = UIColor(red: 226/255, green: 226/255, blue: 226/255, alpha: 1.0)
+        }
+    }
+    
     private func setupLayout() {
         [
             categoryLabel,
