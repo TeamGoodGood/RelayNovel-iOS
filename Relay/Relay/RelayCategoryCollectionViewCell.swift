@@ -18,7 +18,7 @@ class RelayCategoryCollectionViewCell: UICollectionViewCell {
     private lazy var checkButton: UIButton = {
         let button = UIButton()
         button.setImage(image: UIImage(systemName: "circle") ?? UIImage())
-        button.tintColor = .relayBlack
+        button.tintColor = UIColor(red: 226/255, green: 226/255, blue: 226/255, alpha: 1.0)
         
         return button
     }()
