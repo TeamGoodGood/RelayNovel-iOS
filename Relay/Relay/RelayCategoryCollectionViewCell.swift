@@ -9,6 +9,10 @@ import UIKit
 import SnapKit
 
 class RelayCategoryCollectionViewCell: UICollectionViewCell {
+    static var id: String {
+        return NSStringFromClass(Self.self).components(separatedBy: ".").last!
+    }
+    
     private lazy var categoryLabel = UILabel()
     
     private lazy var checkButton: UIButton = {
