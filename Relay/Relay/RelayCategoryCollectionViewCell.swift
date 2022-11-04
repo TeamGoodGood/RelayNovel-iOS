@@ -42,5 +42,12 @@ extension RelayCategoryCollectionViewCell {
             $0.leading.equalToSuperview()
             $0.bottom.equalToSuperview().inset(12.0)
         }
+        
+        checkButton.snp.makeConstraints {
+            $0.trailing.equalToSuperview()
+            $0.top.equalToSuperview().inset(14.0)
+            $0.bottom.equalToSuperview().inset(13.0)
+            $0.width.equalTo(26.0)
+        }
     }
 }
