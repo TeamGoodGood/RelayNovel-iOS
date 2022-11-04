@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		32517E3F2913E23F005E0F69 /* PageAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32517E3E2913E23F005E0F69 /* PageAnimationView.swift */; };
+		32517E422913E25C005E0F69 /* SwiftUIPager in Frameworks */ = {isa = PBXBuildFile; productRef = 32517E412913E25C005E0F69 /* SwiftUIPager */; };
+		32517E442913E885005E0F69 /* RelayMainHostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32517E432913E885005E0F69 /* RelayMainHostingController.swift */; };
 		3201622E2912A7950054803C /* RelayPenNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3201622D2912A7950054803C /* RelayPenNameViewController.swift */; };
 		32517E142913B733005E0F69 /* RelayAllReadyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32517E132913B733005E0F69 /* RelayAllReadyViewController.swift */; };
 		3265BA2A290925DD00532CA4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3265BA29290925DD00532CA4 /* AppDelegate.swift */; };
@@ -43,6 +46,8 @@
 /* Begin PBXFileReference section */
 		3201622D2912A7950054803C /* RelayPenNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayPenNameViewController.swift; sourceTree = "<group>"; };
 		32308E43290F983E0012B5A2 /* Relay.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Relay.entitlements; sourceTree = "<group>"; };
+		32517E3E2913E23F005E0F69 /* PageAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageAnimationView.swift; sourceTree = "<group>"; };
+		32517E432913E885005E0F69 /* RelayMainHostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayMainHostingController.swift; sourceTree = "<group>"; };
 		32517E132913B733005E0F69 /* RelayAllReadyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayAllReadyViewController.swift; sourceTree = "<group>"; };
 		3265BA26290925DD00532CA4 /* Relay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Relay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3265BA29290925DD00532CA4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -81,6 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32517E422913E25C005E0F69 /* SwiftUIPager in Frameworks */,
 				55FDCEAF290A5667000AB345 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -88,6 +94,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		32517E152913CAC5005E0F69 /* MainView */ = {
+			isa = PBXGroup;
+			children = (
+				32517E3D2913E220005E0F69 /* Views */,
+				32517E432913E885005E0F69 /* RelayMainHostingController.swift */,
+			);
+			path = MainView;
+			sourceTree = "<group>";
+		};
+		32517E3D2913E220005E0F69 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				32517E3E2913E23F005E0F69 /* PageAnimationView.swift */,
+			);
+			path = Views;
+      sourceTree = "<group>";
 		3201622C2912A77B0054803C /* PenNameView */ = {
 			isa = PBXGroup;
 			children = (
@@ -123,6 +145,7 @@
 		3265BA28290925DD00532CA4 /* Relay */ = {
 			isa = PBXGroup;
 			children = (
+				32517E152913CAC5005E0F69 /* MainView */,
 				B5C0B4B5290F7B1F00077B5F /* Onboarding */,
 				3201622C2912A77B0054803C /* PenNameView */,
 				32517E122913B71D005E0F69 /* AllReadyView */,
@@ -256,6 +279,7 @@
 			name = Relay;
 			packageProductDependencies = (
 				55FDCEAE290A5667000AB345 /* SnapKit */,
+				32517E412913E25C005E0F69 /* SwiftUIPager */,
 			);
 			productName = Relay;
 			productReference = 3265BA26290925DD00532CA4 /* Relay.app */;
@@ -287,6 +311,7 @@
 			mainGroup = 3265BA1D290925DD00532CA4;
 			packageReferences = (
 				327138A42909284700592714 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				32517E402913E25C005E0F69 /* XCRemoteSwiftPackageReference "SwiftUIPager" */,
 			);
 			productRefGroup = 3265BA27290925DD00532CA4 /* Products */;
 			projectDirPath = "";
@@ -327,6 +352,7 @@
 				3265BA2E290925DD00532CA4 /* ViewController.swift in Sources */,
 				32DA1B7F29123F7500C6FDC1 /* DetailViewController.swift in Sources */,
 				32F835362911008400E2CC4A /* Extension+UIButton.swift in Sources */,
+				32517E442913E885005E0F69 /* RelayMainHostingController.swift in Sources */,
 				3265BA2A290925DD00532CA4 /* AppDelegate.swift in Sources */,
 				55867E1129128C7400C79FFC /* TabBarController.swift in Sources */,
 				55FDCEB3290A6440000AB345 /* RelayProfileUserInfoView.swift in Sources */,
@@ -334,6 +360,7 @@
 				55867E152912B7DA00C79FFC /* Extension+UIColor.swift in Sources */,
 				32517E142913B733005E0F69 /* RelayAllReadyViewController.swift in Sources */,
 				55FDCEB5290A711C000AB345 /* RelayProfileUserActivityView.swift in Sources */,
+				32517E3F2913E23F005E0F69 /* PageAnimationView.swift in Sources */,
 				556F3093290FA59A005D7AF4 /* Extension+UILabel.swift in Sources */,
 				55867E0C29123C8500C79FFC /* Extension+CALayer.swift in Sources */,
 				556F309D29118823005D7AF4 /* BasePaddingLabel.swift in Sources */,
@@ -565,6 +592,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		32517E402913E25C005E0F69 /* XCRemoteSwiftPackageReference "SwiftUIPager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/fermoya/SwiftUIPager";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 		327138A42909284700592714 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit";
@@ -576,6 +611,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		32517E412913E25C005E0F69 /* SwiftUIPager */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 32517E402913E25C005E0F69 /* XCRemoteSwiftPackageReference "SwiftUIPager" */;
+			productName = SwiftUIPager;
+		};
 		55FDCEAE290A5667000AB345 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 327138A42909284700592714 /* XCRemoteSwiftPackageReference "SnapKit" */;
