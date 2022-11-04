@@ -80,10 +80,10 @@ class RelayAllReadyViewController: UIViewController {
             $0.centerX.equalToSuperview()
         }
         startButton.snp.makeConstraints {
-            $0.bottom.equalToSuperview().inset(34.44)
-            $0.height.equalTo(52.56)
             $0.leading.equalToSuperview().inset(20.0)
             $0.trailing.equalToSuperview().inset(20.0)
+            $0.bottom.equalToSuperview().inset(34.44)
+            $0.height.equalTo(52.56)
         }
     }
 }
