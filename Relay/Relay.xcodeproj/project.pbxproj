@@ -109,7 +109,8 @@
 				32517E3E2913E23F005E0F69 /* PageAnimationView.swift */,
 			);
 			path = Views;
-      sourceTree = "<group>";
+            sourceTree = "<group>";
+        };
 		3201622C2912A77B0054803C /* PenNameView */ = {
 			isa = PBXGroup;
 			children = (
@@ -117,6 +118,7 @@
 			);
 			path = PenNameView;
 			sourceTree = "<group>";
+        };
 		32517E122913B71D005E0F69 /* AllReadyView */ = {
 			isa = PBXGroup;
 			children = (
