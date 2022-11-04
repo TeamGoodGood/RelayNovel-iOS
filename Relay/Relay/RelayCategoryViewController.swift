@@ -52,3 +52,16 @@ extension RelayCategoryViewController: UICollectionViewDataSource {
         return cell
     }
 }
+
+extension RelayCategoryViewController {
+    private func setupLayout() {
+        view.addSubview(categoryCollectionView)
+        
+        categoryCollectionView.snp.makeConstraints {
+            $0.top.equalToSuperview().inset(20.0)
+            $0.leading.equalTo(20.0)
+            $0.trailing.equalToSuperview().inset(20.0)
+            $0.bottom.equalToSuperview()
+        }
+    }
+}
