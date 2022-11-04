@@ -32,6 +32,7 @@
 		55FDCEB3290A6440000AB345 /* RelayProfileUserInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FDCEB2290A6440000AB345 /* RelayProfileUserInfoView.swift */; };
 		55FDCEB5290A711C000AB345 /* RelayProfileUserActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FDCEB4290A711C000AB345 /* RelayProfileUserActivityView.swift */; };
 		55FDCEB7290ABB0C000AB345 /* RelayUserActivityCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FDCEB6290ABB0C000AB345 /* RelayUserActivityCollectionViewCell.swift */; };
+		B5C0B5252914D8BA00077B5F /* RelaySettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C0B5242914D8BA00077B5F /* RelaySettingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +63,7 @@
 		55FDCEB2290A6440000AB345 /* RelayProfileUserInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayProfileUserInfoView.swift; sourceTree = "<group>"; };
 		55FDCEB4290A711C000AB345 /* RelayProfileUserActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayProfileUserActivityView.swift; sourceTree = "<group>"; };
 		55FDCEB6290ABB0C000AB345 /* RelayUserActivityCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayUserActivityCollectionViewCell.swift; sourceTree = "<group>"; };
+		B5C0B5242914D8BA00077B5F /* RelaySettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelaySettingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 				55867E0F2912592100C79FFC /* Extension+ */,
 				55867E0E2912590700C79FFC /* Reusable */,
 				556F3094290FDFC9005D7AF4 /* ProfileView */,
+				B5C0B5232914D88900077B5F /* SettingView */,
 				3265BA32290925DE00532CA4 /* Assets.xcassets */,
 				3265BA34290925DE00532CA4 /* LaunchScreen.storyboard */,
 				3265BA37290925DE00532CA4 /* Info.plist */,
@@ -195,6 +198,14 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B5C0B5232914D88900077B5F /* SettingView */ = {
+			isa = PBXGroup;
+			children = (
+				B5C0B5242914D8BA00077B5F /* RelaySettingViewController.swift */,
+			);
+			path = SettingView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -286,6 +297,7 @@
 				55867E1129128C7400C79FFC /* TabBarController.swift in Sources */,
 				55FDCEB3290A6440000AB345 /* RelayProfileUserInfoView.swift in Sources */,
 				556F309929103676005D7AF4 /* RelayListHeaderView.swift in Sources */,
+				B5C0B5252914D8BA00077B5F /* RelaySettingViewController.swift in Sources */,
 				55867E152912B7DA00C79FFC /* Extension+UIColor.swift in Sources */,
 				55FDCEB5290A711C000AB345 /* RelayProfileUserActivityView.swift in Sources */,
 				556F3093290FA59A005D7AF4 /* Extension+UILabel.swift in Sources */,
