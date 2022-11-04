@@ -39,7 +39,7 @@ struct PageAnimationView: View {
                         }.itemSpacing(100)
                             .loopPages(true)
                             .horizontal(.startToEnd)
-                            .interactive(scale: 0.4)
+                            .interactive(scale: 0.6)
                             .itemAspectRatio(0.4)
                             .frame(height: 100)
                     }
