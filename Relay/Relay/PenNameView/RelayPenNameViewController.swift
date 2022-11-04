@@ -94,8 +94,52 @@ class RelayPenNameViewController: UIViewController {
         setupLayout()
         NotificationCenter.default.addObserver(self, selector: #selector(textDidChange), name: UITextField.textDidChangeNotification, object: nil)
     }
-    
+}
 
+extension RelayPenNameViewController {
+    private func setupLayout() {
+        [
+            backButton,
+            titleLabel,
+            subTitleLabel,
+            penNameTextField,
+            submitButton,
+            textCountLabel
+        ].forEach { view.addSubview($0) }
+        penNameTextField.delegate = self
+        
+        backButton.snp.makeConstraints {
+            $0.top.equalToSuperview().inset(59.0)
+            $0.leading.equalToSuperview().inset(18.0)
+            $0.width.height.equalTo(26.0)
+        }
+        titleLabel.snp.makeConstraints {
+            $0.top.equalTo(backButton).offset(52.0)
+            $0.leading.equalToSuperview().inset(21.0)
+            $0.height.equalTo(60.0)
+        }
+        subTitleLabel.snp.makeConstraints {
+            $0.top.equalTo(titleLabel.snp.bottom).offset(12.0)
+            $0.leading.equalToSuperview().inset(21.0)
+        }
+        textCountLabel.snp.makeConstraints {
+            $0.top.equalTo(subTitleLabel.snp.bottom).offset(16.0)
+            $0.trailing.equalToSuperview().inset(19.0)
+        }
+        penNameTextField.snp.makeConstraints {
+            $0.top.equalTo(textCountLabel.snp.bottom).offset(8.0)
+            $0.leading.equalToSuperview().inset(21.0)
+            $0.width.equalTo(350.0)
+            $0.height.equalTo(41.0)
+        }
+        submitButton.snp.makeConstraints {
+            $0.bottom.equalToSuperview().inset(34.44)
+            $0.height.equalTo(52.56)
+            $0.leading.equalToSuperview().inset(15.0)
+            $0.trailing.equalToSuperview().inset(15.0)
+        }
+    }
+    
     func addKeyboardNotifications(){
         // 키보드가 나타날 때 앱에게 알리는 메소드 추가
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification , object: nil)
@@ -160,51 +204,6 @@ class RelayPenNameViewController: UIViewController {
             textCountLabel.text = "10/10자"
         } else {
             textCountLabel.text = "\(String(describing: strCount ?? 0))/10자"
-        }
-    }
-}
-
-extension RelayPenNameViewController {
-    private func setupLayout() {
-        [
-            backButton,
-            titleLabel,
-            subTitleLabel,
-            penNameTextField,
-            submitButton,
-            textCountLabel
-        ].forEach { view.addSubview($0) }
-        penNameTextField.delegate = self
-        
-        backButton.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(59.0)
-            $0.leading.equalToSuperview().inset(18.0)
-            $0.width.height.equalTo(26.0)
-        }
-        titleLabel.snp.makeConstraints {
-            $0.top.equalTo(backButton).offset(52.0)
-            $0.leading.equalToSuperview().inset(21.0)
-            $0.height.equalTo(60.0)
-        }
-        subTitleLabel.snp.makeConstraints {
-            $0.top.equalTo(titleLabel.snp.bottom).offset(12.0)
-            $0.leading.equalToSuperview().inset(21.0)
-        }
-        textCountLabel.snp.makeConstraints {
-            $0.top.equalTo(subTitleLabel.snp.bottom).offset(16.0)
-            $0.trailing.equalToSuperview().inset(19.0)
-        }
-        penNameTextField.snp.makeConstraints {
-            $0.top.equalTo(textCountLabel.snp.bottom).offset(8.0)
-            $0.leading.equalToSuperview().inset(21.0)
-            $0.width.equalTo(350.0)
-            $0.height.equalTo(41.0)
-        }
-        submitButton.snp.makeConstraints {
-            $0.bottom.equalToSuperview().inset(34.44)
-            $0.height.equalTo(52.56)
-            $0.leading.equalToSuperview().inset(15.0)
-            $0.trailing.equalToSuperview().inset(15.0)
         }
     }
 }
