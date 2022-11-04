@@ -63,8 +63,10 @@ extension RelayCategoryViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RelayCategoryCollectionViewCell.id, for: indexPath) as? RelayCategoryCollectionViewCell else { return UICollectionViewCell() }
+        let index = indexPath.row
         let categoryList = ["전체", "로맨스", "스릴러/공포", "판타지", "SF", "추리", "무협", "시대극", "일반", "기타"]
-        cell.configure(categoryList[indexPath.row])
+        
+        cell.configure(categoryList[index], index: index)
         
         return cell
     }
