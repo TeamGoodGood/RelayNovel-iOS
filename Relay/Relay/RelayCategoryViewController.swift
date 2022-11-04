@@ -70,13 +70,25 @@ extension RelayCategoryViewController: UICollectionViewDataSource {
 
 extension RelayCategoryViewController {
     private func setupLayout() {
-        view.addSubview(categoryCollectionView)
+        [
+            categoryCollectionView,
+            applyButton
+        ].forEach { view.addSubview($0) }
+        
         
         categoryCollectionView.snp.makeConstraints {
             $0.top.equalToSuperview().inset(20.0)
             $0.leading.equalTo(20.0)
             $0.trailing.equalToSuperview().inset(20.0)
+            $0.height.equalTo(530.0)
+        }
+        
+        applyButton.snp.makeConstraints {
+            $0.top.equalTo(categoryCollectionView.snp.bottom).offset(16.0)
+            $0.leading.equalToSuperview()
+            $0.trailing.equalToSuperview()
             $0.bottom.equalToSuperview()
+            $0.height.equalTo(80.0)
         }
     }
 }
