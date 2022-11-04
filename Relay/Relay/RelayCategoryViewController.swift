@@ -21,6 +21,19 @@ class RelayCategoryViewController: UIViewController {
         return collectionView
     }()
     
+    private lazy var applyButton: UIButton = {
+        let button = UIButton()
+        
+        var titleAttribute = AttributedString("적용하기")
+        titleAttribute.font = .systemFont(ofSize: 16.0, weight: .bold)
+        titleAttribute.foregroundColor = .white
+        
+        button.setAttributedTitle(NSAttributedString(titleAttribute), for: .normal)
+        button.backgroundColor = .relayPink1
+        
+        return button
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
