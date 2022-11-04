@@ -222,7 +222,6 @@ extension RelayPenNameViewController: UITextFieldDelegate {
                 if text.count >= 11 {
                     return false
                 }
-
                 return true
     }
 }
