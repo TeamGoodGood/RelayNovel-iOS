@@ -9,6 +9,7 @@ import UIKit
 import SnapKit
 
 class RelayCategoryViewController: UIViewController {
+    weak var delegate: RelayCategoryDelegate?
     
     private lazy var categoryCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -105,4 +106,9 @@ extension RelayCategoryViewController {
     @objc private func dismissViewController() {
         dismiss(animated: true)
     }
+}
+
+
+protocol RelayCategoryDelegate: class {
+    func didSelectedCategory(selectedCategory: String)
 }
