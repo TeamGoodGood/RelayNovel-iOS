@@ -10,6 +10,7 @@ import SnapKit
 
 class RelayCategoryViewController: UIViewController {
     private let categoryList = ["전체", "로맨스", "스릴러/공포", "판타지", "SF", "추리", "무협", "시대극", "일반", "기타"]
+    private var selectedCategory: String?
     
     weak var delegate: RelayCategoryDelegate?
     
@@ -61,7 +62,7 @@ extension RelayCategoryViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        delegate?.didSelectedCategory(selectedCategory: categoryList[indexPath.row])
+        selectedCategory = categoryList[indexPath.row]
     }
 }
 
@@ -109,6 +110,7 @@ extension RelayCategoryViewController {
     }
     
     @objc private func dismissViewController() {
+        delegate?.didSelectedCategory(selectedCategory: selectedCategory ?? "전체")
         dismiss(animated: true)
     }
 }
