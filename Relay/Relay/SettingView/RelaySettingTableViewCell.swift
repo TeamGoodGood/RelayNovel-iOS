@@ -13,6 +13,7 @@ class RelaySettingTableViewCell: UITableViewCell {
     private let label: UILabel = {
         let label = UILabel()
         label.numberOfLines = 1
+        
         return label
     }()
     
@@ -31,7 +32,7 @@ class RelaySettingTableViewCell: UITableViewCell {
         super.layoutSubviews()
         let size = contentView.frame.size.height - 12
         
-        label.frame = CGRect(x: 15, y: 0, width: contentView.frame.size.height - 15, height: contentView.frame.size.height)
+        label.frame = CGRect(x: 20, y: 0, width: 100, height: contentView.frame.size.height)
     }
     
     override func prepareForReuse() {
