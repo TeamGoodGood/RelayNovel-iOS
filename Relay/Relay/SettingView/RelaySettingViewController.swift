@@ -14,31 +14,45 @@ struct SettingsOption {
 }
 
 class RelaySettingViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
-    let tableView = UITableView()
+    
+    private let tableView: UITableView = {
+        let table = UITableView(frame: .zero, style: .grouped)
+        table.register(RelaySettingTableViewCell.self, forCellReuseIdentifier: RelaySettingTableViewCell.identifier)
+        
+        return table
+    }()
+    
     var models = [SettingsOption]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
- 
+        configure()
+        title = "settings"
         view.addSubview(tableView)
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.frame = view.bounds
     }
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        tableView.frame = view.bounds
+    func configure() {
+        self.models = Array(0...100).compactMap({
+            SettingsOption(title: "Item \($0)"){
+                
+            }
+        })
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return models.count
     }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let model = models[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = model.title
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: RelaySettingTableViewCell.identifier, for: indexPath
+        ) as? RelaySettingTableViewCell else{
+            return UITableViewCell()
+        }
+        cell.configure(with: model)
        
         return cell
     }
