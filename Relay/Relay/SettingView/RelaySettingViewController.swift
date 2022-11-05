@@ -8,6 +8,10 @@
 import UIKit
 import SnapKit
 
+struct Section {
+    let title: String
+    let options: [SettingsOption]
+}
 struct SettingsOption {
     let title: String
     let handler: (() -> Void)
@@ -22,11 +26,11 @@ class RelaySettingViewController: UIViewController, UITableViewDelegate, UITable
         return table
     }()
     
-    var models = [SettingsOption]()
+    var models = [Section]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configure()
+        relaySettingViewConfigure()
         title = "settings"
         view.addSubview(tableView)
         tableView.delegate = self
@@ -34,12 +38,34 @@ class RelaySettingViewController: UIViewController, UITableViewDelegate, UITable
         tableView.frame = view.bounds
     }
     
-    func configure() {
-        self.models = Array(0...100).compactMap({
-            SettingsOption(title: "Item \($0)"){
+    func relaySettingViewConfigure() {
+        models.append(Section(title: "General", options: [
+            SettingsOption(title: "내 정보") {
+            
+            },
+            SettingsOption(title: "알림 설정") {
                 
             }
-        })
+        ]))
+        models.append(Section(title: "", options: [
+            SettingsOption(title: "릴레이에 대해서") {
+            
+            },
+            SettingsOption(title: "이용약관") {
+                
+            },
+            SettingsOption(title: "개인정보처리방침") {
+                
+            },
+            SettingsOption(title: "버전") {
+                
+            }
+        ]))
+        models.append(Section(title: "", options: [
+            SettingsOption(title: "굳굳 계정") {
+            
+            }
+        ]))
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
