@@ -8,6 +8,11 @@
 import UIKit
 import SnapKit
 
+struct SettingsOption {
+    let title: String
+    let handler: (() -> Void)
+}
+
 class RelaySettingViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     let tableView = UITableView()
