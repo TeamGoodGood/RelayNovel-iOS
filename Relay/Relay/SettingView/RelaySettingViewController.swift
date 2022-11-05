@@ -41,7 +41,7 @@ class RelaySettingViewController: UIViewController, UITableViewDelegate, UITable
     func relaySettingViewConfigure() {
         models.append(Section(title: "General", options: [
             SettingsOption(title: "내 정보") {
-            
+                print("Tapped 내 정보")
             },
             SettingsOption(title: "알림 설정") {
                 
@@ -68,12 +68,16 @@ class RelaySettingViewController: UIViewController, UITableViewDelegate, UITable
         ]))
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return models.count
     }
     
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return models[section].options.count
+    }
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let model = models[indexPath.row]
+        let model = models[indexPath.section].options[indexPath.row]
         guard let cell = tableView.dequeueReusableCell(withIdentifier: RelaySettingTableViewCell.identifier, for: indexPath
         ) as? RelaySettingTableViewCell else{
             return UITableViewCell()
@@ -82,8 +86,10 @@ class RelaySettingViewController: UIViewController, UITableViewDelegate, UITable
        
         return cell
     }
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        print("cell tapped")
+        let model = models[indexPath.section].options[indexPath.row]
+        model.handler()
     }
 }
