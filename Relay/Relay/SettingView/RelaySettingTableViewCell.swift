@@ -32,7 +32,7 @@ class RelaySettingTableViewCell: UITableViewCell {
         super.layoutSubviews()
         let size = contentView.frame.size.height - 12
         
-        label.frame = CGRect(x: 20, y: 0, width: 100, height: contentView.frame.size.height)
+        label.frame = CGRect(x: 20, y: 0, width: 300, height: contentView.frame.size.height)
     }
     
     override func prepareForReuse() {
