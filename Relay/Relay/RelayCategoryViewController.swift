@@ -59,6 +59,10 @@ extension RelayCategoryViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         0.0
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        delegate?.didSelectedCategory(selectedCategory: categoryList[indexPath.row])
+    }
 }
 
 extension RelayCategoryViewController: UICollectionViewDataSource {
