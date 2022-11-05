@@ -33,6 +33,7 @@
 		55FDCEB5290A711C000AB345 /* RelayProfileUserActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FDCEB4290A711C000AB345 /* RelayProfileUserActivityView.swift */; };
 		55FDCEB7290ABB0C000AB345 /* RelayUserActivityCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FDCEB6290ABB0C000AB345 /* RelayUserActivityCollectionViewCell.swift */; };
 		B5C0B5252914D8BA00077B5F /* RelaySettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C0B5242914D8BA00077B5F /* RelaySettingViewController.swift */; };
+		B5C0B5292914E84E00077B5F /* TestingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C0B5282914E84E00077B5F /* TestingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +65,7 @@
 		55FDCEB4290A711C000AB345 /* RelayProfileUserActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayProfileUserActivityView.swift; sourceTree = "<group>"; };
 		55FDCEB6290ABB0C000AB345 /* RelayUserActivityCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayUserActivityCollectionViewCell.swift; sourceTree = "<group>"; };
 		B5C0B5242914D8BA00077B5F /* RelaySettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelaySettingViewController.swift; sourceTree = "<group>"; };
+		B5C0B5282914E84E00077B5F /* TestingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -204,6 +206,7 @@
 			isa = PBXGroup;
 			children = (
 				B5C0B5242914D8BA00077B5F /* RelaySettingViewController.swift */,
+				B5C0B5282914E84E00077B5F /* TestingView.swift */,
 			);
 			path = SettingView;
 			sourceTree = "<group>";
@@ -289,6 +292,7 @@
 				55FDCEB1290A5DB2000AB345 /* RelayProfileViewController.swift in Sources */,
 				32F8354029114F0E00E2CC4A /* RelayAgreementViewController.swift in Sources */,
 				55FDCEB7290ABB0C000AB345 /* RelayUserActivityCollectionViewCell.swift in Sources */,
+				B5C0B5292914E84E00077B5F /* TestingView.swift in Sources */,
 				556F309B29117E1F005D7AF4 /* RelayListCollectionViewCell.swift in Sources */,
 				3265BA2E290925DD00532CA4 /* ViewController.swift in Sources */,
 				32DA1B7F29123F7500C6FDC1 /* DetailViewController.swift in Sources */,
