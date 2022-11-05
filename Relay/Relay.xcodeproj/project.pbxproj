@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3201622E2912A7950054803C /* RelayPenNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3201622D2912A7950054803C /* RelayPenNameViewController.swift */; };
+		32517E142913B733005E0F69 /* RelayAllReadyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32517E132913B733005E0F69 /* RelayAllReadyViewController.swift */; };
 		32517E3F2913E23F005E0F69 /* PageAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32517E3E2913E23F005E0F69 /* PageAnimationView.swift */; };
 		32517E422913E25C005E0F69 /* SwiftUIPager in Frameworks */ = {isa = PBXBuildFile; productRef = 32517E412913E25C005E0F69 /* SwiftUIPager */; };
 		32517E442913E885005E0F69 /* RelayMainHostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32517E432913E885005E0F69 /* RelayMainHostingController.swift */; };
-		3201622E2912A7950054803C /* RelayPenNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3201622D2912A7950054803C /* RelayPenNameViewController.swift */; };
-		32517E142913B733005E0F69 /* RelayAllReadyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32517E132913B733005E0F69 /* RelayAllReadyViewController.swift */; };
 		3265BA2A290925DD00532CA4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3265BA29290925DD00532CA4 /* AppDelegate.swift */; };
 		3265BA2C290925DD00532CA4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3265BA2B290925DD00532CA4 /* SceneDelegate.swift */; };
 		3265BA2E290925DD00532CA4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3265BA2D290925DD00532CA4 /* ViewController.swift */; };
@@ -19,6 +19,7 @@
 		3265BA36290925DE00532CA4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3265BA34290925DE00532CA4 /* LaunchScreen.storyboard */; };
 		329918A0290A5D8800372C13 /* RelayLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3299189F290A5D8800372C13 /* RelayLoginViewController.swift */; };
 		32DA1B7F29123F7500C6FDC1 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DA1B7E29123F7500C6FDC1 /* DetailViewController.swift */; };
+		32DE2B0629164291005D1A85 /* RelayWritingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DE2B0529164291005D1A85 /* RelayWritingViewController.swift */; };
 		32F83527290FECC300E2CC4A /* ChangwonDangamAsac-Bold_0712.otf in Resources */ = {isa = PBXBuildFile; fileRef = 32F83526290FECC300E2CC4A /* ChangwonDangamAsac-Bold_0712.otf */; };
 		32F835362911008400E2CC4A /* Extension+UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F835352911008400E2CC4A /* Extension+UIButton.swift */; };
 		32F8354029114F0E00E2CC4A /* RelayAgreementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F8353F29114F0E00E2CC4A /* RelayAgreementViewController.swift */; };
@@ -33,22 +34,22 @@
 		55867E1129128C7400C79FFC /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55867E1029128C7400C79FFC /* TabBarController.swift */; };
 		55867E152912B7DA00C79FFC /* Extension+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55867E142912B7DA00C79FFC /* Extension+UIColor.swift */; };
 		55FDCEAF290A5667000AB345 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 55FDCEAE290A5667000AB345 /* SnapKit */; };
-		B5C0B4BD290F7C9A00077B5F /* RelayOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C0B4BC290F7C9A00077B5F /* RelayOnboardingViewController.swift */; };
-		B5C0B51B29117E2800077B5F /* RelaySecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C0B51A29117E2800077B5F /* RelaySecondViewController.swift */; };
-		B5C0B51D2911854900077B5F /* RelayFirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C0B51C2911854900077B5F /* RelayFirstViewController.swift */; };
-		B5C0B51F2911858800077B5F /* RelayThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C0B51E2911858800077B5F /* RelayThirdViewController.swift */; };
 		55FDCEB1290A5DB2000AB345 /* RelayProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FDCEB0290A5DB2000AB345 /* RelayProfileViewController.swift */; };
 		55FDCEB3290A6440000AB345 /* RelayProfileUserInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FDCEB2290A6440000AB345 /* RelayProfileUserInfoView.swift */; };
 		55FDCEB5290A711C000AB345 /* RelayProfileUserActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FDCEB4290A711C000AB345 /* RelayProfileUserActivityView.swift */; };
 		55FDCEB7290ABB0C000AB345 /* RelayUserActivityCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FDCEB6290ABB0C000AB345 /* RelayUserActivityCollectionViewCell.swift */; };
+		B5C0B4BD290F7C9A00077B5F /* RelayOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C0B4BC290F7C9A00077B5F /* RelayOnboardingViewController.swift */; };
+		B5C0B51B29117E2800077B5F /* RelaySecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C0B51A29117E2800077B5F /* RelaySecondViewController.swift */; };
+		B5C0B51D2911854900077B5F /* RelayFirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C0B51C2911854900077B5F /* RelayFirstViewController.swift */; };
+		B5C0B51F2911858800077B5F /* RelayThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C0B51E2911858800077B5F /* RelayThirdViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3201622D2912A7950054803C /* RelayPenNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayPenNameViewController.swift; sourceTree = "<group>"; };
 		32308E43290F983E0012B5A2 /* Relay.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Relay.entitlements; sourceTree = "<group>"; };
+		32517E132913B733005E0F69 /* RelayAllReadyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayAllReadyViewController.swift; sourceTree = "<group>"; };
 		32517E3E2913E23F005E0F69 /* PageAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageAnimationView.swift; sourceTree = "<group>"; };
 		32517E432913E885005E0F69 /* RelayMainHostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayMainHostingController.swift; sourceTree = "<group>"; };
-		32517E132913B733005E0F69 /* RelayAllReadyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayAllReadyViewController.swift; sourceTree = "<group>"; };
 		3265BA26290925DD00532CA4 /* Relay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Relay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3265BA29290925DD00532CA4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3265BA2B290925DD00532CA4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -57,11 +58,8 @@
 		3265BA35290925DE00532CA4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3265BA37290925DE00532CA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3299189F290A5D8800372C13 /* RelayLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayLoginViewController.swift; sourceTree = "<group>"; };
-		B5C0B4BC290F7C9A00077B5F /* RelayOnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayOnboardingViewController.swift; sourceTree = "<group>"; };
-		B5C0B51A29117E2800077B5F /* RelaySecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelaySecondViewController.swift; sourceTree = "<group>"; };
-		B5C0B51C2911854900077B5F /* RelayFirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayFirstViewController.swift; sourceTree = "<group>"; };
-		B5C0B51E2911858800077B5F /* RelayThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayThirdViewController.swift; sourceTree = "<group>"; };
 		32DA1B7E29123F7500C6FDC1 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		32DE2B0529164291005D1A85 /* RelayWritingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayWritingViewController.swift; sourceTree = "<group>"; };
 		32F83526290FECC300E2CC4A /* ChangwonDangamAsac-Bold_0712.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ChangwonDangamAsac-Bold_0712.otf"; sourceTree = "<group>"; };
 		32F835352911008400E2CC4A /* Extension+UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIButton.swift"; sourceTree = "<group>"; };
 		32F8353F29114F0E00E2CC4A /* RelayAgreementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayAgreementViewController.swift; sourceTree = "<group>"; };
@@ -79,6 +77,10 @@
 		55FDCEB2290A6440000AB345 /* RelayProfileUserInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayProfileUserInfoView.swift; sourceTree = "<group>"; };
 		55FDCEB4290A711C000AB345 /* RelayProfileUserActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayProfileUserActivityView.swift; sourceTree = "<group>"; };
 		55FDCEB6290ABB0C000AB345 /* RelayUserActivityCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayUserActivityCollectionViewCell.swift; sourceTree = "<group>"; };
+		B5C0B4BC290F7C9A00077B5F /* RelayOnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayOnboardingViewController.swift; sourceTree = "<group>"; };
+		B5C0B51A29117E2800077B5F /* RelaySecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelaySecondViewController.swift; sourceTree = "<group>"; };
+		B5C0B51C2911854900077B5F /* RelayFirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayFirstViewController.swift; sourceTree = "<group>"; };
+		B5C0B51E2911858800077B5F /* RelayThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayThirdViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +96,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3201622C2912A77B0054803C /* PenNameView */ = {
+			isa = PBXGroup;
+			children = (
+				3201622D2912A7950054803C /* RelayPenNameViewController.swift */,
+			);
+			path = PenNameView;
+			sourceTree = "<group>";
+		};
+		32517E122913B71D005E0F69 /* AllReadyView */ = {
+			isa = PBXGroup;
+			children = (
+				32517E132913B733005E0F69 /* RelayAllReadyViewController.swift */,
+			);
+			path = AllReadyView;
+			sourceTree = "<group>";
+		};
 		32517E152913CAC5005E0F69 /* MainView */ = {
 			isa = PBXGroup;
 			children = (
@@ -109,22 +127,6 @@
 				32517E3E2913E23F005E0F69 /* PageAnimationView.swift */,
 			);
 			path = Views;
-            sourceTree = "<group>";
-        };
-		3201622C2912A77B0054803C /* PenNameView */ = {
-			isa = PBXGroup;
-			children = (
-				3201622D2912A7950054803C /* RelayPenNameViewController.swift */,
-			);
-			path = PenNameView;
-			sourceTree = "<group>";
-        };
-		32517E122913B71D005E0F69 /* AllReadyView */ = {
-			isa = PBXGroup;
-			children = (
-				32517E132913B733005E0F69 /* RelayAllReadyViewController.swift */,
-			);
-			path = AllReadyView;
 			sourceTree = "<group>";
 		};
 		3265BA1D290925DD00532CA4 = {
@@ -147,6 +149,7 @@
 		3265BA28290925DD00532CA4 /* Relay */ = {
 			isa = PBXGroup;
 			children = (
+				32DE2B0429164266005D1A85 /* WritingView */,
 				32517E152913CAC5005E0F69 /* MainView */,
 				B5C0B4B5290F7B1F00077B5F /* Onboarding */,
 				3201622C2912A77B0054803C /* PenNameView */,
@@ -177,6 +180,14 @@
 				3299189F290A5D8800372C13 /* RelayLoginViewController.swift */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		32DE2B0429164266005D1A85 /* WritingView */ = {
+			isa = PBXGroup;
+			children = (
+				32DE2B0529164291005D1A85 /* RelayWritingViewController.swift */,
+			);
+			path = WritingView;
 			sourceTree = "<group>";
 		};
 		32F83525290FECB700E2CC4A /* Font */ = {
@@ -348,6 +359,7 @@
 				B5C0B51D2911854900077B5F /* RelayFirstViewController.swift in Sources */,
 				32F835422911571B00E2CC4A /* Extension+UIImage.swift in Sources */,
 				55FDCEB1290A5DB2000AB345 /* RelayProfileViewController.swift in Sources */,
+				32DE2B0629164291005D1A85 /* RelayWritingViewController.swift in Sources */,
 				32F8354029114F0E00E2CC4A /* RelayAgreementViewController.swift in Sources */,
 				55FDCEB7290ABB0C000AB345 /* RelayUserActivityCollectionViewCell.swift in Sources */,
 				556F309B29117E1F005D7AF4 /* RelayListCollectionViewCell.swift in Sources */,
