@@ -37,14 +37,9 @@ class RelayCategoryCollectionViewCell: UICollectionViewCell {
 }
 
 extension RelayCategoryCollectionViewCell {
-    func configure(_ text: String, index: Int, selectedRow: Int) {
+    func configure(_ text: String, index: Int) {
         categoryLabel.text = text
         categoryLabel.setFont(.body2)
-        
-        if selectedRow == index {
-            checkButton.setImage(image: UIImage(systemName: "checkmark.circle") ?? UIImage())
-            checkButton.tintColor = .relayPink1
-        }
 
         setupLayout()
     }
