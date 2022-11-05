@@ -16,6 +16,7 @@ struct SettingsOption {
 class RelaySettingViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     let tableView = UITableView()
+    var models = [SettingsOption]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,11 +33,12 @@ class RelaySettingViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 7
+        return models.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let model = models[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = "Cell \(indexPath.row + 1)"
+        cell.textLabel?.text = model.title
        
         return cell
     }
