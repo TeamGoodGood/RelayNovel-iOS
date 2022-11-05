@@ -16,23 +16,23 @@ class RelayCategoryCollectionViewCell: UICollectionViewCell {
     override var isSelected: Bool {
         didSet {
             if isSelected {
-                checkButton.setImage(image: UIImage(systemName: "checkmark.circle") ?? UIImage())
-                checkButton.tintColor = .relayPink1
+                checkImageView.image = UIImage(systemName: "checkmark.circle")
+                checkImageView.tintColor = .relayPink1
             } else {
-                checkButton.setImage(image: UIImage(systemName: "circle") ?? UIImage())
-                checkButton.tintColor = UIColor(red: 226/255, green: 226/255, blue: 226/255, alpha: 1.0)
+                checkImageView.image = UIImage(systemName: "circle")
+                checkImageView.tintColor = UIColor(red: 226/255, green: 226/255, blue: 226/255, alpha: 1.0)
             }
         }
     }
     
     private lazy var categoryLabel = UILabel()
     
-    private lazy var checkButton: UIButton = {
-        let button = UIButton()
-        button.setImage(image: UIImage(systemName: "circle") ?? UIImage())
-        button.tintColor = UIColor(red: 226/255, green: 226/255, blue: 226/255, alpha: 1.0)
+    private lazy var checkImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(systemName: "circle")
+        imageView.tintColor = UIColor(red: 226/255, green: 226/255, blue: 226/255, alpha: 1.0)
         
-        return button
+        return imageView
     }()
 }
 
@@ -47,7 +47,7 @@ extension RelayCategoryCollectionViewCell {
     private func setupLayout() {
         [
             categoryLabel,
-            checkButton
+            checkImageView
         ].forEach { addSubview($0) }
         
         categoryLabel.snp.makeConstraints {
@@ -56,7 +56,7 @@ extension RelayCategoryCollectionViewCell {
             $0.bottom.equalToSuperview().inset(12.0)
         }
         
-        checkButton.snp.makeConstraints {
+        checkImageView.snp.makeConstraints {
             $0.trailing.equalToSuperview()
             $0.top.equalToSuperview().inset(14.0)
             $0.bottom.equalToSuperview().inset(13.0)
