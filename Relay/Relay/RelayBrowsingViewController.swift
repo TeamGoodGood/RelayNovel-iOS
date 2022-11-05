@@ -9,6 +9,8 @@ import UIKit
 import SnapKit
 
 class RelayBrowsingViewController: UIViewController {
+    private var selectedCategory: String?
+    
     private var currentHighlightedButton: ButtonName? {
         didSet {
             changeButtonsHighlight()
@@ -35,6 +37,14 @@ extension RelayBrowsingViewController: UIViewControllerTransitioningDelegate {
     func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
             HalfModalPresentationController(presentedViewController: presented, presenting: presenting)
         }
+}
+
+extension RelayBrowsingViewController: RelayCategoryDelegate {
+    func didSelectedCategory(selectedCategory: String) {
+        self.selectedCategory = selectedCategory
+        
+        print("적용된 카테고리 : \(self.selectedCategory ?? "카테고리 전체")")
+    }
 }
 
 extension RelayBrowsingViewController {
@@ -169,6 +179,8 @@ extension RelayBrowsingViewController {
         
         modalViewController.modalPresentationStyle = .custom
         modalViewController.transitioningDelegate = self
+        modalViewController.delegate = self
+        
         present(modalViewController, animated: true)
     }
 }
