@@ -32,6 +32,8 @@ class RelayCategoryViewController: UIViewController {
         button.titleEdgeInsets = UIEdgeInsets(top: -11.0, left: 0.0, bottom: 11.0, right: 0.0)
         button.backgroundColor = .relayPink1
         
+        button.addTarget(self, action: #selector(dismissViewController), for: .touchUpInside)
+        
         return button
     }()
     
@@ -98,5 +100,9 @@ extension RelayCategoryViewController {
             $0.bottom.equalToSuperview()
             $0.height.equalTo(80.0)
         }
+    }
+    
+    @objc private func dismissViewController() {
+        dismiss(animated: true)
     }
 }
