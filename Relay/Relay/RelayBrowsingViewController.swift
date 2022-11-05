@@ -43,6 +43,13 @@ extension RelayBrowsingViewController: RelayCategoryDelegate {
     func didSelectedCategory(selectedCategory: String) {
         self.selectedCategory = selectedCategory
         
+        if selectedCategory == "전체" {
+            relayListView.listHeaderView?.listFilterButton.setTitle("카테고리 전체", for: .normal)
+        } else {
+            relayListView.listHeaderView?.listFilterButton.setTitle(selectedCategory, for: .normal)
+        }
+        
+        
         print("적용된 카테고리 : \(self.selectedCategory ?? "카테고리 전체")")
     }
 }
