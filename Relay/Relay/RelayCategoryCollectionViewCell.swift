@@ -13,7 +13,17 @@ class RelayCategoryCollectionViewCell: UICollectionViewCell {
         return NSStringFromClass(Self.self).components(separatedBy: ".").last!
     }
     
-    private var cellIndex: Int?
+    override var isSelected: Bool {
+        didSet {
+            if isSelected {
+                checkButton.setImage(image: UIImage(systemName: "checkmark.circle") ?? UIImage())
+                checkButton.tintColor = .relayPink1
+            } else {
+                checkButton.setImage(image: UIImage(systemName: "circle") ?? UIImage())
+                checkButton.tintColor = UIColor(red: 226/255, green: 226/255, blue: 226/255, alpha: 1.0)
+            }
+        }
+    }
     
     private lazy var categoryLabel = UILabel()
     
@@ -27,31 +37,16 @@ class RelayCategoryCollectionViewCell: UICollectionViewCell {
 }
 
 extension RelayCategoryCollectionViewCell {
-    func configure(_ text: String, index: Int) {
-        cellIndex = index
+    func configure(_ text: String, index: Int, selectedRow: Int) {
         categoryLabel.text = text
         categoryLabel.setFont(.body2)
         
-        if cellIndex == 0 {
-            layer.addBorder([.bottom], color: UIColor(red: 226/255, green: 226/255, blue: 226/255, alpha: 1.0), width: 1.0)
-            
+        if selectedRow == index {
             checkButton.setImage(image: UIImage(systemName: "checkmark.circle") ?? UIImage())
             checkButton.tintColor = .relayPink1
         }
-        
+
         setupLayout()
-    }
-    
-    func changeCheckButtonImage(at index: Int) {
-        let button = checkButton
-        
-        if index == cellIndex {
-            button.setImage(image: UIImage(systemName: "checkmark.circle") ?? UIImage())
-            button.tintColor = .relayPink1
-        } else {
-            button.setImage(image: UIImage(systemName: "circle") ?? UIImage())
-            button.tintColor = UIColor(red: 226/255, green: 226/255, blue: 226/255, alpha: 1.0)
-        }
     }
     
     private func setupLayout() {
