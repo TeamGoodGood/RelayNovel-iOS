@@ -87,11 +87,12 @@ class RelaySettingViewController: UIViewController, UITableViewDelegate, UITable
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let model = models[indexPath.section].options[indexPath.row]
         guard let cell = tableView.dequeueReusableCell(withIdentifier: RelaySettingTableViewCell.identifier, for: indexPath
-        ) as? RelaySettingTableViewCell else{
-            return UITableViewCell()
-        }
-        cell.configure(with: model)
-       
+                ) as? RelaySettingTableViewCell else{
+                    return UITableViewCell()
+                }
+                cell.configure(with: model)
+                cell.accessoryType = UITableViewCell.AccessoryType.disclosureIndicator
+                
         return cell
     }
 
