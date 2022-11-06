@@ -80,7 +80,7 @@ class RelayWritingViewController: UIViewController {
         textField.backgroundColor = .relayGray2
         textField.placeholder = "제목을 작성해주세요"
         
-        textField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
+        textField.addTarget(self, action: #selector(titleTextFieldDidChange), for: .editingChanged)
 
         // TODO: 다음 스프린트때 제목 확인
         //        textField.addTarget(self, action: #selector(checkText), for: .editingChanged)
@@ -138,6 +138,40 @@ class RelayWritingViewController: UIViewController {
         return label
     }()
     
+    private let commentLabel: UILabel = {
+        let label = UILabel()
+        
+        label.text = "코멘트"
+        label.setFont(.body1)
+        
+        return label
+    }()
+    
+    private let commentTextField: UITextField = {
+        let textField = UITextField()
+        
+        textField.layer.cornerRadius = 8.0
+        textField.backgroundColor = .relayGray2
+        textField.placeholder = "코멘트를 입력해주세요."
+        
+        textField.addTarget(self, action: #selector(commentTextFieldDidChange), for: .editingChanged)
+        
+        textField.leftView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: 20.0, height: 0.0))
+        textField.leftViewMode = .always
+        
+        return textField
+    }()
+    
+    private let commentTextCountLabel: UILabel = {
+            let label = UILabel()
+            
+            label.text = "0/20자"
+            label.setFont(.caption2)
+            label.textColor = .relayGray
+        
+            return label
+    }()
+    
     private let writeScrollView: UIScrollView = {
         let scrollView = UIScrollView()
         
@@ -159,7 +193,7 @@ class RelayWritingViewController: UIViewController {
 extension RelayWritingViewController {
     // 텍스트 숫자 세기
     @objc
-    func textFieldDidChange(_ textField: UITextField) {
+    func titleTextFieldDidChange(_ textField: UITextField) {
         let string = textField.text
         let strCount = string?.count
         
@@ -167,6 +201,18 @@ extension RelayWritingViewController {
             titleTextCountLabel.text = "20/20자"
         } else {
             titleTextCountLabel.text = "\(String(describing: strCount ?? 0))/20자"
+        }
+    }
+    
+    @objc
+    func commentTextFieldDidChange(_ textField: UITextField) {
+        let string = textField.text
+        let strCount = string?.count
+        
+        if strCount ?? 0 > 20 {
+            commentTextCountLabel.text = "20/20자"
+        } else {
+            commentTextCountLabel.text = "\(String(describing: strCount ?? 0))/20자"
         }
     }
     
@@ -184,19 +230,14 @@ extension RelayWritingViewController {
                 }
             }
         }
-    }
-    
-    // textView 마지막 글자 한글 받침 사용하기 위해
-    @objc
-    func textVDidChange(noti: NSNotification) {
-        if let text = storyTextView.text {
-            if text.count >= 500 {
-                let fixedText = text.prefix(500)
-                storyTextView.text = fixedText + " "
+        if let text = commentTextField.text {
+            if text.count >= 20 {
+                let fixedText = text.prefix(20)
+                commentTextField.text = fixedText + " "
                 
                 let when = DispatchTime.now() + 0.01
                 DispatchQueue.main.asyncAfter(deadline: when) {
-                    self.storyTextView.text = String(fixedText)
+                    self.commentTextField.text = String(fixedText)
                 }
             }
         }
@@ -218,7 +259,10 @@ extension RelayWritingViewController {
             titleTextCountLabel,
             storyLabel,
             storyTextView,
-            remainCountLabel
+            remainCountLabel,
+            commentLabel,
+            commentTextField,
+            commentTextCountLabel
         ].forEach { writeScrollView.addSubview($0) }
         
         writeScrollView.snp.makeConstraints {
@@ -274,6 +318,20 @@ extension RelayWritingViewController {
         remainCountLabel.snp.makeConstraints {
             $0.bottom.equalTo(storyTextView.snp.top).offset(-10.0)
             $0.trailing.equalTo(titleTextField.snp.trailing)
+        }
+        commentLabel.snp.makeConstraints {
+            $0.top.equalTo(storyTextView.snp.bottom).offset(28.0)
+            $0.leading.equalTo(musicListButton.snp.leading)
+        }
+        commentTextField.snp.makeConstraints {
+            $0.top.equalTo(commentLabel.snp.bottom).offset(8.0)
+            $0.leading.equalTo(musicListButton.snp.leading)
+            $0.trailing.equalTo(storyTextView.snp.trailing)
+            $0.height.equalTo(49.0)
+        }
+        commentTextCountLabel.snp.makeConstraints {
+            $0.top.equalTo(commentLabel)
+            $0.trailing.equalTo(muteButton.snp.trailing)
         }
         
     }
