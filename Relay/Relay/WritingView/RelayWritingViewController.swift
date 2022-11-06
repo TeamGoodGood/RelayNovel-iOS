@@ -29,6 +29,40 @@ class RelayWritingViewController: UIViewController {
         
         return button
     }()
+    
+    private let musicListButton: UIButton = {
+        let button = UIButton(type: .custom)
+        let config = UIImage.SymbolConfiguration(pointSize: 22)
+        let image = UIImage(systemName: "music.note.list", withConfiguration: config)
+        
+        button.setImage(image: image!)
+        button.tintColor = .relayPink1
+        
+        button.setTitle("플레이리스트 선택", for: .normal)
+        button.titleLabel!.setFont(.body2)
+        button.setTitleColor(.relayBlack, for: .normal)
+        
+        button.backgroundColor = .relayGray2
+        button.layer.cornerRadius = 8
+        
+        button.contentHorizontalAlignment = .leading
+        button.semanticContentAttribute = .forceLeftToRight
+        button.imageEdgeInsets = .init(top: 0, left: 20, bottom: 0, right: 0)
+        button.titleEdgeInsets = .init(top: 0, left: 28, bottom: 0, right: 0)
+        
+        return button
+    }()
+    
+    private let muteButton: UIButton = {
+        let button = UIButton(type: .custom)
+        let config = UIImage.SymbolConfiguration(pointSize: 22)
+        let image = UIImage(systemName: "speaker.slash.fill")
+        
+        button.setImage(image: image!)
+        button.tintColor = .relayBlack
+        
+        return button
+    }()
 
     private let writeScrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -58,7 +92,9 @@ extension RelayWritingViewController {
     private func setupLayout() {
         [
             closeButton,
-            completeButton
+            completeButton,
+            muteButton,
+            musicListButton
         ].forEach { contentView.addSubview($0) }
         
         writeScrollView.snp.makeConstraints {
@@ -81,6 +117,17 @@ extension RelayWritingViewController {
         completeButton.snp.makeConstraints {
             $0.top.equalTo(closeButton.snp.top)
             $0.trailing.equalToSuperview().inset(20.0)
+        }
+        muteButton.snp.makeConstraints {
+            $0.top.equalTo(closeButton.snp.bottom).offset(39.0)
+            $0.trailing.equalToSuperview().inset(20.0)
+            $0.width.equalTo(22.0)
+        }
+        musicListButton.snp.makeConstraints {
+            $0.top.equalTo(closeButton.snp.bottom).offset(28.0)
+            $0.leading.equalToSuperview().inset(20.0)
+            $0.trailing.equalTo(muteButton.snp.leading).inset(-20.0)
+            $0.height.equalTo(47.0)
         }
         
     }
