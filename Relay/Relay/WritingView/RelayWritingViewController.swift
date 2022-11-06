@@ -22,7 +22,7 @@ class RelayWritingViewController: UIViewController {
     
     private let completeButton: UIButton = {
         let button = UIButton()
-     
+        
         button.setTitle("완료", for: .normal)
         button.setTitleColor(.relayBlack, for: .normal)
         button.titleLabel?.setFont(.caption1)
@@ -83,7 +83,7 @@ class RelayWritingViewController: UIViewController {
         textField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
         
         // TODO: 다음 스프린트때 제목 확인
-//        textField.addTarget(self, action: #selector(checkText), for: .editingChanged)
+        //        textField.addTarget(self, action: #selector(checkText), for: .editingChanged)
         
         textField.leftView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: 20.0, height: 0.0))
         textField.leftViewMode = .always
@@ -93,7 +93,7 @@ class RelayWritingViewController: UIViewController {
     
     private let titleTextCountLabel: UILabel = {
         let label = UILabel()
-    
+        
         label.text = "0/20자"
         label.setFont(.caption2)
         label.textColor = .relayGray
@@ -109,16 +109,34 @@ class RelayWritingViewController: UIViewController {
         return label
     }()
     
-    private let storyTextView: UITextView = {
+    let textViewPlaceHolder = "내용을 입력하세요."
+    
+    lazy var storyTextView: UITextView = {
         let textView = UITextView()
         
         textView.layer.cornerRadius = 8.0
         textView.backgroundColor = .relayGray2
-        textView.font = .systemFont(ofSize: 16)
+        
+        textView.text = textViewPlaceHolder
+        textView.font = .systemFont(ofSize: 17)
+        textView.textColor = .systemGray3
+        
+        textView.textContainerInset = UIEdgeInsets(top: 12.0, left: 18.0, bottom: 12.0, right: 18.0)
+        
+        textView.delegate = self
         
         return textView
     }()
-
+    
+    let remainCountLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .relayGray
+        label.setFont(.caption2)
+        label.text = "0/500자"
+        
+        return label
+    }()
+    
     private let writeScrollView: UIScrollView = {
         let scrollView = UIScrollView()
         
@@ -128,10 +146,13 @@ class RelayWritingViewController: UIViewController {
         return scrollView
     }()
     
+    let tapGesture = UITapGestureRecognizer(target: self, action: #selector(didTapTextView(_:)))
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         view.addSubview(writeScrollView)
+        writeScrollView.addGestureRecognizer(tapGesture)
         setupLayout()
         NotificationCenter.default.addObserver(self, selector: #selector(textDidChange), name: UITextField.textDidChangeNotification, object: nil)
     }
@@ -154,18 +175,28 @@ extension RelayWritingViewController {
     // 마지막 글자 한글 받침 사용하기 위해
     @objc
     func textDidChange(noti: NSNotification) {
-            if let text = titleTextField.text {
-                if text.count >= 20 {
-                    let fixedText = text.prefix(20)
-                    titleTextField.text = fixedText + " "
-                    
-                    let when = DispatchTime.now() + 0.01
-                    DispatchQueue.main.asyncAfter(deadline: when) {
-                        self.titleTextField.text = String(fixedText)
-                    }
+        if let text = titleTextField.text {
+            if text.count >= 20 {
+                let fixedText = text.prefix(20)
+                titleTextField.text = fixedText + " "
+                
+                let when = DispatchTime.now() + 0.01
+                DispatchQueue.main.asyncAfter(deadline: when) {
+                    self.titleTextField.text = String(fixedText)
                 }
             }
         }
+    }
+    
+    @objc
+    private func didTapTextView(_ sender: Any) {
+        view.endEditing(true)
+    }
+    
+    private func updateCountLabel(characterCount: Int) {
+        remainCountLabel.text = "\(characterCount)/500자"
+        remainCountLabel.textColor = .relayGray
+    }
     
     private func setupLayout() {
         [
@@ -177,7 +208,8 @@ extension RelayWritingViewController {
             titleTextField,
             titleTextCountLabel,
             storyLabel,
-            storyTextView
+            storyTextView,
+            remainCountLabel
         ].forEach { writeScrollView.addSubview($0) }
         
         writeScrollView.snp.makeConstraints {
@@ -227,9 +259,12 @@ extension RelayWritingViewController {
         storyTextView.snp.makeConstraints {
             $0.top.equalTo(storyLabel.snp.bottom).offset(8.0)
             $0.leading.equalTo(musicListButton.snp.leading)
-            $0.trailing.equalTo(muteButton.snp.trailing)
-            $0.width.equalToSuperview()
+            $0.trailing.equalTo(titleTextField.snp.trailing)
             $0.height.equalTo(300.0)
+        }
+        remainCountLabel.snp.makeConstraints {
+            $0.bottom.equalTo(storyTextView.snp.top).offset(-10.0)
+            $0.trailing.equalTo(titleTextField.snp.trailing)
         }
         
     }
@@ -239,16 +274,47 @@ extension RelayWritingViewController: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         // 백 스페이스 가능하게 설정
         if let char = string.cString(using: String.Encoding.utf8) {
-                    let isBackSpace = strcmp(char, "\\b")
-                    if isBackSpace == -92 {
-                        return true
-                    }
-                }
-
-                guard let text = textField.text else { return false }
-                if text.count >= 21 {
-                    return false
-                }
+            let isBackSpace = strcmp(char, "\\b")
+            if isBackSpace == -92 {
                 return true
+            }
+        }
+        
+        guard let text = textField.text else { return false }
+        if text.count >= 21 {
+            return false
+        }
+        return true
+    }
+}
+
+
+extension RelayWritingViewController: UITextViewDelegate {
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.text == textViewPlaceHolder {
+            textView.text = nil
+            textView.textColor = .relayBlack
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+            textView.text = textViewPlaceHolder
+            textView.textColor = .systemGray3
+            textView.font = .systemFont(ofSize: 17)
+            updateCountLabel(characterCount: 0)
+        }
+    }
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        let inputString = text.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard let oldString = textView.text, let newRange = Range(range, in: oldString) else { return true }
+        let newString = oldString.replacingCharacters(in: newRange, with: inputString).trimmingCharacters(in: .whitespacesAndNewlines)
+        
+        let characterCount = newString.count
+        guard characterCount <= 500 else { return false }
+        updateCountLabel(characterCount: characterCount)
+        
+        return true
     }
 }
