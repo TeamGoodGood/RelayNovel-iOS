@@ -40,7 +40,7 @@ extension RelayBrowsingViewController: UIViewControllerTransitioningDelegate {
 }
 
 extension RelayBrowsingViewController: RelayCategoryDelegate {
-    func didSelectedCategory(selectedCategory: String) {
+    func didApplyCategory(selectedCategory: String) {
         self.selectedCategory = selectedCategory
         
         if selectedCategory == "전체" {
