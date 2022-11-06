@@ -63,6 +63,15 @@ class RelayWritingViewController: UIViewController {
         
         return button
     }()
+    
+    private let titleLabel: UILabel = {
+        let label = UILabel()
+        
+        label.text = "제목"
+        label.setFont(.body1)
+        
+        return label
+    }()
 
     private let writeScrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -94,7 +103,8 @@ extension RelayWritingViewController {
             closeButton,
             completeButton,
             muteButton,
-            musicListButton
+            musicListButton,
+            titleLabel
         ].forEach { contentView.addSubview($0) }
         
         writeScrollView.snp.makeConstraints {
@@ -128,6 +138,10 @@ extension RelayWritingViewController {
             $0.leading.equalToSuperview().inset(20.0)
             $0.trailing.equalTo(muteButton.snp.leading).inset(-20.0)
             $0.height.equalTo(47.0)
+        }
+        titleLabel.snp.makeConstraints {
+            $0.top.equalTo(musicListButton.snp.bottom).offset(28.0)
+            $0.leading.equalTo(musicListButton.snp.leading)
         }
         
     }
