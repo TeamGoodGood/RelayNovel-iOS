@@ -81,7 +81,7 @@ class RelayWritingViewController: UIViewController {
         textField.placeholder = "제목을 작성해주세요"
         
         textField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
-        
+
         // TODO: 다음 스프린트때 제목 확인
         //        textField.addTarget(self, action: #selector(checkText), for: .editingChanged)
         
@@ -111,6 +111,7 @@ class RelayWritingViewController: UIViewController {
     
     let textViewPlaceHolder = "내용을 입력하세요."
     
+    // TODO: TextView에는 addTarget이 안되서 한국어 받침 설정을 못했습니다
     lazy var storyTextView: UITextView = {
         let textView = UITextView()
         
@@ -145,14 +146,11 @@ class RelayWritingViewController: UIViewController {
         
         return scrollView
     }()
-    
-    let tapGesture = UITapGestureRecognizer(target: self, action: #selector(didTapTextView(_:)))
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         view.addSubview(writeScrollView)
-        writeScrollView.addGestureRecognizer(tapGesture)
         setupLayout()
         NotificationCenter.default.addObserver(self, selector: #selector(textDidChange), name: UITextField.textDidChangeNotification, object: nil)
     }
@@ -172,7 +170,7 @@ extension RelayWritingViewController {
         }
     }
     
-    // 마지막 글자 한글 받침 사용하기 위해
+    // titleTextField 마지막 글자 한글 받침 사용하기 위해
     @objc
     func textDidChange(noti: NSNotification) {
         if let text = titleTextField.text {
@@ -188,9 +186,20 @@ extension RelayWritingViewController {
         }
     }
     
+    // textView 마지막 글자 한글 받침 사용하기 위해
     @objc
-    private func didTapTextView(_ sender: Any) {
-        view.endEditing(true)
+    func textVDidChange(noti: NSNotification) {
+        if let text = storyTextView.text {
+            if text.count >= 500 {
+                let fixedText = text.prefix(500)
+                storyTextView.text = fixedText + " "
+                
+                let when = DispatchTime.now() + 0.01
+                DispatchQueue.main.asyncAfter(deadline: when) {
+                    self.storyTextView.text = String(fixedText)
+                }
+            }
+        }
     }
     
     private func updateCountLabel(characterCount: Int) {
@@ -310,9 +319,10 @@ extension RelayWritingViewController: UITextViewDelegate {
         let inputString = text.trimmingCharacters(in: .whitespacesAndNewlines)
         guard let oldString = textView.text, let newRange = Range(range, in: oldString) else { return true }
         let newString = oldString.replacingCharacters(in: newRange, with: inputString).trimmingCharacters(in: .whitespacesAndNewlines)
-        
         let characterCount = newString.count
-        guard characterCount <= 500 else { return false }
+        
+        guard characterCount <= 501 else { return false }
+        
         updateCountLabel(characterCount: characterCount)
         
         return true
