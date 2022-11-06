@@ -12,6 +12,7 @@ struct Section {
     let title: String
     let options: [SettingsOption]
 }
+
 struct SettingsOption {
     let title: String
     let handler: (() -> Void)
@@ -31,17 +32,19 @@ class RelaySettingViewController: UIViewController, UITableViewDelegate, UITable
     override func viewDidLoad() {
         super.viewDidLoad()
         relaySettingViewConfigure()
-        title = "settings"
+//        title = "설정"
         view.addSubview(tableView)
         tableView.delegate = self
         tableView.dataSource = self
         tableView.frame = view.bounds
+        tableView.isScrollEnabled = false
     }
     
     func relaySettingViewConfigure() {
-        models.append(Section(title: "General", options: [
+        models.append(Section(title: "", options: [
             SettingsOption(title: "내 정보") {
                 print("Tapped 내 정보")
+            
             },
             SettingsOption(title: "알림 설정") {
                 
