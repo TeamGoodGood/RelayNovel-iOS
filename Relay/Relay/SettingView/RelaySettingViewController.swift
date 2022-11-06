@@ -43,13 +43,14 @@ class RelaySettingViewController: UIViewController, UITableViewDelegate, UITable
         tableView.sectionFooterHeight = 0
         tableView.backgroundColor = .relayGray2
         tableView.tableFooterView = UIView(frame: CGRect.zero)
+        tableView.separatorColor = self.tableView.backgroundColor
+        tableView.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
     }
     
     func relaySettingViewConfigure() {
         models.append(Section(title: "", options: [
             SettingsOption(title: "내 정보") {
                 print("Tapped 내 정보")
-            
             },
             SettingsOption(title: "알림 설정") {
                 
@@ -91,7 +92,12 @@ class RelaySettingViewController: UIViewController, UITableViewDelegate, UITable
                     return UITableViewCell()
                 }
                 cell.configure(with: model)
-                cell.accessoryType = UITableViewCell.AccessoryType.disclosureIndicator
+        if indexPath.row == 3 {
+            cell.accessoryType = .none
+        }
+        else{
+            cell.accessoryType = UITableViewCell.AccessoryType.disclosureIndicator
+        }
                 
         return cell
     }
