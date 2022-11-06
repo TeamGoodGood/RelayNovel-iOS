@@ -48,9 +48,6 @@ extension RelayBrowsingViewController: RelayCategoryDelegate {
         } else {
             relayListView.listHeaderView?.listFilterButton.setTitle(selectedCategory, for: .normal)
         }
-        
-        
-        print("적용된 카테고리 : \(self.selectedCategory ?? "카테고리 전체")")
     }
 }
 
@@ -184,6 +181,7 @@ extension RelayBrowsingViewController {
     @objc private func touchListFilterButton() {
         let modalViewController = RelayCategoryViewController()
         
+        modalViewController.fetchSelectedCateogry(selectedCategory)
         modalViewController.modalPresentationStyle = .custom
         modalViewController.transitioningDelegate = self
         modalViewController.delegate = self

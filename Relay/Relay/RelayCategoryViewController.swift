@@ -81,6 +81,19 @@ extension RelayCategoryViewController: UICollectionViewDataSource {
             collectionView.selectItem(at: indexPath, animated: false, scrollPosition: .init())
         }
         
+        if let category = selectedCategory {
+            if category == "전체" {
+                let indexPath0 = IndexPath(row: 0, section: 0)
+                collectionView.selectItem(at: indexPath0, animated: false, scrollPosition: .init())
+            } else {
+                let categoryIndexPath = IndexPath(row: categoryList.firstIndex(of: category) ?? 0, section: 0)
+                collectionView.selectItem(at: categoryIndexPath, animated: false, scrollPosition: .init())
+            }
+        } else {
+            let indexPath0 = IndexPath(row: 0, section: 0)
+            collectionView.selectItem(at: indexPath0, animated: false, scrollPosition: .init())
+        }
+        
         return cell
     }
 }
@@ -109,6 +122,10 @@ extension RelayCategoryViewController {
         }
     }
     
+    func fetchSelectedCateogry(_ cateogry: String?) {
+        selectedCategory = cateogry
+    }
+    
     @objc private func dismissViewController() {
         delegate?.didSelectedCategory(selectedCategory: selectedCategory ?? "전체")
         dismiss(animated: true)
@@ -116,6 +133,6 @@ extension RelayCategoryViewController {
 }
 
 
-protocol RelayCategoryDelegate: class {
+protocol RelayCategoryDelegate: AnyObject {
     func didSelectedCategory(selectedCategory: String)
 }
