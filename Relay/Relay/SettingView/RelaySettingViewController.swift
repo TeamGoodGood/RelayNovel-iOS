@@ -39,6 +39,10 @@ class RelaySettingViewController: UIViewController, UITableViewDelegate, UITable
         tableView.frame = view.bounds
         tableView.contentInset = .init(top: 70, left: 0, bottom: 0, right: 0)
         tableView.isScrollEnabled = false
+        tableView.sectionHeaderHeight = 7
+        tableView.sectionFooterHeight = 0
+        tableView.backgroundColor = .relayGray2
+        tableView.tableFooterView = UIView(frame: CGRect.zero)
     }
     
     func relaySettingViewConfigure() {
