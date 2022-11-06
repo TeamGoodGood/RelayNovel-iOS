@@ -113,17 +113,20 @@ class RelayWritingViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         view.addSubview(writeScrollView)
-//        writeScrollView.addSubview(contentView)
         setupLayout()
+        NotificationCenter.default.addObserver(self, selector: #selector(textDidChange), name: UITextField.textDidChangeNotification, object: nil)
     }
-    
+}
+
+extension RelayWritingViewController {
     // 텍스트 숫자 세기
-    @objc func textFieldDidChange(_ textField: UITextField) {
+    @objc
+    func textFieldDidChange(_ textField: UITextField) {
         let string = textField.text
         let strCount = string?.count
         
         if strCount ?? 0 > 20 {
-            titleTextCountLabel.text = "0/20자"
+            titleTextCountLabel.text = "20/20자"
         } else {
             titleTextCountLabel.text = "\(String(describing: strCount ?? 0))/20자"
         }
@@ -144,9 +147,7 @@ class RelayWritingViewController: UIViewController {
                 }
             }
         }
-}
-
-extension RelayWritingViewController {
+    
     private func setupLayout() {
         [
             closeButton,
@@ -199,5 +200,23 @@ extension RelayWritingViewController {
             $0.trailing.equalTo(muteButton.snp.trailing)
         }
         
+    }
+}
+
+extension RelayWritingViewController: UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        // 백 스페이스 가능하게 설정
+        if let char = string.cString(using: String.Encoding.utf8) {
+                    let isBackSpace = strcmp(char, "\\b")
+                    if isBackSpace == -92 {
+                        return true
+                    }
+                }
+
+                guard let text = textField.text else { return false }
+                if text.count >= 21 {
+                    return false
+                }
+                return true
     }
 }
