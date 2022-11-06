@@ -109,17 +109,11 @@ class RelayWritingViewController: UIViewController {
         return scrollView
     }()
     
-    private let contentView: UIView = {
-          let view = UIView()
-    
-          return view
-      }()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         view.addSubview(writeScrollView)
-        writeScrollView.addSubview(contentView)
+//        writeScrollView.addSubview(contentView)
         setupLayout()
     }
     
@@ -162,20 +156,14 @@ extension RelayWritingViewController {
             titleLabel,
             titleTextField,
             titleTextCountLabel
-        ].forEach { contentView.addSubview($0) }
+        ].forEach { writeScrollView.addSubview($0) }
         
         writeScrollView.snp.makeConstraints {
             $0.top.equalToSuperview()
             $0.leading.equalToSuperview()
             $0.trailing.equalToSuperview()
             $0.bottom.equalToSuperview()
-        }
-        contentView.snp.makeConstraints {
-            $0.top.equalTo(writeScrollView.snp.top)
-            $0.leading.equalTo(writeScrollView.snp.leading)
-            $0.trailing.equalTo(writeScrollView.snp.trailing)
-            $0.bottom.equalTo(writeScrollView.snp.bottom)
-            $0.width.equalTo(writeScrollView.snp.width)
+            $0.width.equalToSuperview()
         }
         closeButton.snp.makeConstraints {
             $0.top.equalToSuperview().inset(64.0)
@@ -183,11 +171,11 @@ extension RelayWritingViewController {
         }
         completeButton.snp.makeConstraints {
             $0.top.equalTo(closeButton.snp.top)
-            $0.trailing.equalToSuperview().inset(20.0)
+            $0.trailing.equalTo(view.snp.trailing).inset(20.0)
         }
         muteButton.snp.makeConstraints {
             $0.top.equalTo(closeButton.snp.bottom).offset(39.0)
-            $0.trailing.equalToSuperview().inset(20.0)
+            $0.trailing.equalTo(view.snp.trailing).inset(20.0)
             $0.width.equalTo(22.0)
         }
         musicListButton.snp.makeConstraints {
