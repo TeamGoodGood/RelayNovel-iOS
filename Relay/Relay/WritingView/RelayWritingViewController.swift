@@ -96,8 +96,27 @@ class RelayWritingViewController: UIViewController {
     
         label.text = "0/20자"
         label.setFont(.caption2)
-    
+        label.textColor = .relayGray
         return label
+    }()
+    
+    private let storyLabel: UILabel = {
+        let label = UILabel()
+        
+        label.text = "내용"
+        label.setFont(.body1)
+        
+        return label
+    }()
+    
+    private let storyTextView: UITextView = {
+        let textView = UITextView()
+        
+        textView.layer.cornerRadius = 8.0
+        textView.backgroundColor = .relayGray2
+        textView.font = .systemFont(ofSize: 16)
+        
+        return textView
     }()
 
     private let writeScrollView: UIScrollView = {
@@ -156,7 +175,9 @@ extension RelayWritingViewController {
             musicListButton,
             titleLabel,
             titleTextField,
-            titleTextCountLabel
+            titleTextCountLabel,
+            storyLabel,
+            storyTextView
         ].forEach { writeScrollView.addSubview($0) }
         
         writeScrollView.snp.makeConstraints {
@@ -198,6 +219,17 @@ extension RelayWritingViewController {
         titleTextCountLabel.snp.makeConstraints {
             $0.top.equalTo(titleLabel)
             $0.trailing.equalTo(muteButton.snp.trailing)
+        }
+        storyLabel.snp.makeConstraints {
+            $0.top.equalTo(titleTextField.snp.bottom).offset(28.0)
+            $0.leading.equalTo(musicListButton.snp.leading)
+        }
+        storyTextView.snp.makeConstraints {
+            $0.top.equalTo(storyLabel.snp.bottom).offset(8.0)
+            $0.leading.equalTo(musicListButton.snp.leading)
+            $0.trailing.equalTo(muteButton.snp.trailing)
+            $0.width.equalToSuperview()
+            $0.height.equalTo(300.0)
         }
         
     }

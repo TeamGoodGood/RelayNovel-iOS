@@ -225,3 +225,11 @@ extension RelayPenNameViewController: UITextFieldDelegate {
                 return true
     }
 }
+
+extension RelayPenNameViewController: UITextViewDelegate {
+    func textViewDidChange(_ textView: UITextView) {
+        if textView.text == ""  {
+            
+        }
+    }
+}
