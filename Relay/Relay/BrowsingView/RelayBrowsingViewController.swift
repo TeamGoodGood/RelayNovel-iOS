@@ -51,7 +51,7 @@ class RelayBrowsingViewController: UIViewController {
 
 extension RelayBrowsingViewController: UIViewControllerTransitioningDelegate {
     func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
-            HalfModalPresentationController(presentedViewController: presented, presenting: presenting)
+        CategoryModalPresentationController(presentedViewController: presented, presenting: presenting)
         }
 }
 

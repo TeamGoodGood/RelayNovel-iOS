@@ -29,7 +29,7 @@
 		55867E172913ABED00C79FFC /* RelayBrowsingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55867E162913ABED00C79FFC /* RelayBrowsingViewController.swift */; };
 		55867E192913AC8D00C79FFC /* RelayBrowsingHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55867E182913AC8D00C79FFC /* RelayBrowsingHeaderView.swift */; };
 		55867E1B2913AF0400C79FFC /* BrowsingTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55867E1A2913AF0400C79FFC /* BrowsingTitleView.swift */; };
-		55867E1D29142C6700C79FFC /* HalfModalPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55867E1C29142C6700C79FFC /* HalfModalPresentationController.swift */; };
+		55867E1D29142C6700C79FFC /* CategoryModalPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55867E1C29142C6700C79FFC /* CategoryModalPresentationController.swift */; };
 		55867E1F2914E77100C79FFC /* RelayCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55867E1E2914E77100C79FFC /* RelayCategoryViewController.swift */; };
 		55867E212914EB3C00C79FFC /* RelayCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55867E202914EB3C00C79FFC /* RelayCategoryCollectionViewCell.swift */; };
 		55FDCEAF290A5667000AB345 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 55FDCEAE290A5667000AB345 /* SnapKit */; };
@@ -65,7 +65,7 @@
 		55867E162913ABED00C79FFC /* RelayBrowsingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayBrowsingViewController.swift; sourceTree = "<group>"; };
 		55867E182913AC8D00C79FFC /* RelayBrowsingHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayBrowsingHeaderView.swift; sourceTree = "<group>"; };
 		55867E1A2913AF0400C79FFC /* BrowsingTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowsingTitleView.swift; sourceTree = "<group>"; };
-		55867E1C29142C6700C79FFC /* HalfModalPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HalfModalPresentationController.swift; sourceTree = "<group>"; };
+		55867E1C29142C6700C79FFC /* CategoryModalPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryModalPresentationController.swift; sourceTree = "<group>"; };
 		55867E1E2914E77100C79FFC /* RelayCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayCategoryViewController.swift; sourceTree = "<group>"; };
 		55867E202914EB3C00C79FFC /* RelayCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		55FDCEB0290A5DB2000AB345 /* RelayProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayProfileViewController.swift; sourceTree = "<group>"; };
@@ -111,7 +111,6 @@
 				32308E43290F983E0012B5A2 /* Relay.entitlements */,
 				3299189B290A5C8500372C13 /* Login */,
 				3265BA29290925DD00532CA4 /* AppDelegate.swift */,
-				55867E1C29142C6700C79FFC /* HalfModalPresentationController.swift */,
 				32F835352911008400E2CC4A /* Extension+UIButton.swift */,
 				32F835412911571B00E2CC4A /* Extension+UIImage.swift */,
 				3265BA2B290925DD00532CA4 /* SceneDelegate.swift */,
@@ -199,6 +198,15 @@
 			path = CategoryView;
 			sourceTree = "<group>";
 		};
+		55745F332918CE3D00414462 /* CateogoryModal */ = {
+			isa = PBXGroup;
+			children = (
+				55867E1C29142C6700C79FFC /* CategoryModalPresentationController.swift */,
+			);
+			name = CateogoryModal;
+			path = ..;
+			sourceTree = "<group>";
+		};
 		55867E0D291258FD00C79FFC /* RelayListView */ = {
 			isa = PBXGroup;
 			children = (
@@ -212,6 +220,7 @@
 		55867E0E2912590700C79FFC /* Reusable */ = {
 			isa = PBXGroup;
 			children = (
+				55745F332918CE3D00414462 /* CateogoryModal */,
 				55745F322918CB6400414462 /* CategoryView */,
 				55867E0D291258FD00C79FFC /* RelayListView */,
 				556F309C29118823005D7AF4 /* BasePaddingLabel.swift */,
@@ -322,7 +331,7 @@
 				556F309B29117E1F005D7AF4 /* RelayListCollectionViewCell.swift in Sources */,
 				3265BA2E290925DD00532CA4 /* ViewController.swift in Sources */,
 				32DA1B7F29123F7500C6FDC1 /* DetailViewController.swift in Sources */,
-				55867E1D29142C6700C79FFC /* HalfModalPresentationController.swift in Sources */,
+				55867E1D29142C6700C79FFC /* CategoryModalPresentationController.swift in Sources */,
 				55867E1B2913AF0400C79FFC /* BrowsingTitleView.swift in Sources */,
 				32F835362911008400E2CC4A /* Extension+UIButton.swift in Sources */,
 				3265BA2A290925DD00532CA4 /* AppDelegate.swift in Sources */,
