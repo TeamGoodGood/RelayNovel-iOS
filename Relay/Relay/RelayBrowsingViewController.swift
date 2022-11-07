@@ -20,14 +20,22 @@ class RelayBrowsingViewController: UIViewController {
     private lazy var relayBrowsingHeaderView = RelayBrowsingHeaderView(frame: .zero)
     private lazy var relayListView = RelayListView(frame: .zero, type: .browse)
     
+    //TODO: 알림이 있을 때 Image가 변경되도록 구현
+    private lazy var noticeButton = UIBarButtonItem(
+        image: UIImage(systemName: "bell"),
+        style: .plain,
+        target: self,
+        action: nil
+    )
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = .systemBackground
-        navigationController?.navigationBar.backgroundColor = .relayBlack
         
         currentHighlightedButton = .entire
-
+        
+        setNavigationBar()
         setupButtonMethod()
         setupLayout()
     }
@@ -77,6 +85,12 @@ extension RelayBrowsingViewController {
             $0.trailing.equalToSuperview()
             $0.bottom.equalToSuperview()
         }
+    }
+    
+    private func setNavigationBar() {
+        noticeButton.tintColor = .relayBlack
+        
+        navigationItem.rightBarButtonItem = noticeButton
     }
     
     private func setupButtonMethod() {
