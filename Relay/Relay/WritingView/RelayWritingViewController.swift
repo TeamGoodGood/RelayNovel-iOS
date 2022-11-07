@@ -138,14 +138,16 @@ class RelayWritingViewController: UIViewController {
         return label
     }()
     
-    private let commentLabel: UILabel = {
-        let label = UILabel()
-        
-        label.text = "코멘트"
-        label.setFont(.body1)
-        
-        return label
-    }()
+//    private let commentLabel: UILabel = {
+//        let label = UILabel()
+//
+//        label.text = "코멘트"
+//        label.setFont(.body1)
+//
+//        return label
+//    }()
+    
+    private lazy var reusableTitleView = ReusableTitleView()
     
     private let commentTextField: UITextField = {
         let textField = UITextField()
@@ -171,8 +173,8 @@ class RelayWritingViewController: UIViewController {
         
         return label
     }()
-    
-    private let writeScrollView: UIScrollView = {
+     
+    private lazy var writeScrollView: UIScrollView = {
         let scrollView = UIScrollView()
         
         scrollView.backgroundColor = .white
@@ -180,6 +182,7 @@ class RelayWritingViewController: UIViewController {
         
         return scrollView
     }()
+    private lazy var contentView = UIView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -260,6 +263,8 @@ extension RelayWritingViewController {
     }
     
     private func setupLayout() {
+        writeScrollView.addSubview(contentView)
+        writeScrollView.delaysContentTouches = false
         [
             closeButton,
             completeButton,
@@ -271,11 +276,10 @@ extension RelayWritingViewController {
             storyLabel,
             storyTextView,
             remainCountLabel,
-            commentLabel,
+            reusableTitleView,
             commentTextField,
             commentTextCountLabel
         ].forEach { writeScrollView.addSubview($0) }
-        
         writeScrollView.snp.makeConstraints {
             $0.top.equalToSuperview()
             $0.leading.equalToSuperview()
@@ -283,13 +287,19 @@ extension RelayWritingViewController {
             $0.bottom.equalToSuperview()
             $0.width.equalToSuperview()
         }
+        contentView.snp.makeConstraints {
+            $0.leading.trailing.top.equalToSuperview()
+            $0.height.greaterThanOrEqualTo(writeScrollView.snp.height)
+        }
+        
         closeButton.snp.makeConstraints {
             $0.top.equalToSuperview().inset(64.0)
             $0.leading.equalToSuperview().inset(20.0)
         }
         completeButton.snp.makeConstraints {
             $0.top.equalTo(closeButton.snp.top)
-            $0.trailing.equalTo(view.snp.trailing).inset(20.0)
+//            $0.trailing.equalTo(view.snp.trailing).inset(20.0)
+            $0.trailing.equalToSuperview().inset(20)
         }
         muteButton.snp.makeConstraints {
             $0.top.equalTo(closeButton.snp.bottom).offset(39.0)
@@ -330,22 +340,26 @@ extension RelayWritingViewController {
             $0.bottom.equalTo(storyTextView.snp.top).offset(-10.0)
             $0.trailing.equalTo(titleTextField.snp.trailing)
         }
-        commentLabel.snp.makeConstraints {
+        reusableTitleView.snp.makeConstraints {
+            reusableTitleView.titleLabel.text = "코멘트"
             $0.top.equalTo(storyTextView.snp.bottom).offset(28.0)
             $0.leading.equalTo(musicListButton.snp.leading)
+            $0.trailing.equalTo(commentTextCountLabel)
+            $0.height.equalTo(20)
         }
         commentTextField.snp.makeConstraints {
-            $0.top.equalTo(commentLabel.snp.bottom).offset(8.0)
+            $0.top.equalTo(reusableTitleView.snp.bottom).offset(8.0)
             $0.leading.equalTo(musicListButton.snp.leading)
             $0.trailing.equalTo(storyTextView.snp.trailing)
             $0.height.equalTo(49.0)
         }
         commentTextCountLabel.snp.makeConstraints {
-            $0.top.equalTo(commentLabel)
+            $0.top.equalTo(storyTextView.snp.bottom).offset(28.0)
             $0.trailing.equalTo(muteButton.snp.trailing)
         }
         
     }
+    
 }
 
 extension RelayWritingViewController: UITextFieldDelegate {
