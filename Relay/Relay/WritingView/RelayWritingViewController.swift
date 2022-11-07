@@ -81,7 +81,7 @@ class RelayWritingViewController: UIViewController {
         textField.placeholder = "제목을 작성해주세요"
         
         textField.addTarget(self, action: #selector(titleTextFieldDidChange), for: .editingChanged)
-
+        
         // TODO: 다음 스프린트때 제목 확인
         //        textField.addTarget(self, action: #selector(checkText), for: .editingChanged)
         
@@ -163,13 +163,13 @@ class RelayWritingViewController: UIViewController {
     }()
     
     private let commentTextCountLabel: UILabel = {
-            let label = UILabel()
-            
-            label.text = "0/20자"
-            label.setFont(.caption2)
-            label.textColor = .relayGray
+        let label = UILabel()
         
-            return label
+        label.text = "0/20자"
+        label.setFont(.caption2)
+        label.textColor = .relayGray
+        
+        return label
     }()
     
     private let writeScrollView: UIScrollView = {
@@ -180,7 +180,7 @@ class RelayWritingViewController: UIViewController {
         
         return scrollView
     }()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -238,6 +238,17 @@ extension RelayWritingViewController {
                 let when = DispatchTime.now() + 0.01
                 DispatchQueue.main.asyncAfter(deadline: when) {
                     self.commentTextField.text = String(fixedText)
+                }
+            }
+        }
+        if let text = storyTextView.text {
+            if text.count >= 500 {
+                let fixedText = text.prefix(500)
+                storyTextView.text = fixedText + " "
+                
+                let when = DispatchTime.now() + 0.01
+                DispatchQueue.main.asyncAfter(deadline: when) {
+                    self.storyTextView.text = String(fixedText)
                 }
             }
         }
@@ -369,20 +380,20 @@ extension RelayWritingViewController: UITextViewDelegate {
             textView.text = textViewPlaceHolder
             textView.textColor = .systemGray3
             textView.font = .systemFont(ofSize: 17)
-            updateCountLabel(characterCount: 0)
         }
     }
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-        let inputString = text.trimmingCharacters(in: .whitespacesAndNewlines)
-        guard let oldString = textView.text, let newRange = Range(range, in: oldString) else { return true }
-        let newString = oldString.replacingCharacters(in: newRange, with: inputString).trimmingCharacters(in: .whitespacesAndNewlines)
-        let characterCount = newString.count
+        let string = storyTextView.text
+        let strCount = string?.count
         
-        guard characterCount <= 501 else { return false }
-        
-        updateCountLabel(characterCount: characterCount)
-        
+        if strCount ?? 0 > 500 {
+            // TODO: 500자 넘었을 때 완료 버튼 비활성화 구현 해야 함
+            remainCountLabel.textColor = .red
+            remainCountLabel.text = "\(String(describing: strCount ?? 0))/500자"
+        } else {
+            remainCountLabel.text = "\(String(describing: strCount ?? 0))/500자"
+        }
         return true
     }
 }
