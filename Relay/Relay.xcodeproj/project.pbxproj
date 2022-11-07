@@ -33,6 +33,7 @@
 		55745F372919347800414462 /* RelayReadingCoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55745F362919347800414462 /* RelayReadingCoverView.swift */; };
 		55745F39291936BB00414462 /* RelayReadingContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55745F38291936BB00414462 /* RelayReadingContentView.swift */; };
 		55745F3B291936ED00414462 /* RelayReadingFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55745F3A291936ED00414462 /* RelayReadingFooterView.swift */; };
+		55745F3D2919442400414462 /* ReadingNoticeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55745F3C2919442400414462 /* ReadingNoticeView.swift */; };
 		55867E0C29123C8500C79FFC /* Extension+CALayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55867E0B29123C8500C79FFC /* Extension+CALayer.swift */; };
 		55867E1129128C7400C79FFC /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55867E1029128C7400C79FFC /* TabBarController.swift */; };
 		55867E152912B7DA00C79FFC /* Extension+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55867E142912B7DA00C79FFC /* Extension+UIColor.swift */; };
@@ -82,6 +83,7 @@
 		55745F362919347800414462 /* RelayReadingCoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayReadingCoverView.swift; sourceTree = "<group>"; };
 		55745F38291936BB00414462 /* RelayReadingContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayReadingContentView.swift; sourceTree = "<group>"; };
 		55745F3A291936ED00414462 /* RelayReadingFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayReadingFooterView.swift; sourceTree = "<group>"; };
+		55745F3C2919442400414462 /* ReadingNoticeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingNoticeView.swift; sourceTree = "<group>"; };
 		55867E0B29123C8500C79FFC /* Extension+CALayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+CALayer.swift"; sourceTree = "<group>"; };
 		55867E1029128C7400C79FFC /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		55867E142912B7DA00C79FFC /* Extension+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIColor.swift"; sourceTree = "<group>"; };
@@ -184,6 +186,7 @@
 				55745F342919340700414462 /* RelayReadingViewController.swift */,
 				55745F362919347800414462 /* RelayReadingCoverView.swift */,
 				55745F38291936BB00414462 /* RelayReadingContentView.swift */,
+				55745F3C2919442400414462 /* ReadingNoticeView.swift */,
 				55745F3A291936ED00414462 /* RelayReadingFooterView.swift */,
 				55867E0F2912592100C79FFC /* Extension+ */,
 				55867E0E2912590700C79FFC /* Reusable */,
@@ -430,6 +433,7 @@
 				55867E1F2914E77100C79FFC /* RelayCategoryViewController.swift in Sources */,
 				55867E192913AC8D00C79FFC /* RelayBrowsingHeaderView.swift in Sources */,
 				55867E1129128C7400C79FFC /* TabBarController.swift in Sources */,
+				55745F3D2919442400414462 /* ReadingNoticeView.swift in Sources */,
 				55FDCEB3290A6440000AB345 /* RelayProfileUserInfoView.swift in Sources */,
 				556F309929103676005D7AF4 /* RelayListHeaderView.swift in Sources */,
 				55867E152912B7DA00C79FFC /* Extension+UIColor.swift in Sources */,
