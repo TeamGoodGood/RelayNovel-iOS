@@ -146,7 +146,6 @@ extension RelayBrowsingViewController {
         case .entire:
             underlineView = relayBrowsingHeaderView.entireTitleView.titleUnderlineView
             button = relayBrowsingHeaderView.entireTitleView.titleButton
-            
 
         case .running:
             underlineView = relayBrowsingHeaderView.runningTitleView.titleUnderlineView
