@@ -30,6 +30,7 @@
 		556F309B29117E1F005D7AF4 /* RelayListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556F309A29117E1F005D7AF4 /* RelayListCollectionViewCell.swift */; };
 		556F309D29118823005D7AF4 /* BasePaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556F309C29118823005D7AF4 /* BasePaddingLabel.swift */; };
 		55745F352919340700414462 /* RelayReadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55745F342919340700414462 /* RelayReadingViewController.swift */; };
+		55745F372919347800414462 /* RelayReadingCoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55745F362919347800414462 /* RelayReadingCoverView.swift */; };
 		55867E0C29123C8500C79FFC /* Extension+CALayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55867E0B29123C8500C79FFC /* Extension+CALayer.swift */; };
 		55867E1129128C7400C79FFC /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55867E1029128C7400C79FFC /* TabBarController.swift */; };
 		55867E152912B7DA00C79FFC /* Extension+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55867E142912B7DA00C79FFC /* Extension+UIColor.swift */; };
@@ -76,6 +77,7 @@
 		556F309A29117E1F005D7AF4 /* RelayListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayListCollectionViewCell.swift; sourceTree = "<group>"; };
 		556F309C29118823005D7AF4 /* BasePaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePaddingLabel.swift; sourceTree = "<group>"; };
 		55745F342919340700414462 /* RelayReadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayReadingViewController.swift; sourceTree = "<group>"; };
+		55745F362919347800414462 /* RelayReadingCoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayReadingCoverView.swift; sourceTree = "<group>"; };
 		55867E0B29123C8500C79FFC /* Extension+CALayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+CALayer.swift"; sourceTree = "<group>"; };
 		55867E1029128C7400C79FFC /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		55867E142912B7DA00C79FFC /* Extension+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIColor.swift"; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 				3265BA2D290925DD00532CA4 /* ViewController.swift */,
 				55867E1029128C7400C79FFC /* TabBarController.swift */,
 				55745F342919340700414462 /* RelayReadingViewController.swift */,
+				55745F362919347800414462 /* RelayReadingCoverView.swift */,
 				55867E0F2912592100C79FFC /* Extension+ */,
 				55867E0E2912590700C79FFC /* Reusable */,
 				55745F302918CB4100414462 /* BrowsingView */,
@@ -397,6 +400,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				55867E212914EB3C00C79FFC /* RelayCategoryCollectionViewCell.swift in Sources */,
+				55745F372919347800414462 /* RelayReadingCoverView.swift in Sources */,
 				55867E172913ABED00C79FFC /* RelayBrowsingViewController.swift in Sources */,
 				B5C0B51F2911858800077B5F /* RelayThirdViewController.swift in Sources */,
 				B5C0B51B29117E2800077B5F /* RelaySecondViewController.swift in Sources */,
