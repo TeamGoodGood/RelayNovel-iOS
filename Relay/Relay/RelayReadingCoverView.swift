@@ -107,7 +107,7 @@ extension RelayReadingCoverView {
         }
         
         playlistLabel.snp.makeConstraints {
-            $0.top.equalTo(statusLabel.snp.bottom).offset(8.0)
+            $0.top.equalTo(statusLabel.snp.bottom).offset(13.0)
             $0.leading.equalTo(titleLabel.snp.leading)
         }
     }
