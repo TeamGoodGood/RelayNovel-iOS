@@ -8,6 +8,7 @@
 import UIKit
 import SnapKit
 
+// TODO: 플레이리스트 모달로도 재사용 가능하도록 리팩토링 필요
 class RelayCategoryViewController: UIViewController {
     private let categoryList = ["전체", "로맨스", "스릴러/공포", "판타지", "SF", "추리", "무협", "시대극", "일반", "기타"]
     private var selectedCategory: String?
