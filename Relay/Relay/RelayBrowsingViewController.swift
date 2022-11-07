@@ -28,6 +28,14 @@ class RelayBrowsingViewController: UIViewController {
         action: nil
     )
     
+    //TODO: develop 브랜치에 merge 후 leftBarItem의 UIImage 크기조절 필요
+    private lazy var logoButton = UIBarButtonItem(
+        image: UIImage(named: "RelayLogo"),
+        style: .plain,
+        target: self,
+        action: nil
+    )
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -89,7 +97,9 @@ extension RelayBrowsingViewController {
     
     private func setNavigationBar() {
         noticeButton.tintColor = .relayBlack
+        logoButton.tintColor = .relayPink1
         
+        navigationItem.leftBarButtonItem = logoButton
         navigationItem.rightBarButtonItem = noticeButton
     }
     
