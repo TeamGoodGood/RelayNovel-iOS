@@ -21,7 +21,6 @@ class RelaySettingTableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         contentView.addSubview(label)
         contentView.clipsToBounds = true
-        accessoryType = .disclosureIndicator
     }
     
     required init?(coder: NSCoder) {
@@ -30,7 +29,6 @@ class RelaySettingTableViewCell: UITableViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        let size = contentView.frame.size.height - 12
         
         label.frame = CGRect(x: 20, y: 0, width: 300, height: contentView.frame.size.height)
     }
