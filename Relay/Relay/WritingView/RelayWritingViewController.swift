@@ -144,12 +144,8 @@ class RelayWritingViewController: UIViewController {
     private lazy var eventTitleView = ReusableTitleView()
     private lazy var touchTitleView = ReusableTitleView()
     
-    private let divider: UIView = {
-        let view = UIView()
-        view.backgroundColor = .systemGray5
-        
-        return view
-    }()
+    private let commentDivider = DividerView()
+    private let eventDivider = DividerView()
     
     
     private let commentTextField: UITextField = {
@@ -310,9 +306,11 @@ extension RelayWritingViewController {
             commentTitleView,
             commentTextField,
             commentTextCountLabel,
-            divider,
+            commentDivider,
             eventTitleView,
-            eventCollectionView
+            eventCollectionView,
+            eventDivider,
+            touchTitleView
         ].forEach { contentView.addSubview($0) }
         writeScrollView.snp.makeConstraints {
             $0.top.equalToSuperview()
@@ -393,14 +391,14 @@ extension RelayWritingViewController {
             $0.top.equalTo(storyTextView.snp.bottom).offset(28.0)
             $0.trailing.equalTo(muteButton.snp.trailing)
         }
-        divider.snp.makeConstraints {
+        commentDivider.snp.makeConstraints {
             $0.top.equalTo(commentTextField.snp.bottom).offset(28.0)
             $0.leading.equalTo(musicListButton.snp.leading)
             $0.trailing.equalTo(storyTextView.snp.trailing)
             $0.height.equalTo(1.0)
         }
         eventTitleView.snp.makeConstraints {
-            $0.top.equalTo(divider.snp.bottom).offset(28.0)
+            $0.top.equalTo(commentDivider.snp.bottom).offset(28.0)
             $0.leading.equalTo(musicListButton.snp.leading)
             $0.width.equalTo(57)
             $0.height.equalTo(20)
@@ -410,18 +408,21 @@ extension RelayWritingViewController {
             $0.leading.equalTo(musicListButton.snp.leading)
             $0.trailing.equalTo(storyTextView.snp.trailing)
             $0.height.equalTo(74.0)
-            $0.bottom.equalToSuperview()
         }
-        divider.snp.makeConstraints {
+        eventDivider.snp.makeConstraints {
             $0.top.equalTo(eventCollectionView.snp.bottom).offset(28.0)
             $0.leading.equalTo(musicListButton.snp.leading)
             $0.trailing.equalTo(storyTextView.snp.trailing)
             $0.height.equalTo(1.0)
+        }
+        touchTitleView.snp.makeConstraints {
+            $0.top.equalTo(eventDivider.snp.bottom).offset(28.0)
+            $0.leading.equalTo(musicListButton.snp.leading)
+            $0.width.equalTo(57)
+            $0.height.equalTo(20)
             $0.bottom.equalToSuperview()
         }
-        
     }
-    
 }
 
 extension RelayWritingViewController: UITextFieldDelegate {
@@ -477,15 +478,21 @@ extension RelayWritingViewController: UITextViewDelegate {
 
 extension RelayWritingViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
-        return tagList.count
+        switch collectionView {
+        case: eventCollectionView
+            return tagList.count
+    
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = eventCollectionView.dequeueReusableCell(withReuseIdentifier: eventIdentifier, for: indexPath) as! EventCollectionViewCell
-        cell.tagLabel.text = tagList[indexPath.row]
-        
-        return cell
+        switch collectionView {
+        case: eventCollectionView
+            let cell = eventCollectionView.dequeueReusableCell(withReuseIdentifier: eventIdentifier, for: indexPath) as! EventCollectionViewCell
+            cell.tagLabel.text = tagList[indexPath.row]
+            
+            return cell
+        }
     }
 }
 
