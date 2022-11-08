@@ -92,7 +92,7 @@ extension RelayReadingCoverView {
         }
         
         titleLabel.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(291.0)
+            $0.top.equalToSuperview().inset(244.0)
             $0.leading.equalToSuperview().inset(20.0)
         }
         
