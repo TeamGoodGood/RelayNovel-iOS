@@ -35,6 +35,7 @@
 		55745F3B291936ED00414462 /* RelayReadingFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55745F3A291936ED00414462 /* RelayReadingFooterView.swift */; };
 		55745F3D2919442400414462 /* ReadingNoticeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55745F3C2919442400414462 /* ReadingNoticeView.swift */; };
 		55745F3F2919446D00414462 /* ReadingBodyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55745F3E2919446D00414462 /* ReadingBodyView.swift */; };
+		55745FC2291A3BF100414462 /* BodyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55745FC1291A3BF100414462 /* BodyCollectionViewCell.swift */; };
 		55867E0C29123C8500C79FFC /* Extension+CALayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55867E0B29123C8500C79FFC /* Extension+CALayer.swift */; };
 		55867E1129128C7400C79FFC /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55867E1029128C7400C79FFC /* TabBarController.swift */; };
 		55867E152912B7DA00C79FFC /* Extension+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55867E142912B7DA00C79FFC /* Extension+UIColor.swift */; };
@@ -86,6 +87,7 @@
 		55745F3A291936ED00414462 /* RelayReadingFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayReadingFooterView.swift; sourceTree = "<group>"; };
 		55745F3C2919442400414462 /* ReadingNoticeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingNoticeView.swift; sourceTree = "<group>"; };
 		55745F3E2919446D00414462 /* ReadingBodyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingBodyView.swift; sourceTree = "<group>"; };
+		55745FC1291A3BF100414462 /* BodyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyCollectionViewCell.swift; sourceTree = "<group>"; };
 		55867E0B29123C8500C79FFC /* Extension+CALayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+CALayer.swift"; sourceTree = "<group>"; };
 		55867E1029128C7400C79FFC /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		55867E142912B7DA00C79FFC /* Extension+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIColor.swift"; sourceTree = "<group>"; };
@@ -294,6 +296,7 @@
 				55745F38291936BB00414462 /* RelayReadingContentView.swift */,
 				55745F3C2919442400414462 /* ReadingNoticeView.swift */,
 				55745F3E2919446D00414462 /* ReadingBodyView.swift */,
+				55745FC1291A3BF100414462 /* BodyCollectionViewCell.swift */,
 				55745F3A291936ED00414462 /* RelayReadingFooterView.swift */,
 			);
 			path = Views;
@@ -459,6 +462,7 @@
 				55867E152912B7DA00C79FFC /* Extension+UIColor.swift in Sources */,
 				32517E142913B733005E0F69 /* RelayAllReadyViewController.swift in Sources */,
 				55FDCEB5290A711C000AB345 /* RelayProfileUserActivityView.swift in Sources */,
+				55745FC2291A3BF100414462 /* BodyCollectionViewCell.swift in Sources */,
 				32517E3F2913E23F005E0F69 /* PageAnimationView.swift in Sources */,
 				556F3093290FA59A005D7AF4 /* Extension+UILabel.swift in Sources */,
 				55867E0C29123C8500C79FFC /* Extension+CALayer.swift in Sources */,
