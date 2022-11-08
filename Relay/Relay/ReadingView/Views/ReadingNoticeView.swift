@@ -13,6 +13,7 @@ class ReadingNoticeView: UIView {
         let label = UILabel()
         label.text = "공지"
         label.setFont(.body1)
+        label.sizeToFit()
         
         return label
     }()
@@ -22,6 +23,7 @@ class ReadingNoticeView: UIView {
         label.text = "2022. 10. 31  초이"
         label.textColor = .relayGray
         label.setFont(.caption2)
+        label.sizeToFit()
         
         return label
     }()
@@ -33,6 +35,7 @@ class ReadingNoticeView: UIView {
         label.setLineSpacing(spacing: 8.0)
         label.setLineHeight(text: text, lineHeight: 25.0)
         label.numberOfLines = 0
+        label.sizeToFit()
         
         return label
     }()
