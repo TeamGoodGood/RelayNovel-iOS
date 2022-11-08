@@ -20,13 +20,21 @@ class TouchCollectionViewCell: UICollectionViewCell {
         return chip
     }()
     
-    let touchLabel: UILabel = {
-        let label = UILabel()
+    let touchButton: UIButton = {
+        let button = UIButton()
         
-        label.text = "dkdk"
-        label.setFont(.caption1)
+        button.setTitle("dkdk", for: .normal)
+        button.titleLabel?.setFont(.caption1)
+        button.setTitleColor(.relayBlack, for: .normal)
         
-        return label
+        button.layer.borderColor = UIColor.relayBlack.cgColor
+        button.layer.borderWidth = 1
+        button.layer.cornerRadius = 24
+        button.layer.masksToBounds = true
+        
+        button.contentEdgeInsets = UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15)
+        
+        return button
     }()
     
     override init(frame: CGRect) {
@@ -41,18 +49,11 @@ class TouchCollectionViewCell: UICollectionViewCell {
     
     private func setupLayout() {
         [
-            chip,
+            touchButton
         ].forEach { contentView.addSubview($0) }
-        chip.addSubview(touchLabel)
         
-        chip.snp.makeConstraints {
+        touchButton.snp.makeConstraints {
             $0.edges.equalToSuperview()
-        }
-        touchLabel.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(15.0)
-            $0.leading.equalToSuperview().inset(15.0)
-            $0.trailing.equalToSuperview().inset(15.0)
-            $0.bottom.equalToSuperview().inset(15.0)
         }
     }
 }

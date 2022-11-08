@@ -524,13 +524,13 @@ extension RelayWritingViewController: UICollectionViewDataSource {
         switch collectionView {
         case eventCollectionView:
             let cell = eventCollectionView.dequeueReusableCell(withReuseIdentifier: eventIdentifier, for: indexPath) as! EventCollectionViewCell
-            cell.tagLabel.text = tagList[indexPath.row]
+            cell.eventButton.setTitle(tagList[indexPath.row], for: .normal)
             
             return cell
         
         case touchCollectionView:
             let cell = touchCollectionView.dequeueReusableCell(withReuseIdentifier: touchIdentifier, for: indexPath) as! TouchCollectionViewCell
-            cell.touchLabel.text = touchList[indexPath.row]
+            cell.touchButton.setTitle(touchList[indexPath.row], for: .normal)
             
             return cell
         

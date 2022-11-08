@@ -20,13 +20,22 @@ class EventCollectionViewCell: UICollectionViewCell {
         return chip
     }()
     
-    let tagLabel: UILabel = {
-        let label = UILabel()
+    let eventButton: UIButton = {
+        let button = UIButton()
         
-        label.text = "dkdk"
-        label.setFont(.caption1)
+        button.setTitle("dkdk", for: .normal)
+        button.titleLabel?.setFont(.caption1)
+        button.setTitleColor(.relayBlack, for: .normal)
         
-        return label
+        button.layer.borderColor = UIColor.relayBlack.cgColor
+        button.layer.borderWidth = 1
+        button.layer.cornerRadius = 16
+        button.layer.masksToBounds = true
+        
+        // 버튼 내 간격
+        button.contentEdgeInsets = UIEdgeInsets(top: 7, left: 12, bottom: 7, right: 12)
+        
+        return button
     }()
     
     override init(frame: CGRect) {
@@ -41,18 +50,15 @@ class EventCollectionViewCell: UICollectionViewCell {
     
     private func setupLayout() {
         [
-            chip,
+            eventButton
         ].forEach { contentView.addSubview($0) }
-        chip.addSubview(tagLabel)
         
-        chip.snp.makeConstraints {
+        eventButton.snp.makeConstraints {
+//            $0.top.equalToSuperview().inset(7.0)
+//            $0.leading.equalToSuperview().inset(12.0)
+//            $0.trailing.equalToSuperview().inset(12.0)
+//            $0.bottom.equalToSuperview().inset(7.0)
             $0.edges.equalToSuperview()
-        }
-        tagLabel.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(7.0)
-            $0.leading.equalToSuperview().inset(12.0)
-            $0.trailing.equalToSuperview().inset(12.0)
-            $0.bottom.equalToSuperview().inset(7.0)
         }
     }
 }
