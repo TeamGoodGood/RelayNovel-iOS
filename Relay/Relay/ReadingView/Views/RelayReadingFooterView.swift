@@ -9,6 +9,18 @@ import UIKit
 import SnapKit
 
 class RelayReadingFooterView: UIView {
+    private lazy var likeButton: UIButton = {
+        let button = UIButton()
+        
+        return button
+    }()
+    
+    private lazy var batonButton: UIButton = {
+        let button = UIButton()
+        
+        return button
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
