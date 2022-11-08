@@ -229,6 +229,7 @@ class RelayWritingViewController: UIViewController, UICollectionViewDelegate {
 }
 
 extension RelayWritingViewController {
+    
     @objc func keyboardUp(notification:NSNotification) {
         if let keyboardFrame:NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
            let keyboardRectangle = keyboardFrame.cgRectValue
@@ -240,6 +241,10 @@ extension RelayWritingViewController {
                 }
             )
         }
+    }
+    
+    @objc func keyboardDown() {
+        self.view.transform = .identity
     }
     
     
