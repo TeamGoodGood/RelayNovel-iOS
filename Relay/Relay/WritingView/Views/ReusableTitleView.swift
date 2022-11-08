@@ -14,6 +14,7 @@ class ReusableTitleView: UIView, UISheetPresentationControllerDelegate {
         let label = UILabel()
         
         label.setFont(.body1)
+
         
         return label
     }()

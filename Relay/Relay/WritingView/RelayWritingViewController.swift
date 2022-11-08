@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnapKit
 
 class RelayWritingViewController: UIViewController {
     
@@ -175,7 +176,25 @@ class RelayWritingViewController: UIViewController {
         
         return label
     }()
-     
+    
+    let tagList = ["로맨스", "스릴러/공포", "판타지", "SF", "시대극", "무협", "추리", "일반", "기타"]
+    
+    let eventCollectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
+        layout.scrollDirection = .vertical
+        layout.minimumLineSpacing = 10
+        
+        let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        cv.backgroundColor = .clear
+    
+        cv.showsHorizontalScrollIndicator = false
+        
+            return cv
+        }()
+    
+    let eventIdentifier = "EventCollectionViewCell"
+    
     private lazy var writeScrollView: UIScrollView = {
         let scrollView = UIScrollView()
         
@@ -191,6 +210,9 @@ class RelayWritingViewController: UIViewController {
         view.backgroundColor = .white
         view.addSubview(writeScrollView)
         setupLayout()
+        eventCollectionView.register(EventCollectionViewCell.self, forCellWithReuseIdentifier: eventIdentifier)
+        eventCollectionView.delegate = self
+        eventCollectionView.dataSource = self
         setupTitleButton()
         NotificationCenter.default.addObserver(self, selector: #selector(textDidChange), name: UITextField.textDidChangeNotification, object: nil)
     }
@@ -288,7 +310,9 @@ extension RelayWritingViewController {
             commentTitleView,
             commentTextField,
             commentTextCountLabel,
-            divider
+            divider,
+            eventTitleView,
+            eventCollectionView
         ].forEach { contentView.addSubview($0) }
         writeScrollView.snp.makeConstraints {
             $0.top.equalToSuperview()
@@ -304,16 +328,14 @@ extension RelayWritingViewController {
             $0.bottom.equalToSuperview()
             $0.height.equalTo(writeScrollView.contentLayoutGuide.snp.height)
             $0.width.equalToSuperview()
-//            $0.height.equalTo(1000.0)
         }
         
         closeButton.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(64.0)
+            $0.top.equalToSuperview().inset(17.0)
             $0.leading.equalToSuperview().inset(20.0)
         }
         completeButton.snp.makeConstraints {
             $0.top.equalTo(closeButton.snp.top)
-//            $0.trailing.equalTo(view.snp.trailing).inset(20.0)
             $0.trailing.equalToSuperview().inset(20)
         }
         muteButton.snp.makeConstraints {
@@ -375,8 +397,20 @@ extension RelayWritingViewController {
             $0.top.equalTo(commentTextField.snp.bottom).offset(28.0)
             $0.leading.equalTo(musicListButton.snp.leading)
             $0.trailing.equalTo(storyTextView.snp.trailing)
-            $0.bottom.equalToSuperview()
             $0.height.equalTo(1.0)
+        }
+        eventTitleView.snp.makeConstraints {
+            $0.top.equalTo(divider.snp.bottom).offset(28.0)
+            $0.leading.equalTo(musicListButton.snp.leading)
+            $0.width.equalTo(57)
+            $0.height.equalTo(20)
+        }
+        eventCollectionView.snp.makeConstraints {
+            $0.top.equalTo(eventTitleView.snp.bottom).offset(20.0)
+            $0.leading.equalTo(musicListButton.snp.leading)
+            $0.trailing.equalTo(storyTextView.snp.trailing)
+            $0.bottom.equalToSuperview()
+            $0.height.equalTo(74.0)
         }
         
     }
@@ -430,5 +464,26 @@ extension RelayWritingViewController: UITextViewDelegate {
             remainCountLabel.text = "\(String(describing: strCount ?? 0))/500자"
         }
         return true
+    }
+}
+
+
+extension RelayWritingViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
+        return tagList.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = eventCollectionView.dequeueReusableCell(withReuseIdentifier: eventIdentifier, for: indexPath) as! EventCollectionViewCell
+        cell.tagLabel.text = tagList[indexPath.row]
+        
+        return cell
+    }
+}
+
+extension RelayWritingViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+
     }
 }

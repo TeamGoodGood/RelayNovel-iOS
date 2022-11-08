@@ -21,6 +21,7 @@
 		32DA1B7F29123F7500C6FDC1 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DA1B7E29123F7500C6FDC1 /* DetailViewController.swift */; };
 		32DE2B0629164291005D1A85 /* RelayWritingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DE2B0529164291005D1A85 /* RelayWritingViewController.swift */; };
 		32DE2B0929190A7E005D1A85 /* ReusableTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DE2B0829190A7E005D1A85 /* ReusableTitleView.swift */; };
+		32DE2B0F291A4729005D1A85 /* EventCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DE2B0E291A4729005D1A85 /* EventCollectionViewCell.swift */; };
 		32F83527290FECC300E2CC4A /* ChangwonDangamAsac-Bold_0712.otf in Resources */ = {isa = PBXBuildFile; fileRef = 32F83526290FECC300E2CC4A /* ChangwonDangamAsac-Bold_0712.otf */; };
 		32F835362911008400E2CC4A /* Extension+UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F835352911008400E2CC4A /* Extension+UIButton.swift */; };
 		32F8354029114F0E00E2CC4A /* RelayAgreementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F8353F29114F0E00E2CC4A /* RelayAgreementViewController.swift */; };
@@ -62,6 +63,7 @@
 		32DA1B7E29123F7500C6FDC1 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		32DE2B0529164291005D1A85 /* RelayWritingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayWritingViewController.swift; sourceTree = "<group>"; };
 		32DE2B0829190A7E005D1A85 /* ReusableTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableTitleView.swift; sourceTree = "<group>"; };
+		32DE2B0E291A4729005D1A85 /* EventCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCollectionViewCell.swift; sourceTree = "<group>"; };
 		32F83526290FECC300E2CC4A /* ChangwonDangamAsac-Bold_0712.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ChangwonDangamAsac-Bold_0712.otf"; sourceTree = "<group>"; };
 		32F835352911008400E2CC4A /* Extension+UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIButton.swift"; sourceTree = "<group>"; };
 		32F8353F29114F0E00E2CC4A /* RelayAgreementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayAgreementViewController.swift; sourceTree = "<group>"; };
@@ -197,6 +199,7 @@
 			isa = PBXGroup;
 			children = (
 				32DE2B0829190A7E005D1A85 /* ReusableTitleView.swift */,
+				32DE2B0E291A4729005D1A85 /* EventCollectionViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -365,6 +368,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B5C0B51F2911858800077B5F /* RelayThirdViewController.swift in Sources */,
+				32DE2B0F291A4729005D1A85 /* EventCollectionViewCell.swift in Sources */,
 				B5C0B51B29117E2800077B5F /* RelaySecondViewController.swift in Sources */,
 				B5C0B4BD290F7C9A00077B5F /* RelayOnboardingViewController.swift in Sources */,
 				B5C0B51D2911854900077B5F /* RelayFirstViewController.swift in Sources */,
