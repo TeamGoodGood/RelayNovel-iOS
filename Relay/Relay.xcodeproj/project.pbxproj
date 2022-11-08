@@ -45,6 +45,7 @@
 		55FDCEB7290ABB0C000AB345 /* RelayUserActivityCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FDCEB6290ABB0C000AB345 /* RelayUserActivityCollectionViewCell.swift */; };
 		B533AB5A291AA53D00B73867 /* RelayDeleteAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B533AB59291AA53D00B73867 /* RelayDeleteAccountViewController.swift */; };
 		B533AB5C291AA5B300B73867 /* RelayDeleteAccountUserActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B533AB5B291AA5B300B73867 /* RelayDeleteAccountUserActivityView.swift */; };
+		B533AB5E291AC52100B73867 /* RelayDeleteAccountAgreementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B533AB5D291AC52100B73867 /* RelayDeleteAccountAgreementView.swift */; };
 		B5C0B4BD290F7C9A00077B5F /* RelayOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C0B4BC290F7C9A00077B5F /* RelayOnboardingViewController.swift */; };
 		B5C0B51B29117E2800077B5F /* RelaySecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C0B51A29117E2800077B5F /* RelaySecondViewController.swift */; };
 		B5C0B51D2911854900077B5F /* RelayFirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C0B51C2911854900077B5F /* RelayFirstViewController.swift */; };
@@ -91,6 +92,7 @@
 		55FDCEB6290ABB0C000AB345 /* RelayUserActivityCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayUserActivityCollectionViewCell.swift; sourceTree = "<group>"; };
 		B533AB59291AA53D00B73867 /* RelayDeleteAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayDeleteAccountViewController.swift; sourceTree = "<group>"; };
 		B533AB5B291AA5B300B73867 /* RelayDeleteAccountUserActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayDeleteAccountUserActivityView.swift; sourceTree = "<group>"; };
+		B533AB5D291AC52100B73867 /* RelayDeleteAccountAgreementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayDeleteAccountAgreementView.swift; sourceTree = "<group>"; };
 		B5C0B4BC290F7C9A00077B5F /* RelayOnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayOnboardingViewController.swift; sourceTree = "<group>"; };
 		B5C0B51A29117E2800077B5F /* RelaySecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelaySecondViewController.swift; sourceTree = "<group>"; };
 		B5C0B51C2911854900077B5F /* RelayFirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayFirstViewController.swift; sourceTree = "<group>"; };
@@ -313,6 +315,7 @@
 			children = (
 				B533AB59291AA53D00B73867 /* RelayDeleteAccountViewController.swift */,
 				B533AB5B291AA5B300B73867 /* RelayDeleteAccountUserActivityView.swift */,
+				B533AB5D291AC52100B73867 /* RelayDeleteAccountAgreementView.swift */,
 			);
 			path = SettingView;
 			sourceTree = "<group>";
@@ -425,6 +428,7 @@
 				55867E1B2913AF0400C79FFC /* BrowsingTitleView.swift in Sources */,
 				32F835362911008400E2CC4A /* Extension+UIButton.swift in Sources */,
 				32517E442913E885005E0F69 /* RelayMainHostingController.swift in Sources */,
+				B533AB5E291AC52100B73867 /* RelayDeleteAccountAgreementView.swift in Sources */,
 				3265BA2A290925DD00532CA4 /* AppDelegate.swift in Sources */,
 				55867E1F2914E77100C79FFC /* RelayCategoryViewController.swift in Sources */,
 				55867E192913AC8D00C79FFC /* RelayBrowsingHeaderView.swift in Sources */,
