@@ -20,6 +20,8 @@ struct aboutRelaySettingsOption {
 
 class RelayAboutRelayViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    private var aboutRelayDescriptionView = RelayAboutRelayDescriptionView(frame: .zero)
+    
     private let tableView: UITableView = {
         let table = UITableView(frame: .zero, style: .plain)
         table.register(RelaySettingTableViewCell.self, forCellReuseIdentifier: RelaySettingTableViewCell.identifier)
@@ -31,7 +33,10 @@ class RelayAboutRelayViewController: UIViewController, UITableViewDelegate, UITa
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .white
+        view.addSubview(aboutRelayDescriptionView)
         relaySettingViewConfigure()
+        setupLayout()
         tableViewSetupLayout()
     }
     
@@ -44,21 +49,6 @@ class RelayAboutRelayViewController: UIViewController, UITableViewDelegate, UITa
                 
             }
         ]))
-    }
-    
-    func tableViewSetupLayout() {
-        view.addSubview(tableView)
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.frame = view.bounds
-        tableView.contentInset = .init(top: 300, left: 0, bottom: 0, right: 0)
-        tableView.isScrollEnabled = false
-        tableView.sectionHeaderHeight = 7
-        tableView.sectionFooterHeight = 0
-        tableView.backgroundColor = .relayGray2
-        tableView.tableFooterView = UIView(frame: CGRect.zero)
-        tableView.separatorColor = self.tableView.backgroundColor
-        tableView.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -88,4 +78,41 @@ class RelayAboutRelayViewController: UIViewController, UITableViewDelegate, UITa
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
            return 57
        }
+}
+
+extension RelayAboutRelayViewController {
+    private func setupLayout() {
+        [
+            aboutRelayDescriptionView,
+            tableView
+        ].forEach { view.addSubview($0) }
+        
+        aboutRelayDescriptionView.snp.makeConstraints {
+            $0.top.equalToSuperview()
+            $0.leading.equalToSuperview()
+            $0.trailing.equalToSuperview()
+            $0.height.equalTo(420)
+        }
+        tableView.snp.makeConstraints {
+            $0.top.equalTo(aboutRelayDescriptionView.snp.bottom)
+            $0.leading.equalToSuperview()
+            $0.trailing.equalToSuperview()
+            $0.bottom.equalToSuperview()
+        }
+    }
+    
+    func tableViewSetupLayout() {
+
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.frame = view.bounds
+        tableView.contentInset = .init(top: 8, left: 0, bottom: 0, right: 0)
+        tableView.isScrollEnabled = false
+        tableView.sectionHeaderHeight = 7
+        tableView.sectionFooterHeight = 0
+        tableView.backgroundColor = .relayGray2
+        tableView.tableFooterView = UIView(frame: CGRect.zero)
+        tableView.separatorColor = self.tableView.backgroundColor
+        tableView.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+    }
 }
