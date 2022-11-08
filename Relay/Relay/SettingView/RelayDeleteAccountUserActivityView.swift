@@ -42,6 +42,13 @@ class RelayDeleteAccountUserActivityView: UIView {
 
         return imageView
     }()
+    
+    private var dividerView: UIView = {
+        let divider = UIView()
+        divider.backgroundColor = .relayGray2
+        
+        return divider
+    }()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -57,7 +64,8 @@ class RelayDeleteAccountUserActivityView: UIView {
         [
             accountLabel,
             accountActivityLabel,
-            deleteAccountImageView
+            deleteAccountImageView,
+            dividerView
         ].forEach { addSubview($0) }
         
         accountLabel.snp.makeConstraints {
@@ -75,6 +83,12 @@ class RelayDeleteAccountUserActivityView: UIView {
             $0.centerX.equalToSuperview()
             $0.width.equalTo(248.0)
             $0.height.equalTo(81.0)
+        }
+        dividerView.snp.makeConstraints {
+            $0.bottom.equalToSuperview()
+            $0.centerX.equalToSuperview()
+            $0.width.equalToSuperview()
+            $0.height.equalTo(8.0)
         }
     }
     
