@@ -14,8 +14,14 @@ class RelayReadingViewController: UIViewController {
     private lazy var readingNoticeView = ReadingNoticeView()
     private lazy var readingBodyView = ReadingBodyView()
     private lazy var readingFooterView = RelayReadingFooterView()
-    
     private lazy var scrollView = UIScrollView()
+    
+    private lazy var spacerView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .systemBackground
+        
+        return view
+    }()
     
     private lazy var stackView: UIStackView = {
         let stackView = UIStackView()
@@ -35,7 +41,13 @@ class RelayReadingViewController: UIViewController {
             $0.height.equalTo(86.0)
         }
         
+        spacerView.snp.makeConstraints {
+            $0.width.equalTo(width)
+            $0.height.equalTo(47.0)
+        }
+        
         [
+            spacerView,
             readingCoverView,
             readingNoticeView,
             readingBodyView,
@@ -101,11 +113,7 @@ class RelayReadingViewController: UIViewController {
 
 extension RelayReadingViewController {
     private func setupNavigationController() {
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        navigationController?.navigationBar.shadowImage = UIImage()
-        navigationController?.navigationBar.isTranslucent = true
-        navigationController?.view.backgroundColor = .clear
-        navigationItem.hidesBackButton = true
+        navigationController?.navigationBar.isHidden = true
     }
     
     private func setupCustomNavigationButton() {
