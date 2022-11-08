@@ -15,6 +15,7 @@ class ReadingBodyView: UIView {
         
         collectionView.delegate = self
         collectionView.dataSource = self
+        collectionView.register(BodyCollectionViewCell.self, forCellWithReuseIdentifier: BodyCollectionViewCell.id)
         
         return collectionView
     }()
@@ -38,6 +39,9 @@ extension ReadingBodyView: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        UICollectionViewCell()
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BodyCollectionViewCell.id, for: indexPath) as? BodyCollectionViewCell else { return UICollectionViewCell()}
+        
+        
+        return cell
     }
 }
