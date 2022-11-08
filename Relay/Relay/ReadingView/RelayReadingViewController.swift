@@ -51,6 +51,8 @@ class RelayReadingViewController: UIViewController {
         super.viewDidLoad()
         
         view.backgroundColor = .systemBackground
+        
+        setupNavigationController()
         setupLayout()
     }
     
@@ -65,6 +67,13 @@ class RelayReadingViewController: UIViewController {
 }
 
 extension RelayReadingViewController {
+    private func setupNavigationController() {
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController?.navigationBar.shadowImage = UIImage()
+        navigationController?.navigationBar.isTranslucent = true
+        navigationController?.view.backgroundColor = .clear
+    }
+    
     private func setupLayout() {
         view.addSubview(scrollView)
         
