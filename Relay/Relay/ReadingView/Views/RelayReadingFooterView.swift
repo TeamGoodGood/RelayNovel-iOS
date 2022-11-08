@@ -42,9 +42,34 @@ class RelayReadingFooterView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
+        setupLayout()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+}
+
+extension RelayReadingFooterView {
+    private func setupLayout() {
+        [
+            likeButton,
+            batonButton
+        ].forEach { addSubview($0) }
+        
+        likeButton.snp.makeConstraints {
+            $0.top.equalToSuperview().inset(30.0)
+            $0.leading.equalToSuperview().inset(20.0)
+            $0.width.equalTo(81.0)
+            $0.height.equalTo(56.0)
+        }
+        
+        batonButton.snp.makeConstraints {
+            $0.top.equalTo(likeButton.snp.top)
+            $0.leading.equalTo(likeButton.snp.trailing).offset(16.0)
+            $0.trailing.equalToSuperview().inset(20.0)
+            $0.height.equalTo(likeButton.snp.height)
+        }
     }
 }
