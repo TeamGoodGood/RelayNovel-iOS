@@ -27,7 +27,7 @@ class BodyCollectionViewCell: UICollectionViewCell {
     
     private lazy var nameDateLabel: UILabel = {
         let label = UILabel()
-        let text = "2022. 10. 31  초이"
+        label.text = "2022. 10. 31  초이"
         
         label.textColor = UIColor(red: 139/255, green: 139/255, blue: 139/255, alpha: 1.0)
         label.setFont(.caption2)
@@ -37,7 +37,7 @@ class BodyCollectionViewCell: UICollectionViewCell {
     
     private lazy var touchCountLabel: UILabel = {
         let label = UILabel()
-        let text = "1 터치"
+        label.text = "1 터치"
         
         label.textColor = .relayPink1
         label.setFont(.caption2)
@@ -47,7 +47,7 @@ class BodyCollectionViewCell: UICollectionViewCell {
     
     private lazy var bodyLineView: UIView = {
         let view = UIView()
-        view.backgroundColor = .relayPink1
+        view.backgroundColor = .relayPink2
         
         return view
     }()
@@ -63,5 +63,38 @@ extension BodyCollectionViewCell {
             $0.trailing.equalToSuperview().inset(20.0)
             $0.bottom.equalToSuperview()
         }
+    }
+    
+    func setupReadingOffLayout() {
+        [
+            touchCountLabel,
+            bodyLineView,
+            nameDateLabel,
+            bodyLabel,
+        ].forEach { addSubview($0) }
+        
+        touchCountLabel.snp.makeConstraints {
+            $0.top.equalToSuperview().inset(27.0)
+            $0.leading.equalToSuperview().inset(41.0)
+        }
+        
+        nameDateLabel.snp.makeConstraints {
+            $0.top.equalTo(bodyLineView.snp.top)
+            $0.trailing.equalToSuperview().inset(20.0)
+        }
+        
+        bodyLabel.snp.makeConstraints {
+            $0.leading.equalTo(touchCountLabel.snp.leading)
+            $0.trailing.equalToSuperview().inset(20.0)
+            $0.top.equalTo(touchCountLabel.snp.bottom).offset(12.0)
+        }
+        
+        bodyLineView.snp.makeConstraints {
+            $0.top.equalTo(touchCountLabel.snp.top)
+            $0.leading.equalToSuperview().inset(20.0)
+            $0.width.equalTo(4.0)
+            $0.bottom.equalTo(bodyLabel.snp.bottom)
+        }
+
     }
 }
