@@ -20,8 +20,6 @@ struct aboutRelaySettingsOption {
 
 class RelayAboutRelayViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    private var aboutRelayDescriptionView = RelayAboutRelayDescriptionView(frame: .zero)
-    
     private let tableView: UITableView = {
         let table = UITableView(frame: .zero, style: .plain)
         table.register(RelaySettingTableViewCell.self, forCellReuseIdentifier: RelaySettingTableViewCell.identifier)
@@ -29,12 +27,13 @@ class RelayAboutRelayViewController: UIViewController, UITableViewDelegate, UITa
         return table
     }()
     
+    private var aboutRelayDescriptionView = RelayAboutRelayDescriptionView(frame: .zero)
     var models = [Section]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         view.backgroundColor = .white
-        view.addSubview(aboutRelayDescriptionView)
         relaySettingViewConfigure()
         setupLayout()
         tableViewSetupLayout()
@@ -43,10 +42,10 @@ class RelayAboutRelayViewController: UIViewController, UITableViewDelegate, UITa
     func relaySettingViewConfigure() {
         models.append(Section(title: "", details: "", options: [
             SettingsOption(title: "튜토리얼 다시보기", details: "") {
-                print("Tapped 튜토리얼")
+                // 온보딩 뷰 연결
             },
             SettingsOption(title: "오픈소스 라이선스", details: "") {
-                
+                // 오픈소스 라이선스 뷰 연결
             }
         ]))
     }
@@ -58,26 +57,28 @@ class RelayAboutRelayViewController: UIViewController, UITableViewDelegate, UITa
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return models[section].options.count
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let model = models[indexPath.section].options[indexPath.row]
         guard let cell = tableView.dequeueReusableCell(withIdentifier: RelaySettingTableViewCell.identifier, for: indexPath
-                ) as? RelaySettingTableViewCell else{
-                    return UITableViewCell()
-                }
-                cell.configure(with: model)
-                cell.accessoryType = UITableViewCell.AccessoryType.disclosureIndicator
+        ) as? RelaySettingTableViewCell else{
+            return UITableViewCell()
+        }
+        cell.configure(with: model)
+        cell.accessoryType = UITableViewCell.AccessoryType.disclosureIndicator
+        
         return cell
     }
-
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let model = models[indexPath.section].options[indexPath.row]
         model.handler()
     }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-           return 57
-       }
+        return 57
+    }
 }
 
 extension RelayAboutRelayViewController {
@@ -102,7 +103,6 @@ extension RelayAboutRelayViewController {
     }
     
     func tableViewSetupLayout() {
-
         tableView.delegate = self
         tableView.dataSource = self
         tableView.frame = view.bounds
@@ -113,6 +113,5 @@ extension RelayAboutRelayViewController {
         tableView.backgroundColor = .relayGray2
         tableView.tableFooterView = UIView(frame: CGRect.zero)
         tableView.separatorColor = self.tableView.backgroundColor
-        tableView.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
     }
 }
