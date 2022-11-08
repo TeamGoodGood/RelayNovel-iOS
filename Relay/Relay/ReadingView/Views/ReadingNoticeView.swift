@@ -9,6 +9,24 @@ import UIKit
 import SnapKit
 
 class ReadingNoticeView: UIView {
+    private lazy var noticeLabel: UILabel = {
+        let label = UILabel()
+        
+        return label
+    }()
+    
+    private lazy var nameDateLabel: UILabel = {
+        let label = UILabel()
+        
+        return label
+    }()
+    
+    private lazy var noticeContentLabel: UILabel = {
+        let label = UILabel()
+        
+        return label
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
