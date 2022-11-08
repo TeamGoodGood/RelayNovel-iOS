@@ -49,18 +49,30 @@ class RelayReadingViewController: UIViewController {
     
     private lazy var backButton: UIButton = {
         let button = UIButton()
+        button.setImage(UIImage(systemName: "arrow.backward"), for: .normal)
+        button.tintColor = .white
+        button.backgroundColor = .relayBlack
+        button.layer.cornerRadius = button.bounds.size.width / 2
         
         return button
     }()
     
     private lazy var readingModeButton: UIButton = {
         let button = UIButton()
+        button.setImage(UIImage(systemName: "clock"), for: .normal)
+        button.tintColor = .white
+        button.backgroundColor = .relayBlack
+        button.layer.cornerRadius = button.bounds.size.width / 2
         
         return button
     }()
     
     private lazy var musicButton: UIButton = {
         let button = UIButton()
+        button.setImage(UIImage(systemName: "speaker.wave.2"), for: .normal)
+        button.tintColor = .white
+        button.backgroundColor = .relayBlack
+        button.layer.cornerRadius = button.bounds.size.width / 2
         
         return button
     }()
