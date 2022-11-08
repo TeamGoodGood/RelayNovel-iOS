@@ -174,8 +174,9 @@ class RelayWritingViewController: UIViewController {
     }()
     
     let tagList = ["로맨스", "스릴러/공포", "판타지", "SF", "시대극", "무협", "추리", "일반", "기타"]
+    let touchList = ["10", "20", "30", "40", "50"]
     
-    let eventCollectionView: UICollectionView = {
+    lazy var eventCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
         layout.scrollDirection = .vertical
@@ -183,13 +184,28 @@ class RelayWritingViewController: UIViewController {
         
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
         cv.backgroundColor = .clear
-    
+        
         cv.showsHorizontalScrollIndicator = false
         
-            return cv
-        }()
+        return cv
+    }()
+    
+    lazy var touchCollectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
+        layout.scrollDirection = .vertical
+        layout.minimumLineSpacing = 10
+        
+        let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        cv.backgroundColor = .clear
+        
+        cv.showsHorizontalScrollIndicator = false
+        
+        return cv
+    }()
     
     let eventIdentifier = "EventCollectionViewCell"
+    let touchIdentifier = "TouchCollectionViewCell"
     
     private lazy var writeScrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -206,15 +222,23 @@ class RelayWritingViewController: UIViewController {
         view.backgroundColor = .white
         view.addSubview(writeScrollView)
         setupLayout()
-        eventCollectionView.register(EventCollectionViewCell.self, forCellWithReuseIdentifier: eventIdentifier)
-        eventCollectionView.delegate = self
-        eventCollectionView.dataSource = self
+        setupCollectionView()
         setupTitleButton()
         NotificationCenter.default.addObserver(self, selector: #selector(textDidChange), name: UITextField.textDidChangeNotification, object: nil)
     }
 }
 
 extension RelayWritingViewController {
+    
+    func setupCollectionView() {
+        eventCollectionView.register(EventCollectionViewCell.self, forCellWithReuseIdentifier: eventIdentifier)
+        eventCollectionView.delegate = self
+        eventCollectionView.dataSource = self
+        touchCollectionView.register(TouchCollectionViewCell.self, forCellWithReuseIdentifier: touchIdentifier)
+        touchCollectionView.delegate = self
+        touchCollectionView.dataSource = self
+    }
+    
     // 텍스트 숫자 세기
     @objc
     func titleTextFieldDidChange(_ textField: UITextField) {
@@ -310,7 +334,8 @@ extension RelayWritingViewController {
             eventTitleView,
             eventCollectionView,
             eventDivider,
-            touchTitleView
+            touchTitleView,
+            touchCollectionView
         ].forEach { contentView.addSubview($0) }
         writeScrollView.snp.makeConstraints {
             $0.top.equalToSuperview()
@@ -327,7 +352,6 @@ extension RelayWritingViewController {
             $0.height.equalTo(writeScrollView.contentLayoutGuide.snp.height)
             $0.width.equalToSuperview()
         }
-        
         closeButton.snp.makeConstraints {
             $0.top.equalToSuperview().inset(17.0)
             $0.leading.equalToSuperview().inset(20.0)
@@ -406,7 +430,7 @@ extension RelayWritingViewController {
         eventCollectionView.snp.makeConstraints {
             $0.top.equalTo(eventTitleView.snp.bottom).offset(20.0)
             $0.leading.equalTo(musicListButton.snp.leading)
-            $0.trailing.equalTo(storyTextView.snp.trailing)
+            $0.trailing.equalToSuperview().inset(56.0)
             $0.height.equalTo(74.0)
         }
         eventDivider.snp.makeConstraints {
@@ -418,8 +442,14 @@ extension RelayWritingViewController {
         touchTitleView.snp.makeConstraints {
             $0.top.equalTo(eventDivider.snp.bottom).offset(28.0)
             $0.leading.equalTo(musicListButton.snp.leading)
-            $0.width.equalTo(57)
-            $0.height.equalTo(20)
+            $0.width.equalTo(57.0)
+            $0.height.equalTo(20.0)
+        }
+        touchCollectionView.snp.makeConstraints {
+            $0.top.equalTo(touchTitleView.snp.bottom).offset(28.0)
+            $0.leading.equalTo(musicListButton.snp.leading)
+            $0.trailing.equalTo(storyTextView.snp.trailing)
+            $0.height.equalTo(48.0)
             $0.bottom.equalToSuperview()
         }
     }
@@ -479,25 +509,39 @@ extension RelayWritingViewController: UITextViewDelegate {
 extension RelayWritingViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch collectionView {
-        case: eventCollectionView
+        case eventCollectionView:
             return tagList.count
-    
+        
+        case touchCollectionView:
+            return touchList.count
+            
+        default:
+            return 0
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         switch collectionView {
-        case: eventCollectionView
+        case eventCollectionView:
             let cell = eventCollectionView.dequeueReusableCell(withReuseIdentifier: eventIdentifier, for: indexPath) as! EventCollectionViewCell
             cell.tagLabel.text = tagList[indexPath.row]
             
             return cell
+        
+        case touchCollectionView:
+            let cell = touchCollectionView.dequeueReusableCell(withReuseIdentifier: touchIdentifier, for: indexPath) as! TouchCollectionViewCell
+            cell.touchLabel.text = touchList[indexPath.row]
+            
+            return cell
+        
+        default:
+            return UICollectionViewCell()
         }
     }
 }
 
 extension RelayWritingViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-
+        
     }
 }
