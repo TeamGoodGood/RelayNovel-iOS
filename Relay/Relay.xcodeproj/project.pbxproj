@@ -31,7 +31,6 @@
 		556F309D29118823005D7AF4 /* BasePaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556F309C29118823005D7AF4 /* BasePaddingLabel.swift */; };
 		55745F352919340700414462 /* RelayReadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55745F342919340700414462 /* RelayReadingViewController.swift */; };
 		55745F372919347800414462 /* RelayReadingCoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55745F362919347800414462 /* RelayReadingCoverView.swift */; };
-		55745F39291936BB00414462 /* RelayReadingContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55745F38291936BB00414462 /* RelayReadingContentView.swift */; };
 		55745F3B291936ED00414462 /* RelayReadingFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55745F3A291936ED00414462 /* RelayReadingFooterView.swift */; };
 		55745F3D2919442400414462 /* ReadingNoticeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55745F3C2919442400414462 /* ReadingNoticeView.swift */; };
 		55745F3F2919446D00414462 /* ReadingBodyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55745F3E2919446D00414462 /* ReadingBodyView.swift */; };
@@ -83,7 +82,6 @@
 		556F309C29118823005D7AF4 /* BasePaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePaddingLabel.swift; sourceTree = "<group>"; };
 		55745F342919340700414462 /* RelayReadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayReadingViewController.swift; sourceTree = "<group>"; };
 		55745F362919347800414462 /* RelayReadingCoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayReadingCoverView.swift; sourceTree = "<group>"; };
-		55745F38291936BB00414462 /* RelayReadingContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayReadingContentView.swift; sourceTree = "<group>"; };
 		55745F3A291936ED00414462 /* RelayReadingFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayReadingFooterView.swift; sourceTree = "<group>"; };
 		55745F3C2919442400414462 /* ReadingNoticeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingNoticeView.swift; sourceTree = "<group>"; };
 		55745F3E2919446D00414462 /* ReadingBodyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingBodyView.swift; sourceTree = "<group>"; };
@@ -293,7 +291,6 @@
 			isa = PBXGroup;
 			children = (
 				55745F362919347800414462 /* RelayReadingCoverView.swift */,
-				55745F38291936BB00414462 /* RelayReadingContentView.swift */,
 				55745F3C2919442400414462 /* ReadingNoticeView.swift */,
 				55745F3E2919446D00414462 /* ReadingBodyView.swift */,
 				55745FC1291A3BF100414462 /* BodyCollectionViewCell.swift */,
@@ -448,7 +445,6 @@
 				55867E1D29142C6700C79FFC /* CategoryModalPresentationController.swift in Sources */,
 				55745F3B291936ED00414462 /* RelayReadingFooterView.swift in Sources */,
 				55867E1B2913AF0400C79FFC /* BrowsingTitleView.swift in Sources */,
-				55745F39291936BB00414462 /* RelayReadingContentView.swift in Sources */,
 				32F835362911008400E2CC4A /* Extension+UIButton.swift in Sources */,
 				32517E442913E885005E0F69 /* RelayMainHostingController.swift in Sources */,
 				3265BA2A290925DD00532CA4 /* AppDelegate.swift in Sources */,
