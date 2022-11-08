@@ -103,6 +103,8 @@ extension RelayMyInfoViewController {
         tableView.frame = view.bounds
         tableView.contentInset = .init(top: 100, left: 0, bottom: 0, right: 0) // 뷰 연결 시 top 값 조정필요
         tableView.isScrollEnabled = false
+        tableView.sectionHeaderHeight = 7
+        tableView.sectionFooterHeight = 0
         tableView.backgroundColor = .white
         tableView.tableFooterView = UIView(frame: CGRect.zero)
         tableView.separatorColor = .relayGray2

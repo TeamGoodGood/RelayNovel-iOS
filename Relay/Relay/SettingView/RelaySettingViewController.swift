@@ -75,9 +75,6 @@ class RelaySettingViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if models.count == 0 {
-            tableView.sectionHeaderHeight = 2
-        }
         return models[section].options.count
     }
     
@@ -129,9 +126,6 @@ extension RelaySettingViewController {
             
             return section
         }()
-        
-        header.textLabel?.textAlignment = .center
-        header.textLabel?.textColor = .systemBlue
         header.backgroundView = view
         
     }
@@ -145,10 +139,11 @@ extension RelaySettingViewController {
         tableView.frame = view.bounds
         tableView.contentInset = .init(top: 120, left: 0, bottom: 0, right: 0) // 뷰 연결 시 top 값 조정필요
         tableView.isScrollEnabled = false
+        tableView.sectionHeaderHeight = 7
+        tableView.sectionFooterHeight = 0
         tableView.backgroundColor = .white
         tableView.tableFooterView = UIView(frame: CGRect.zero)
         tableView.separatorColor = .relayGray2
-        tableView.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         tableView.register(UITableViewHeaderFooterView.self, forHeaderFooterViewReuseIdentifier: "customHeader")
     }
 }

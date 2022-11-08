@@ -35,8 +35,7 @@ class RelaySettingTableViewCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: .value1, reuseIdentifier: reuseIdentifier)
-        contentView.addSubview(label)
-        contentView.addSubview(detail)
+        
         contentView.clipsToBounds = true
     }
     
