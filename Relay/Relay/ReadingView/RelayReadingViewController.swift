@@ -54,6 +54,8 @@ class RelayReadingViewController: UIViewController {
         button.backgroundColor = .relayBlack
         button.layer.cornerRadius = button.bounds.size.width / 2
         
+        button.addTarget(self, action: #selector(popViewController), for: .touchUpInside)
+        
         return button
     }()
     
@@ -164,5 +166,9 @@ extension RelayReadingViewController {
             $0.height.equalToSuperview()
         }
 
+    }
+    
+    @objc func popViewController() {
+        navigationController?.popViewController(animated: true)
     }
 }
