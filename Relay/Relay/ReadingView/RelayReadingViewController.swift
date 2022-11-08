@@ -103,6 +103,7 @@ extension RelayReadingViewController {
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.navigationBar.isTranslucent = true
         navigationController?.view.backgroundColor = .clear
+        navigationItem.hidesBackButton = true
     }
     
     private func setupCustomNavigationButton() {
