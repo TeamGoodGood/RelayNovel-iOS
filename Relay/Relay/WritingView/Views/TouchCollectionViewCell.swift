@@ -9,33 +9,39 @@ import UIKit
 import SnapKit
 
 class TouchCollectionViewCell: UICollectionViewCell {
-    let chip: UIView = {
+    let circleView: UIView = {
         let chip = UIView()
         
         chip.layer.borderColor = UIColor.relayBlack.cgColor
         chip.layer.borderWidth = 1
         chip.layer.cornerRadius = 24
         chip.layer.masksToBounds = true
-            
+        
         return chip
     }()
     
-    let touchButton: UIButton = {
-        let button = UIButton()
+    let touchLabel: UILabel = {
+        let label = UILabel()
         
-        button.setTitle("dkdk", for: .normal)
-        button.titleLabel?.setFont(.caption1)
-        button.setTitleColor(.relayBlack, for: .normal)
+        label.text = "dkdk"
+        label.setFont(.caption1)
         
-        button.layer.borderColor = UIColor.relayBlack.cgColor
-        button.layer.borderWidth = 1
-        button.layer.cornerRadius = 24
-        button.layer.masksToBounds = true
-        
-        button.contentEdgeInsets = UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15)
-        
-        return button
+        return label
     }()
+    
+    override var isSelected: Bool {
+        didSet {
+            if isSelected {
+                print("selected in \(isSelected)")
+                circleView.layer.borderColor = UIColor.relayPink1.cgColor
+                circleView.backgroundColor = .relayPink1
+            } else {
+                print("else in")
+                circleView.layer.borderColor = UIColor.relayBlack.cgColor
+                circleView.backgroundColor = .white
+            }
+        }
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -49,11 +55,18 @@ class TouchCollectionViewCell: UICollectionViewCell {
     
     private func setupLayout() {
         [
-            touchButton
+            circleView
         ].forEach { contentView.addSubview($0) }
+        circleView.addSubview(touchLabel)
         
-        touchButton.snp.makeConstraints {
+        circleView.snp.makeConstraints {
             $0.edges.equalToSuperview()
+        }
+        touchLabel.snp.makeConstraints {
+            $0.top.equalToSuperview().inset(15.0)
+            $0.leading.equalToSuperview().inset(15.0)
+            $0.trailing.equalToSuperview().inset(15.0)
+            $0.bottom.equalToSuperview().inset(15.0)
         }
     }
 }
