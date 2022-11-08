@@ -208,14 +208,22 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		B5C0B5232914D88900077B5F /* SettingView */ = {
+		B533AB57291A960E00B73867 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				B5C0B52A2916A9FA00077B5F /* RelaySettingTableViewCell.swift */,
-				B533AB4829183A4400B73867 /* RelayMyInfoViewController.swift */,
-				B5C0B5242914D8BA00077B5F /* RelaySettingViewController.swift */,
 				B533AB512919FB8400B73867 /* RelayAboutRelayDescriptionView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		B5C0B5232914D88900077B5F /* SettingView */ = {
+			isa = PBXGroup;
+			children = (
+				B5C0B5242914D8BA00077B5F /* RelaySettingViewController.swift */,
+				B533AB4829183A4400B73867 /* RelayMyInfoViewController.swift */,
 				B533AB4A2918ACD100B73867 /* RelayAboutRelayViewController.swift */,
+				B533AB57291A960E00B73867 /* Views */,
 			);
 			path = SettingView;
 			sourceTree = "<group>";
