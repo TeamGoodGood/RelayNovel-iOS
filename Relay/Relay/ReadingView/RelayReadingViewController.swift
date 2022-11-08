@@ -63,7 +63,7 @@ class RelayReadingViewController: UIViewController {
         let button = UIButton()
         button.setImage(UIImage(systemName: "arrow.backward"), for: .normal)
         button.tintColor = .white
-        button.backgroundColor = .relayBlack
+        button.backgroundColor = UIColor(red: 35/255, green: 46/255, blue: 57/255, alpha: 0.5)
         button.layer.cornerRadius = 20.0
         
         button.addTarget(self, action: #selector(popViewController), for: .touchUpInside)
@@ -75,7 +75,7 @@ class RelayReadingViewController: UIViewController {
         let button = UIButton()
         button.setImage(UIImage(systemName: "clock"), for: .normal)
         button.tintColor = .white
-        button.backgroundColor = .relayBlack
+        button.backgroundColor = UIColor(red: 35/255, green: 46/255, blue: 57/255, alpha: 0.5)
         button.layer.cornerRadius = 20.0
         
         return button
@@ -85,7 +85,7 @@ class RelayReadingViewController: UIViewController {
         let button = UIButton()
         button.setImage(UIImage(systemName: "speaker.wave.2"), for: .normal)
         button.tintColor = .white
-        button.backgroundColor = .relayBlack
+        button.backgroundColor = UIColor(red: 35/255, green: 46/255, blue: 57/255, alpha: 0.5)
         button.layer.cornerRadius = 20.0
         
         return button
