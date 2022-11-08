@@ -138,16 +138,18 @@ class RelayWritingViewController: UIViewController {
         return label
     }()
     
-//    private let commentLabel: UILabel = {
-//        let label = UILabel()
-//
-//        label.text = "코멘트"
-//        label.setFont(.body1)
-//
-//        return label
-//    }()
     
-    private lazy var reusableTitleView = ReusableTitleView()
+    private lazy var commentTitleView = ReusableTitleView()
+    private lazy var eventTitleView = ReusableTitleView()
+    private lazy var touchTitleView = ReusableTitleView()
+    
+    private let divider: UIView = {
+        let view = UIView()
+        view.backgroundColor = .systemGray5
+        
+        return view
+    }()
+    
     
     private let commentTextField: UITextField = {
         let textField = UITextField()
@@ -189,6 +191,7 @@ class RelayWritingViewController: UIViewController {
         view.backgroundColor = .white
         view.addSubview(writeScrollView)
         setupLayout()
+        setupTitleButton()
         NotificationCenter.default.addObserver(self, selector: #selector(textDidChange), name: UITextField.textDidChangeNotification, object: nil)
     }
 }
@@ -262,6 +265,12 @@ extension RelayWritingViewController {
         remainCountLabel.textColor = .relayGray
     }
     
+    private func setupTitleButton() {
+        commentTitleView.titleLabel.text = "코멘트"
+        eventTitleView.titleLabel.text = "종목"
+        touchTitleView.titleLabel.text = "터치"
+    }
+    
     private func setupLayout() {
         writeScrollView.addSubview(contentView)
         writeScrollView.delaysContentTouches = false
@@ -276,10 +285,11 @@ extension RelayWritingViewController {
             storyLabel,
             storyTextView,
             remainCountLabel,
-            reusableTitleView,
+            commentTitleView,
             commentTextField,
-            commentTextCountLabel
-        ].forEach { writeScrollView.addSubview($0) }
+            commentTextCountLabel,
+            divider
+        ].forEach { contentView.addSubview($0) }
         writeScrollView.snp.makeConstraints {
             $0.top.equalToSuperview()
             $0.leading.equalToSuperview()
@@ -288,8 +298,13 @@ extension RelayWritingViewController {
             $0.width.equalToSuperview()
         }
         contentView.snp.makeConstraints {
-            $0.leading.trailing.top.equalToSuperview()
-            $0.height.greaterThanOrEqualTo(writeScrollView.snp.height)
+            $0.top.equalToSuperview()
+            $0.leading.equalToSuperview()
+            $0.trailing.equalToSuperview()
+            $0.bottom.equalToSuperview()
+            $0.height.equalTo(writeScrollView.contentLayoutGuide.snp.height)
+            $0.width.equalToSuperview()
+//            $0.height.equalTo(1000.0)
         }
         
         closeButton.snp.makeConstraints {
@@ -340,15 +355,14 @@ extension RelayWritingViewController {
             $0.bottom.equalTo(storyTextView.snp.top).offset(-10.0)
             $0.trailing.equalTo(titleTextField.snp.trailing)
         }
-        reusableTitleView.snp.makeConstraints {
-            reusableTitleView.titleLabel.text = "코멘트"
+        commentTitleView.snp.makeConstraints {
             $0.top.equalTo(storyTextView.snp.bottom).offset(28.0)
             $0.leading.equalTo(musicListButton.snp.leading)
             $0.trailing.equalTo(commentTextCountLabel)
             $0.height.equalTo(20)
         }
         commentTextField.snp.makeConstraints {
-            $0.top.equalTo(reusableTitleView.snp.bottom).offset(8.0)
+            $0.top.equalTo(commentTitleView.snp.bottom).offset(8.0)
             $0.leading.equalTo(musicListButton.snp.leading)
             $0.trailing.equalTo(storyTextView.snp.trailing)
             $0.height.equalTo(49.0)
@@ -356,6 +370,13 @@ extension RelayWritingViewController {
         commentTextCountLabel.snp.makeConstraints {
             $0.top.equalTo(storyTextView.snp.bottom).offset(28.0)
             $0.trailing.equalTo(muteButton.snp.trailing)
+        }
+        divider.snp.makeConstraints {
+            $0.top.equalTo(commentTextField.snp.bottom).offset(28.0)
+            $0.leading.equalTo(musicListButton.snp.leading)
+            $0.trailing.equalTo(storyTextView.snp.trailing)
+            $0.bottom.equalToSuperview()
+            $0.height.equalTo(1.0)
         }
         
     }

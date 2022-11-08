@@ -34,8 +34,6 @@ class ReusableTitleView: UIView, UISheetPresentationControllerDelegate {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        self.backgroundColor = .red
-        
         setupLayout()
     }
     
