@@ -11,12 +11,14 @@ import SnapKit
 struct Section {
     let title: String
     let details: String
+    let version: String
     let options: [SettingsOption]
 }
 
 struct SettingsOption {
     let title: String
     let details: String
+    let version: String
     let handler: (() -> Void)
 }
 
@@ -39,30 +41,30 @@ class RelaySettingViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     func relaySettingViewConfigure() {
-        models.append(Section(title: "", details: "", options: [
-            SettingsOption(title: "내 정보", details: "Apple") {
+        models.append(Section(title: "", details: "", version: "", options: [
+            SettingsOption(title: "내 정보", details: "Apple", version: "") {
                 //추후 RelayMyInfoViewController와 연결
             },
-            SettingsOption(title: "알림 설정", details: "") {
+            SettingsOption(title: "알림 설정", details: "", version: "") {
                 //추후 로컬 디바이스 알림설정과 연결
             }
         ]))
-        models.append(Section(title: "", details: "", options: [
-            SettingsOption(title: "릴레이에 대해서", details: "") {
+        models.append(Section(title: "", details: "", version: "", options: [
+            SettingsOption(title: "릴레이에 대해서", details: "", version: "") {
                 //추후 RelayAboutRelayViewController와 연결
             },
-            SettingsOption(title: "이용약관", details: "") {
+            SettingsOption(title: "이용약관", details: "", version: "") {
                 //추후 이용약관 뷰 연결
             },
-            SettingsOption(title: "개인정보처리방침", details: "") {
+            SettingsOption(title: "개인정보처리방침", details: "", version: "") {
                 //추후 개인정보처리방침 뷰 연결
             },
-            SettingsOption(title: "버전", details: "") {
+            SettingsOption(title: "버전", details: "최신 버전입니다", version: "1.1.0") {
                 
             }
         ]))
-        models.append(Section(title: "", details: "", options: [
-            SettingsOption(title: "굳굳 계정", details: "") {
+        models.append(Section(title: "", details: "", version: "", options: [
+            SettingsOption(title: "굳굳 계정", details: "", version: "") {
                 //추후 굳굳 sns 계정과 연결
             }
         ]))
@@ -98,7 +100,6 @@ class RelaySettingViewController: UIViewController, UITableViewDelegate, UITable
             return UITableViewCell()
         }
         cell.configure(with: model)
-        
         if indexPath.row == 3 {
             cell.accessoryType = .none
         }
@@ -112,10 +113,8 @@ class RelaySettingViewController: UIViewController, UITableViewDelegate, UITable
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let model = models[indexPath.section].options[indexPath.row]
-        
         model.handler()
     }
-    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 57
     }

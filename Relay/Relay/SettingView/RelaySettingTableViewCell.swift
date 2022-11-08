@@ -17,9 +17,26 @@ class RelaySettingTableViewCell: UITableViewCell {
         return label
     }()
     
+    private let detail: UILabel = {
+        let detail = UILabel()
+        detail.numberOfLines = 1
+        detail.textColor = .relayGray
+        
+        return detail
+    }()
+    
+    private let version: UILabel = {
+        let version = UILabel()
+        version.numberOfLines = 1
+        version.textColor = .relayGray
+        
+        return version
+    }()
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        super.init(style: .value1, reuseIdentifier: reuseIdentifier)
         contentView.addSubview(label)
+        contentView.addSubview(detail)
         contentView.clipsToBounds = true
     }
     
@@ -30,7 +47,31 @@ class RelaySettingTableViewCell: UITableViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        label.frame = CGRect(x: 20, y: 0, width: 300, height: contentView.frame.size.height)
+        setupLayout()
+    }
+    
+    private func setupLayout() {
+        [
+            label,
+            detail,
+            version
+        ].forEach { addSubview($0) }
+        
+        label.snp.makeConstraints {
+            $0.top.equalToSuperview()
+            $0.leading.equalToSuperview().inset(20.0)
+            $0.bottom.equalToSuperview()
+        }
+        detail.snp.makeConstraints {
+            $0.top.equalToSuperview()
+            $0.trailing.equalToSuperview().inset(35.0)
+            $0.bottom.equalToSuperview()
+        }
+        version.snp.makeConstraints {
+            $0.top.equalToSuperview()
+            $0.leading.equalTo(label.snp.trailing).offset(7.0)
+            $0.bottom.equalToSuperview()
+        }
     }
     
     override func prepareForReuse() {
@@ -40,6 +81,7 @@ class RelaySettingTableViewCell: UITableViewCell {
     
     public func configure(with model: SettingsOption) {
         label.text = model.title
-        
+        detail.text = model.details
+        version.text = model.version
     }
 }

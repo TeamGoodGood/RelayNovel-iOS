@@ -39,14 +39,14 @@ class RelayMyInfoViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     func relaySettingViewConfigure() {
-        models.append(Section(title: "", details: "", options: [
-            SettingsOption(title: "계정", details: "") {
+        models.append(Section(title: "", details: "", version: "", options: [
+            SettingsOption(title: "계정", details: "nickname@gmail.com", version: "") {
                 
             },
-            SettingsOption(title: "로그아웃", details: "") {
+            SettingsOption(title: "로그아웃", details: "", version: "") {
                 //추후 로그아웃 알림창 구현
             },
-            SettingsOption(title: "회원탈퇴", details: "") {
+            SettingsOption(title: "회원탈퇴", details: "", version: "") {
                 //추후 회원탈퇴뷰 연결
             }
         ]))
