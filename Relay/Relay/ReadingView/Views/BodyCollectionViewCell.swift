@@ -24,6 +24,33 @@ class BodyCollectionViewCell: UICollectionViewCell {
         
         return label
     }()
+    
+    private lazy var nameDateLabel: UILabel = {
+        let label = UILabel()
+        let text = "2022. 10. 31  초이"
+        
+        label.textColor = UIColor(red: 139/255, green: 139/255, blue: 139/255, alpha: 1.0)
+        label.setFont(.caption2)
+        
+        return label
+    }()
+    
+    private lazy var touchCountLabel: UILabel = {
+        let label = UILabel()
+        let text = "1 터치"
+        
+        label.textColor = .relayPink1
+        label.setFont(.caption2)
+        
+        return label
+    }()
+    
+    private lazy var bodyLineView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .relayPink1
+        
+        return view
+    }()
 }
 
 extension BodyCollectionViewCell {
