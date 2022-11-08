@@ -21,3 +21,16 @@ class BodyCollectionViewCell: UICollectionViewCell {
         return label
     }()
 }
+
+extension BodyCollectionViewCell {
+    func setupLayout() {
+        addSubview(bodyLabel)
+        
+        bodyLabel.snp.makeConstraints {
+            $0.top.equalToSuperview()
+            $0.leading.equalToSuperview().inset(20.0)
+            $0.trailing.equalToSuperview().inset(20.0)
+            $0.bottom.equalToSuperview()
+        }
+    }
+}
