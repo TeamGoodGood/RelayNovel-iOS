@@ -53,7 +53,8 @@ extension ReadingBodyView: UICollectionViewDelegateFlowLayout {
             context: nil
         )
 
-        return CGSize(width: width, height: cellSize.height + 10.0)
+//        return CGSize(width: width, height: cellSize.height + 10.0)
+        return CGSize(width: width, height: cellSize.height + 65.0)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
@@ -69,7 +70,8 @@ extension ReadingBodyView: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BodyCollectionViewCell.id, for: indexPath) as? BodyCollectionViewCell else { return UICollectionViewCell() }
-        cell.setupLayout()
+//        cell.setupLayout()
+        cell.setupReadingOffLayout()
 
         return cell
     }
