@@ -217,8 +217,19 @@ class RelayWritingViewController: UIViewController, UICollectionViewDelegate {
     }()
     private lazy var contentView = UIView()
     
+    override func viewWillAppear(_ animated: Bool) {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardUp), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDown), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.hideKeyboardWhenTapped()
         view.backgroundColor = .white
         view.addSubview(writeScrollView)
         setupLayout()
@@ -230,23 +241,22 @@ class RelayWritingViewController: UIViewController, UICollectionViewDelegate {
 
 extension RelayWritingViewController {
     
-    @objc func keyboardUp(notification:NSNotification) {
-        if let keyboardFrame:NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
-           let keyboardRectangle = keyboardFrame.cgRectValue
-       
-            UIView.animate(
-                withDuration: 0.3
-                , animations: {
-                    self.view.transform = CGAffineTransform(translationX: 0, y: -keyboardRectangle.height)
-                }
-            )
-        }
+    @objc
+    func keyboardUp(notification:NSNotification) {
+        guard let userInfo = notification.userInfo else { return }
+          var keyboardFrame:CGRect = (userInfo[UIResponder.keyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
+          keyboardFrame = self.view.convert(keyboardFrame, from: nil)
+
+          var contentInset:UIEdgeInsets = self.writeScrollView.contentInset
+          contentInset.bottom = keyboardFrame.size.height + 20
+        writeScrollView.contentInset = contentInset
     }
     
-    @objc func keyboardDown() {
-        self.view.transform = .identity
+    @objc
+    func keyboardDown() {
+        let contentInset:UIEdgeInsets = UIEdgeInsets.zero
+        writeScrollView.contentInset = contentInset
     }
-    
     
     func setupCollectionView() {
         eventCollectionView.register(EventCollectionViewCell.self, forCellWithReuseIdentifier: eventIdentifier)
