@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class RelayWritingViewController: UIViewController {
+class RelayWritingViewController: UIViewController, UICollectionViewDelegate {
     
     private let closeButton: UIButton = {
         let button = UIButton(type: .custom)
@@ -507,11 +507,12 @@ extension RelayWritingViewController: UITextViewDelegate {
 
 
 extension RelayWritingViewController: UICollectionViewDataSource {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch collectionView {
         case eventCollectionView:
             return tagList.count
-        
+            
         case touchCollectionView:
             return touchList.count
             
@@ -524,24 +525,21 @@ extension RelayWritingViewController: UICollectionViewDataSource {
         switch collectionView {
         case eventCollectionView:
             let cell = eventCollectionView.dequeueReusableCell(withReuseIdentifier: eventIdentifier, for: indexPath) as! EventCollectionViewCell
-            cell.eventButton.setTitle(tagList[indexPath.row], for: .normal)
+            
+            cell.eventLabel.text = tagList[indexPath.row]
             
             return cell
-        
+            
         case touchCollectionView:
             let cell = touchCollectionView.dequeueReusableCell(withReuseIdentifier: touchIdentifier, for: indexPath) as! TouchCollectionViewCell
-            cell.touchButton.setTitle(touchList[indexPath.row], for: .normal)
+            
+            cell.touchLabel.text = touchList[indexPath.row]
             
             return cell
-        
+            
         default:
             return UICollectionViewCell()
         }
     }
 }
 
-extension RelayWritingViewController: UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-    }
-}

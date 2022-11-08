@@ -9,34 +9,41 @@ import UIKit
 import SnapKit
 
 class EventCollectionViewCell: UICollectionViewCell {
-    let chip: UIView = {
-        let chip = UIView()
+    
+    let eventLabel: UILabel = {
+        let label = UILabel()
         
-        chip.layer.borderColor = UIColor.relayBlack.cgColor
-        chip.layer.borderWidth = 1
-        chip.layer.cornerRadius = 16
-        chip.layer.masksToBounds = true
-            
-        return chip
+        label.text = "asdf"
+        label.setFont(.caption1)
+        label.textColor = .relayBlack
+        
+        return label
     }()
     
-    let eventButton: UIButton = {
-        let button = UIButton()
+    let circleView: UIView = {
+        let view = UIView()
         
-        button.setTitle("dkdk", for: .normal)
-        button.titleLabel?.setFont(.caption1)
-        button.setTitleColor(.relayBlack, for: .normal)
+        view.layer.borderColor = UIColor.relayBlack.cgColor
+        view.layer.borderWidth = 1
+        view.layer.cornerRadius = 16
+        view.layer.masksToBounds = true
         
-        button.layer.borderColor = UIColor.relayBlack.cgColor
-        button.layer.borderWidth = 1
-        button.layer.cornerRadius = 16
-        button.layer.masksToBounds = true
-        
-        // 버튼 내 간격
-        button.contentEdgeInsets = UIEdgeInsets(top: 7, left: 12, bottom: 7, right: 12)
-        
-        return button
+        return view
     }()
+    
+    override var isSelected: Bool {
+        didSet {
+            if isSelected {
+                print("selected in \(isSelected)")
+                circleView.layer.borderColor = UIColor.relayPink1.cgColor
+                circleView.backgroundColor = .relayPink1
+            } else {
+                print("else in")
+                circleView.layer.borderColor = UIColor.relayBlack.cgColor
+                circleView.backgroundColor = .white
+            }
+        }
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -50,11 +57,20 @@ class EventCollectionViewCell: UICollectionViewCell {
     
     private func setupLayout() {
         [
-            eventButton
+            circleView
         ].forEach { contentView.addSubview($0) }
+        circleView.addSubview(eventLabel)
         
-        eventButton.snp.makeConstraints {
+        circleView.snp.makeConstraints {
             $0.edges.equalToSuperview()
+        }
+        
+        eventLabel.snp.makeConstraints {
+            $0.top.equalToSuperview().inset(7.0)
+            $0.leading.equalToSuperview().inset(12.0)
+            $0.trailing.equalToSuperview().inset(12.0)
+            $0.bottom.equalToSuperview().inset(7.0)
         }
     }
 }
+
