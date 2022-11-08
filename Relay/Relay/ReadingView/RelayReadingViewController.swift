@@ -47,6 +47,24 @@ class RelayReadingViewController: UIViewController {
     
     private let contentView = UIView()
     
+    private lazy var backButton: UIButton = {
+        let button = UIButton()
+        
+        return button
+    }()
+    
+    private lazy var readingModeButton: UIButton = {
+        let button = UIButton()
+        
+        return button
+    }()
+    
+    private lazy var musicButton: UIButton = {
+        let button = UIButton()
+        
+        return button
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
