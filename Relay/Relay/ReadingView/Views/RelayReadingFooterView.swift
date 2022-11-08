@@ -21,6 +21,7 @@ class RelayReadingFooterView: UIView {
         button.setImage(image, for: .normal)
         button.contentHorizontalAlignment = .center
         button.semanticContentAttribute = .forceLeftToRight
+        button.imageEdgeInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 0.0, right: 8.0)
         
         button.backgroundColor = UIColor(red: 246/255, green: 246/255, blue: 246/255, alpha: 1.0)
         button.layer.cornerRadius = 16.0
