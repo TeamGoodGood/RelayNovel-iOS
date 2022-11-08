@@ -9,6 +9,13 @@ import UIKit
 import SnapKit
 
 class ReadingBodyView: UIView {
+    private lazy var bodyCollectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        
+        return collectionView
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
