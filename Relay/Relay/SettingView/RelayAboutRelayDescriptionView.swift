@@ -16,7 +16,7 @@ class RelayAboutRelayDescriptionView: UIView {
         
         return imageView
     }()
-
+    
     private var descriptionLabel: UILabel = {
         let label = UILabel()
         let content = "릴레이는 플레이리스트를 들으며 사람들과 함께 소설을 완성하는 앱입니다."
@@ -40,7 +40,7 @@ class RelayAboutRelayDescriptionView: UIView {
     private func setupLayout() {
         [
             descriptionImageView,
-            descriptionLabel,
+            descriptionLabel
         ].forEach { addSubview($0) }
         
         descriptionImageView.snp.makeConstraints {
@@ -57,4 +57,3 @@ class RelayAboutRelayDescriptionView: UIView {
         }
     }
 }
-
