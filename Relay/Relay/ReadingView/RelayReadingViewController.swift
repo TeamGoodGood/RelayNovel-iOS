@@ -84,6 +84,7 @@ class RelayReadingViewController: UIViewController {
         
         setupNavigationController()
         setupLayout()
+        setupCustomNavigationButton()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -102,6 +103,35 @@ extension RelayReadingViewController {
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.navigationBar.isTranslucent = true
         navigationController?.view.backgroundColor = .clear
+    }
+    
+    private func setupCustomNavigationButton() {
+        [
+            backButton,
+            musicButton,
+            readingModeButton
+        ].forEach { view.addSubview($0) }
+        
+        backButton.snp.makeConstraints {
+            $0.top.equalToSuperview().inset(57.0)
+            $0.leading.equalToSuperview().inset(12.0)
+            $0.width.equalTo(40.0)
+            $0.height.equalTo(40.0)
+        }
+        
+        musicButton.snp.makeConstraints {
+            $0.top.equalTo(backButton.snp.top)
+            $0.trailing.equalToSuperview().inset(12.0)
+            $0.width.equalTo(40.0)
+            $0.height.equalTo(40.0)
+        }
+        
+        readingModeButton.snp.makeConstraints {
+            $0.top.equalTo(backButton.snp.top)
+            $0.trailing.equalTo(musicButton.snp.leading).offset(-16.0)
+            $0.width.equalTo(40.0)
+            $0.height.equalTo(40.0)
+        }
     }
     
     private func setupLayout() {
