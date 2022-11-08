@@ -54,10 +54,6 @@ class EventCollectionViewCell: UICollectionViewCell {
         ].forEach { contentView.addSubview($0) }
         
         eventButton.snp.makeConstraints {
-//            $0.top.equalToSuperview().inset(7.0)
-//            $0.leading.equalToSuperview().inset(12.0)
-//            $0.trailing.equalToSuperview().inset(12.0)
-//            $0.bottom.equalToSuperview().inset(7.0)
             $0.edges.equalToSuperview()
         }
     }
