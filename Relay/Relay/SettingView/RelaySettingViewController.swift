@@ -70,26 +70,14 @@ class RelaySettingViewController: UIViewController, UITableViewDelegate, UITable
         ]))
     }
     
-    func tableViewSetupLayout() {
-        view.addSubview(tableView)
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.frame = view.bounds
-        tableView.contentInset = .init(top: 120, left: 0, bottom: 0, right: 0) // 뷰 연결 시 top 값 조정필요
-        tableView.isScrollEnabled = false
-        tableView.sectionHeaderHeight = 7
-        tableView.sectionFooterHeight = 0
-        tableView.backgroundColor = .relayGray2
-        tableView.tableFooterView = UIView(frame: CGRect.zero)
-        tableView.separatorColor = self.tableView.backgroundColor
-        tableView.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-    }
-    
     func numberOfSections(in tableView: UITableView) -> Int {
         return models.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if models.count == 0 {
+            tableView.sectionHeaderHeight = 2
+        }
         return models[section].options.count
     }
     
@@ -115,7 +103,52 @@ class RelaySettingViewController: UIViewController, UITableViewDelegate, UITable
         let model = models[indexPath.section].options[indexPath.row]
         model.handler()
     }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 57
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return section == 0 ? 1.0 : 7.0
+    }
+}
+
+extension RelaySettingViewController {
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: "customHeader")
+        
+        return header
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        guard let header = view as? UITableViewHeaderFooterView else { return }
+        
+        let view: UIView = {
+            let section = UIView(frame: .zero)
+            section.backgroundColor = .relayGray2
+            
+            return section
+        }()
+        
+        header.textLabel?.textAlignment = .center
+        header.textLabel?.textColor = .systemBlue
+        header.backgroundView = view
+        
+    }
+}
+
+extension RelaySettingViewController {
+    func tableViewSetupLayout() {
+        view.addSubview(tableView)
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.frame = view.bounds
+        tableView.contentInset = .init(top: 120, left: 0, bottom: 0, right: 0) // 뷰 연결 시 top 값 조정필요
+        tableView.isScrollEnabled = false
+        tableView.backgroundColor = .white
+        tableView.tableFooterView = UIView(frame: CGRect.zero)
+        tableView.separatorColor = .relayGray2
+        tableView.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        tableView.register(UITableViewHeaderFooterView.self, forHeaderFooterViewReuseIdentifier: "customHeader")
     }
 }
