@@ -139,14 +139,12 @@ class RelayWritingViewController: UIViewController, UICollectionViewDelegate {
         return label
     }()
     
-    
     private lazy var commentTitleView = ReusableTitleView()
     private lazy var eventTitleView = ReusableTitleView()
     private lazy var touchTitleView = ReusableTitleView()
     
     private let commentDivider = DividerView()
     private let eventDivider = DividerView()
-    
     
     private let commentTextField: UITextField = {
         let textField = UITextField()
@@ -240,7 +238,6 @@ class RelayWritingViewController: UIViewController, UICollectionViewDelegate {
 }
 
 extension RelayWritingViewController {
-    
     @objc
     func keyboardUp(notification:NSNotification) {
         guard let userInfo = notification.userInfo else { return }
