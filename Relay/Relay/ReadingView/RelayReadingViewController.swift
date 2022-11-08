@@ -13,6 +13,7 @@ class RelayReadingViewController: UIViewController {
     private lazy var readingCoverView = RelayReadingCoverView()
     private lazy var readingNoticeView = ReadingNoticeView()
     private lazy var readingBodyView = ReadingBodyView()
+    private lazy var readingFooterView = RelayReadingFooterView()
     
     private lazy var scrollView = UIScrollView()
     
@@ -29,10 +30,16 @@ class RelayReadingViewController: UIViewController {
             $0.height.equalTo(373.0)
         }
         
+        readingFooterView.snp.makeConstraints {
+            $0.width.equalTo(width)
+            $0.height.equalTo(86.0)
+        }
+        
         [
             readingCoverView,
             readingNoticeView,
-            readingBodyView
+            readingBodyView,
+            readingFooterView
         ].forEach { stackView.addArrangedSubview($0) }
         
         return stackView
