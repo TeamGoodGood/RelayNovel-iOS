@@ -409,8 +409,15 @@ extension RelayWritingViewController {
             $0.top.equalTo(eventTitleView.snp.bottom).offset(20.0)
             $0.leading.equalTo(musicListButton.snp.leading)
             $0.trailing.equalTo(storyTextView.snp.trailing)
-            $0.bottom.equalToSuperview()
             $0.height.equalTo(74.0)
+            $0.bottom.equalToSuperview()
+        }
+        divider.snp.makeConstraints {
+            $0.top.equalTo(eventCollectionView.snp.bottom).offset(28.0)
+            $0.leading.equalTo(musicListButton.snp.leading)
+            $0.trailing.equalTo(storyTextView.snp.trailing)
+            $0.height.equalTo(1.0)
+            $0.bottom.equalToSuperview()
         }
         
     }
