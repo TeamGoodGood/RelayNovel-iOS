@@ -153,7 +153,16 @@ extension RelayReadingViewController: UITextViewDelegate {
         if textView.text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty || textView.text == "내용을 작성해주세요." {
             textView.textColor = .relayGray
             textView.text = "내용을 작성해주세요."
+            readingWriteView.textCountLabel.text = "0/500자"
         }
+    }
+    
+    func textViewDidChange(_ textView: UITextView) {
+        if textView.text.count > 500 {
+            textView.deleteBackward()
+        }
+        
+        readingWriteView.textCountLabel.text = "\(textView.text.count)/500자"
     }
 }
 
