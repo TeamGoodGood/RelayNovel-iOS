@@ -258,7 +258,7 @@ extension RelayTermsAndConditionsViewController {
             $0.leading.equalToSuperview().inset(20.0)
             $0.trailing.equalToSuperview().inset(20.0)
             $0.bottom.equalTo(scrollView.snp.bottom)
-            $0.height.equalToSuperview()
+            $0.height.equalTo(termsAndConditions)
         }
     }
 }
