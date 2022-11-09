@@ -226,5 +226,7 @@ extension RelayReadingViewController {
     @objc func touchBatonButton() {
         stackView.removeArrangedSubview(readingFooterView)
         stackView.addArrangedSubview(readingWriteView)
+        
+        readingFooterView.isHidden = true
     }
 }
