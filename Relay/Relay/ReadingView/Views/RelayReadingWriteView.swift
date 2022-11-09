@@ -70,9 +70,52 @@ class RelayReadingWriteView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
+        setupLayout()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+}
+
+extension RelayReadingWriteView {
+    private func setupLayout() {
+        [
+            touchCountLabel,
+            bodyLineView,
+            textCountLabel,
+            writingTextView,
+            registerButton
+        ].forEach { addSubview($0) }
+        
+        touchCountLabel.snp.makeConstraints {
+            $0.top.equalToSuperview().inset(30.0)
+            $0.leading.equalToSuperview().inset(44.0)
+        }
+        
+        bodyLineView.snp.makeConstraints {
+            $0.top.equalTo(touchCountLabel.snp.top)
+            $0.leading.equalToSuperview().inset(20.0)
+            $0.width.equalTo(4.0)
+            $0.height.equalTo(touchCountLabel.snp.height)
+        }
+        
+        textCountLabel.snp.makeConstraints {
+            $0.top.equalTo(touchCountLabel.snp.top)
+            $0.trailing.equalToSuperview().inset(20.0)
+        }
+        
+        writingTextView.snp.makeConstraints {
+            $0.top.equalTo(touchCountLabel.snp.bottom).offset(16.0)
+            $0.leading.equalToSuperview().inset(20.0)
+            $0.trailing.equalToSuperview().inset(20.0)
+            $0.height.equalTo(293.0)
+        }
+        
+        registerButton.snp.makeConstraints {
+            $0.top.equalTo(writingTextView.snp.bottom).offset(15.0)
+            $0.trailing.equalToSuperview().inset(20.0)
+        }
     }
 }
