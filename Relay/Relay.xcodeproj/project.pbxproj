@@ -47,6 +47,11 @@
 		55FDCEB3290A6440000AB345 /* RelayProfileUserInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FDCEB2290A6440000AB345 /* RelayProfileUserInfoView.swift */; };
 		55FDCEB5290A711C000AB345 /* RelayProfileUserActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FDCEB4290A711C000AB345 /* RelayProfileUserActivityView.swift */; };
 		55FDCEB7290ABB0C000AB345 /* RelayUserActivityCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FDCEB6290ABB0C000AB345 /* RelayUserActivityCollectionViewCell.swift */; };
+		B533AB4929183A4400B73867 /* RelayMyInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B533AB4829183A4400B73867 /* RelayMyInfoViewController.swift */; };
+		B533AB4B2918ACD100B73867 /* RelayAboutRelayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B533AB4A2918ACD100B73867 /* RelayAboutRelayViewController.swift */; };
+		B533AB522919FB8400B73867 /* RelayAboutRelayDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B533AB512919FB8400B73867 /* RelayAboutRelayDescriptionView.swift */; };
+		B5C0B5252914D8BA00077B5F /* RelaySettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C0B5242914D8BA00077B5F /* RelaySettingViewController.swift */; };
+		B5C0B52B2916A9FA00077B5F /* RelaySettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C0B52A2916A9FA00077B5F /* RelaySettingTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -91,6 +96,11 @@
 		55FDCEB2290A6440000AB345 /* RelayProfileUserInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayProfileUserInfoView.swift; sourceTree = "<group>"; };
 		55FDCEB4290A711C000AB345 /* RelayProfileUserActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayProfileUserActivityView.swift; sourceTree = "<group>"; };
 		55FDCEB6290ABB0C000AB345 /* RelayUserActivityCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayUserActivityCollectionViewCell.swift; sourceTree = "<group>"; };
+		B533AB4829183A4400B73867 /* RelayMyInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayMyInfoViewController.swift; sourceTree = "<group>"; };
+		B533AB4A2918ACD100B73867 /* RelayAboutRelayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayAboutRelayViewController.swift; sourceTree = "<group>"; };
+		B533AB512919FB8400B73867 /* RelayAboutRelayDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayAboutRelayDescriptionView.swift; sourceTree = "<group>"; };
+		B5C0B5242914D8BA00077B5F /* RelaySettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelaySettingViewController.swift; sourceTree = "<group>"; };
+		B5C0B52A2916A9FA00077B5F /* RelaySettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelaySettingTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +187,7 @@
 				55867E0E2912590700C79FFC /* Reusable */,
 				55745F302918CB4100414462 /* BrowsingView */,
 				556F3094290FDFC9005D7AF4 /* ProfileView */,
+				B5C0B5232914D88900077B5F /* SettingView */,
 				3265BA32290925DE00532CA4 /* Assets.xcassets */,
 				3265BA34290925DE00532CA4 /* LaunchScreen.storyboard */,
 				3265BA37290925DE00532CA4 /* Info.plist */,
@@ -303,6 +314,26 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		B533AB57291A960E00B73867 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B5C0B52A2916A9FA00077B5F /* RelaySettingTableViewCell.swift */,
+				B533AB512919FB8400B73867 /* RelayAboutRelayDescriptionView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		B5C0B5232914D88900077B5F /* SettingView */ = {
+			isa = PBXGroup;
+			children = (
+				B5C0B5242914D8BA00077B5F /* RelaySettingViewController.swift */,
+				B533AB4829183A4400B73867 /* RelayMyInfoViewController.swift */,
+				B533AB4A2918ACD100B73867 /* RelayAboutRelayViewController.swift */,
+				B533AB57291A960E00B73867 /* Views */,
+			);
+			path = SettingView;
+      sourceTree = "<group>";
+     };
 		B5C0B4B5290F7B1F00077B5F /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
@@ -393,6 +424,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B533AB4929183A4400B73867 /* RelayMyInfoViewController.swift in Sources */,
 				55867E212914EB3C00C79FFC /* RelayCategoryCollectionViewCell.swift in Sources */,
 				55867E172913ABED00C79FFC /* RelayBrowsingViewController.swift in Sources */,
 				B5C0B51F2911858800077B5F /* RelayThirdViewController.swift in Sources */,
@@ -401,6 +433,7 @@
 				B5C0B51D2911854900077B5F /* RelayFirstViewController.swift in Sources */,
 				32F835422911571B00E2CC4A /* Extension+UIImage.swift in Sources */,
 				55FDCEB1290A5DB2000AB345 /* RelayProfileViewController.swift in Sources */,
+				B533AB4B2918ACD100B73867 /* RelayAboutRelayViewController.swift in Sources */,
 				32F8354029114F0E00E2CC4A /* RelayAgreementViewController.swift in Sources */,
 				55FDCEB7290ABB0C000AB345 /* RelayUserActivityCollectionViewCell.swift in Sources */,
 				556F309B29117E1F005D7AF4 /* RelayListCollectionViewCell.swift in Sources */,
@@ -416,9 +449,12 @@
 				55867E1129128C7400C79FFC /* TabBarController.swift in Sources */,
 				55FDCEB3290A6440000AB345 /* RelayProfileUserInfoView.swift in Sources */,
 				556F309929103676005D7AF4 /* RelayListHeaderView.swift in Sources */,
+				B5C0B5252914D8BA00077B5F /* RelaySettingViewController.swift in Sources */,
 				55867E152912B7DA00C79FFC /* Extension+UIColor.swift in Sources */,
 				32517E142913B733005E0F69 /* RelayAllReadyViewController.swift in Sources */,
 				55FDCEB5290A711C000AB345 /* RelayProfileUserActivityView.swift in Sources */,
+				B533AB522919FB8400B73867 /* RelayAboutRelayDescriptionView.swift in Sources */,
+				B5C0B52B2916A9FA00077B5F /* RelaySettingTableViewCell.swift in Sources */,
 				32517E3F2913E23F005E0F69 /* PageAnimationView.swift in Sources */,
 				556F3093290FA59A005D7AF4 /* Extension+UILabel.swift in Sources */,
 				55867E0C29123C8500C79FFC /* Extension+CALayer.swift in Sources */,
