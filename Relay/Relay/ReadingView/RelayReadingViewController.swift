@@ -119,6 +119,8 @@ class RelayReadingViewController: UIViewController {
         
         view.backgroundColor = .systemBackground
                 
+        readingWriteView.writingTextView.delegate = self
+        
         setupNavigationController()
         setupLayout()
         setupCustomNavigationButton()
@@ -131,6 +133,15 @@ class RelayReadingViewController: UIViewController {
         readingBodyView.snp.makeConstraints {
             $0.width.equalTo(UIScreen.main.bounds.width)
             $0.height.equalTo(readingBodyView.bodyCollectionView.collectionViewLayout.collectionViewContentSize.height)
+        }
+    }
+}
+
+extension RelayReadingViewController: UITextViewDelegate {
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.text == "내용을 작성해주세요." {
+            textView.text = nil
+            textView.textColor = .relayBlack
         }
     }
 }
