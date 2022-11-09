@@ -51,6 +51,9 @@
 		55FDCEB3290A6440000AB345 /* RelayProfileUserInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FDCEB2290A6440000AB345 /* RelayProfileUserInfoView.swift */; };
 		55FDCEB5290A711C000AB345 /* RelayProfileUserActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FDCEB4290A711C000AB345 /* RelayProfileUserActivityView.swift */; };
 		55FDCEB7290ABB0C000AB345 /* RelayUserActivityCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FDCEB6290ABB0C000AB345 /* RelayUserActivityCollectionViewCell.swift */; };
+		B533AB5A291AA53D00B73867 /* RelayDeleteAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B533AB59291AA53D00B73867 /* RelayDeleteAccountViewController.swift */; };
+		B533AB5C291AA5B300B73867 /* RelayDeleteAccountUserActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B533AB5B291AA5B300B73867 /* RelayDeleteAccountUserActivityView.swift */; };
+		B533AB5E291AC52100B73867 /* RelayDeleteAccountAgreementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B533AB5D291AC52100B73867 /* RelayDeleteAccountAgreementView.swift */; };
 		B5C0B4BD290F7C9A00077B5F /* RelayOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C0B4BC290F7C9A00077B5F /* RelayOnboardingViewController.swift */; };
 		B5C0B51B29117E2800077B5F /* RelaySecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C0B51A29117E2800077B5F /* RelaySecondViewController.swift */; };
 		B5C0B51D2911854900077B5F /* RelayFirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C0B51C2911854900077B5F /* RelayFirstViewController.swift */; };
@@ -108,6 +111,9 @@
 		55FDCEB2290A6440000AB345 /* RelayProfileUserInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayProfileUserInfoView.swift; sourceTree = "<group>"; };
 		55FDCEB4290A711C000AB345 /* RelayProfileUserActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayProfileUserActivityView.swift; sourceTree = "<group>"; };
 		55FDCEB6290ABB0C000AB345 /* RelayUserActivityCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayUserActivityCollectionViewCell.swift; sourceTree = "<group>"; };
+		B533AB59291AA53D00B73867 /* RelayDeleteAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayDeleteAccountViewController.swift; sourceTree = "<group>"; };
+		B533AB5B291AA5B300B73867 /* RelayDeleteAccountUserActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayDeleteAccountUserActivityView.swift; sourceTree = "<group>"; };
+		B533AB5D291AC52100B73867 /* RelayDeleteAccountAgreementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayDeleteAccountAgreementView.swift; sourceTree = "<group>"; };
 		B5C0B4BC290F7C9A00077B5F /* RelayOnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayOnboardingViewController.swift; sourceTree = "<group>"; };
 		B5C0B51A29117E2800077B5F /* RelaySecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelaySecondViewController.swift; sourceTree = "<group>"; };
 		B5C0B51C2911854900077B5F /* RelayFirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayFirstViewController.swift; sourceTree = "<group>"; };
@@ -182,23 +188,6 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		32517E152913CAC5005E0F69 /* MainView */ = {
-			isa = PBXGroup;
-			children = (
-				32517E3D2913E220005E0F69 /* Views */,
-				32517E432913E885005E0F69 /* RelayMainHostingController.swift */,
-			);
-			path = MainView;
-			sourceTree = "<group>";
-		};
-		32517E3D2913E220005E0F69 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				32517E3E2913E23F005E0F69 /* PageAnimationView.swift */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
 		3265BA1D290925DD00532CA4 = {
 			isa = PBXGroup;
 			children = (
@@ -239,6 +228,9 @@
 				55867E0E2912590700C79FFC /* Reusable */,
 				55745F302918CB4100414462 /* BrowsingView */,
 				556F3094290FDFC9005D7AF4 /* ProfileView */,
+				B533AB59291AA53D00B73867 /* RelayDeleteAccountViewController.swift */,
+				B533AB5B291AA5B300B73867 /* RelayDeleteAccountUserActivityView.swift */,
+				B533AB5D291AC52100B73867 /* RelayDeleteAccountAgreementView.swift */,
 				B5C0B5232914D88900077B5F /* SettingView */,
 				3265BA32290925DE00532CA4 /* Assets.xcassets */,
 				3265BA34290925DE00532CA4 /* LaunchScreen.storyboard */,
@@ -512,6 +504,7 @@
 				32DE2B0629164291005D1A85 /* RelayWritingViewController.swift in Sources */,
 				B533AB4B2918ACD100B73867 /* RelayAboutRelayViewController.swift in Sources */,
 				32F8354029114F0E00E2CC4A /* RelayAgreementViewController.swift in Sources */,
+				B533AB5A291AA53D00B73867 /* RelayDeleteAccountViewController.swift in Sources */,
 				55FDCEB7290ABB0C000AB345 /* RelayUserActivityCollectionViewCell.swift in Sources */,
 				556F309B29117E1F005D7AF4 /* RelayListCollectionViewCell.swift in Sources */,
 				3265BA2E290925DD00532CA4 /* ViewController.swift in Sources */,
@@ -521,6 +514,7 @@
 				32F835362911008400E2CC4A /* Extension+UIButton.swift in Sources */,
 				32DE2B15291A9DA3005D1A85 /* TouchCollectionViewCell.swift in Sources */,
 				32517E442913E885005E0F69 /* RelayMainHostingController.swift in Sources */,
+				B533AB5E291AC52100B73867 /* RelayDeleteAccountAgreementView.swift in Sources */,
 				3265BA2A290925DD00532CA4 /* AppDelegate.swift in Sources */,
 				55867E1F2914E77100C79FFC /* RelayCategoryViewController.swift in Sources */,
 				55867E192913AC8D00C79FFC /* RelayBrowsingHeaderView.swift in Sources */,
@@ -529,6 +523,7 @@
 				556F309929103676005D7AF4 /* RelayListHeaderView.swift in Sources */,
 				B5C0B5252914D8BA00077B5F /* RelaySettingViewController.swift in Sources */,
 				55867E152912B7DA00C79FFC /* Extension+UIColor.swift in Sources */,
+				B533AB5C291AA5B300B73867 /* RelayDeleteAccountUserActivityView.swift in Sources */,
 				32517E142913B733005E0F69 /* RelayAllReadyViewController.swift in Sources */,
 				55FDCEB5290A711C000AB345 /* RelayProfileUserActivityView.swift in Sources */,
 				32DE2B13291A979D005D1A85 /* DividerView.swift in Sources */,
