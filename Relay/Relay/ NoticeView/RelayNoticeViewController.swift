@@ -9,6 +9,7 @@ import UIKit
 import SnapKit
 
 class RelayNoticeViewController: UIViewController {
+    
     private let backButton: UIButton = {
         let button = UIButton(type: .custom)
         let config = UIImage.SymbolConfiguration(pointSize: 22)
@@ -39,6 +40,12 @@ class RelayNoticeViewController: UIViewController {
         return button
     }()
     
+    let tableView: UITableView = {
+        let tableView = UITableView(frame: .zero)
+        tableView.backgroundColor = .white
+        return tableView
+    }()
+    
    
     
     override func viewDidLoad() {
@@ -47,6 +54,10 @@ class RelayNoticeViewController: UIViewController {
         view.addSubview(backButton)
         view.addSubview(titleLabel)
         view.addSubview(trashButton)
+        view.addSubview(tableView)
+        tableView.register(TableCellCustomCell.self, forCellReuseIdentifier: TableCellCustomCell.reuseIdentifier)
+        tableView.dataSource = self
+        tableView.delegate = self
         setupLayout()
         
     }
@@ -69,6 +80,22 @@ class RelayNoticeViewController: UIViewController {
             $0.top.equalToSuperview().inset(60.0)
             $0.trailing.equalToSuperview().inset(20.0)
         }
+        tableView.snp.makeConstraints {
+            $0.top.equalTo(titleLabel.snp.bottom).offset(28.0)
+            $0.leading.equalToSuperview()
+            $0.trailing.equalToSuperview()
+        }
       
+    }
+}
+
+extension RelayNoticeViewController: UITableViewDataSource, UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        <#code#>
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        <#code#>
     }
 }

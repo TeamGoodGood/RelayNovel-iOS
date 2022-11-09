@@ -9,6 +9,9 @@ import UIKit
 import SnapKit
 
 class TableCellCustomCell: UITableViewCell {
+    
+    static let reuseIdentifier: String = "MainTableViewCell"
+    
     private let lillaImageView: UIImageView = {
        let imageView = UIImageView()
        let image = UIImage(named: "onboardingImage")
@@ -38,6 +41,35 @@ class TableCellCustomCell: UITableViewCell {
         return label
     }()
     
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+    }
     
-    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    private func setupLayout() {
+        [
+            lillaImageView,
+            noticeLabel,
+            timeLabel
+        ].forEach { addSubview($0) }
+        
+        lillaImageView.snp.makeConstraints {
+            $0.top.equalToSuperview().inset(16.0)
+            $0.leading.equalToSuperview().inset(20.0)
+            $0.width.equalTo(40.0)
+            $0.height.equalTo(43.0)
+        }
+        noticeLabel.snp.makeConstraints {
+            $0.top.equalToSuperview().inset(20.0)
+            $0.leading.equalTo(lillaImageView.snp.trailing).offset(24.0)
+            $0.trailing.equalToSuperview().inset(20.0)
+        }
+        timeLabel.snp.makeConstraints {
+            $0.top.equalTo(noticeLabel.snp.bottom).offset(8.0)
+            $0.leading.equalTo(lillaImageView.snp.trailing).offset(24.0)
+        }
+    }
 }
