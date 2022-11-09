@@ -38,6 +38,12 @@
 		55867E0C29123C8500C79FFC /* Extension+CALayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55867E0B29123C8500C79FFC /* Extension+CALayer.swift */; };
 		55867E1129128C7400C79FFC /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55867E1029128C7400C79FFC /* TabBarController.swift */; };
 		55867E152912B7DA00C79FFC /* Extension+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55867E142912B7DA00C79FFC /* Extension+UIColor.swift */; };
+		55867E172913ABED00C79FFC /* RelayBrowsingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55867E162913ABED00C79FFC /* RelayBrowsingViewController.swift */; };
+		55867E192913AC8D00C79FFC /* RelayBrowsingHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55867E182913AC8D00C79FFC /* RelayBrowsingHeaderView.swift */; };
+		55867E1B2913AF0400C79FFC /* BrowsingTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55867E1A2913AF0400C79FFC /* BrowsingTitleView.swift */; };
+		55867E1D29142C6700C79FFC /* CategoryModalPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55867E1C29142C6700C79FFC /* CategoryModalPresentationController.swift */; };
+		55867E1F2914E77100C79FFC /* RelayCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55867E1E2914E77100C79FFC /* RelayCategoryViewController.swift */; };
+		55867E212914EB3C00C79FFC /* RelayCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55867E202914EB3C00C79FFC /* RelayCategoryCollectionViewCell.swift */; };
 		55FDCEAF290A5667000AB345 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 55FDCEAE290A5667000AB345 /* SnapKit */; };
 		55FDCEB1290A5DB2000AB345 /* RelayProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FDCEB0290A5DB2000AB345 /* RelayProfileViewController.swift */; };
 		55FDCEB3290A6440000AB345 /* RelayProfileUserInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FDCEB2290A6440000AB345 /* RelayProfileUserInfoView.swift */; };
@@ -47,6 +53,11 @@
 		B5C0B51B29117E2800077B5F /* RelaySecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C0B51A29117E2800077B5F /* RelaySecondViewController.swift */; };
 		B5C0B51D2911854900077B5F /* RelayFirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C0B51C2911854900077B5F /* RelayFirstViewController.swift */; };
 		B5C0B51F2911858800077B5F /* RelayThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C0B51E2911858800077B5F /* RelayThirdViewController.swift */; };
+		B533AB4929183A4400B73867 /* RelayMyInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B533AB4829183A4400B73867 /* RelayMyInfoViewController.swift */; };
+		B533AB4B2918ACD100B73867 /* RelayAboutRelayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B533AB4A2918ACD100B73867 /* RelayAboutRelayViewController.swift */; };
+		B533AB522919FB8400B73867 /* RelayAboutRelayDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B533AB512919FB8400B73867 /* RelayAboutRelayDescriptionView.swift */; };
+		B5C0B5252914D8BA00077B5F /* RelaySettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C0B5242914D8BA00077B5F /* RelaySettingViewController.swift */; };
+		B5C0B52B2916A9FA00077B5F /* RelaySettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C0B52A2916A9FA00077B5F /* RelaySettingTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -83,6 +94,12 @@
 		55867E0B29123C8500C79FFC /* Extension+CALayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+CALayer.swift"; sourceTree = "<group>"; };
 		55867E1029128C7400C79FFC /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		55867E142912B7DA00C79FFC /* Extension+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIColor.swift"; sourceTree = "<group>"; };
+		55867E162913ABED00C79FFC /* RelayBrowsingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayBrowsingViewController.swift; sourceTree = "<group>"; };
+		55867E182913AC8D00C79FFC /* RelayBrowsingHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayBrowsingHeaderView.swift; sourceTree = "<group>"; };
+		55867E1A2913AF0400C79FFC /* BrowsingTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowsingTitleView.swift; sourceTree = "<group>"; };
+		55867E1C29142C6700C79FFC /* CategoryModalPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryModalPresentationController.swift; sourceTree = "<group>"; };
+		55867E1E2914E77100C79FFC /* RelayCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayCategoryViewController.swift; sourceTree = "<group>"; };
+		55867E202914EB3C00C79FFC /* RelayCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		55FDCEB0290A5DB2000AB345 /* RelayProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayProfileViewController.swift; sourceTree = "<group>"; };
 		55FDCEB2290A6440000AB345 /* RelayProfileUserInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayProfileUserInfoView.swift; sourceTree = "<group>"; };
 		55FDCEB4290A711C000AB345 /* RelayProfileUserActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayProfileUserActivityView.swift; sourceTree = "<group>"; };
@@ -91,6 +108,11 @@
 		B5C0B51A29117E2800077B5F /* RelaySecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelaySecondViewController.swift; sourceTree = "<group>"; };
 		B5C0B51C2911854900077B5F /* RelayFirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayFirstViewController.swift; sourceTree = "<group>"; };
 		B5C0B51E2911858800077B5F /* RelayThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayThirdViewController.swift; sourceTree = "<group>"; };
+		B533AB4829183A4400B73867 /* RelayMyInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayMyInfoViewController.swift; sourceTree = "<group>"; };
+		B533AB4A2918ACD100B73867 /* RelayAboutRelayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayAboutRelayViewController.swift; sourceTree = "<group>"; };
+		B533AB512919FB8400B73867 /* RelayAboutRelayDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayAboutRelayDescriptionView.swift; sourceTree = "<group>"; };
+		B5C0B5242914D8BA00077B5F /* RelaySettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelaySettingViewController.swift; sourceTree = "<group>"; };
+		B5C0B52A2916A9FA00077B5F /* RelaySettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelaySettingTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,7 +198,9 @@
 				55867E1029128C7400C79FFC /* TabBarController.swift */,
 				55867E0F2912592100C79FFC /* Extension+ */,
 				55867E0E2912590700C79FFC /* Reusable */,
+				55745F302918CB4100414462 /* BrowsingView */,
 				556F3094290FDFC9005D7AF4 /* ProfileView */,
+				B5C0B5232914D88900077B5F /* SettingView */,
 				3265BA32290925DE00532CA4 /* Assets.xcassets */,
 				3265BA34290925DE00532CA4 /* LaunchScreen.storyboard */,
 				3265BA37290925DE00532CA4 /* Info.plist */,
@@ -249,6 +273,42 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		55745F302918CB4100414462 /* BrowsingView */ = {
+			isa = PBXGroup;
+			children = (
+				55867E162913ABED00C79FFC /* RelayBrowsingViewController.swift */,
+				55745F312918CB5300414462 /* Views */,
+			);
+			path = BrowsingView;
+			sourceTree = "<group>";
+		};
+		55745F312918CB5300414462 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				55867E182913AC8D00C79FFC /* RelayBrowsingHeaderView.swift */,
+				55867E1A2913AF0400C79FFC /* BrowsingTitleView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		55745F322918CB6400414462 /* CategoryView */ = {
+			isa = PBXGroup;
+			children = (
+				55867E1E2914E77100C79FFC /* RelayCategoryViewController.swift */,
+				55867E202914EB3C00C79FFC /* RelayCategoryCollectionViewCell.swift */,
+			);
+			path = CategoryView;
+			sourceTree = "<group>";
+		};
+		55745F332918CE3D00414462 /* CateogoryModal */ = {
+			isa = PBXGroup;
+			children = (
+				55867E1C29142C6700C79FFC /* CategoryModalPresentationController.swift */,
+			);
+			name = CateogoryModal;
+			path = ..;
+			sourceTree = "<group>";
+		};
 		55867E0D291258FD00C79FFC /* RelayListView */ = {
 			isa = PBXGroup;
 			children = (
@@ -262,6 +322,8 @@
 		55867E0E2912590700C79FFC /* Reusable */ = {
 			isa = PBXGroup;
 			children = (
+				55745F332918CE3D00414462 /* CateogoryModal */,
+				55745F322918CB6400414462 /* CategoryView */,
 				55867E0D291258FD00C79FFC /* RelayListView */,
 				556F309C29118823005D7AF4 /* BasePaddingLabel.swift */,
 			);
@@ -286,6 +348,26 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		B533AB57291A960E00B73867 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B5C0B52A2916A9FA00077B5F /* RelaySettingTableViewCell.swift */,
+				B533AB512919FB8400B73867 /* RelayAboutRelayDescriptionView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		B5C0B5232914D88900077B5F /* SettingView */ = {
+			isa = PBXGroup;
+			children = (
+				B5C0B5242914D8BA00077B5F /* RelaySettingViewController.swift */,
+				B533AB4829183A4400B73867 /* RelayMyInfoViewController.swift */,
+				B533AB4A2918ACD100B73867 /* RelayAboutRelayViewController.swift */,
+				B533AB57291A960E00B73867 /* Views */,
+			);
+			path = SettingView;
+      sourceTree = "<group>";
+     };
 		B5C0B4B5290F7B1F00077B5F /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
@@ -376,6 +458,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B533AB4929183A4400B73867 /* RelayMyInfoViewController.swift in Sources */,
+				55867E212914EB3C00C79FFC /* RelayCategoryCollectionViewCell.swift in Sources */,
+				55867E172913ABED00C79FFC /* RelayBrowsingViewController.swift in Sources */,
 				B5C0B51F2911858800077B5F /* RelayThirdViewController.swift in Sources */,
 				32DE2B0F291A4729005D1A85 /* EventCollectionViewCell.swift in Sources */,
 				B5C0B51B29117E2800077B5F /* RelaySecondViewController.swift in Sources */,
@@ -384,22 +469,30 @@
 				32F835422911571B00E2CC4A /* Extension+UIImage.swift in Sources */,
 				55FDCEB1290A5DB2000AB345 /* RelayProfileViewController.swift in Sources */,
 				32DE2B0629164291005D1A85 /* RelayWritingViewController.swift in Sources */,
+				B533AB4B2918ACD100B73867 /* RelayAboutRelayViewController.swift in Sources */,
 				32F8354029114F0E00E2CC4A /* RelayAgreementViewController.swift in Sources */,
 				55FDCEB7290ABB0C000AB345 /* RelayUserActivityCollectionViewCell.swift in Sources */,
 				556F309B29117E1F005D7AF4 /* RelayListCollectionViewCell.swift in Sources */,
 				3265BA2E290925DD00532CA4 /* ViewController.swift in Sources */,
 				32DA1B7F29123F7500C6FDC1 /* DetailViewController.swift in Sources */,
+				55867E1D29142C6700C79FFC /* CategoryModalPresentationController.swift in Sources */,
+				55867E1B2913AF0400C79FFC /* BrowsingTitleView.swift in Sources */,
 				32F835362911008400E2CC4A /* Extension+UIButton.swift in Sources */,
 				32DE2B15291A9DA3005D1A85 /* TouchCollectionViewCell.swift in Sources */,
 				32517E442913E885005E0F69 /* RelayMainHostingController.swift in Sources */,
 				3265BA2A290925DD00532CA4 /* AppDelegate.swift in Sources */,
+				55867E1F2914E77100C79FFC /* RelayCategoryViewController.swift in Sources */,
+				55867E192913AC8D00C79FFC /* RelayBrowsingHeaderView.swift in Sources */,
 				55867E1129128C7400C79FFC /* TabBarController.swift in Sources */,
 				55FDCEB3290A6440000AB345 /* RelayProfileUserInfoView.swift in Sources */,
 				556F309929103676005D7AF4 /* RelayListHeaderView.swift in Sources */,
+				B5C0B5252914D8BA00077B5F /* RelaySettingViewController.swift in Sources */,
 				55867E152912B7DA00C79FFC /* Extension+UIColor.swift in Sources */,
 				32517E142913B733005E0F69 /* RelayAllReadyViewController.swift in Sources */,
 				55FDCEB5290A711C000AB345 /* RelayProfileUserActivityView.swift in Sources */,
 				32DE2B13291A979D005D1A85 /* DividerView.swift in Sources */,
+				B533AB522919FB8400B73867 /* RelayAboutRelayDescriptionView.swift in Sources */,
+				B5C0B52B2916A9FA00077B5F /* RelaySettingTableViewCell.swift in Sources */,
 				32517E3F2913E23F005E0F69 /* PageAnimationView.swift in Sources */,
 				32464EB9291B99E400BDAB7C /* Extension+UIViewController.swift in Sources */,
 				556F3093290FA59A005D7AF4 /* Extension+UILabel.swift in Sources */,

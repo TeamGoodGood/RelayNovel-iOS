@@ -30,7 +30,7 @@ class RelayListHeaderView: UIView {
         return label
     }()
     
-    private lazy var listFilterButton: UIButton = {
+    lazy var listFilterButton: UIButton = {
         let button = UIButton()
         let image = UIImage(systemName: "slider.horizontal.3")
         
@@ -123,7 +123,7 @@ extension RelayListHeaderView {
             
             listFilterButton.snp.makeConstraints {
                 $0.leading.equalToSuperview().inset(20.0)
-                $0.centerY.equalToSuperview()
+                $0.bottom.equalToSuperview().inset(16.0)
             }
             
         default:
