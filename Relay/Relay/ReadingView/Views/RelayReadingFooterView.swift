@@ -29,7 +29,7 @@ class RelayReadingFooterView: UIView {
         return button
     }()
     
-    private lazy var batonButton: UIButton = {
+    lazy var batonButton: UIButton = {
         let button = UIButton()
         button.setTitle("바통 터치", for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 17.0, weight: .bold)

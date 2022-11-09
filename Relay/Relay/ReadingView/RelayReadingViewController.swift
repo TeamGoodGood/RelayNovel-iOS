@@ -29,6 +29,7 @@ class RelayReadingViewController: UIViewController {
     private lazy var readingNoticeView = ReadingNoticeView()
     private lazy var readingBodyView = ReadingBodyView()
     private lazy var readingFooterView = RelayReadingFooterView()
+    private lazy var readingWriteView = RelayReadingWriteView()
     private lazy var scrollView = UIScrollView()
     
     private lazy var spacerView: UIView = {
@@ -54,6 +55,11 @@ class RelayReadingViewController: UIViewController {
         readingFooterView.snp.makeConstraints {
             $0.width.equalTo(width)
             $0.height.equalTo(86.0)
+        }
+        
+        readingWriteView.snp.makeConstraints {
+            $0.width.equalTo(width)
+            $0.height.equalTo(402)
         }
         
         spacerView.snp.makeConstraints {
@@ -112,10 +118,11 @@ class RelayReadingViewController: UIViewController {
         super.viewDidLoad()
         
         view.backgroundColor = .systemBackground
-        
+                
         setupNavigationController()
         setupLayout()
         setupCustomNavigationButton()
+        setupBatonButtonAction()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -193,11 +200,20 @@ extension RelayReadingViewController {
 
     }
     
+    func setupBatonButtonAction() {
+        readingFooterView.batonButton.addTarget(self, action: #selector(touchBatonButton), for: .touchUpInside)
+    }
+    
     @objc func popViewController() {
         navigationController?.popViewController(animated: true)
     }
     
     @objc func toggleReadingMode() {
         isReadingModeOn.toggle()
+    }
+    
+    @objc func touchBatonButton() {
+        stackView.removeArrangedSubview(readingFooterView)
+        stackView.addArrangedSubview(readingWriteView)
     }
 }
