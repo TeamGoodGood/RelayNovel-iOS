@@ -21,7 +21,7 @@ class RelayReadingWriteView: UIView {
         return label
     }()
     
-    private lazy var textCountLabel: UILabel = {
+    lazy var textCountLabel: UILabel = {
         let label = UILabel()
         label.text = "0/500자"
         label.textColor = UIColor(red: 139/255, green: 139/255, blue: 139/255, alpha: 1.0)
