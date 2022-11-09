@@ -8,12 +8,12 @@
 import UIKit
 import SnapKit
 
-struct aboutRelaySection {
+struct AboutRelaySection {
     let title: String
     let options: [SettingsOption]
 }
 
-struct aboutRelaySettingsOption {
+struct AboutRelaySettingsOption {
     let title: String
     let handler: (() -> Void)
 }
