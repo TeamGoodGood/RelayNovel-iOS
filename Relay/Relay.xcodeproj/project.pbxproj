@@ -397,8 +397,8 @@
 			children = (
 				B5C0B5242914D8BA00077B5F /* RelaySettingViewController.swift */,
 				B533AB4829183A4400B73867 /* RelayMyInfoViewController.swift */,
-				B533AB61291BFB2200B73867 /* RelayTermsAndConditionsViewController.swift */,
 				B533AB4A2918ACD100B73867 /* RelayAboutRelayViewController.swift */,
+				B533AB61291BFB2200B73867 /* RelayTermsAndConditionsViewController.swift */,
 				B533AB57291A960E00B73867 /* Views */,
 			);
 			path = SettingView;
