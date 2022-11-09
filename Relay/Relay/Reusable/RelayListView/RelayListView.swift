@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 
 class RelayListView: UIView {
-    private var listHeaderView: RelayListHeaderView?
+    var listHeaderView: RelayListHeaderView?
     private lazy var listCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -80,7 +80,7 @@ extension RelayListView {
             $0.top.equalToSuperview()
             $0.leading.equalToSuperview()
             $0.trailing.equalToSuperview()
-            $0.height.equalTo(60.0)
+            $0.height.equalTo(63.0)
         }
         
         listCollectionView.snp.makeConstraints {
