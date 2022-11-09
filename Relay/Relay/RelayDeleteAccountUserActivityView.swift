@@ -24,7 +24,7 @@ class RelayDeleteAccountUserActivityView: UIView {
     private var accountActivityCountLabel: UILabel = {
         let label = UILabel()
         let content = ""
-   
+        
         return label
     }()
     
@@ -56,40 +56,9 @@ class RelayDeleteAccountUserActivityView: UIView {
 }
 
 extension RelayDeleteAccountUserActivityView {
-    private func setupLayout() {
-        [
-            userNameLabel,
-            accountActivityCountLabel,
-            deleteAccountImageView,
-            dividerView
-        ].forEach { addSubview($0) }
-        
-        userNameLabel.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(110.0)
-            $0.leading.equalToSuperview().inset(20.0)
-            $0.trailing.equalToSuperview().inset(20.0)
-        }
-        accountActivityCountLabel.snp.makeConstraints {
-            $0.top.equalTo(userNameLabel.snp.bottom).offset(20.0)
-            $0.leading.equalToSuperview().inset(20.0)
-            $0.trailing.equalToSuperview().inset(20.0)
-        }
-        deleteAccountImageView.snp.makeConstraints {
-            $0.top.equalTo(accountActivityCountLabel.snp.bottom).offset(90.0)
-            $0.centerX.equalToSuperview()
-            $0.width.equalTo(248.0)
-            $0.height.equalTo(81.0)
-        }
-        dividerView.snp.makeConstraints {
-            $0.bottom.equalToSuperview()
-            $0.centerX.equalToSuperview()
-            $0.width.equalToSuperview()
-            $0.height.equalTo(8.0)
-        }
-    }
     private func accountLabel(_ userName: String) {
         
-        let userNameStr = userName
+        let userNameStr = "\(userName)"
         let userActivityStr = "님의 활동"
         
         let joinText = [userNameStr, userActivityStr].joined(separator: "")
@@ -98,7 +67,6 @@ extension RelayDeleteAccountUserActivityView {
         userNameLabel.attributedText = attributedString
         userNameLabel.setFont(.body2)
         userNameLabel.textColor = .relayGray
-        userNameLabel.textAlignment = .left
     }
     
     private func accountActivityLabel(_ startedRelayCount: Int, _ participatedRelayCount: Int) {
@@ -117,12 +85,45 @@ extension RelayDeleteAccountUserActivityView {
         accountActivityCountLabel.setFont(.display1)
         accountActivityCountLabel.textColor = .black
         accountActivityCountLabel.numberOfLines = 2
-        accountActivityCountLabel.textAlignment = .left
         accountActivityCountLabel.setLineHeight(text: joinText, lineHeight: 36.0)
+    }
+}
+
+extension RelayDeleteAccountUserActivityView {
+    private func setupLayout() {
+        [
+            userNameLabel,
+            accountActivityCountLabel,
+            deleteAccountImageView,
+            dividerView
+        ].forEach { addSubview($0) }
+        
+        userNameLabel.snp.makeConstraints {
+            $0.top.equalToSuperview().inset(110.0)
+            $0.leading.equalToSuperview().inset(20.0)
+            $0.trailing.equalToSuperview().inset(20.0)
+        }
+        accountActivityCountLabel.snp.makeConstraints {
+            $0.top.equalTo(userNameLabel.snp.bottom).offset(18.0)
+            $0.leading.equalToSuperview().inset(20.0)
+            $0.trailing.equalToSuperview().inset(20.0)
+        }
+        deleteAccountImageView.snp.makeConstraints {
+            $0.top.equalTo(accountActivityCountLabel.snp.bottom).offset(90.0)
+            $0.centerX.equalToSuperview()
+            $0.width.equalTo(248.0)
+            $0.height.equalTo(81.0)
+        }
+        dividerView.snp.makeConstraints {
+            $0.bottom.equalToSuperview()
+            $0.centerX.equalToSuperview()
+            $0.width.equalToSuperview()
+            $0.height.equalTo(8.0)
+        }
     }
     
     func configure() {
-        userNameLabel.text = userName
+        accountLabel(userName ?? "")
         accountActivityLabel(startedNovelCount ?? 0, participatedNovelCount ?? 0)
     }
     

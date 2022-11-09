@@ -179,11 +179,13 @@
 				3265BA2B290925DD00532CA4 /* SceneDelegate.swift */,
 				3265BA2D290925DD00532CA4 /* ViewController.swift */,
 				55867E1029128C7400C79FFC /* TabBarController.swift */,
-				B533AB58291AA4F800B73867 /* SettingView */,
 				55867E0F2912592100C79FFC /* Extension+ */,
 				55867E0E2912590700C79FFC /* Reusable */,
 				55745F302918CB4100414462 /* BrowsingView */,
 				556F3094290FDFC9005D7AF4 /* ProfileView */,
+				B533AB59291AA53D00B73867 /* RelayDeleteAccountViewController.swift */,
+				B533AB5B291AA5B300B73867 /* RelayDeleteAccountUserActivityView.swift */,
+				B533AB5D291AC52100B73867 /* RelayDeleteAccountAgreementView.swift */,
 				3265BA32290925DE00532CA4 /* Assets.xcassets */,
 				3265BA34290925DE00532CA4 /* LaunchScreen.storyboard */,
 				3265BA37290925DE00532CA4 /* Info.plist */,
@@ -308,16 +310,6 @@
 			children = (
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		B533AB58291AA4F800B73867 /* SettingView */ = {
-			isa = PBXGroup;
-			children = (
-				B533AB59291AA53D00B73867 /* RelayDeleteAccountViewController.swift */,
-				B533AB5B291AA5B300B73867 /* RelayDeleteAccountUserActivityView.swift */,
-				B533AB5D291AC52100B73867 /* RelayDeleteAccountAgreementView.swift */,
-			);
-			path = SettingView;
 			sourceTree = "<group>";
 		};
 		B5C0B4B5290F7B1F00077B5F /* Onboarding */ = {
