@@ -12,6 +12,13 @@ class TableCellCustomCell: UITableViewCell {
     
     static let reuseIdentifier: String = "MainTableViewCell"
     
+    private let dividerBottom: UIView = {
+        let view = UIView()
+        view.backgroundColor = .relayGray2
+        
+        return view
+    }()
+    
     private let lillaImageView: UIImageView = {
        let imageView = UIImageView()
        let image = UIImage(named: "onboardingImage")
@@ -43,17 +50,19 @@ class TableCellCustomCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        setupLayout()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
-    private func setupLayout() {
+    func setupLayout() {
         [
             lillaImageView,
             noticeLabel,
-            timeLabel
+            timeLabel,
+            dividerBottom
         ].forEach { addSubview($0) }
         
         lillaImageView.snp.makeConstraints {
@@ -70,6 +79,12 @@ class TableCellCustomCell: UITableViewCell {
         timeLabel.snp.makeConstraints {
             $0.top.equalTo(noticeLabel.snp.bottom).offset(8.0)
             $0.leading.equalTo(lillaImageView.snp.trailing).offset(24.0)
+        }
+        dividerBottom.snp.makeConstraints {
+            $0.leading.equalToSuperview()
+            $0.trailing.equalToSuperview()
+            $0.bottom.equalToSuperview()
+            $0.height.equalTo(1.0)
         }
     }
 }

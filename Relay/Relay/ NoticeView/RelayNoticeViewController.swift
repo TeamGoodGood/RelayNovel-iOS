@@ -40,32 +40,46 @@ class RelayNoticeViewController: UIViewController {
         return button
     }()
     
-    let tableView: UITableView = {
-        let tableView = UITableView(frame: .zero)
-        tableView.backgroundColor = .white
-        return tableView
+    private let dividerTop: UIView = {
+        let view = UIView()
+        view.backgroundColor = .relayGray2
+        
+        return view
     }()
     
-   
+    let tableView: UITableView = {
+        let tableView = UITableView(frame: .zero)
+        
+        tableView.backgroundColor = .white
+        tableView.separatorStyle = .none
+        
+        return tableView
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        view.addSubview(backButton)
-        view.addSubview(titleLabel)
-        view.addSubview(trashButton)
-        view.addSubview(tableView)
-        tableView.register(TableCellCustomCell.self, forCellReuseIdentifier: TableCellCustomCell.reuseIdentifier)
-        tableView.dataSource = self
-        tableView.delegate = self
+        setupTableView()
         setupLayout()
         
     }
+}
+
+extension RelayNoticeViewController {
+    private func setupTableView() {
+        tableView.register(TableCellCustomCell.self, forCellReuseIdentifier: TableCellCustomCell.reuseIdentifier)
+        tableView.dataSource = self
+        tableView.delegate = self
+    }
     
     private func setupLayout() {
-//        [
-//
-//        ].forEach { view.addSubview($0) }
+        [
+            backButton,
+            titleLabel,
+            trashButton,
+            tableView,
+            dividerTop
+        ].forEach { view.addSubview($0) }
         
         backButton.snp.makeConstraints {
             $0.top.equalToSuperview().inset(60.0)
@@ -84,18 +98,34 @@ class RelayNoticeViewController: UIViewController {
             $0.top.equalTo(titleLabel.snp.bottom).offset(28.0)
             $0.leading.equalToSuperview()
             $0.trailing.equalToSuperview()
+            $0.bottom.equalToSuperview()
         }
-      
+        dividerTop.snp.makeConstraints {
+            $0.bottom.equalTo(tableView.snp.top)
+            $0.leading.equalToSuperview()
+            $0.trailing.equalToSuperview()
+            $0.height.equalTo(1.0)
+        }
     }
 }
 
-extension RelayNoticeViewController: UITableViewDataSource, UITableViewDelegate {
+extension RelayNoticeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        <#code#>
+            return 20
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+            return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
+        let cell = tableView.dequeueReusableCell(withIdentifier: TableCellCustomCell.reuseIdentifier, for: indexPath) as! TableCellCustomCell
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 82
     }
 }
