@@ -140,9 +140,19 @@ class RelayReadingViewController: UIViewController {
 
 extension RelayReadingViewController: UITextViewDelegate {
     func textViewDidBeginEditing(_ textView: UITextView) {
-        if textView.text == "내용을 작성해주세요." {
-            textView.text = nil
+        if textView.text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+            textView.textColor = .relayGray
+            textView.text = "내용을 작성해주세요."
+        } else if textView.text == "내용을 작성해주세요." {
             textView.textColor = .relayBlack
+            textView.text = nil
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty || textView.text == "내용을 작성해주세요." {
+            textView.textColor = .relayGray
+            textView.text = "내용을 작성해주세요."
         }
     }
 }
