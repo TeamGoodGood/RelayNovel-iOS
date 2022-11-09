@@ -21,7 +21,7 @@
 		329918A0290A5D8800372C13 /* RelayLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3299189F290A5D8800372C13 /* RelayLoginViewController.swift */; };
 		32DA1B7F29123F7500C6FDC1 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DA1B7E29123F7500C6FDC1 /* DetailViewController.swift */; };
 		32DE2B0629164291005D1A85 /* RelayWritingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DE2B0529164291005D1A85 /* RelayWritingViewController.swift */; };
-		32DE2B0929190A7E005D1A85 /* ReusableTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DE2B0829190A7E005D1A85 /* ReusableTitleView.swift */; };
+		32DE2B0929190A7E005D1A85 /* WritingTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DE2B0829190A7E005D1A85 /* WritingTitleView.swift */; };
 		32DE2B0F291A4729005D1A85 /* EventCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DE2B0E291A4729005D1A85 /* EventCollectionViewCell.swift */; };
 		32DE2B13291A979D005D1A85 /* DividerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DE2B12291A979D005D1A85 /* DividerView.swift */; };
 		32DE2B15291A9DA3005D1A85 /* TouchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DE2B14291A9DA3005D1A85 /* TouchCollectionViewCell.swift */; };
@@ -66,7 +66,7 @@
 		3299189F290A5D8800372C13 /* RelayLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayLoginViewController.swift; sourceTree = "<group>"; };
 		32DA1B7E29123F7500C6FDC1 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		32DE2B0529164291005D1A85 /* RelayWritingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayWritingViewController.swift; sourceTree = "<group>"; };
-		32DE2B0829190A7E005D1A85 /* ReusableTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableTitleView.swift; sourceTree = "<group>"; };
+		32DE2B0829190A7E005D1A85 /* WritingTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingTitleView.swift; sourceTree = "<group>"; };
 		32DE2B0E291A4729005D1A85 /* EventCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCollectionViewCell.swift; sourceTree = "<group>"; };
 		32DE2B12291A979D005D1A85 /* DividerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DividerView.swift; sourceTree = "<group>"; };
 		32DE2B14291A9DA3005D1A85 /* TouchCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -204,7 +204,7 @@
 		32DE2B0729190A50005D1A85 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				32DE2B0829190A7E005D1A85 /* ReusableTitleView.swift */,
+				32DE2B0829190A7E005D1A85 /* WritingTitleView.swift */,
 				32DE2B0E291A4729005D1A85 /* EventCollectionViewCell.swift */,
 				32DE2B14291A9DA3005D1A85 /* TouchCollectionViewCell.swift */,
 				32DE2B12291A979D005D1A85 /* DividerView.swift */,
@@ -406,7 +406,7 @@
 				55867E0C29123C8500C79FFC /* Extension+CALayer.swift in Sources */,
 				556F309D29118823005D7AF4 /* BasePaddingLabel.swift in Sources */,
 				556F309729102F83005D7AF4 /* RelayListView.swift in Sources */,
-				32DE2B0929190A7E005D1A85 /* ReusableTitleView.swift in Sources */,
+				32DE2B0929190A7E005D1A85 /* WritingTitleView.swift in Sources */,
 				556F3091290F9A09005D7AF4 /* RelayNonLoginView.swift in Sources */,
 				3265BA2C290925DD00532CA4 /* SceneDelegate.swift in Sources */,
 				3201622E2912A7950054803C /* RelayPenNameViewController.swift in Sources */,

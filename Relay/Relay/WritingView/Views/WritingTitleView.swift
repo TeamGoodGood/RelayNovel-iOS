@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class ReusableTitleView: UIView, UISheetPresentationControllerDelegate {
+class WritingTitleView: UIView, UISheetPresentationControllerDelegate {
     
     let titleLabel: UILabel = {
         let label = UILabel()

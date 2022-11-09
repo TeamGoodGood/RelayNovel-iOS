@@ -139,9 +139,9 @@ class RelayWritingViewController: UIViewController, UICollectionViewDelegate {
         return label
     }()
     
-    private lazy var commentTitleView = ReusableTitleView()
-    private lazy var eventTitleView = ReusableTitleView()
-    private lazy var touchTitleView = ReusableTitleView()
+    private lazy var commentTitleView = WritingTitleView()
+    private lazy var eventTitleView = WritingTitleView()
+    private lazy var touchTitleView = WritingTitleView()
     
     private let commentDivider = DividerView()
     private let eventDivider = DividerView()
