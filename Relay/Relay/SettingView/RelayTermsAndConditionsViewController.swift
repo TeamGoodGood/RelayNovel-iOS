@@ -15,7 +15,7 @@ class RelayTermsAndConditionsViewController: UIViewController {
         return scrollView
     }()
     
-    private let termsAndConditions: UILabel = {
+    private let termsAndConditionsLabel: UILabel = {
         let label = UILabel()
         let content = """
 릴레이 서비스 이용약관
@@ -232,7 +232,7 @@ class RelayTermsAndConditionsViewController: UIViewController {
         view.addSubview(scrollView)
         view.backgroundColor = .white
         setupLayout()
-        scrollView.addSubview(termsAndConditions)
+        scrollView.addSubview(termsAndConditionsLabel)
     }
 }
 
@@ -240,7 +240,7 @@ extension RelayTermsAndConditionsViewController {
     private func setupLayout() {
         [
             scrollView,
-            termsAndConditions
+            termsAndConditionsLabel
         ].forEach { view.addSubview($0) }
         
         scrollView.snp.makeConstraints {
@@ -249,12 +249,12 @@ extension RelayTermsAndConditionsViewController {
             $0.trailing.equalToSuperview().inset(20.0)
             $0.bottom.equalToSuperview().inset(20.0)
         }
-        termsAndConditions.snp.makeConstraints {
+        termsAndConditionsLabel.snp.makeConstraints {
             $0.top.equalTo(scrollView.snp.top)
             $0.leading.equalToSuperview().inset(20.0)
             $0.trailing.equalToSuperview().inset(20.0)
             $0.bottom.equalTo(scrollView.snp.bottom)
-            $0.height.equalTo(termsAndConditions)
+            $0.height.equalTo(termsAndConditionsLabel)
         }
     }
 }
