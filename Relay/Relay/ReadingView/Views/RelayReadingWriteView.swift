@@ -63,7 +63,7 @@ class RelayReadingWriteView: UIView {
         button.setImage(image, for: .normal)
         button.contentHorizontalAlignment = .center
         button.semanticContentAttribute = .forceLeftToRight
-        button.imageEdgeInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 0.0, right: 0.0)
+        button.imageEdgeInsets = UIEdgeInsets(top: 0.0, left: -4.0, bottom: 0.0, right: 0.0)
         
         return button
     }()
