@@ -121,6 +121,7 @@ class RelayReadingViewController: UIViewController {
                 
         readingWriteView.writingTextView.delegate = self
         
+        addSingleTapRecognizer()
         setupNavigationController()
         setupLayout()
         setupCustomNavigationButton()
@@ -215,6 +216,11 @@ extension RelayReadingViewController {
         readingFooterView.batonButton.addTarget(self, action: #selector(touchBatonButton), for: .touchUpInside)
     }
     
+    func addSingleTapRecognizer() {
+        let singleTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(touchViewEndEditing))
+        scrollView.addGestureRecognizer(singleTapGestureRecognizer)
+    }
+    
     @objc func popViewController() {
         navigationController?.popViewController(animated: true)
     }
@@ -228,5 +234,9 @@ extension RelayReadingViewController {
         stackView.addArrangedSubview(readingWriteView)
         
         readingFooterView.isHidden = true
+    }
+    
+    @objc func touchViewEndEditing(sender: UITapGestureRecognizer) {
+        view.endEditing(true)
     }
 }
