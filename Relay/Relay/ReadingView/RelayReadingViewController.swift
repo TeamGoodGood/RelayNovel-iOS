@@ -9,6 +9,8 @@ import UIKit
 import SnapKit
 
 class RelayReadingViewController: UIViewController {
+    //TODO: 전달받은 릴레이의 완주여부 Bool값 받기
+    private var isReleyFinished = false
     private var isReadingModeOn = true {
         didSet {
             if isReadingModeOn {
@@ -30,6 +32,7 @@ class RelayReadingViewController: UIViewController {
     private lazy var readingBodyView = ReadingBodyView()
     private lazy var readingFooterView = RelayReadingFooterView()
     private lazy var readingWriteView = RelayReadingWriteView()
+    private lazy var readingFinishFooterView = RelayReadingFinishFooterView()
     private lazy var scrollView = UIScrollView()
     
     private lazy var spacerView: UIView = {
@@ -62,6 +65,11 @@ class RelayReadingViewController: UIViewController {
             $0.height.equalTo(402)
         }
         
+        readingFinishFooterView.snp.makeConstraints {
+            $0.width.equalTo(width)
+            $0.height.equalTo(255.0)
+        }
+        
         spacerView.snp.makeConstraints {
             $0.width.equalTo(width)
             $0.height.equalTo(47.0)
@@ -71,9 +79,14 @@ class RelayReadingViewController: UIViewController {
             spacerView,
             readingCoverView,
             readingNoticeView,
-            readingBodyView,
-            readingFooterView
+            readingBodyView
         ].forEach { stackView.addArrangedSubview($0) }
+        
+        if isReleyFinished {
+            stackView.addArrangedSubview(readingFinishFooterView)
+        } else {
+            stackView.addArrangedSubview(readingFooterView)
+        }
         
         return stackView
     }()
