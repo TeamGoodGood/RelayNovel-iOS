@@ -10,15 +10,16 @@ import SnapKit
 
 
 class RelayDeleteAccountViewController: UIViewController {
-
+    
     private let tableView: UIView = {
         let table = UIView()
-        table.backgroundColor = .blue
+        table.backgroundColor = .white
         return table
     }()
     
-    private var deleteAccountUserActivityView = RelayDeleteAccountUserActivityView(frame: .zero)
-
+    private var userActivityView = RelayDeleteAccountUserActivityView(frame: .zero)
+    private var agreementView = RelayDeleteAccountAgreementView(frame: .zero)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -30,18 +31,18 @@ class RelayDeleteAccountViewController: UIViewController {
 extension RelayDeleteAccountViewController {
     private func setupLayout() {
         [
-            deleteAccountUserActivityView,
-            tableView
+            userActivityView,
+            agreementView
         ].forEach { view.addSubview($0) }
-
-        deleteAccountUserActivityView.snp.makeConstraints {
+        
+        userActivityView.snp.makeConstraints {
             $0.top.equalToSuperview()
             $0.leading.equalToSuperview()
             $0.trailing.equalToSuperview()
-            $0.height.equalTo(420)
+            $0.height.equalTo(510)
         }
-        tableView.snp.makeConstraints {
-            $0.top.equalTo(deleteAccountUserActivityView.snp.bottom)
+        agreementView.snp.makeConstraints {
+            $0.top.equalTo(userActivityView.snp.bottom)
             $0.leading.equalToSuperview()
             $0.trailing.equalToSuperview()
             $0.bottom.equalToSuperview()

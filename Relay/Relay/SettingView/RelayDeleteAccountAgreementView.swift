@@ -107,6 +107,7 @@ class RelayDeleteAccountAgreementView: UIView {
             sender.tag = 0
         }
     }
+    
     @objc func tapAgreementButton(_ sender: UIButton) {
         if deleteAccountButton.backgroundColor == .relayPink1 {
             //추후 탈퇴 처리 구현
