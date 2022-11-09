@@ -11,7 +11,6 @@ import SnapKit
 class RelayTermsAndConditionsViewController: UIViewController {
     let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
-        scrollView.backgroundColor = .white
         
         return scrollView
     }()
@@ -223,20 +222,17 @@ class RelayTermsAndConditionsViewController: UIViewController {
         label.numberOfLines = 0
         label.sizeToFit()
         label.setLineHeight(text: content, lineHeight: 24.0)
-        label.textAlignment = .left
         
         return label
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         view.addSubview(scrollView)
-        scrollView.addSubview(termsAndConditions)
-        view.backgroundColor = .blue
+        view.backgroundColor = .white
         setupLayout()
         scrollView.addSubview(termsAndConditions)
-        scrollView.updateContentView()
-        
     }
 }
 
@@ -248,7 +244,7 @@ extension RelayTermsAndConditionsViewController {
         ].forEach { view.addSubview($0) }
         
         scrollView.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(20.0)
+            $0.top.equalToSuperview().inset(80.0)
             $0.leading.equalToSuperview().inset(20.0)
             $0.trailing.equalToSuperview().inset(20.0)
             $0.bottom.equalToSuperview().inset(20.0)
@@ -260,11 +256,5 @@ extension RelayTermsAndConditionsViewController {
             $0.bottom.equalTo(scrollView.snp.bottom)
             $0.height.equalTo(termsAndConditions)
         }
-    }
-}
-
-extension UIScrollView {
-    func updateContentView() {
-        contentSize.height = subviews.sorted(by: { $0.frame.maxY < $1.frame.maxY }).last?.frame.maxY ?? contentSize.height
     }
 }
