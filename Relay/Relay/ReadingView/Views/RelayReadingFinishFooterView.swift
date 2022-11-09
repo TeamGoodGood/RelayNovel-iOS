@@ -12,6 +12,7 @@ class RelayReadingFinishFooterView: UIView {
     private lazy var backgroundView: UIView = {
         let view = UIView()
         view.backgroundColor = UIColor(red: 250/255, green: 250/255, blue: 250/255, alpha: 1.0)
+        view.layer.cornerRadius = 8.0
         
         return view
     }()
@@ -20,6 +21,7 @@ class RelayReadingFinishFooterView: UIView {
         let label = UILabel()
         label.text = "참여작가"
         label.setFont(.body1)
+        label.sizeToFit()
         
         return label
     }()
@@ -28,6 +30,7 @@ class RelayReadingFinishFooterView: UIView {
         let label = UILabel()
         label.text = "초이 · 레티샤"
         label.font = .systemFont(ofSize: 16.0)
+        label.sizeToFit()
         
         return label
     }()
@@ -54,9 +57,48 @@ class RelayReadingFinishFooterView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
+        setupLayout()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+}
+
+extension RelayReadingFinishFooterView {
+    private func setupLayout() {
+        [
+            backgroundView,
+            participantLabel,
+            penNameLabel,
+            likeButton
+        ].forEach { addSubview($0) }
+        
+        let backgroundViewHeight = participantLabel.bounds.height + penNameLabel.bounds.height + 53.0
+        
+        backgroundView.snp.makeConstraints {
+            $0.top.equalToSuperview().inset(60.0)
+            $0.leading.equalToSuperview().inset(20.0)
+            $0.trailing.equalToSuperview().inset(20.0)
+            $0.height.equalTo(backgroundViewHeight)
+        }
+        
+        participantLabel.snp.makeConstraints {
+            $0.top.equalTo(backgroundView.snp.top).inset(22.0)
+            $0.centerX.equalToSuperview()
+        }
+        
+        penNameLabel.snp.makeConstraints {
+            $0.top.equalTo(participantLabel.snp.bottom).offset(10.0)
+            $0.centerX.equalToSuperview()
+        }
+        
+        likeButton.snp.makeConstraints {
+            $0.top.equalTo(backgroundView.snp.bottom).offset(44.0)
+            $0.centerX.equalToSuperview()
+            $0.width.equalTo(81.0)
+            $0.height.equalTo(56.0)
+        }
     }
 }
