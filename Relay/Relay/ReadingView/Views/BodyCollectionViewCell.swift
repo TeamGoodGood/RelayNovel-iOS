@@ -13,6 +13,21 @@ class BodyCollectionViewCell: UICollectionViewCell {
         return NSStringFromClass(Self.self).components(separatedBy: ".").last!
     }
     
+    var isReadingModeOn = true
+    {
+        didSet {
+            if isReadingModeOn {
+                nameDateLabel.isHidden = true
+                touchCountLabel.isHidden = true
+                bodyLineView.isHidden = true
+            } else {
+                nameDateLabel.isHidden = false
+                touchCountLabel.isHidden = false
+                bodyLineView.isHidden = false
+            }
+        }
+    }
+    
     private lazy var bodyLabel: UILabel = {
         let label = UILabel()
         let text = "릴레이 소설 내용입니다. 릴레이 소설 내용입니다. 릴레이 소설 내용입니다. 릴레이 소설 내용입니다. 릴레이 소설 내용입니다. 릴레이 소설 내용입니다. 릴레이 소설 내용입니다. 릴레이 소설 내용입니다. 릴레이 소설 내용입니다. 릴레이 소설 내용입니다."
@@ -54,7 +69,21 @@ class BodyCollectionViewCell: UICollectionViewCell {
 }
 
 extension BodyCollectionViewCell {
-    func setupLayout() {
+    func configure(isReadingMode: Bool) {
+        
+        if isReadingMode {
+            setupLayout()
+        } else {
+            setupReadingOffLayout()
+        }
+    }
+    
+    private func setupLayout() {
+        bodyLineView.snp.removeConstraints()
+        touchCountLabel.snp.removeConstraints()
+        nameDateLabel.snp.removeConstraints()
+        bodyLabel.snp.removeConstraints()
+        
         addSubview(bodyLabel)
         
         bodyLabel.snp.makeConstraints {
@@ -65,7 +94,9 @@ extension BodyCollectionViewCell {
         }
     }
     
-    func setupReadingOffLayout() {
+    private func setupReadingOffLayout() {
+        bodyLabel.snp.removeConstraints()
+        
         [
             touchCountLabel,
             bodyLineView,

@@ -9,6 +9,8 @@ import UIKit
 import SnapKit
 
 class ReadingBodyView: UIView {
+    var isReadingModeOn = true
+    
     lazy var bodyCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -52,9 +54,12 @@ extension ReadingBodyView: UICollectionViewDelegateFlowLayout {
             ],
             context: nil
         )
-
-//        return CGSize(width: width, height: cellSize.height + 10.0)
-        return CGSize(width: width, height: cellSize.height + 65.0)
+        
+        if isReadingModeOn {
+            return CGSize(width: width, height: cellSize.height + 10.0)
+        } else {
+            return CGSize(width: width, height: cellSize.height + 65.0)
+        }
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
@@ -70,8 +75,9 @@ extension ReadingBodyView: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BodyCollectionViewCell.id, for: indexPath) as? BodyCollectionViewCell else { return UICollectionViewCell() }
-//        cell.setupLayout()
-        cell.setupReadingOffLayout()
+
+        cell.configure(isReadingMode: isReadingModeOn)
+        cell.isReadingModeOn = self.isReadingModeOn
 
         return cell
     }

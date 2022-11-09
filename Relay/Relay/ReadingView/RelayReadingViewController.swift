@@ -9,6 +9,21 @@ import UIKit
 import SnapKit
 
 class RelayReadingViewController: UIViewController {
+    private var isReadingModeOn = true {
+        didSet {
+            if isReadingModeOn {
+                readingBodyView.isReadingModeOn = true
+            } else {
+                readingBodyView.isReadingModeOn = false
+            }
+            readingBodyView.bodyCollectionView.reloadData()
+            
+            readingBodyView.snp.updateConstraints {
+                $0.width.equalTo(UIScreen.main.bounds.width)
+                $0.height.equalTo(readingBodyView.bodyCollectionView.collectionViewLayout.collectionViewContentSize.height)
+            }
+        }
+    }
     
     private lazy var readingCoverView = RelayReadingCoverView()
     private lazy var readingNoticeView = ReadingNoticeView()
@@ -77,6 +92,8 @@ class RelayReadingViewController: UIViewController {
         button.tintColor = .white
         button.backgroundColor = UIColor(red: 35/255, green: 46/255, blue: 57/255, alpha: 0.5)
         button.layer.cornerRadius = 20.0
+        
+        button.addTarget(self, action: #selector(toggleReadingMode), for: .touchUpInside)
         
         return button
     }()
@@ -178,5 +195,9 @@ extension RelayReadingViewController {
     
     @objc func popViewController() {
         navigationController?.popViewController(animated: true)
+    }
+    
+    @objc func toggleReadingMode() {
+        isReadingModeOn.toggle()
     }
 }
