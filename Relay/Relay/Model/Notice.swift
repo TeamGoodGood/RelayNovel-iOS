@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+struct Notice: Codable {
+    var created_time: Double
+    var noti_type: Int
+    var related_story: Story
+}

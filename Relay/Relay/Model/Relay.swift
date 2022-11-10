@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+struct Relay: Codable {
+    var contributer: User
+    var content: String
+    var created_time: Double
+}
