@@ -42,7 +42,7 @@
 		55745FC2291A3BF100414462 /* BodyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55745FC1291A3BF100414462 /* BodyCollectionViewCell.swift */; };
 		55745FC4291B7A5F00414462 /* RelayReadingWriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55745FC3291B7A5F00414462 /* RelayReadingWriteView.swift */; };
 		55745FC6291B9B9F00414462 /* RelayReadingFinishFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55745FC5291B9B9F00414462 /* RelayReadingFinishFooterView.swift */; };
-		55745FE2291CCBDC00414462 /* RelayMainHostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55745FDF291CCBDC00414462 /* RelayMainHostingController.swift */; };
+		55745FE2291CCBDC00414462 /* RelayMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55745FDF291CCBDC00414462 /* RelayMainViewController.swift */; };
 		55745FE3291CCBDC00414462 /* PageAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55745FE1291CCBDC00414462 /* PageAnimationView.swift */; };
 		55745FE6291CD93300414462 /* NetworkFiles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55745FE5291CD93300414462 /* NetworkFiles.swift */; };
 		55867E0C29123C8500C79FFC /* Extension+CALayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55867E0B29123C8500C79FFC /* Extension+CALayer.swift */; };
@@ -115,7 +115,7 @@
 		55745FC5291B9B9F00414462 /* RelayReadingFinishFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayReadingFinishFooterView.swift; sourceTree = "<group>"; };
 		55745FD7291CCA8600414462 /* RelayMainHostingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RelayMainHostingController.swift; sourceTree = "<group>"; };
 		55745FD9291CCA8600414462 /* PageAnimationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageAnimationView.swift; sourceTree = "<group>"; };
-		55745FDF291CCBDC00414462 /* RelayMainHostingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RelayMainHostingController.swift; sourceTree = "<group>"; };
+		55745FDF291CCBDC00414462 /* RelayMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RelayMainViewController.swift; sourceTree = "<group>"; };
 		55745FE1291CCBDC00414462 /* PageAnimationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageAnimationView.swift; sourceTree = "<group>"; };
 		55745FE5291CD93300414462 /* NetworkFiles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkFiles.swift; sourceTree = "<group>"; };
 		55867E0B29123C8500C79FFC /* Extension+CALayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+CALayer.swift"; sourceTree = "<group>"; };
@@ -390,7 +390,7 @@
 		55745FDE291CCBDC00414462 /* MainView */ = {
 			isa = PBXGroup;
 			children = (
-				55745FDF291CCBDC00414462 /* RelayMainHostingController.swift */,
+				55745FDF291CCBDC00414462 /* RelayMainViewController.swift */,
 				55745FE0291CCBDC00414462 /* Views */,
 			);
 			path = MainView;
@@ -640,7 +640,7 @@
 				B533AB5C291AA5B300B73867 /* RelayDeleteAccountUserActivityView.swift in Sources */,
 				32517E142913B733005E0F69 /* RelayAllReadyViewController.swift in Sources */,
 				55FDCEB5290A711C000AB345 /* RelayProfileUserActivityView.swift in Sources */,
-				55745FE2291CCBDC00414462 /* RelayMainHostingController.swift in Sources */,
+				55745FE2291CCBDC00414462 /* RelayMainViewController.swift in Sources */,
 				55745FC2291A3BF100414462 /* BodyCollectionViewCell.swift in Sources */,
 				32DE2B13291A979D005D1A85 /* DividerView.swift in Sources */,
 				B533AB522919FB8400B73867 /* RelayAboutRelayDescriptionView.swift in Sources */,

@@ -9,7 +9,7 @@ import SwiftUI
 import UIKit
 import SnapKit
 
-class RelayMainHostingController: UIViewController {
+class RelayMainViewController: UIViewController {
     
     private let titleLabel: UILabel = {
         let label = UILabel()

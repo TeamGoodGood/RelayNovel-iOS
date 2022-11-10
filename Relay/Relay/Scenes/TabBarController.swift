@@ -10,7 +10,7 @@ import SnapKit
 
 class TabBarController: UITabBarController {
     private lazy var mainViewController: UIViewController = {
-        let viewController = UINavigationController(rootViewController: RelayMainHostingController())
+        let viewController = UINavigationController(rootViewController: RelayMainViewController())
         let image = UIImage(systemName: "flag")?.resize(newWidth: 19.0)
         let selectedImage = UIImage(systemName: "flag.fill")?.resize(newWidth: 19.0)
         let tabBarItem = UITabBarItem(
