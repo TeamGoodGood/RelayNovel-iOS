@@ -51,7 +51,7 @@ class RelaySettingViewController: UIViewController, UITableViewDelegate, UITable
         ]))
         models.append(Section(title: "", details: "", version: "", options: [
             SettingsOption(title: "릴레이에 대해서", details: "", version: "") {
-                //추후 RelayAboutRelayViewController와 연결
+                self.aboutRelay()
             },
             SettingsOption(title: "이용약관", details: "", version: "") {
                 //추후 이용약관 뷰 연결
@@ -155,4 +155,11 @@ extension RelaySettingViewController {
         
         navigationController?.pushViewController(vc, animated: true)
     }
+    
+    @objc private func aboutRelay(){
+            let vc = RelayAboutRelayViewController()
+            vc.title = "릴레이에 대해서"
+            
+            navigationController?.pushViewController(vc, animated: true)
+        }
 }
