@@ -10,8 +10,7 @@ import SnapKit
 
 class TabBarController: UITabBarController {
     private lazy var mainViewController: UIViewController = {
-        //TODO: RelayMainViewController 구현 후 변경
-        let viewController = UINavigationController(rootViewController: UIViewController())
+        let viewController = UINavigationController(rootViewController: RelayMainHostingController())
         let image = UIImage(systemName: "flag")?.resize(newWidth: 19.0)
         let selectedImage = UIImage(systemName: "flag.fill")?.resize(newWidth: 19.0)
         let tabBarItem = UITabBarItem(
@@ -29,8 +28,7 @@ class TabBarController: UITabBarController {
     }()
     
     private lazy var browsingViewController: UIViewController = {
-        //TODO: RelayBrowsingViewController 구현 후 변경
-        let viewController = UINavigationController(rootViewController: UIViewController())
+        let viewController = UINavigationController(rootViewController: RelayBrowsingViewController())
         let image = UIImage(systemName: "book")?.resize(newWidth: 23.0)
         let selectedImage = UIImage(systemName: "book.fill")?.resize(newWidth: 19.0)
         let tabBarItem = UITabBarItem(
