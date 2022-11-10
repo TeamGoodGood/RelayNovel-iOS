@@ -43,7 +43,7 @@ class RelaySettingViewController: UIViewController, UITableViewDelegate, UITable
     func relaySettingViewConfigure() {
         models.append(Section(title: "", details: "", version: "", options: [
             SettingsOption(title: "내 정보", details: "Apple", version: "") {
-                self.myInfo()
+                self.myInfoView()
             },
             SettingsOption(title: "알림 설정", details: "", version: "") {
                 //추후 로컬 디바이스 알림설정과 연결
@@ -51,10 +51,10 @@ class RelaySettingViewController: UIViewController, UITableViewDelegate, UITable
         ]))
         models.append(Section(title: "", details: "", version: "", options: [
             SettingsOption(title: "릴레이에 대해서", details: "", version: "") {
-                self.aboutRelay()
+                self.aboutRelayView()
             },
             SettingsOption(title: "이용약관", details: "", version: "") {
-                //추후 이용약관 뷰 연결
+                self.termsAndConditionsView()
             },
             SettingsOption(title: "개인정보처리방침", details: "", version: "") {
                 //추후 개인정보처리방침 뷰 연결
@@ -149,16 +149,21 @@ extension RelaySettingViewController {
 }
 
 extension RelaySettingViewController {
-    @objc private func myInfo(){
+    @objc private func myInfoView(){
         let vc = RelayMyInfoViewController()
         vc.title = "내 정보"
         
         navigationController?.pushViewController(vc, animated: true)
     }
-    
-    @objc private func aboutRelay(){
+    @objc private func aboutRelayView(){
             let vc = RelayAboutRelayViewController()
             vc.title = "릴레이에 대해서"
+            
+            navigationController?.pushViewController(vc, animated: true)
+        }
+    @objc private func termsAndConditionsView(){
+            let vc = RelayTermsAndConditionsViewController()
+            vc.title = "이용약관"
             
             navigationController?.pushViewController(vc, animated: true)
         }
