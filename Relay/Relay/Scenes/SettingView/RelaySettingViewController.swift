@@ -43,7 +43,7 @@ class RelaySettingViewController: UIViewController, UITableViewDelegate, UITable
     func relaySettingViewConfigure() {
         models.append(Section(title: "", details: "", version: "", options: [
             SettingsOption(title: "내 정보", details: "Apple", version: "") {
-                //추후 RelayMyInfoViewController와 연결
+                self.myInfo()
             },
             SettingsOption(title: "알림 설정", details: "", version: "") {
                 //추후 로컬 디바이스 알림설정과 연결
@@ -137,7 +137,7 @@ extension RelaySettingViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.frame = view.bounds
-        tableView.contentInset = .init(top: 120, left: 0, bottom: 0, right: 0) // 뷰 연결 시 top 값 조정필요
+        tableView.contentInset = .init(top: 0, left: 0, bottom: 0, right: 0) 
         tableView.isScrollEnabled = false
         tableView.sectionHeaderHeight = 7
         tableView.sectionFooterHeight = 0
@@ -145,5 +145,14 @@ extension RelaySettingViewController {
         tableView.tableFooterView = UIView(frame: CGRect.zero)
         tableView.separatorColor = .relayGray2
         tableView.register(UITableViewHeaderFooterView.self, forHeaderFooterViewReuseIdentifier: "customHeader")
+    }
+}
+
+extension RelaySettingViewController {
+    @objc private func myInfo(){
+        let vc = RelayMyInfoViewController()
+        vc.title = "내 정보"
+        
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
