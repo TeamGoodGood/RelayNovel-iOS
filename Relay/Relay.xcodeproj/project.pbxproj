@@ -12,9 +12,7 @@
 		32464EB7291B887D00BDAB7C /* TableCellCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32464EB6291B887D00BDAB7C /* TableCellCustomCell.swift */; };
 		32464EB9291B99E400BDAB7C /* Extension+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32464EB8291B99E400BDAB7C /* Extension+UIViewController.swift */; };
 		32517E142913B733005E0F69 /* RelayAllReadyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32517E132913B733005E0F69 /* RelayAllReadyViewController.swift */; };
-		32517E3F2913E23F005E0F69 /* PageAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32517E3E2913E23F005E0F69 /* PageAnimationView.swift */; };
 		32517E422913E25C005E0F69 /* SwiftUIPager in Frameworks */ = {isa = PBXBuildFile; productRef = 32517E412913E25C005E0F69 /* SwiftUIPager */; };
-		32517E442913E885005E0F69 /* RelayMainHostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32517E432913E885005E0F69 /* RelayMainHostingController.swift */; };
 		3265BA2A290925DD00532CA4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3265BA29290925DD00532CA4 /* AppDelegate.swift */; };
 		3265BA2C290925DD00532CA4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3265BA2B290925DD00532CA4 /* SceneDelegate.swift */; };
 		3265BA2E290925DD00532CA4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3265BA2D290925DD00532CA4 /* ViewController.swift */; };
@@ -45,6 +43,11 @@
 		55745FC2291A3BF100414462 /* BodyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55745FC1291A3BF100414462 /* BodyCollectionViewCell.swift */; };
 		55745FC4291B7A5F00414462 /* RelayReadingWriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55745FC3291B7A5F00414462 /* RelayReadingWriteView.swift */; };
 		55745FC6291B9B9F00414462 /* RelayReadingFinishFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55745FC5291B9B9F00414462 /* RelayReadingFinishFooterView.swift */; };
+		55745FDA291CCA8600414462 /* RelayMainHostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55745FD7291CCA8600414462 /* RelayMainHostingController.swift */; };
+		55745FDB291CCA8600414462 /* PageAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55745FD9291CCA8600414462 /* PageAnimationView.swift */; };
+		55745FE2291CCBDC00414462 /* RelayMainHostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55745FDF291CCBDC00414462 /* RelayMainHostingController.swift */; };
+		55745FE3291CCBDC00414462 /* PageAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55745FE1291CCBDC00414462 /* PageAnimationView.swift */; };
+		55745FE6291CD93300414462 /* NetworkFiles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55745FE5291CD93300414462 /* NetworkFiles.swift */; };
 		55867E0C29123C8500C79FFC /* Extension+CALayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55867E0B29123C8500C79FFC /* Extension+CALayer.swift */; };
 		55867E1129128C7400C79FFC /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55867E1029128C7400C79FFC /* TabBarController.swift */; };
 		55867E152912B7DA00C79FFC /* Extension+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55867E142912B7DA00C79FFC /* Extension+UIColor.swift */; };
@@ -62,11 +65,11 @@
 		B533AB4929183A4400B73867 /* RelayMyInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B533AB4829183A4400B73867 /* RelayMyInfoViewController.swift */; };
 		B533AB4B2918ACD100B73867 /* RelayAboutRelayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B533AB4A2918ACD100B73867 /* RelayAboutRelayViewController.swift */; };
 		B533AB522919FB8400B73867 /* RelayAboutRelayDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B533AB512919FB8400B73867 /* RelayAboutRelayDescriptionView.swift */; };
-		B533AB62291BFB2200B73867 /* RelayTermsAndConditionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B533AB61291BFB2200B73867 /* RelayTermsAndConditionsViewController.swift */; };
-		B533AB64291C107200B73867 /* RelayPrivacyPolicyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B533AB63291C107200B73867 /* RelayPrivacyPolicyViewController.swift */; };
 		B533AB5A291AA53D00B73867 /* RelayDeleteAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B533AB59291AA53D00B73867 /* RelayDeleteAccountViewController.swift */; };
 		B533AB5C291AA5B300B73867 /* RelayDeleteAccountUserActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B533AB5B291AA5B300B73867 /* RelayDeleteAccountUserActivityView.swift */; };
 		B533AB5E291AC52100B73867 /* RelayDeleteAccountAgreementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B533AB5D291AC52100B73867 /* RelayDeleteAccountAgreementView.swift */; };
+		B533AB62291BFB2200B73867 /* RelayTermsAndConditionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B533AB61291BFB2200B73867 /* RelayTermsAndConditionsViewController.swift */; };
+		B533AB64291C107200B73867 /* RelayPrivacyPolicyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B533AB63291C107200B73867 /* RelayPrivacyPolicyViewController.swift */; };
 		B5C0B4BD290F7C9A00077B5F /* RelayOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C0B4BC290F7C9A00077B5F /* RelayOnboardingViewController.swift */; };
 		B5C0B51B29117E2800077B5F /* RelaySecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C0B51A29117E2800077B5F /* RelaySecondViewController.swift */; };
 		B5C0B51D2911854900077B5F /* RelayFirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C0B51C2911854900077B5F /* RelayFirstViewController.swift */; };
@@ -82,8 +85,6 @@
 		32464EB6291B887D00BDAB7C /* TableCellCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCellCustomCell.swift; sourceTree = "<group>"; };
 		32464EB8291B99E400BDAB7C /* Extension+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIViewController.swift"; sourceTree = "<group>"; };
 		32517E132913B733005E0F69 /* RelayAllReadyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayAllReadyViewController.swift; sourceTree = "<group>"; };
-		32517E3E2913E23F005E0F69 /* PageAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageAnimationView.swift; sourceTree = "<group>"; };
-		32517E432913E885005E0F69 /* RelayMainHostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayMainHostingController.swift; sourceTree = "<group>"; };
 		3265BA26290925DD00532CA4 /* Relay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Relay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3265BA29290925DD00532CA4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3265BA2B290925DD00532CA4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -116,6 +117,11 @@
 		55745FC1291A3BF100414462 /* BodyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyCollectionViewCell.swift; sourceTree = "<group>"; };
 		55745FC3291B7A5F00414462 /* RelayReadingWriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayReadingWriteView.swift; sourceTree = "<group>"; };
 		55745FC5291B9B9F00414462 /* RelayReadingFinishFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayReadingFinishFooterView.swift; sourceTree = "<group>"; };
+		55745FD7291CCA8600414462 /* RelayMainHostingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RelayMainHostingController.swift; sourceTree = "<group>"; };
+		55745FD9291CCA8600414462 /* PageAnimationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageAnimationView.swift; sourceTree = "<group>"; };
+		55745FDF291CCBDC00414462 /* RelayMainHostingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RelayMainHostingController.swift; sourceTree = "<group>"; };
+		55745FE1291CCBDC00414462 /* PageAnimationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageAnimationView.swift; sourceTree = "<group>"; };
+		55745FE5291CD93300414462 /* NetworkFiles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkFiles.swift; sourceTree = "<group>"; };
 		55867E0B29123C8500C79FFC /* Extension+CALayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+CALayer.swift"; sourceTree = "<group>"; };
 		55867E1029128C7400C79FFC /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		55867E142912B7DA00C79FFC /* Extension+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIColor.swift"; sourceTree = "<group>"; };
@@ -132,11 +138,11 @@
 		B533AB4829183A4400B73867 /* RelayMyInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayMyInfoViewController.swift; sourceTree = "<group>"; };
 		B533AB4A2918ACD100B73867 /* RelayAboutRelayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayAboutRelayViewController.swift; sourceTree = "<group>"; };
 		B533AB512919FB8400B73867 /* RelayAboutRelayDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayAboutRelayDescriptionView.swift; sourceTree = "<group>"; };
-		B533AB61291BFB2200B73867 /* RelayTermsAndConditionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayTermsAndConditionsViewController.swift; sourceTree = "<group>"; };
-		B533AB63291C107200B73867 /* RelayPrivacyPolicyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayPrivacyPolicyViewController.swift; sourceTree = "<group>"; };
 		B533AB59291AA53D00B73867 /* RelayDeleteAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayDeleteAccountViewController.swift; sourceTree = "<group>"; };
 		B533AB5B291AA5B300B73867 /* RelayDeleteAccountUserActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayDeleteAccountUserActivityView.swift; sourceTree = "<group>"; };
 		B533AB5D291AC52100B73867 /* RelayDeleteAccountAgreementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayDeleteAccountAgreementView.swift; sourceTree = "<group>"; };
+		B533AB61291BFB2200B73867 /* RelayTermsAndConditionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayTermsAndConditionsViewController.swift; sourceTree = "<group>"; };
+		B533AB63291C107200B73867 /* RelayPrivacyPolicyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayPrivacyPolicyViewController.swift; sourceTree = "<group>"; };
 		B5C0B4BC290F7C9A00077B5F /* RelayOnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayOnboardingViewController.swift; sourceTree = "<group>"; };
 		B5C0B51A29117E2800077B5F /* RelaySecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelaySecondViewController.swift; sourceTree = "<group>"; };
 		B5C0B51C2911854900077B5F /* RelayFirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayFirstViewController.swift; sourceTree = "<group>"; };
@@ -166,21 +172,13 @@
 			path = PenNameView;
 			sourceTree = "<group>";
 		};
-		32517E122913B71D005E0F69 /* AllReadyView */ = {
+		32464EB1291B806300BDAB7C /* NoticeView */ = {
 			isa = PBXGroup;
 			children = (
-				32517E132913B733005E0F69 /* RelayAllReadyViewController.swift */,
-			);
-			path = AllReadyView;
-			sourceTree = "<group>";
-		};
-		32464EB1291B806300BDAB7C /*  NoticeView */ = {
-			isa = PBXGroup;
-			children = (
-				32464EB5291B885E00BDAB7C /* Views */,
 				32464EB2291B808800BDAB7C /* RelayNoticeViewController.swift */,
+				32464EB5291B885E00BDAB7C /* Views */,
 			);
-			path = " NoticeView";
+			path = NoticeView;
 			sourceTree = "<group>";
 		};
 		32464EB5291B885E00BDAB7C /* Views */ = {
@@ -189,6 +187,14 @@
 				32464EB6291B887D00BDAB7C /* TableCellCustomCell.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		32517E122913B71D005E0F69 /* AllReadyView */ = {
+			isa = PBXGroup;
+			children = (
+				32517E132913B733005E0F69 /* RelayAllReadyViewController.swift */,
+			);
+			path = AllReadyView;
 			sourceTree = "<group>";
 		};
 		3265BA1D290925DD00532CA4 = {
@@ -211,31 +217,12 @@
 		3265BA28290925DD00532CA4 /* Relay */ = {
 			isa = PBXGroup;
 			children = (
-				32464EB1291B806300BDAB7C /*  NoticeView */,
-				32DE2B0429164266005D1A85 /* WritingView */,
-				32517E152913CAC5005E0F69 /* MainView */,
-				B5C0B4B5290F7B1F00077B5F /* Onboarding */,
-				3201622C2912A77B0054803C /* PenNameView */,
-				32517E122913B71D005E0F69 /* AllReadyView */,
-				32F8353729113F4500E2CC4A /* AgreementView */,
+				3265BA29290925DD00532CA4 /* AppDelegate.swift */,
+				3265BA2B290925DD00532CA4 /* SceneDelegate.swift */,
+				55745FE8291CDA4D00414462 /* Model */,
+				55745FE4291CD7F700414462 /* Scenes */,
 				32F83525290FECB700E2CC4A /* Font */,
 				32308E43290F983E0012B5A2 /* Relay.entitlements */,
-				3299189B290A5C8500372C13 /* Login */,
-				3265BA29290925DD00532CA4 /* AppDelegate.swift */,
-				32F835352911008400E2CC4A /* Extension+UIButton.swift */,
-				32F835412911571B00E2CC4A /* Extension+UIImage.swift */,
-				3265BA2B290925DD00532CA4 /* SceneDelegate.swift */,
-				3265BA2D290925DD00532CA4 /* ViewController.swift */,
-				55867E1029128C7400C79FFC /* TabBarController.swift */,
-				55745FBF291A2F3700414462 /* ReadingView */,
-				55867E0F2912592100C79FFC /* Extension+ */,
-				55867E0E2912590700C79FFC /* Reusable */,
-				55745F302918CB4100414462 /* BrowsingView */,
-				556F3094290FDFC9005D7AF4 /* ProfileView */,
-				B533AB59291AA53D00B73867 /* RelayDeleteAccountViewController.swift */,
-				B533AB5B291AA5B300B73867 /* RelayDeleteAccountUserActivityView.swift */,
-				B533AB5D291AC52100B73867 /* RelayDeleteAccountAgreementView.swift */,
-				B5C0B5232914D88900077B5F /* SettingView */,
 				3265BA32290925DE00532CA4 /* Assets.xcassets */,
 				3265BA34290925DE00532CA4 /* LaunchScreen.storyboard */,
 				3265BA37290925DE00532CA4 /* Info.plist */,
@@ -243,19 +230,19 @@
 			path = Relay;
 			sourceTree = "<group>";
 		};
-		3299189B290A5C8500372C13 /* Login */ = {
+		3299189B290A5C8500372C13 /* LoginView */ = {
 			isa = PBXGroup;
 			children = (
 				3299189F290A5D8800372C13 /* RelayLoginViewController.swift */,
 			);
-			path = Login;
+			path = LoginView;
 			sourceTree = "<group>";
 		};
 		32DE2B0429164266005D1A85 /* WritingView */ = {
 			isa = PBXGroup;
 			children = (
-				32DE2B0729190A50005D1A85 /* Views */,
 				32DE2B0529164291005D1A85 /* RelayWritingViewController.swift */,
+				32DE2B0729190A50005D1A85 /* Views */,
 			);
 			path = WritingView;
 			sourceTree = "<group>";
@@ -274,6 +261,7 @@
 		32F83525290FECB700E2CC4A /* Font */ = {
 			isa = PBXGroup;
 			children = (
+				55745FD6291CCA8600414462 /* MainView */,
 				32F83526290FECC300E2CC4A /* ChangwonDangamAsac-Bold_0712.otf */,
 			);
 			path = Font;
@@ -341,7 +329,7 @@
 				55867E1C29142C6700C79FFC /* CategoryModalPresentationController.swift */,
 			);
 			name = CateogoryModal;
-			path = ..;
+			path = CategoryModal;
 			sourceTree = "<group>";
 		};
 		55745FBF291A2F3700414462 /* ReadingView */ = {
@@ -365,6 +353,99 @@
 				55745FC3291B7A5F00414462 /* RelayReadingWriteView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		55745FD0291CC5EB00414462 /* DeleteAccountView */ = {
+			isa = PBXGroup;
+			children = (
+				B533AB59291AA53D00B73867 /* RelayDeleteAccountViewController.swift */,
+				55745FD1291CC5F900414462 /* Views */,
+			);
+			path = DeleteAccountView;
+			sourceTree = "<group>";
+		};
+		55745FD1291CC5F900414462 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B533AB5B291AA5B300B73867 /* RelayDeleteAccountUserActivityView.swift */,
+				B533AB5D291AC52100B73867 /* RelayDeleteAccountAgreementView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		55745FD6291CCA8600414462 /* MainView */ = {
+			isa = PBXGroup;
+			children = (
+				55745FD7291CCA8600414462 /* RelayMainHostingController.swift */,
+				55745FD8291CCA8600414462 /* Views */,
+			);
+			name = MainView;
+			path = Relay/MainView;
+			sourceTree = SOURCE_ROOT;
+		};
+		55745FD8291CCA8600414462 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				55745FD9291CCA8600414462 /* PageAnimationView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		55745FDE291CCBDC00414462 /* MainView */ = {
+			isa = PBXGroup;
+			children = (
+				55745FDF291CCBDC00414462 /* RelayMainHostingController.swift */,
+				55745FE0291CCBDC00414462 /* Views */,
+			);
+			path = MainView;
+			sourceTree = "<group>";
+		};
+		55745FE0291CCBDC00414462 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				55745FE1291CCBDC00414462 /* PageAnimationView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		55745FE4291CD7F700414462 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				3265BA2D290925DD00532CA4 /* ViewController.swift */,
+				55867E1029128C7400C79FFC /* TabBarController.swift */,
+				B5C0B4B5290F7B1F00077B5F /* OnboardingView */,
+				3299189B290A5C8500372C13 /* LoginView */,
+				32F8353729113F4500E2CC4A /* AgreementView */,
+				3201622C2912A77B0054803C /* PenNameView */,
+				32517E122913B71D005E0F69 /* AllReadyView */,
+				55745FDE291CCBDC00414462 /* MainView */,
+				32DE2B0429164266005D1A85 /* WritingView */,
+				55745F302918CB4100414462 /* BrowsingView */,
+				55745FBF291A2F3700414462 /* ReadingView */,
+				556F3094290FDFC9005D7AF4 /* ProfileView */,
+				B5C0B5232914D88900077B5F /* SettingView */,
+				55745FD0291CC5EB00414462 /* DeleteAccountView */,
+				32464EB1291B806300BDAB7C /* NoticeView */,
+				55867E0E2912590700C79FFC /* Reusable */,
+				55867E0F2912592100C79FFC /* Extension+ */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		55745FE7291CD93B00414462 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				55745FE5291CD93300414462 /* NetworkFiles.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		55745FE8291CDA4D00414462 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				55745FE7291CD93B00414462 /* Network */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		55867E0D291258FD00C79FFC /* RelayListView */ = {
@@ -392,6 +473,8 @@
 			isa = PBXGroup;
 			children = (
 				556F3092290FA59A005D7AF4 /* Extension+UILabel.swift */,
+				32F835352911008400E2CC4A /* Extension+UIButton.swift */,
+				32F835412911571B00E2CC4A /* Extension+UIImage.swift */,
 				55867E0B29123C8500C79FFC /* Extension+CALayer.swift */,
 				55867E142912B7DA00C79FFC /* Extension+UIColor.swift */,
 				32464EB8291B99E400BDAB7C /* Extension+UIViewController.swift */,
@@ -415,7 +498,7 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		B5C0B4B5290F7B1F00077B5F /* Onboarding */ = {
+		B5C0B4B5290F7B1F00077B5F /* OnboardingView */ = {
 			isa = PBXGroup;
 			children = (
 				B5C0B51C2911854900077B5F /* RelayFirstViewController.swift */,
@@ -423,7 +506,7 @@
 				B5C0B51E2911858800077B5F /* RelayThirdViewController.swift */,
 				B5C0B4BC290F7C9A00077B5F /* RelayOnboardingViewController.swift */,
 			);
-			path = Onboarding;
+			path = OnboardingView;
 			sourceTree = "<group>";
 		};
 		B5C0B5232914D88900077B5F /* SettingView */ = {
@@ -528,6 +611,7 @@
 				B5C0B51B29117E2800077B5F /* RelaySecondViewController.swift in Sources */,
 				32464EB3291B808800BDAB7C /* RelayNoticeViewController.swift in Sources */,
 				B5C0B4BD290F7C9A00077B5F /* RelayOnboardingViewController.swift in Sources */,
+				55745FE6291CD93300414462 /* NetworkFiles.swift in Sources */,
 				B5C0B51D2911854900077B5F /* RelayFirstViewController.swift in Sources */,
 				55745F352919340700414462 /* RelayReadingViewController.swift in Sources */,
 				32F835422911571B00E2CC4A /* Extension+UIImage.swift in Sources */,
@@ -547,7 +631,6 @@
 				55867E1B2913AF0400C79FFC /* BrowsingTitleView.swift in Sources */,
 				32F835362911008400E2CC4A /* Extension+UIButton.swift in Sources */,
 				32DE2B15291A9DA3005D1A85 /* TouchCollectionViewCell.swift in Sources */,
-				32517E442913E885005E0F69 /* RelayMainHostingController.swift in Sources */,
 				B533AB5E291AC52100B73867 /* RelayDeleteAccountAgreementView.swift in Sources */,
 				3265BA2A290925DD00532CA4 /* AppDelegate.swift in Sources */,
 				55867E1F2914E77100C79FFC /* RelayCategoryViewController.swift in Sources */,
@@ -563,12 +646,15 @@
 				B533AB5C291AA5B300B73867 /* RelayDeleteAccountUserActivityView.swift in Sources */,
 				32517E142913B733005E0F69 /* RelayAllReadyViewController.swift in Sources */,
 				55FDCEB5290A711C000AB345 /* RelayProfileUserActivityView.swift in Sources */,
+				55745FE2291CCBDC00414462 /* RelayMainHostingController.swift in Sources */,
+				55745FDB291CCA8600414462 /* PageAnimationView.swift in Sources */,
 				55745FC2291A3BF100414462 /* BodyCollectionViewCell.swift in Sources */,
 				32DE2B13291A979D005D1A85 /* DividerView.swift in Sources */,
+				55745FDA291CCA8600414462 /* RelayMainHostingController.swift in Sources */,
 				B533AB522919FB8400B73867 /* RelayAboutRelayDescriptionView.swift in Sources */,
 				B5C0B52B2916A9FA00077B5F /* RelaySettingTableViewCell.swift in Sources */,
-				32517E3F2913E23F005E0F69 /* PageAnimationView.swift in Sources */,
 				32464EB9291B99E400BDAB7C /* Extension+UIViewController.swift in Sources */,
+				55745FE3291CCBDC00414462 /* PageAnimationView.swift in Sources */,
 				556F3093290FA59A005D7AF4 /* Extension+UILabel.swift in Sources */,
 				55867E0C29123C8500C79FFC /* Extension+CALayer.swift in Sources */,
 				556F309D29118823005D7AF4 /* BasePaddingLabel.swift in Sources */,
