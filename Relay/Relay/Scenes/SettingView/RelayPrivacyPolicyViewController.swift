@@ -89,7 +89,7 @@ extension RelayPrivacyPolicyViewController {
         ].forEach { view.addSubview($0) }
         
         scrollView.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(80.0)
+            $0.top.equalToSuperview().inset(130.0)
             $0.leading.equalToSuperview().inset(20.0)
             $0.trailing.equalToSuperview().inset(20.0)
             $0.bottom.equalToSuperview().inset(20.0)

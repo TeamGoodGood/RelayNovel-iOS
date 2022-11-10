@@ -57,7 +57,7 @@ class RelaySettingViewController: UIViewController, UITableViewDelegate, UITable
                 self.termsAndConditionsView()
             },
             SettingsOption(title: "개인정보처리방침", details: "", version: "") {
-                //추후 개인정보처리방침 뷰 연결
+                self.privacyPolicyView()
             },
             SettingsOption(title: "버전", details: "최신 버전입니다", version: "1.1.0") {
                 
@@ -164,6 +164,12 @@ extension RelaySettingViewController {
     @objc private func termsAndConditionsView(){
             let vc = RelayTermsAndConditionsViewController()
             vc.title = "이용약관"
+            
+            navigationController?.pushViewController(vc, animated: true)
+        }
+    @objc private func privacyPolicyView(){
+            let vc = RelayPrivacyPolicyViewController()
+            vc.title = "개인정보 처리방침"
             
             navigationController?.pushViewController(vc, animated: true)
         }
