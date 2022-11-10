@@ -45,7 +45,6 @@
 		55745FC6291B9B9F00414462 /* RelayReadingFinishFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55745FC5291B9B9F00414462 /* RelayReadingFinishFooterView.swift */; };
 		55745FE2291CCBDC00414462 /* RelayMainHostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55745FDF291CCBDC00414462 /* RelayMainHostingController.swift */; };
 		55745FE3291CCBDC00414462 /* PageAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55745FE1291CCBDC00414462 /* PageAnimationView.swift */; };
-		55745FE6291CD93300414462 /* NetworkFiles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55745FE5291CD93300414462 /* NetworkFiles.swift */; };
 		55867E0C29123C8500C79FFC /* Extension+CALayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55867E0B29123C8500C79FFC /* Extension+CALayer.swift */; };
 		55867E1129128C7400C79FFC /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55867E1029128C7400C79FFC /* TabBarController.swift */; };
 		55867E152912B7DA00C79FFC /* Extension+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55867E142912B7DA00C79FFC /* Extension+UIColor.swift */; };
@@ -60,6 +59,19 @@
 		55FDCEB3290A6440000AB345 /* RelayProfileUserInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FDCEB2290A6440000AB345 /* RelayProfileUserInfoView.swift */; };
 		55FDCEB5290A711C000AB345 /* RelayProfileUserActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FDCEB4290A711C000AB345 /* RelayProfileUserActivityView.swift */; };
 		55FDCEB7290ABB0C000AB345 /* RelayUserActivityCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FDCEB6290ABB0C000AB345 /* RelayUserActivityCollectionViewCell.swift */; };
+		73741CA7291D360500E7F765 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73741CA6291D360500E7F765 /* APIConstants.swift */; };
+		73741CA9291D363100E7F765 /* StoryAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73741CA8291D363100E7F765 /* StoryAPI.swift */; };
+		73741CAB291D364C00E7F765 /* RelayAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73741CAA291D364C00E7F765 /* RelayAPI.swift */; };
+		73741CAD291D365B00E7F765 /* UserAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73741CAC291D365B00E7F765 /* UserAPI.swift */; };
+		73741CAF291D366700E7F765 /* LoginAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73741CAE291D366700E7F765 /* LoginAPI.swift */; };
+		73741CB1291D367500E7F765 /* RecommendAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73741CB0291D367500E7F765 /* RecommendAPI.swift */; };
+		73741CB3291D368100E7F765 /* NoticeAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73741CB2291D368100E7F765 /* NoticeAPI.swift */; };
+		73741CB5291D369C00E7F765 /* AuthPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73741CB4291D369C00E7F765 /* AuthPlugin.swift */; };
+		73741CB7291D370500E7F765 /* Story.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73741CB6291D370500E7F765 /* Story.swift */; };
+		73741CB9291D371100E7F765 /* Relay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73741CB8291D371100E7F765 /* Relay.swift */; };
+		73741CBB291D379C00E7F765 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73741CBA291D379C00E7F765 /* User.swift */; };
+		73741CBD291D37A500E7F765 /* Recommend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73741CBC291D37A500E7F765 /* Recommend.swift */; };
+		73741CBF291D37AF00E7F765 /* Notice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73741CBE291D37AF00E7F765 /* Notice.swift */; };
 		B533AB4929183A4400B73867 /* RelayMyInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B533AB4829183A4400B73867 /* RelayMyInfoViewController.swift */; };
 		B533AB4B2918ACD100B73867 /* RelayAboutRelayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B533AB4A2918ACD100B73867 /* RelayAboutRelayViewController.swift */; };
 		B533AB522919FB8400B73867 /* RelayAboutRelayDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B533AB512919FB8400B73867 /* RelayAboutRelayDescriptionView.swift */; };
@@ -119,7 +131,6 @@
 		55745FD9291CCA8600414462 /* PageAnimationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageAnimationView.swift; sourceTree = "<group>"; };
 		55745FDF291CCBDC00414462 /* RelayMainHostingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RelayMainHostingController.swift; sourceTree = "<group>"; };
 		55745FE1291CCBDC00414462 /* PageAnimationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageAnimationView.swift; sourceTree = "<group>"; };
-		55745FE5291CD93300414462 /* NetworkFiles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkFiles.swift; sourceTree = "<group>"; };
 		55867E0B29123C8500C79FFC /* Extension+CALayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+CALayer.swift"; sourceTree = "<group>"; };
 		55867E1029128C7400C79FFC /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		55867E142912B7DA00C79FFC /* Extension+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIColor.swift"; sourceTree = "<group>"; };
@@ -133,6 +144,19 @@
 		55FDCEB2290A6440000AB345 /* RelayProfileUserInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayProfileUserInfoView.swift; sourceTree = "<group>"; };
 		55FDCEB4290A711C000AB345 /* RelayProfileUserActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayProfileUserActivityView.swift; sourceTree = "<group>"; };
 		55FDCEB6290ABB0C000AB345 /* RelayUserActivityCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayUserActivityCollectionViewCell.swift; sourceTree = "<group>"; };
+		73741CA6291D360500E7F765 /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
+		73741CA8291D363100E7F765 /* StoryAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryAPI.swift; sourceTree = "<group>"; };
+		73741CAA291D364C00E7F765 /* RelayAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayAPI.swift; sourceTree = "<group>"; };
+		73741CAC291D365B00E7F765 /* UserAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPI.swift; sourceTree = "<group>"; };
+		73741CAE291D366700E7F765 /* LoginAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAPI.swift; sourceTree = "<group>"; };
+		73741CB0291D367500E7F765 /* RecommendAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendAPI.swift; sourceTree = "<group>"; };
+		73741CB2291D368100E7F765 /* NoticeAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeAPI.swift; sourceTree = "<group>"; };
+		73741CB4291D369C00E7F765 /* AuthPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthPlugin.swift; sourceTree = "<group>"; };
+		73741CB6291D370500E7F765 /* Story.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Story.swift; sourceTree = "<group>"; };
+		73741CB8291D371100E7F765 /* Relay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Relay.swift; sourceTree = "<group>"; };
+		73741CBA291D379C00E7F765 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		73741CBC291D37A500E7F765 /* Recommend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recommend.swift; sourceTree = "<group>"; };
+		73741CBE291D37AF00E7F765 /* Notice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notice.swift; sourceTree = "<group>"; };
 		862A1BB22438CA7E571849AE /* Pods-Relay.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Relay.debug.xcconfig"; path = "Target Support Files/Pods-Relay/Pods-Relay.debug.xcconfig"; sourceTree = "<group>"; };
 		B533AB4829183A4400B73867 /* RelayMyInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayMyInfoViewController.swift; sourceTree = "<group>"; };
 		B533AB4A2918ACD100B73867 /* RelayAboutRelayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayAboutRelayViewController.swift; sourceTree = "<group>"; };
@@ -221,6 +245,7 @@
 			children = (
 				3265BA29290925DD00532CA4 /* AppDelegate.swift */,
 				3265BA2B290925DD00532CA4 /* SceneDelegate.swift */,
+				55745FE7291CD93B00414462 /* Network */,
 				55745FE8291CDA4D00414462 /* Model */,
 				55745FE4291CD7F700414462 /* Scenes */,
 				32F83525290FECB700E2CC4A /* Font */,
@@ -436,7 +461,14 @@
 		55745FE7291CD93B00414462 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				55745FE5291CD93300414462 /* NetworkFiles.swift */,
+				73741CA6291D360500E7F765 /* APIConstants.swift */,
+				73741CA8291D363100E7F765 /* StoryAPI.swift */,
+				73741CAA291D364C00E7F765 /* RelayAPI.swift */,
+				73741CAC291D365B00E7F765 /* UserAPI.swift */,
+				73741CAE291D366700E7F765 /* LoginAPI.swift */,
+				73741CB0291D367500E7F765 /* RecommendAPI.swift */,
+				73741CB2291D368100E7F765 /* NoticeAPI.swift */,
+				73741CB4291D369C00E7F765 /* AuthPlugin.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -444,7 +476,11 @@
 		55745FE8291CDA4D00414462 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				55745FE7291CD93B00414462 /* Network */,
+				73741CB6291D370500E7F765 /* Story.swift */,
+				73741CB8291D371100E7F765 /* Relay.swift */,
+				73741CBA291D379C00E7F765 /* User.swift */,
+				73741CBC291D37A500E7F765 /* Recommend.swift */,
+				73741CBE291D37AF00E7F765 /* Notice.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -530,7 +566,6 @@
 				862A1BB22438CA7E571849AE /* Pods-Relay.debug.xcconfig */,
 				BB3686570FE66E0630031A1E /* Pods-Relay.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -665,9 +700,9 @@
 				B5C0B51F2911858800077B5F /* RelayThirdViewController.swift in Sources */,
 				32DE2B0F291A4729005D1A85 /* EventCollectionViewCell.swift in Sources */,
 				B5C0B51B29117E2800077B5F /* RelaySecondViewController.swift in Sources */,
+				73741CB3291D368100E7F765 /* NoticeAPI.swift in Sources */,
 				32464EB3291B808800BDAB7C /* RelayNoticeViewController.swift in Sources */,
 				B5C0B4BD290F7C9A00077B5F /* RelayOnboardingViewController.swift in Sources */,
-				55745FE6291CD93300414462 /* NetworkFiles.swift in Sources */,
 				B5C0B51D2911854900077B5F /* RelayFirstViewController.swift in Sources */,
 				55745F352919340700414462 /* RelayReadingViewController.swift in Sources */,
 				32F835422911571B00E2CC4A /* Extension+UIImage.swift in Sources */,
@@ -675,7 +710,11 @@
 				55FDCEB1290A5DB2000AB345 /* RelayProfileViewController.swift in Sources */,
 				32DE2B0629164291005D1A85 /* RelayWritingViewController.swift in Sources */,
 				B533AB4B2918ACD100B73867 /* RelayAboutRelayViewController.swift in Sources */,
+				73741CAB291D364C00E7F765 /* RelayAPI.swift in Sources */,
+				73741CA7291D360500E7F765 /* APIConstants.swift in Sources */,
+				73741CBD291D37A500E7F765 /* Recommend.swift in Sources */,
 				32F8354029114F0E00E2CC4A /* RelayAgreementViewController.swift in Sources */,
+				73741CBB291D379C00E7F765 /* User.swift in Sources */,
 				B533AB5A291AA53D00B73867 /* RelayDeleteAccountViewController.swift in Sources */,
 				55FDCEB7290ABB0C000AB345 /* RelayUserActivityCollectionViewCell.swift in Sources */,
 				556F309B29117E1F005D7AF4 /* RelayListCollectionViewCell.swift in Sources */,
@@ -688,8 +727,14 @@
 				32DE2B15291A9DA3005D1A85 /* TouchCollectionViewCell.swift in Sources */,
 				B533AB5E291AC52100B73867 /* RelayDeleteAccountAgreementView.swift in Sources */,
 				3265BA2A290925DD00532CA4 /* AppDelegate.swift in Sources */,
+				73741CAF291D366700E7F765 /* LoginAPI.swift in Sources */,
+				73741CB1291D367500E7F765 /* RecommendAPI.swift in Sources */,
 				55867E1F2914E77100C79FFC /* RelayCategoryViewController.swift in Sources */,
+				73741CB5291D369C00E7F765 /* AuthPlugin.swift in Sources */,
+				73741CBF291D37AF00E7F765 /* Notice.swift in Sources */,
+				73741CAD291D365B00E7F765 /* UserAPI.swift in Sources */,
 				55867E192913AC8D00C79FFC /* RelayBrowsingHeaderView.swift in Sources */,
+				73741CB9291D371100E7F765 /* Relay.swift in Sources */,
 				55745FC6291B9B9F00414462 /* RelayReadingFinishFooterView.swift in Sources */,
 				55745F3F2919446D00414462 /* ReadingBodyView.swift in Sources */,
 				55867E1129128C7400C79FFC /* TabBarController.swift in Sources */,
@@ -707,6 +752,7 @@
 				B533AB522919FB8400B73867 /* RelayAboutRelayDescriptionView.swift in Sources */,
 				B5C0B52B2916A9FA00077B5F /* RelaySettingTableViewCell.swift in Sources */,
 				32464EB9291B99E400BDAB7C /* Extension+UIViewController.swift in Sources */,
+				73741CB7291D370500E7F765 /* Story.swift in Sources */,
 				55745FE3291CCBDC00414462 /* PageAnimationView.swift in Sources */,
 				556F3093290FA59A005D7AF4 /* Extension+UILabel.swift in Sources */,
 				55867E0C29123C8500C79FFC /* Extension+CALayer.swift in Sources */,
@@ -717,6 +763,7 @@
 				556F3091290F9A09005D7AF4 /* RelayNonLoginView.swift in Sources */,
 				3265BA2C290925DD00532CA4 /* SceneDelegate.swift in Sources */,
 				3201622E2912A7950054803C /* RelayPenNameViewController.swift in Sources */,
+				73741CA9291D363100E7F765 /* StoryAPI.swift in Sources */,
 				329918A0290A5D8800372C13 /* RelayLoginViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
