@@ -23,11 +23,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // 현재 스크린의 사이즈를 window에 넣음
         window = UIWindow(frame: UIScreen.main.bounds)
         
-        // 제일 처음 viewController
-        let viewController = ViewController()
-        
         // 위에서 만든 viewController를 첫 화면으로 띄우기
-        window?.rootViewController = viewController
+        window?.rootViewController = UINavigationController(rootViewController: TabBarController())
         
         // 화면에 보이게끔
         window?.makeKeyAndVisible()

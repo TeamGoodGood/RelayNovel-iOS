@@ -15,7 +15,6 @@
 		32517E422913E25C005E0F69 /* SwiftUIPager in Frameworks */ = {isa = PBXBuildFile; productRef = 32517E412913E25C005E0F69 /* SwiftUIPager */; };
 		3265BA2A290925DD00532CA4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3265BA29290925DD00532CA4 /* AppDelegate.swift */; };
 		3265BA2C290925DD00532CA4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3265BA2B290925DD00532CA4 /* SceneDelegate.swift */; };
-		3265BA2E290925DD00532CA4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3265BA2D290925DD00532CA4 /* ViewController.swift */; };
 		3265BA33290925DE00532CA4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3265BA32290925DE00532CA4 /* Assets.xcassets */; };
 		3265BA36290925DE00532CA4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3265BA34290925DE00532CA4 /* LaunchScreen.storyboard */; };
 		329918A0290A5D8800372C13 /* RelayLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3299189F290A5D8800372C13 /* RelayLoginViewController.swift */; };
@@ -88,7 +87,6 @@
 		3265BA26290925DD00532CA4 /* Relay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Relay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3265BA29290925DD00532CA4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3265BA2B290925DD00532CA4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		3265BA2D290925DD00532CA4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		3265BA32290925DE00532CA4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3265BA35290925DE00532CA4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3265BA37290925DE00532CA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -411,7 +409,6 @@
 		55745FE4291CD7F700414462 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				3265BA2D290925DD00532CA4 /* ViewController.swift */,
 				55867E1029128C7400C79FFC /* TabBarController.swift */,
 				B5C0B4B5290F7B1F00077B5F /* OnboardingView */,
 				3299189B290A5C8500372C13 /* LoginView */,
@@ -623,7 +620,6 @@
 				B533AB5A291AA53D00B73867 /* RelayDeleteAccountViewController.swift in Sources */,
 				55FDCEB7290ABB0C000AB345 /* RelayUserActivityCollectionViewCell.swift in Sources */,
 				556F309B29117E1F005D7AF4 /* RelayListCollectionViewCell.swift in Sources */,
-				3265BA2E290925DD00532CA4 /* ViewController.swift in Sources */,
 				32DA1B7F29123F7500C6FDC1 /* DetailViewController.swift in Sources */,
 				55867E1D29142C6700C79FFC /* CategoryModalPresentationController.swift in Sources */,
 				55745F3B291936ED00414462 /* RelayReadingFooterView.swift in Sources */,
