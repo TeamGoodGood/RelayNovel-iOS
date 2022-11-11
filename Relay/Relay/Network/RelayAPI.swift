@@ -56,12 +56,12 @@ extension RelayService: TargetType {
 
 class RelayAPI {
     
-    private static var authPlugin = AuthPlugin()
-    private static var provider = MoyaProvider<StoryService>(plugins: [authPlugin])
-    static func create(storyId: Int, content: String) -> Observable<ProgressResponse> {
-        return provider.rx.requestWithProgress(.create(storyId: storyId, content: content))
-    }
-    static func list(storyId: Int) -> Single<Response> {
-        return provider.rx.request(.list(storyId: storyId))
-    }
+//    private static var authPlugin = AuthPlugin()
+//    private static var provider = MoyaProvider<StoryService>(plugins: [authPlugin])
+//    static func create(storyId: Int, content: String) -> Observable<ProgressResponse> {
+//        return provider.rx.requestWithProgress(.create(storyId: storyId, content: content))
+//    }
+//    static func list(storyId: Int) -> Single<Response> {
+//        return provider.rx.request(.list(storyId: storyId))
+//    }
 }

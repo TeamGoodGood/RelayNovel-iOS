@@ -104,23 +104,23 @@ extension StoryService: TargetType {
 
 class StoryAPI {
     
-    private static var authPlugin = AuthPlugin()
-    private static var provider = MoyaProvider<StoryService>(plugins: [authPlugin])
-    static func create(genre: String, title: String, content: String, bgm: Int, step_limit: Int) -> Observable<ProgressResponse> {
-        return provider.rx.requestWithProgress(.create(genre: genre, title: title, content: content, bgm: bgm, step_limit: step_limit))
-    }
-    static func list(finished: Bool? = nil, genre: String? = nil, order: Bool? = nil) -> Single<Response> {
-        return provider.rx.request(.list(finished: finished, genre: genre, order: order))
-    }
-    static func retrieve(storyId: Int) -> Single<Response> {
-        return provider.rx.request(.retrieve(storyId: storyId))
-    }
-    static func delete(storyId: Int) -> Single<Response> {
-        return provider.rx.request(.delete(storyId: storyId))
-    }
-    static func like(storyId: Int) -> Single<Response> {
-        return provider.rx.request(.like(storyId: storyId))
-    }
+//    private static var authPlugin = AuthPlugin()
+//    private static var provider = MoyaProvider<StoryService>(plugins: [authPlugin])
+//    static func create(genre: String, title: String, content: String, bgm: Int, step_limit: Int) -> Observable<ProgressResponse> {
+//        return provider.rx.requestWithProgress(.create(genre: genre, title: title, content: content, bgm: bgm, step_limit: step_limit))
+//    }
+//    static func list(finished: Bool? = nil, genre: String? = nil, order: Bool? = nil) -> Single<Response> {
+//        return provider.rx.request(.list(finished: finished, genre: genre, order: order))
+//    }
+//    static func retrieve(storyId: Int) -> Single<Response> {
+//        return provider.rx.request(.retrieve(storyId: storyId))
+//    }
+//    static func delete(storyId: Int) -> Single<Response> {
+//        return provider.rx.request(.delete(storyId: storyId))
+//    }
+//    static func like(storyId: Int) -> Single<Response> {
+//        return provider.rx.request(.like(storyId: storyId))
+//    }
 }
 
 
