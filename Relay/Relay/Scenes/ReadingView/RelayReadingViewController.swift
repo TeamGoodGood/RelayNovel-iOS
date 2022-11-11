@@ -254,6 +254,7 @@ extension RelayReadingViewController {
     }
     
     @objc func popViewController() {
+        navigationController?.navigationBar.isHidden = false
         navigationController?.popViewController(animated: true)
     }
     
