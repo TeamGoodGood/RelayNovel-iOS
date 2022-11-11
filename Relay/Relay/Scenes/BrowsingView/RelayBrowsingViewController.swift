@@ -81,6 +81,10 @@ extension RelayBrowsingViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         0.0
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("tapped \(indexPath.row) cell")
+    }
 }
 
 extension RelayBrowsingViewController: UICollectionViewDataSource {
