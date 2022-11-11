@@ -43,7 +43,7 @@ class RelaySettingViewController: UIViewController, UITableViewDelegate, UITable
     func relaySettingViewConfigure() {
         models.append(Section(title: "", details: "", version: "", options: [
             SettingsOption(title: "내 정보", details: "Apple", version: "") {
-                //추후 RelayMyInfoViewController와 연결
+                self.toMyInfoView()
             },
             SettingsOption(title: "알림 설정", details: "", version: "") {
                 //추후 로컬 디바이스 알림설정과 연결
@@ -51,13 +51,13 @@ class RelaySettingViewController: UIViewController, UITableViewDelegate, UITable
         ]))
         models.append(Section(title: "", details: "", version: "", options: [
             SettingsOption(title: "릴레이에 대해서", details: "", version: "") {
-                //추후 RelayAboutRelayViewController와 연결
+                self.toAboutRelayView()
             },
             SettingsOption(title: "이용약관", details: "", version: "") {
-                //추후 이용약관 뷰 연결
+                self.toTermsAndConditionsView()
             },
             SettingsOption(title: "개인정보처리방침", details: "", version: "") {
-                //추후 개인정보처리방침 뷰 연결
+                self.toPrivacyPolicyView()
             },
             SettingsOption(title: "버전", details: "최신 버전입니다", version: "1.1.0") {
                 
@@ -137,7 +137,7 @@ extension RelaySettingViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.frame = view.bounds
-        tableView.contentInset = .init(top: 120, left: 0, bottom: 0, right: 0) // 뷰 연결 시 top 값 조정필요
+        tableView.contentInset = .init(top: 20, left: 0, bottom: 0, right: 0) 
         tableView.isScrollEnabled = false
         tableView.sectionHeaderHeight = 7
         tableView.sectionFooterHeight = 0
@@ -145,5 +145,32 @@ extension RelaySettingViewController {
         tableView.tableFooterView = UIView(frame: CGRect.zero)
         tableView.separatorColor = .relayGray2
         tableView.register(UITableViewHeaderFooterView.self, forHeaderFooterViewReuseIdentifier: "customHeader")
+    }
+}
+
+extension RelaySettingViewController {
+    @objc private func toMyInfoView(){
+        let vc = RelayMyInfoViewController()
+        vc.title = "내 정보"
+        
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    @objc private func toAboutRelayView(){
+        let vc = RelayAboutRelayViewController()
+        vc.title = "릴레이에 대해서"
+        
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    @objc private func toTermsAndConditionsView(){
+        let vc = RelayTermsAndConditionsViewController()
+        vc.title = "이용약관"
+        
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    @objc private func toPrivacyPolicyView(){
+        let vc = RelayPrivacyPolicyViewController()
+        vc.title = "개인정보 처리방침"
+        
+        navigationController?.pushViewController(vc, animated: true)
     }
 }

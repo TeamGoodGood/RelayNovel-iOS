@@ -101,7 +101,7 @@ extension RelayMyInfoViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.frame = view.bounds
-        tableView.contentInset = .init(top: 100, left: 0, bottom: 0, right: 0) // 뷰 연결 시 top 값 조정필요
+        tableView.contentInset = .init(top: 0, left: 0, bottom: 0, right: 0)
         tableView.isScrollEnabled = false
         tableView.sectionHeaderHeight = 7
         tableView.sectionFooterHeight = 0
