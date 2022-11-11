@@ -84,6 +84,9 @@ extension RelayBrowsingViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("tapped \(indexPath.row) cell")
+        let readingViewController = RelayReadingViewController()
+        
+        navigationController?.pushViewController(readingViewController, animated: true)
     }
 }
 
