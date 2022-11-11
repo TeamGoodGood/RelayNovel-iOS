@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class RelayBrowsingViewController: UIViewController {
+class RelayBrowsingViewController: UIViewController, UICollectionViewDelegate {
     private var selectedCategory: String?
     
     private var currentHighlightedButton: ButtonName? {
@@ -43,6 +43,9 @@ class RelayBrowsingViewController: UIViewController {
         
         currentHighlightedButton = .entire
         
+        relayListView.listCollectionView.delegate = self
+        relayListView.listCollectionView.dataSource = self
+        
         setNavigationBar()
         setupButtonMethod()
         setupLayout()
@@ -65,6 +68,33 @@ extension RelayBrowsingViewController: RelayCategoryDelegate {
             relayListView.listHeaderView?.listFilterButton.setTitle(selectedCategory, for: .normal)
         }
     }
+}
+
+extension RelayBrowsingViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = collectionView.frame.width
+        let height = 118.0
+        
+        return CGSize(width: width, height: height)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        0.0
+    }
+}
+
+extension RelayBrowsingViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        4
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RelayListCollectionViewCell.id, for: indexPath) as? RelayListCollectionViewCell else { return UICollectionViewCell() }
+        cell.configure(indexPath.row)
+        
+        return cell
+    }
+
 }
 
 extension RelayBrowsingViewController {
