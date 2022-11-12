@@ -49,12 +49,11 @@ struct PageAnimationView: View {
     
     func pageView(_ page: Int) -> some View {
         ZStack {
-            
             if page == 0 {
                 Rectangle()
                     .overlay {
-                        Image("1")
-                            .resizable()
+                        CardView()
+                        
                     }
             }
             

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3201622E2912A7950054803C /* RelayPenNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3201622D2912A7950054803C /* RelayPenNameViewController.swift */; };
+		321F591F291CE77700FEE6DD /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321F591E291CE77700FEE6DD /* CardView.swift */; };
 		32464EB3291B808800BDAB7C /* RelayNoticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32464EB2291B808800BDAB7C /* RelayNoticeViewController.swift */; };
 		32464EB7291B887D00BDAB7C /* TableCellCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32464EB6291B887D00BDAB7C /* TableCellCustomCell.swift */; };
 		32464EB9291B99E400BDAB7C /* Extension+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32464EB8291B99E400BDAB7C /* Extension+UIViewController.swift */; };
@@ -77,6 +78,7 @@
 
 /* Begin PBXFileReference section */
 		3201622D2912A7950054803C /* RelayPenNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayPenNameViewController.swift; sourceTree = "<group>"; };
+		321F591E291CE77700FEE6DD /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		32308E43290F983E0012B5A2 /* Relay.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Relay.entitlements; sourceTree = "<group>"; };
 		32464EB2291B808800BDAB7C /* RelayNoticeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayNoticeViewController.swift; sourceTree = "<group>"; };
 		32464EB6291B887D00BDAB7C /* TableCellCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCellCustomCell.swift; sourceTree = "<group>"; };
@@ -400,6 +402,7 @@
 			isa = PBXGroup;
 			children = (
 				55745FE1291CCBDC00414462 /* PageAnimationView.swift */,
+				321F591E291CE77700FEE6DD /* CardView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -636,6 +639,7 @@
 				55FDCEB3290A6440000AB345 /* RelayProfileUserInfoView.swift in Sources */,
 				556F309929103676005D7AF4 /* RelayListHeaderView.swift in Sources */,
 				B5C0B5252914D8BA00077B5F /* RelaySettingViewController.swift in Sources */,
+				321F591F291CE77700FEE6DD /* CardView.swift in Sources */,
 				55867E152912B7DA00C79FFC /* Extension+UIColor.swift in Sources */,
 				B533AB5C291AA5B300B73867 /* RelayDeleteAccountUserActivityView.swift in Sources */,
 				32517E142913B733005E0F69 /* RelayAllReadyViewController.swift in Sources */,
