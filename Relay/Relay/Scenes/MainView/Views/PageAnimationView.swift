@@ -15,7 +15,7 @@ struct PageAnimationView: View {
                         .resizable()
                         .scaledToFit()
                     Rectangle()
-                        .frame(width: UIScreen.main.bounds.width, height: 50)
+                        .frame(width: UIScreen.main.bounds.width, height: 70)
                 }
                 GeometryReader { proxy in
                     VStack(spacing: 31) {
