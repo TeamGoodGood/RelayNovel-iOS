@@ -12,6 +12,7 @@ struct CardView: View {
         Rectangle()
             .overlay {
                 ZStack{
+                    // TODO: 이미지는 나중에 이미지만 따로 있을 때 적용 하겠습니다. 지금은 글자와 이미지가 같이 있어서 적용하면 겹쳐보입니다.
 //                    Image("1")
 //                        .resizable()
                     VStack(spacing: 0){
