@@ -198,7 +198,7 @@ extension RelayLoginViewController : ASAuthorizationControllerDelegate {
             return
         }
         do {
-//            try await LoginAPI.appleLogin(token: token)
+            try await LoginAPI.appleLogin(token: token)
             let loginResponse = LoginResponse(token: token, userId: credential.user)
             AccountManager.login(disposeBag: DisposeBag(), loginResponse, autologin: true)
         } catch {
