@@ -175,18 +175,32 @@ class RelayLoginViewController: UIViewController {
 
 
 extension RelayLoginViewController : ASAuthorizationControllerDelegate {
-    func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
-        if let credential = authorization.credential as? ASAuthorizationAppleIDCredential {
-            let user = credential.user
-            print("💁🏻‍♂️ \(user)")
-            if let email = credential.email {
-                print("📧 \(email)")
-            }
+    
+    func authorizationController(controller _: ASAuthorizationController,
+                                 didCompleteWithAuthorization authorization: ASAuthorization)
+    {
+        Task {
+            await loginWithApple(successResult: authorization)
         }
     }
 
-    // 오류 처리
     func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
         print("error \(error)")
+    }
+
+    private func loginWithApple(successResult: ASAuthorization) async {
+        guard let credentail = successResult.credential as? ASAuthorizationAppleIDCredential,
+              let tokenData = credentail.identityToken,
+              let token = String(data: tokenData, encoding: .utf8)
+        else {
+            print("error")
+            return
+        }
+        do {
+            
+            try await services.authService.loginWithApple(token: token)
+        } catch {
+            print("error")
+        }
     }
 }
