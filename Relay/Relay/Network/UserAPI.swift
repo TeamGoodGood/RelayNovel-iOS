@@ -61,7 +61,10 @@ extension UserService: TargetType {
 }
 
 class UserAPI {
-    static var provider = MoyaProvider<UserService>(plugins: [AuthPlugin()])
+    
+    static var authPlugin = AuthPlugin()
+    static var provider = MoyaProvider<UserService>(plugins: [authPlugin])
+    
     static func getLiked() -> Single<Response> {
         return provider.rx.request(.getLiked)
     }

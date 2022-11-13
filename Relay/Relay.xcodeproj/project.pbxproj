@@ -72,6 +72,7 @@
 		73741CBB291D379C00E7F765 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73741CBA291D379C00E7F765 /* User.swift */; };
 		73741CBD291D37A500E7F765 /* Recommend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73741CBC291D37A500E7F765 /* Recommend.swift */; };
 		73741CBF291D37AF00E7F765 /* Notice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73741CBE291D37AF00E7F765 /* Notice.swift */; };
+		73741CC429215A5800E7F765 /* AccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73741CC329215A5800E7F765 /* AccountManager.swift */; };
 		B533AB4929183A4400B73867 /* RelayMyInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B533AB4829183A4400B73867 /* RelayMyInfoViewController.swift */; };
 		B533AB4B2918ACD100B73867 /* RelayAboutRelayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B533AB4A2918ACD100B73867 /* RelayAboutRelayViewController.swift */; };
 		B533AB522919FB8400B73867 /* RelayAboutRelayDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B533AB512919FB8400B73867 /* RelayAboutRelayDescriptionView.swift */; };
@@ -157,6 +158,7 @@
 		73741CBA291D379C00E7F765 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		73741CBC291D37A500E7F765 /* Recommend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recommend.swift; sourceTree = "<group>"; };
 		73741CBE291D37AF00E7F765 /* Notice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notice.swift; sourceTree = "<group>"; };
+		73741CC329215A5800E7F765 /* AccountManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountManager.swift; sourceTree = "<group>"; };
 		862A1BB22438CA7E571849AE /* Pods-Relay.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Relay.debug.xcconfig"; path = "Target Support Files/Pods-Relay/Pods-Relay.debug.xcconfig"; sourceTree = "<group>"; };
 		B533AB4829183A4400B73867 /* RelayMyInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayMyInfoViewController.swift; sourceTree = "<group>"; };
 		B533AB4A2918ACD100B73867 /* RelayAboutRelayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayAboutRelayViewController.swift; sourceTree = "<group>"; };
@@ -469,6 +471,7 @@
 				73741CB0291D367500E7F765 /* RecommendAPI.swift */,
 				73741CB2291D368100E7F765 /* NoticeAPI.swift */,
 				73741CB4291D369C00E7F765 /* AuthPlugin.swift */,
+				73741CC329215A5800E7F765 /* AccountManager.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -753,6 +756,7 @@
 				B5C0B52B2916A9FA00077B5F /* RelaySettingTableViewCell.swift in Sources */,
 				32464EB9291B99E400BDAB7C /* Extension+UIViewController.swift in Sources */,
 				73741CB7291D370500E7F765 /* Story.swift in Sources */,
+				73741CC429215A5800E7F765 /* AccountManager.swift in Sources */,
 				55745FE3291CCBDC00414462 /* PageAnimationView.swift in Sources */,
 				556F3093290FA59A005D7AF4 /* Extension+UILabel.swift in Sources */,
 				55867E0C29123C8500C79FFC /* Extension+CALayer.swift in Sources */,

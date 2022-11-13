@@ -37,10 +37,11 @@ extension NoticeService: TargetType {
 }
 
 class NoticeAPI {
-//    private static var authPlugin = AuthPlugin()
-//    private static var provider = MoyaProvider<NoticeService>(plugins: [authPlugin])
-//
-//    static func list() -> Single<Response> {
-//        return provider.rx.request(.list())
-//    }
+    
+    static var authPlugin = AuthPlugin()
+    static var provider = MoyaProvider<NoticeService>(plugins: [authPlugin])
+
+    static func list() -> Single<Response> {
+        return provider.rx.request(.list)
+    }
 }

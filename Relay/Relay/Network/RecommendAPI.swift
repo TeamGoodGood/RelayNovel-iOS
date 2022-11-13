@@ -38,10 +38,11 @@ extension RecommendService: TargetType {
 }
 
 class RecommendAPI {
-//    private static var authPlugin = AuthPlugin()
-//    private static var provider = MoyaProvider<RecommendService>(plugins: [authPlugin])
-//
-//    static func retrieve() -> Single<Response> {
-//        return provider.rx.request(.retrieve())
-//    }
+    
+    static var authPlugin = AuthPlugin()
+    static var provider = MoyaProvider<RecommendService>(plugins: [authPlugin])
+
+    static func retrieve() -> Single<Response> {
+        return provider.rx.request(.retrieve)
+    }
 }

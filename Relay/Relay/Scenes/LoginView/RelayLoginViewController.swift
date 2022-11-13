@@ -8,6 +8,7 @@
 import UIKit
 import SnapKit
 import AuthenticationServices
+import RxSwift
 
 class RelayLoginViewController: UIViewController {
     
@@ -189,16 +190,17 @@ extension RelayLoginViewController : ASAuthorizationControllerDelegate {
     }
 
     private func loginWithApple(successResult: ASAuthorization) async {
-        guard let credentail = successResult.credential as? ASAuthorizationAppleIDCredential,
-              let tokenData = credentail.identityToken,
-              let token = String(data: tokenData, encoding: .utf8)
+        guard let credential = successResult.credential as? ASAuthorizationAppleIDCredential,
+        let tokenData = credential.identityToken,
+        let token = String(data: tokenData, encoding: .utf8)
         else {
             print("error")
             return
         }
         do {
-            
-            try await services.authService.loginWithApple(token: token)
+//            try await LoginAPI.appleLogin(token: token)
+            let loginResponse = LoginResponse(token: token, userId: credential.user)
+            AccountManager.login(disposeBag: DisposeBag(), loginResponse, autologin: true)
         } catch {
             print("error")
         }

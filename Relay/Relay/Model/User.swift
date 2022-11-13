@@ -8,13 +8,18 @@
 import Foundation
 
 struct User: Codable {
-    var id: Int?
+    var id: Int
     var email: String?
     var username: String?
-    var penname: String
+    var penname: String?
+}
+
+struct LoginResponse: Codable {
+    let token: String
+    let userId: String
 }
 
 struct UserResponse: Codable {
-    var id: Int?
-    var penname: String
+    var id: Int
+    var penname: String?
 }
