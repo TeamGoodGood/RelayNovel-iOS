@@ -69,7 +69,6 @@ class RelayMainViewController: UIViewController {
     func goToWritingView(_ sender: UIButton!) {
         let vc = RelayWritingViewController()
         
-        print("button clicked!")
         vc.modalPresentationStyle = UIModalPresentationStyle.fullScreen
         present(vc, animated: true, completion: nil)
     }
