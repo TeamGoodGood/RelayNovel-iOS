@@ -47,7 +47,7 @@ class RelayMyInfoViewController: UIViewController, UITableViewDelegate, UITableV
                 //추후 로그아웃 알림창 구현
             },
             SettingsOption(title: "회원탈퇴", details: "", version: "") {
-                //추후 회원탈퇴뷰 연결
+                self.deleteAccountView()
             }
         ]))
     }
@@ -101,7 +101,7 @@ extension RelayMyInfoViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.frame = view.bounds
-        tableView.contentInset = .init(top: 100, left: 0, bottom: 0, right: 0) // 뷰 연결 시 top 값 조정필요
+        tableView.contentInset = .init(top: 0, left: 0, bottom: 0, right: 0)
         tableView.isScrollEnabled = false
         tableView.sectionHeaderHeight = 7
         tableView.sectionFooterHeight = 0
@@ -133,5 +133,15 @@ extension RelayMyInfoViewController {
         header.textLabel?.textColor = .systemBlue
         header.backgroundView = view
         
+    }
+}
+
+extension RelayMyInfoViewController {
+    @objc private func deleteAccountView(){
+        
+        let vc = RelayDeleteAccountViewController()
+        vc.title = "회원탈퇴"
+        
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
