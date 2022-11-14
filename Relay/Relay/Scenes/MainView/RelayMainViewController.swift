@@ -31,7 +31,7 @@ class RelayMainViewController: UIViewController {
         
         return imageView
     }()
-
+    
     private let animationView: UIView = {
         let view = UIView()
         view.frame = CGRect(x: 50, y: 100, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
@@ -50,7 +50,9 @@ class RelayMainViewController: UIViewController {
         
         button.layer.cornerRadius = 8
         
-        button.isEnabled = false
+        button.isEnabled = true
+        
+        button.addTarget(self, action: #selector(goToWritingView), for: .touchUpInside)
         
         return button
     }()
@@ -63,12 +65,21 @@ class RelayMainViewController: UIViewController {
         setupLayout()
     }
     
+    @objc
+    func goToWritingView(_ sender: UIButton!) {
+        let vc = RelayWritingViewController()
+        
+        print("button clicked!")
+        vc.modalPresentationStyle = UIModalPresentationStyle.fullScreen
+        present(vc, animated: true, completion: nil)
+    }
+    
     private func setupLayout() {
         [
             titleLabel,
             bellImageView,
             animationView
-
+            
         ].forEach { view.addSubview($0) }
         
         animationView.addSubview(submitButton)
