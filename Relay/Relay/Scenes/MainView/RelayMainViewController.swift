@@ -9,7 +9,7 @@ import SwiftUI
 import UIKit
 import SnapKit
 
-class RelayMainHostingController: UIViewController {
+class RelayMainViewController: UIViewController {
     
     private let titleLabel: UILabel = {
         let label = UILabel()
@@ -42,7 +42,7 @@ class RelayMainHostingController: UIViewController {
     
     private lazy var submitButton: UIButton = {
         let button = UIButton()
-        button.setTitle("확인", for: .normal)
+        button.setTitle("릴레이 시작하기", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = .boldSystemFont(ofSize: 17)
         
