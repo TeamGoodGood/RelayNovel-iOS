@@ -25,7 +25,7 @@ class RelayBrowsingViewController: UIViewController, UICollectionViewDelegate {
         image: UIImage(systemName: "bell"),
         style: .plain,
         target: self,
-        action: nil
+        action: #selector(touchNoticeButton)
     )
     
     //TODO: develop 브랜치에 merge 후 leftBarItem의 UIImage 크기조절 필요
@@ -247,5 +247,11 @@ extension RelayBrowsingViewController {
         modalViewController.delegate = self
         
         present(modalViewController, animated: true)
+    }
+    
+    @objc private func touchNoticeButton() {
+        let noticeViewController = RelayNoticeViewController()
+        
+        navigationController?.pushViewController(noticeViewController, animated: true)
     }
 }
