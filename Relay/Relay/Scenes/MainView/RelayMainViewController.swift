@@ -21,15 +21,15 @@ class RelayMainViewController: UIViewController {
         return label
     }()
     
-    private let bellImageView: UIImageView = {
-        let imageView = UIImageView()
+    private let bellButton: UIButton = {
+        let button = UIButton()
         let config = UIImage.SymbolConfiguration(pointSize: 22)
         let image = UIImage(systemName: "bell", withConfiguration: config)
         
-        imageView.image = image
-        imageView.tintColor = UIColor.relayBlack
+        button.setImage(image, for: .normal)
+        button.tintColor = .relayBlack
         
-        return imageView
+        return button
     }()
     
     private let animationView: UIView = {
@@ -76,7 +76,7 @@ class RelayMainViewController: UIViewController {
     private func setupLayout() {
         [
             titleLabel,
-            bellImageView,
+            bellButton,
             animationView
             
         ].forEach { view.addSubview($0) }
@@ -87,7 +87,7 @@ class RelayMainViewController: UIViewController {
             $0.top.equalToSuperview().inset(65.0)
             $0.leading.equalToSuperview().inset(20.0)
         }
-        bellImageView.snp.makeConstraints {
+        bellButton.snp.makeConstraints {
             $0.top.equalTo(titleLabel.snp.top)
             $0.trailing.equalToSuperview().inset(20.0)
         }
