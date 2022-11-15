@@ -64,6 +64,9 @@ class RelayMainViewController: UIViewController {
         
         setupLayout()
     }
+}
+
+extension RelayMainViewController {
     
     @objc
     func goToWritingView(_ sender: UIButton!) {
@@ -114,4 +117,5 @@ class RelayMainViewController: UIViewController {
         addChild(hostingController)
         animationView.addSubview(hostingController.view)
     }
+    
 }
