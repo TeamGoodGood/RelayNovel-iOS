@@ -17,6 +17,7 @@ class RelayWritingViewController: UIViewController, UICollectionViewDelegate {
         
         button.setImage(image: image!)
         button.tintColor = .relayBlack
+        button.addTarget(self, action: #selector(dissmissViewController), for: .touchUpInside)
         
         return button
     }()
@@ -238,6 +239,12 @@ class RelayWritingViewController: UIViewController, UICollectionViewDelegate {
 }
 
 extension RelayWritingViewController {
+    
+    @objc
+    func dissmissViewController() {
+        self.presentingViewController?.dismiss(animated: false, completion:nil)
+    }
+    
     @objc
     func keyboardUp(notification:NSNotification) {
         guard let userInfo = notification.userInfo else { return }
