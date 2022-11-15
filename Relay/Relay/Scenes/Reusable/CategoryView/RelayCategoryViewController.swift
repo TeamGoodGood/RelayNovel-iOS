@@ -138,7 +138,12 @@ extension RelayCategoryViewController {
     }
     
     @objc private func dismissViewController() {
-        delegate?.didApplyCategory(selectedCategory: selectedCategory ?? "전체")
+        if let selectedCategory = self.selectedCategory {
+            delegate?.didApplyCategory(selectedCategory: selectedCategory)
+        } else {
+            delegate?.didApplyCategory(selectedCategory: categoryList.first ?? "")
+        }
+        
         dismiss(animated: true)
     }
 }
