@@ -29,6 +29,7 @@
 		32F835362911008400E2CC4A /* Extension+UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F835352911008400E2CC4A /* Extension+UIButton.swift */; };
 		32F8354029114F0E00E2CC4A /* RelayAgreementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F8353F29114F0E00E2CC4A /* RelayAgreementViewController.swift */; };
 		32F835422911571B00E2CC4A /* Extension+UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F835412911571B00E2CC4A /* Extension+UIImage.swift */; };
+		3D3AB257E86075B70A2B1C3F /* Pods_Relay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FD2FD4C407450F5150A3655 /* Pods_Relay.framework */; };
 		556F3091290F9A09005D7AF4 /* RelayNonLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556F3090290F9A09005D7AF4 /* RelayNonLoginView.swift */; };
 		556F3093290FA59A005D7AF4 /* Extension+UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556F3092290FA59A005D7AF4 /* Extension+UILabel.swift */; };
 		556F309729102F83005D7AF4 /* RelayListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556F309629102F83005D7AF4 /* RelayListView.swift */; };
@@ -45,7 +46,6 @@
 		55745FC6291B9B9F00414462 /* RelayReadingFinishFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55745FC5291B9B9F00414462 /* RelayReadingFinishFooterView.swift */; };
 		55745FE2291CCBDC00414462 /* RelayMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55745FDF291CCBDC00414462 /* RelayMainViewController.swift */; };
 		55745FE3291CCBDC00414462 /* PageAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55745FE1291CCBDC00414462 /* PageAnimationView.swift */; };
-		55745FE6291CD93300414462 /* NetworkFiles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55745FE5291CD93300414462 /* NetworkFiles.swift */; };
 		55867E0C29123C8500C79FFC /* Extension+CALayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55867E0B29123C8500C79FFC /* Extension+CALayer.swift */; };
 		55867E1129128C7400C79FFC /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55867E1029128C7400C79FFC /* TabBarController.swift */; };
 		55867E152912B7DA00C79FFC /* Extension+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55867E142912B7DA00C79FFC /* Extension+UIColor.swift */; };
@@ -60,6 +60,20 @@
 		55FDCEB3290A6440000AB345 /* RelayProfileUserInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FDCEB2290A6440000AB345 /* RelayProfileUserInfoView.swift */; };
 		55FDCEB5290A711C000AB345 /* RelayProfileUserActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FDCEB4290A711C000AB345 /* RelayProfileUserActivityView.swift */; };
 		55FDCEB7290ABB0C000AB345 /* RelayUserActivityCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FDCEB6290ABB0C000AB345 /* RelayUserActivityCollectionViewCell.swift */; };
+		73741CA7291D360500E7F765 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73741CA6291D360500E7F765 /* APIConstants.swift */; };
+		73741CA9291D363100E7F765 /* StoryAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73741CA8291D363100E7F765 /* StoryAPI.swift */; };
+		73741CAB291D364C00E7F765 /* RelayAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73741CAA291D364C00E7F765 /* RelayAPI.swift */; };
+		73741CAD291D365B00E7F765 /* UserAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73741CAC291D365B00E7F765 /* UserAPI.swift */; };
+		73741CAF291D366700E7F765 /* LoginAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73741CAE291D366700E7F765 /* LoginAPI.swift */; };
+		73741CB1291D367500E7F765 /* RecommendAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73741CB0291D367500E7F765 /* RecommendAPI.swift */; };
+		73741CB3291D368100E7F765 /* NoticeAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73741CB2291D368100E7F765 /* NoticeAPI.swift */; };
+		73741CB5291D369C00E7F765 /* AuthPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73741CB4291D369C00E7F765 /* AuthPlugin.swift */; };
+		73741CB7291D370500E7F765 /* Story.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73741CB6291D370500E7F765 /* Story.swift */; };
+		73741CB9291D371100E7F765 /* Relay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73741CB8291D371100E7F765 /* Relay.swift */; };
+		73741CBB291D379C00E7F765 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73741CBA291D379C00E7F765 /* User.swift */; };
+		73741CBD291D37A500E7F765 /* Recommend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73741CBC291D37A500E7F765 /* Recommend.swift */; };
+		73741CBF291D37AF00E7F765 /* Notice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73741CBE291D37AF00E7F765 /* Notice.swift */; };
+		73741CC429215A5800E7F765 /* AccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73741CC329215A5800E7F765 /* AccountManager.swift */; };
 		B533AB4929183A4400B73867 /* RelayMyInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B533AB4829183A4400B73867 /* RelayMyInfoViewController.swift */; };
 		B533AB4B2918ACD100B73867 /* RelayAboutRelayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B533AB4A2918ACD100B73867 /* RelayAboutRelayViewController.swift */; };
 		B533AB522919FB8400B73867 /* RelayAboutRelayDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B533AB512919FB8400B73867 /* RelayAboutRelayDescriptionView.swift */; };
@@ -101,6 +115,7 @@
 		32F835352911008400E2CC4A /* Extension+UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIButton.swift"; sourceTree = "<group>"; };
 		32F8353F29114F0E00E2CC4A /* RelayAgreementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayAgreementViewController.swift; sourceTree = "<group>"; };
 		32F835412911571B00E2CC4A /* Extension+UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIImage.swift"; sourceTree = "<group>"; };
+		4FD2FD4C407450F5150A3655 /* Pods_Relay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Relay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		556F3090290F9A09005D7AF4 /* RelayNonLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayNonLoginView.swift; sourceTree = "<group>"; };
 		556F3092290FA59A005D7AF4 /* Extension+UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UILabel.swift"; sourceTree = "<group>"; };
 		556F309629102F83005D7AF4 /* RelayListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayListView.swift; sourceTree = "<group>"; };
@@ -119,7 +134,6 @@
 		55745FD9291CCA8600414462 /* PageAnimationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageAnimationView.swift; sourceTree = "<group>"; };
 		55745FDF291CCBDC00414462 /* RelayMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RelayMainViewController.swift; sourceTree = "<group>"; };
 		55745FE1291CCBDC00414462 /* PageAnimationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageAnimationView.swift; sourceTree = "<group>"; };
-		55745FE5291CD93300414462 /* NetworkFiles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkFiles.swift; sourceTree = "<group>"; };
 		55867E0B29123C8500C79FFC /* Extension+CALayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+CALayer.swift"; sourceTree = "<group>"; };
 		55867E1029128C7400C79FFC /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		55867E142912B7DA00C79FFC /* Extension+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIColor.swift"; sourceTree = "<group>"; };
@@ -133,6 +147,21 @@
 		55FDCEB2290A6440000AB345 /* RelayProfileUserInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayProfileUserInfoView.swift; sourceTree = "<group>"; };
 		55FDCEB4290A711C000AB345 /* RelayProfileUserActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayProfileUserActivityView.swift; sourceTree = "<group>"; };
 		55FDCEB6290ABB0C000AB345 /* RelayUserActivityCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayUserActivityCollectionViewCell.swift; sourceTree = "<group>"; };
+		73741CA6291D360500E7F765 /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
+		73741CA8291D363100E7F765 /* StoryAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryAPI.swift; sourceTree = "<group>"; };
+		73741CAA291D364C00E7F765 /* RelayAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayAPI.swift; sourceTree = "<group>"; };
+		73741CAC291D365B00E7F765 /* UserAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPI.swift; sourceTree = "<group>"; };
+		73741CAE291D366700E7F765 /* LoginAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAPI.swift; sourceTree = "<group>"; };
+		73741CB0291D367500E7F765 /* RecommendAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendAPI.swift; sourceTree = "<group>"; };
+		73741CB2291D368100E7F765 /* NoticeAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeAPI.swift; sourceTree = "<group>"; };
+		73741CB4291D369C00E7F765 /* AuthPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthPlugin.swift; sourceTree = "<group>"; };
+		73741CB6291D370500E7F765 /* Story.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Story.swift; sourceTree = "<group>"; };
+		73741CB8291D371100E7F765 /* Relay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Relay.swift; sourceTree = "<group>"; };
+		73741CBA291D379C00E7F765 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		73741CBC291D37A500E7F765 /* Recommend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recommend.swift; sourceTree = "<group>"; };
+		73741CBE291D37AF00E7F765 /* Notice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notice.swift; sourceTree = "<group>"; };
+		73741CC329215A5800E7F765 /* AccountManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountManager.swift; sourceTree = "<group>"; };
+		862A1BB22438CA7E571849AE /* Pods-Relay.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Relay.debug.xcconfig"; path = "Target Support Files/Pods-Relay/Pods-Relay.debug.xcconfig"; sourceTree = "<group>"; };
 		B533AB4829183A4400B73867 /* RelayMyInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayMyInfoViewController.swift; sourceTree = "<group>"; };
 		B533AB4A2918ACD100B73867 /* RelayAboutRelayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayAboutRelayViewController.swift; sourceTree = "<group>"; };
 		B533AB512919FB8400B73867 /* RelayAboutRelayDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayAboutRelayDescriptionView.swift; sourceTree = "<group>"; };
@@ -147,6 +176,7 @@
 		B5C0B51E2911858800077B5F /* RelayThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayThirdViewController.swift; sourceTree = "<group>"; };
 		B5C0B5242914D8BA00077B5F /* RelaySettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelaySettingViewController.swift; sourceTree = "<group>"; };
 		B5C0B52A2916A9FA00077B5F /* RelaySettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelaySettingTableViewCell.swift; sourceTree = "<group>"; };
+		BB3686570FE66E0630031A1E /* Pods-Relay.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Relay.release.xcconfig"; path = "Target Support Files/Pods-Relay/Pods-Relay.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +186,7 @@
 			files = (
 				32517E422913E25C005E0F69 /* SwiftUIPager in Frameworks */,
 				55FDCEAF290A5667000AB345 /* SnapKit in Frameworks */,
+				3D3AB257E86075B70A2B1C3F /* Pods_Relay.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -201,6 +232,7 @@
 				3265BA28290925DD00532CA4 /* Relay */,
 				3265BA27290925DD00532CA4 /* Products */,
 				55FDCEAB290A55FF000AB345 /* Frameworks */,
+				C868A3C7606A7AB62D7DFE0C /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -217,6 +249,7 @@
 			children = (
 				3265BA29290925DD00532CA4 /* AppDelegate.swift */,
 				3265BA2B290925DD00532CA4 /* SceneDelegate.swift */,
+				55745FE7291CD93B00414462 /* Network */,
 				55745FE8291CDA4D00414462 /* Model */,
 				55745FE4291CD7F700414462 /* Scenes */,
 				32F83525290FECB700E2CC4A /* Font */,
@@ -433,7 +466,15 @@
 		55745FE7291CD93B00414462 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				55745FE5291CD93300414462 /* NetworkFiles.swift */,
+				73741CA6291D360500E7F765 /* APIConstants.swift */,
+				73741CA8291D363100E7F765 /* StoryAPI.swift */,
+				73741CAA291D364C00E7F765 /* RelayAPI.swift */,
+				73741CAC291D365B00E7F765 /* UserAPI.swift */,
+				73741CAE291D366700E7F765 /* LoginAPI.swift */,
+				73741CB0291D367500E7F765 /* RecommendAPI.swift */,
+				73741CB2291D368100E7F765 /* NoticeAPI.swift */,
+				73741CB4291D369C00E7F765 /* AuthPlugin.swift */,
+				73741CC329215A5800E7F765 /* AccountManager.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -441,7 +482,11 @@
 		55745FE8291CDA4D00414462 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				55745FE7291CD93B00414462 /* Network */,
+				73741CB6291D370500E7F765 /* Story.swift */,
+				73741CB8291D371100E7F765 /* Relay.swift */,
+				73741CBA291D379C00E7F765 /* User.swift */,
+				73741CBC291D37A500E7F765 /* Recommend.swift */,
+				73741CBE291D37AF00E7F765 /* Notice.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -483,6 +528,7 @@
 		55FDCEAB290A55FF000AB345 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4FD2FD4C407450F5150A3655 /* Pods_Relay.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -520,6 +566,15 @@
 			path = SettingView;
 			sourceTree = "<group>";
 		};
+		C868A3C7606A7AB62D7DFE0C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				862A1BB22438CA7E571849AE /* Pods-Relay.debug.xcconfig */,
+				BB3686570FE66E0630031A1E /* Pods-Relay.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -527,9 +582,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3265BA3A290925DE00532CA4 /* Build configuration list for PBXNativeTarget "Relay" */;
 			buildPhases = (
+				C38B3457969448C1826ABCA2 /* [CP] Check Pods Manifest.lock */,
 				3265BA22290925DD00532CA4 /* Sources */,
 				3265BA23290925DD00532CA4 /* Frameworks */,
 				3265BA24290925DD00532CA4 /* Resources */,
+				7AB5D9DE59A16C59A9371436 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -594,6 +651,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		7AB5D9DE59A16C59A9371436 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Relay/Pods-Relay-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Relay/Pods-Relay-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Relay/Pods-Relay-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C38B3457969448C1826ABCA2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Relay-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		3265BA22290925DD00532CA4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -607,9 +706,9 @@
 				B5C0B51F2911858800077B5F /* RelayThirdViewController.swift in Sources */,
 				32DE2B0F291A4729005D1A85 /* EventCollectionViewCell.swift in Sources */,
 				B5C0B51B29117E2800077B5F /* RelaySecondViewController.swift in Sources */,
+				73741CB3291D368100E7F765 /* NoticeAPI.swift in Sources */,
 				32464EB3291B808800BDAB7C /* RelayNoticeViewController.swift in Sources */,
 				B5C0B4BD290F7C9A00077B5F /* RelayOnboardingViewController.swift in Sources */,
-				55745FE6291CD93300414462 /* NetworkFiles.swift in Sources */,
 				B5C0B51D2911854900077B5F /* RelayFirstViewController.swift in Sources */,
 				55745F352919340700414462 /* RelayReadingViewController.swift in Sources */,
 				32F835422911571B00E2CC4A /* Extension+UIImage.swift in Sources */,
@@ -617,7 +716,11 @@
 				55FDCEB1290A5DB2000AB345 /* RelayProfileViewController.swift in Sources */,
 				32DE2B0629164291005D1A85 /* RelayWritingViewController.swift in Sources */,
 				B533AB4B2918ACD100B73867 /* RelayAboutRelayViewController.swift in Sources */,
+				73741CAB291D364C00E7F765 /* RelayAPI.swift in Sources */,
+				73741CA7291D360500E7F765 /* APIConstants.swift in Sources */,
+				73741CBD291D37A500E7F765 /* Recommend.swift in Sources */,
 				32F8354029114F0E00E2CC4A /* RelayAgreementViewController.swift in Sources */,
+				73741CBB291D379C00E7F765 /* User.swift in Sources */,
 				B533AB5A291AA53D00B73867 /* RelayDeleteAccountViewController.swift in Sources */,
 				55FDCEB7290ABB0C000AB345 /* RelayUserActivityCollectionViewCell.swift in Sources */,
 				556F309B29117E1F005D7AF4 /* RelayListCollectionViewCell.swift in Sources */,
@@ -630,8 +733,14 @@
 				32DE2B15291A9DA3005D1A85 /* TouchCollectionViewCell.swift in Sources */,
 				B533AB5E291AC52100B73867 /* RelayDeleteAccountAgreementView.swift in Sources */,
 				3265BA2A290925DD00532CA4 /* AppDelegate.swift in Sources */,
+				73741CAF291D366700E7F765 /* LoginAPI.swift in Sources */,
+				73741CB1291D367500E7F765 /* RecommendAPI.swift in Sources */,
 				55867E1F2914E77100C79FFC /* RelayCategoryViewController.swift in Sources */,
+				73741CB5291D369C00E7F765 /* AuthPlugin.swift in Sources */,
+				73741CBF291D37AF00E7F765 /* Notice.swift in Sources */,
+				73741CAD291D365B00E7F765 /* UserAPI.swift in Sources */,
 				55867E192913AC8D00C79FFC /* RelayBrowsingHeaderView.swift in Sources */,
+				73741CB9291D371100E7F765 /* Relay.swift in Sources */,
 				55745FC6291B9B9F00414462 /* RelayReadingFinishFooterView.swift in Sources */,
 				55745F3F2919446D00414462 /* ReadingBodyView.swift in Sources */,
 				55867E1129128C7400C79FFC /* TabBarController.swift in Sources */,
@@ -650,6 +759,8 @@
 				B533AB522919FB8400B73867 /* RelayAboutRelayDescriptionView.swift in Sources */,
 				B5C0B52B2916A9FA00077B5F /* RelaySettingTableViewCell.swift in Sources */,
 				32464EB9291B99E400BDAB7C /* Extension+UIViewController.swift in Sources */,
+				73741CB7291D370500E7F765 /* Story.swift in Sources */,
+				73741CC429215A5800E7F765 /* AccountManager.swift in Sources */,
 				55745FE3291CCBDC00414462 /* PageAnimationView.swift in Sources */,
 				556F3093290FA59A005D7AF4 /* Extension+UILabel.swift in Sources */,
 				55867E0C29123C8500C79FFC /* Extension+CALayer.swift in Sources */,
@@ -660,6 +771,7 @@
 				556F3091290F9A09005D7AF4 /* RelayNonLoginView.swift in Sources */,
 				3265BA2C290925DD00532CA4 /* SceneDelegate.swift in Sources */,
 				3201622E2912A7950054803C /* RelayPenNameViewController.swift in Sources */,
+				73741CA9291D363100E7F765 /* StoryAPI.swift in Sources */,
 				329918A0290A5D8800372C13 /* RelayLoginViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -794,6 +906,7 @@
 		};
 		3265BA3B290925DE00532CA4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 862A1BB22438CA7E571849AE /* Pods-Relay.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -828,6 +941,7 @@
 		};
 		3265BA3C290925DE00532CA4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BB3686570FE66E0630031A1E /* Pods-Relay.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

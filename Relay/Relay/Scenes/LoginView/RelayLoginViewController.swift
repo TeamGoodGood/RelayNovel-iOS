@@ -8,6 +8,7 @@
 import UIKit
 import SnapKit
 import AuthenticationServices
+import RxSwift
 
 class RelayLoginViewController: UIViewController {
     
@@ -175,18 +176,33 @@ class RelayLoginViewController: UIViewController {
 
 
 extension RelayLoginViewController : ASAuthorizationControllerDelegate {
-    func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
-        if let credential = authorization.credential as? ASAuthorizationAppleIDCredential {
-            let user = credential.user
-            print("💁🏻‍♂️ \(user)")
-            if let email = credential.email {
-                print("📧 \(email)")
-            }
+    
+    func authorizationController(controller _: ASAuthorizationController,
+                                 didCompleteWithAuthorization authorization: ASAuthorization)
+    {
+        Task {
+            await loginWithApple(successResult: authorization)
         }
     }
 
-    // 오류 처리
     func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
         print("error \(error)")
+    }
+
+    private func loginWithApple(successResult: ASAuthorization) async {
+        guard let credential = successResult.credential as? ASAuthorizationAppleIDCredential,
+        let tokenData = credential.identityToken,
+        let token = String(data: tokenData, encoding: .utf8)
+        else {
+            print("error")
+            return
+        }
+        do {
+            try await LoginAPI.appleLogin(token: token)
+            let loginResponse = LoginResponse(token: token, userId: credential.user)
+            AccountManager.login(disposeBag: DisposeBag(), loginResponse, autologin: true)
+        } catch {
+            print("error")
+        }
     }
 }
