@@ -239,7 +239,8 @@ extension RelayBrowsingViewController {
     }
     
     @objc private func touchListFilterButton() {
-        let modalViewController = RelayCategoryViewController()
+        let list = ["전체", "로맨스", "스릴러/공포", "판타지", "SF", "추리", "무협", "시대극", "일반", "기타"]
+        let modalViewController = RelayCategoryViewController(list: list)
         
         modalViewController.fetchSelectedCateogry(selectedCategory)
         modalViewController.modalPresentationStyle = .custom
