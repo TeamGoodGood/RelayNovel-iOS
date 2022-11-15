@@ -10,12 +10,10 @@ import SnapKit
 
 class RelayListView: UIView {
     var listHeaderView: RelayListHeaderView?
-    private lazy var listCollectionView: UICollectionView = {
+    lazy var listCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         
-        collectionView.delegate = self
-        collectionView.dataSource = self
         collectionView.register(RelayListCollectionViewCell.self, forCellWithReuseIdentifier: RelayListCollectionViewCell.id)
         
         return collectionView
@@ -31,33 +29,6 @@ class RelayListView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-}
-
-extension RelayListView: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = collectionView.frame.width
-        let height = 118.0
-        
-        return CGSize(width: width, height: height)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        0.0
-    }
-}
-
-extension RelayListView: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        4
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RelayListCollectionViewCell.id, for: indexPath) as? RelayListCollectionViewCell else { return UICollectionViewCell() }
-        cell.configure(indexPath.row)
-        
-        return cell
-    }
-
 }
 
 extension RelayListView {

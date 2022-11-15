@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class RelayBrowsingViewController: UIViewController {
+class RelayBrowsingViewController: UIViewController, UICollectionViewDelegate {
     private var selectedCategory: String?
     
     private var currentHighlightedButton: ButtonName? {
@@ -25,7 +25,7 @@ class RelayBrowsingViewController: UIViewController {
         image: UIImage(systemName: "bell"),
         style: .plain,
         target: self,
-        action: nil
+        action: #selector(touchNoticeButton)
     )
     
     //TODO: develop 브랜치에 merge 후 leftBarItem의 UIImage 크기조절 필요
@@ -42,6 +42,9 @@ class RelayBrowsingViewController: UIViewController {
         view.backgroundColor = .systemBackground
         
         currentHighlightedButton = .entire
+        
+        relayListView.listCollectionView.delegate = self
+        relayListView.listCollectionView.dataSource = self
         
         setNavigationBar()
         setupButtonMethod()
@@ -65,6 +68,40 @@ extension RelayBrowsingViewController: RelayCategoryDelegate {
             relayListView.listHeaderView?.listFilterButton.setTitle(selectedCategory, for: .normal)
         }
     }
+}
+
+extension RelayBrowsingViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = collectionView.frame.width
+        let height = 118.0
+        
+        return CGSize(width: width, height: height)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        0.0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("tapped \(indexPath.row) cell")
+        let readingViewController = RelayReadingViewController()
+        
+        navigationController?.pushViewController(readingViewController, animated: true)
+    }
+}
+
+extension RelayBrowsingViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        4
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RelayListCollectionViewCell.id, for: indexPath) as? RelayListCollectionViewCell else { return UICollectionViewCell() }
+        cell.configure(indexPath.row)
+        
+        return cell
+    }
+
 }
 
 extension RelayBrowsingViewController {
@@ -210,5 +247,11 @@ extension RelayBrowsingViewController {
         modalViewController.delegate = self
         
         present(modalViewController, animated: true)
+    }
+    
+    @objc private func touchNoticeButton() {
+        let noticeViewController = RelayNoticeViewController()
+        
+        navigationController?.pushViewController(noticeViewController, animated: true)
     }
 }
