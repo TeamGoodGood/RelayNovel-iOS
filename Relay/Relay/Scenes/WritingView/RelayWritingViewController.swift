@@ -9,6 +9,7 @@ import UIKit
 import SnapKit
 
 class RelayWritingViewController: UIViewController, UICollectionViewDelegate {
+    private var selectedCategory: String?
     
     private let closeButton: UIButton = {
         let button = UIButton(type: .custom)
@@ -51,6 +52,8 @@ class RelayWritingViewController: UIViewController, UICollectionViewDelegate {
         button.semanticContentAttribute = .forceLeftToRight
         button.imageEdgeInsets = .init(top: 0, left: 20, bottom: 0, right: 0)
         button.titleEdgeInsets = .init(top: 0, left: 28, bottom: 0, right: 0)
+        
+        button.addTarget(self, action: #selector(touchMusicListButton), for: .touchUpInside)
         
         return button
     }()
@@ -238,6 +241,22 @@ class RelayWritingViewController: UIViewController, UICollectionViewDelegate {
     }
 }
 
+extension RelayWritingViewController: UIViewControllerTransitioningDelegate {
+    func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
+        CategoryModalPresentationController(presentedViewController: presented, presenting: presenting)
+        }
+}
+
+extension RelayWritingViewController: RelayCategoryDelegate {
+    func didApplyCategory(selectedCategory: String) {
+        self.selectedCategory = selectedCategory
+        
+        if let selectedPlaylist = self.selectedCategory {
+            musicListButton.setTitle(selectedPlaylist, for: .normal)
+        }
+    }
+}
+
 extension RelayWritingViewController {
     
     @objc
@@ -332,6 +351,19 @@ extension RelayWritingViewController {
                 }
             }
         }
+    }
+    
+    @objc func touchMusicListButton() {
+        let list = ["플레이리스트1", "플레이리스트2", "플레이리스트3", "플레이리스트4", "플레이리스트5", "플레이리스트6", "플레이리스트7", "플레이리스트8", "플레이리스트9", "플레이리스트10"]
+        
+        let modalViewController = RelayCategoryViewController(list: list)
+        
+        modalViewController.fetchSelectedCateogry(selectedCategory)
+        modalViewController.modalPresentationStyle = .custom
+        modalViewController.transitioningDelegate = self
+        modalViewController.delegate = self
+        
+        present(modalViewController, animated: true)
     }
     
     private func updateCountLabel(characterCount: Int) {
