@@ -10,7 +10,7 @@ import SnapKit
 
 // TODO: 플레이리스트 모달로도 재사용 가능하도록 리팩토링 필요
 class RelayCategoryViewController: UIViewController {
-    private let categoryList = ["전체", "로맨스", "스릴러/공포", "판타지", "SF", "추리", "무협", "시대극", "일반", "기타"]
+    var categoryList: [String]
     private var selectedCategory: String?
     
     weak var delegate: RelayCategoryDelegate?
@@ -31,7 +31,7 @@ class RelayCategoryViewController: UIViewController {
         
         var titleAttribute = AttributedString("적용하기")
         titleAttribute.font = .systemFont(ofSize: 16.0, weight: .bold)
-        titleAttribute.foregroundColor = .white
+        titleAttribute.foregroundColor = UIColor.white
         
         button.setAttributedTitle(NSAttributedString(titleAttribute), for: .normal)
         button.titleEdgeInsets = UIEdgeInsets(top: -11.0, left: 0.0, bottom: 11.0, right: 0.0)
@@ -41,6 +41,16 @@ class RelayCategoryViewController: UIViewController {
         
         return button
     }()
+    
+    init(list: [String]) {
+        categoryList = list
+        
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,7 +79,7 @@ extension RelayCategoryViewController: UICollectionViewDelegateFlowLayout {
 
 extension RelayCategoryViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        10
+        categoryList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -128,7 +138,12 @@ extension RelayCategoryViewController {
     }
     
     @objc private func dismissViewController() {
-        delegate?.didApplyCategory(selectedCategory: selectedCategory ?? "전체")
+        if let selectedCategory = self.selectedCategory {
+            delegate?.didApplyCategory(selectedCategory: selectedCategory)
+        } else {
+            delegate?.didApplyCategory(selectedCategory: categoryList.first ?? "")
+        }
+        
         dismiss(animated: true)
     }
 }
