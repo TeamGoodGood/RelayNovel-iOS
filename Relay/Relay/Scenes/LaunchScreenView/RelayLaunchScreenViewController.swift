@@ -24,6 +24,7 @@ class RelayLaunchScreenViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         backGroundGradient()
+        setupLayout()
     }
 }
 
@@ -33,5 +34,15 @@ extension RelayLaunchScreenViewController{
         gradient.colors = [UIColor.relayPink3.cgColor, UIColor.relayPink1.cgColor]
         
         view.layer.insertSublayer(gradient, at: 0)
+    }
+    private func setupLayout() {
+        [
+            launchScreenLabel
+        ].forEach { view.addSubview($0) }
+        
+        launchScreenLabel.snp.makeConstraints {
+            $0.centerX.equalToSuperview()
+            $0.centerY.equalToSuperview()
+        }
     }
 }
