@@ -11,13 +11,15 @@ import SnapKit
 
 class RelayMainViewController: UIViewController {
     
+    //TODO: 알람이 있을때 이미지 변경 필요
     private lazy var noticeButton = UIBarButtonItem(
         image: UIImage(systemName: "bell"),
         style: .plain,
         target: self,
-        action: #selector(goToWritingView)
+        action: #selector(goToNoticeView)
     )
     
+    //TODO: 이미지 크기 변경 필요
     private lazy var logoButton = UIBarButtonItem(
         image: UIImage(named: "RelayLogo"),
         style: .plain,
@@ -66,6 +68,13 @@ extension RelayMainViewController {
         
         navigationItem.leftBarButtonItem = logoButton
         navigationItem.rightBarButtonItem = noticeButton
+    }
+    
+    @objc
+    private func goToNoticeView() {
+        let noticeViewController = RelayNoticeViewController()
+        
+        navigationController?.pushViewController(noticeViewController, animated: true)
     }
     
     @objc
