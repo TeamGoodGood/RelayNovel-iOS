@@ -11,26 +11,19 @@ import SnapKit
 
 class RelayMainViewController: UIViewController {
     
-    private let titleLabel: UILabel = {
-        let label = UILabel()
-        
-        label.text = "릴레이"
-        label.textColor = UIColor.relayPink1
-        label.font = UIFont(name: "CWDangamAsac-Bold", size: 20.0)
-        
-        return label
-    }()
+    private lazy var noticeButton = UIBarButtonItem(
+        image: UIImage(systemName: "bell"),
+        style: .plain,
+        target: self,
+        action: #selector(goToWritingView)
+    )
     
-    private let bellButton: UIButton = {
-        let button = UIButton()
-        let config = UIImage.SymbolConfiguration(pointSize: 22)
-        let image = UIImage(systemName: "bell", withConfiguration: config)
-        
-        button.setImage(image, for: .normal)
-        button.tintColor = .relayBlack
-        
-        return button
-    }()
+    private lazy var logoButton = UIBarButtonItem(
+        image: UIImage(named: "RelayLogo"),
+        style: .plain,
+        target: self,
+        action: nil
+    )
     
     private let animationView: UIView = {
         let view = UIView()
@@ -61,12 +54,19 @@ class RelayMainViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         self.addAnimationView()
-        
+        setNavigationBar()
         setupLayout()
     }
 }
 
 extension RelayMainViewController {
+    private func setNavigationBar() {
+        noticeButton.tintColor = .relayBlack
+        logoButton.tintColor = .relayPink1
+        
+        navigationItem.leftBarButtonItem = logoButton
+        navigationItem.rightBarButtonItem = noticeButton
+    }
     
     @objc
     func goToWritingView(_ sender: UIButton!) {
@@ -78,24 +78,13 @@ extension RelayMainViewController {
     
     private func setupLayout() {
         [
-            titleLabel,
-            bellButton,
             animationView
             
         ].forEach { view.addSubview($0) }
-        
         animationView.addSubview(submitButton)
         
-        titleLabel.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(65.0)
-            $0.leading.equalToSuperview().inset(20.0)
-        }
-        bellButton.snp.makeConstraints {
-            $0.top.equalTo(titleLabel.snp.top)
-            $0.trailing.equalToSuperview().inset(20.0)
-        }
         animationView.snp.makeConstraints {
-            $0.top.equalTo(titleLabel.snp.bottom).offset(30.0)
+            $0.top.equalToSuperview().inset(120.0)
             $0.leading.equalToSuperview()
             $0.bottom.equalToSuperview()
             $0.trailing.equalToSuperview()
