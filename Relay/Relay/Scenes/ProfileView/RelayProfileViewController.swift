@@ -52,9 +52,10 @@ extension RelayProfileViewController {
         self.isLogined = isLogined
     }
     
-    //TODO: tappedSettingButton 메소드 동작구현
     @objc func tappedSettingButton() {
-        print("touched SettingButton")
+        let settingViewController = RelaySettingViewController()
+        
+        navigationController?.pushViewController(settingViewController, animated: true)
     }
     
     //TODO: tappedNoticeButton 메소드 동작구현
