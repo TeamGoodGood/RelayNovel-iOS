@@ -58,9 +58,10 @@ extension RelayProfileViewController {
         navigationController?.pushViewController(settingViewController, animated: true)
     }
     
-    //TODO: tappedNoticeButton 메소드 동작구현
     @objc func tappedNoticeButton() {
-        print("touched NoticeButton")
+        let noticeViewController = RelayNoticeViewController()
+        
+        navigationController?.pushViewController(noticeViewController, animated: true)
     }
     
     private func setupLayout() {
