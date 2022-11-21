@@ -83,7 +83,6 @@ extension RelayActivityViewController: UICollectionViewDataSource {
         
         return cell
     }
-
 }
 
 extension RelayActivityViewController {
