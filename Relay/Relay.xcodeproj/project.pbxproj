@@ -57,6 +57,7 @@
 		55867E1F2914E77100C79FFC /* RelayCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55867E1E2914E77100C79FFC /* RelayCategoryViewController.swift */; };
 		55867E212914EB3C00C79FFC /* RelayCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55867E202914EB3C00C79FFC /* RelayCategoryCollectionViewCell.swift */; };
 		55D552FD292B96810013FF5E /* MockRecommend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D552FC292B96810013FF5E /* MockRecommend.swift */; };
+		55D552FF292B9EA20013FF5E /* MockUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D552FE292B9EA20013FF5E /* MockUser.swift */; };
 		55FDCEAF290A5667000AB345 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 55FDCEAE290A5667000AB345 /* SnapKit */; };
 		55FDCEB1290A5DB2000AB345 /* RelayProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FDCEB0290A5DB2000AB345 /* RelayProfileViewController.swift */; };
 		55FDCEB3290A6440000AB345 /* RelayProfileUserInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FDCEB2290A6440000AB345 /* RelayProfileUserInfoView.swift */; };
@@ -147,6 +148,7 @@
 		55867E1E2914E77100C79FFC /* RelayCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayCategoryViewController.swift; sourceTree = "<group>"; };
 		55867E202914EB3C00C79FFC /* RelayCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		55D552FC292B96810013FF5E /* MockRecommend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRecommend.swift; sourceTree = "<group>"; };
+		55D552FE292B9EA20013FF5E /* MockUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockUser.swift; sourceTree = "<group>"; };
 		55FDCEB0290A5DB2000AB345 /* RelayProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayProfileViewController.swift; sourceTree = "<group>"; };
 		55FDCEB2290A6440000AB345 /* RelayProfileUserInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayProfileUserInfoView.swift; sourceTree = "<group>"; };
 		55FDCEB4290A711C000AB345 /* RelayProfileUserActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayProfileUserActivityView.swift; sourceTree = "<group>"; };
@@ -543,6 +545,7 @@
 			isa = PBXGroup;
 			children = (
 				55D552FC292B96810013FF5E /* MockRecommend.swift */,
+				55D552FE292B9EA20013FF5E /* MockUser.swift */,
 			);
 			path = MockData;
 			sourceTree = "<group>";
@@ -748,6 +751,7 @@
 				55FDCEB7290ABB0C000AB345 /* RelayUserActivityCollectionViewCell.swift in Sources */,
 				556F309B29117E1F005D7AF4 /* RelayListCollectionViewCell.swift in Sources */,
 				32DA1B7F29123F7500C6FDC1 /* DetailViewController.swift in Sources */,
+				55D552FF292B9EA20013FF5E /* MockUser.swift in Sources */,
 				55867E1D29142C6700C79FFC /* CategoryModalPresentationController.swift in Sources */,
 				55745F3B291936ED00414462 /* RelayReadingFooterView.swift in Sources */,
 				55745FC4291B7A5F00414462 /* RelayReadingWriteView.swift in Sources */,
