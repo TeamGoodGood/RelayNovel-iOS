@@ -21,7 +21,7 @@ class RelayMainViewController: UIViewController {
     
     //TODO: 이미지 크기 변경 필요
     private lazy var logoButton = UIBarButtonItem(
-        image: UIImage(named: "RelayLogo"),
+        image: UIImage(named: "RelayLogo")?.resize(newWidth: 56),
         style: .plain,
         target: self,
         action: nil
@@ -29,6 +29,7 @@ class RelayMainViewController: UIViewController {
     
     private let animationView: UIView = {
         let view = UIView()
+        
         view.frame = CGRect(x: 50, y: 100, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
         view.backgroundColor = .white
         
@@ -88,7 +89,6 @@ extension RelayMainViewController {
     private func setupLayout() {
         [
             animationView
-            
         ].forEach { view.addSubview($0) }
         animationView.addSubview(submitButton)
         
