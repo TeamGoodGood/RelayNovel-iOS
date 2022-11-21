@@ -29,7 +29,7 @@ struct MockStory {
             bgm: 0,
             like_count: 2,
             step_limit: 20,
-            current_step: 10,
+            current_step: 4,
             finished: false,
             created_time: 202211212100,
             user_liked: true
@@ -59,7 +59,7 @@ struct MockStory {
             bgm: 2,
             like_count: 5,
             step_limit: 30,
-            current_step: 25,
+            current_step: 4,
             finished: false,
             created_time: 202211212300,
             user_liked: false
@@ -89,7 +89,7 @@ struct MockStory {
             bgm: 4,
             like_count: 2,
             step_limit: 20,
-            current_step: 11,
+            current_step: 4,
             finished: false,
             created_time: 202211220100,
             user_liked: true
@@ -104,7 +104,7 @@ struct MockStory {
             bgm: 5,
             like_count: 5,
             step_limit: 10,
-            current_step: 1,
+            current_step: 4,
             finished: false,
             created_time: 202211220200,
             user_liked: true
@@ -119,8 +119,8 @@ struct MockStory {
             bgm: 6,
             like_count: 0,
             step_limit: 20,
-            current_step: 20,
-            finished: true,
+            current_step: 4,
+            finished: false,
             created_time: 202211220300,
             user_liked: false
         )
@@ -134,7 +134,7 @@ struct MockStory {
             bgm: 7,
             like_count: 2,
             step_limit: 20,
-            current_step: 10,
+            current_step: 1,
             finished: false,
             created_time: 202211220400,
             user_liked: false
@@ -149,7 +149,7 @@ struct MockStory {
             bgm: 8,
             like_count: 2,
             step_limit: 20,
-            current_step: 10,
+            current_step: 4,
             finished: false,
             created_time: 202211220500,
             user_liked: true
@@ -164,7 +164,7 @@ struct MockStory {
             bgm: 9,
             like_count: 2,
             step_limit: 20,
-            current_step: 10,
+            current_step: 4,
             finished: false,
             created_time: 202211220600,
             user_liked: true

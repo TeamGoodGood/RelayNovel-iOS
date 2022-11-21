@@ -59,6 +59,7 @@
 		55D552FD292B96810013FF5E /* MockRecommend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D552FC292B96810013FF5E /* MockRecommend.swift */; };
 		55D552FF292B9EA20013FF5E /* MockUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D552FE292B9EA20013FF5E /* MockUser.swift */; };
 		55D55301292BA0480013FF5E /* MockStory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D55300292BA0480013FF5E /* MockStory.swift */; };
+		55D55303292BAB340013FF5E /* MockRelay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D55302292BAB340013FF5E /* MockRelay.swift */; };
 		55FDCEAF290A5667000AB345 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 55FDCEAE290A5667000AB345 /* SnapKit */; };
 		55FDCEB1290A5DB2000AB345 /* RelayProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FDCEB0290A5DB2000AB345 /* RelayProfileViewController.swift */; };
 		55FDCEB3290A6440000AB345 /* RelayProfileUserInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FDCEB2290A6440000AB345 /* RelayProfileUserInfoView.swift */; };
@@ -151,6 +152,7 @@
 		55D552FC292B96810013FF5E /* MockRecommend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRecommend.swift; sourceTree = "<group>"; };
 		55D552FE292B9EA20013FF5E /* MockUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockUser.swift; sourceTree = "<group>"; };
 		55D55300292BA0480013FF5E /* MockStory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockStory.swift; sourceTree = "<group>"; };
+		55D55302292BAB340013FF5E /* MockRelay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRelay.swift; sourceTree = "<group>"; };
 		55FDCEB0290A5DB2000AB345 /* RelayProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayProfileViewController.swift; sourceTree = "<group>"; };
 		55FDCEB2290A6440000AB345 /* RelayProfileUserInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayProfileUserInfoView.swift; sourceTree = "<group>"; };
 		55FDCEB4290A711C000AB345 /* RelayProfileUserActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayProfileUserActivityView.swift; sourceTree = "<group>"; };
@@ -549,6 +551,7 @@
 				55D552FC292B96810013FF5E /* MockRecommend.swift */,
 				55D552FE292B9EA20013FF5E /* MockUser.swift */,
 				55D55300292BA0480013FF5E /* MockStory.swift */,
+				55D55302292BAB340013FF5E /* MockRelay.swift */,
 			);
 			path = MockData;
 			sourceTree = "<group>";
@@ -743,6 +746,7 @@
 				32F835422911571B00E2CC4A /* Extension+UIImage.swift in Sources */,
 				32464EB7291B887D00BDAB7C /* TableCellCustomCell.swift in Sources */,
 				55FDCEB1290A5DB2000AB345 /* RelayProfileViewController.swift in Sources */,
+				55D55303292BAB340013FF5E /* MockRelay.swift in Sources */,
 				32DE2B0629164291005D1A85 /* RelayWritingViewController.swift in Sources */,
 				B533AB4B2918ACD100B73867 /* RelayAboutRelayViewController.swift in Sources */,
 				73741CAB291D364C00E7F765 /* RelayAPI.swift in Sources */,
