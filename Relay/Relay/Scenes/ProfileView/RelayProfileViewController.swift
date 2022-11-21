@@ -12,7 +12,15 @@ class RelayProfileViewController: UIViewController {
     private var isLogined: Bool = false
     
     private lazy var profileUserInfoView = RelayProfileUserInfoView(frame: .zero)
-    private lazy var profileUserActivityView = RelayProfileUserActivityView(frame: .zero)
+    private lazy var profileUserActivityView: RelayProfileUserActivityView = {
+        let relayProfileUserActivityView = RelayProfileUserActivityView()
+        
+        relayProfileUserActivityView.userActivityCollectionView.delegate = self
+        relayProfileUserActivityView.userActivityCollectionView.dataSource = self
+    
+        return relayProfileUserActivityView
+    }()
+    
     private lazy var nonLoginView = RelayNonLoginView(frame: .zero)
     
     private lazy var separatorView: UIView = {
@@ -45,6 +53,34 @@ class RelayProfileViewController: UIViewController {
         checkLoginStatus(true)
         setupLayout()
     }
+}
+
+extension RelayProfileViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = collectionView.frame.width
+        let height = 100.0
+        
+        return CGSize(width: width, height: height)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        //TODO: 세부페이지로 이동 구현
+        print("tapped \(indexPath.row) cell")
+    }
+}
+
+extension RelayProfileViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        3
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RelayUserActivityCollectionViewCell.id, for: indexPath) as? RelayUserActivityCollectionViewCell
+        cell?.configure(indexPath.row, 10)
+        
+        return cell ?? UICollectionViewCell()
+    }
+    
 }
 
 extension RelayProfileViewController {
