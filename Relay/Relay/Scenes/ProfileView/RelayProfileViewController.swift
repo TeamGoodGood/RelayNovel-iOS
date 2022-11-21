@@ -96,7 +96,6 @@ extension RelayProfileViewController: UICollectionViewDataSource {
         
         return cell ?? UICollectionViewCell()
     }
-    
 }
 
 extension RelayProfileViewController {
