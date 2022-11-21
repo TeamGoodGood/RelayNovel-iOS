@@ -19,7 +19,7 @@ class RelayListView: UIView {
         return collectionView
     }()
     
-    init(frame: CGRect, type: ViewType) {
+    init(frame: CGRect, type: ListViewType) {
         super.init(frame: frame)
         
         setRelayListHeaderView(type)
@@ -32,13 +32,6 @@ class RelayListView: UIView {
 }
 
 extension RelayListView {
-    enum ViewType {
-        case browse
-        case started
-        case participated
-        case like
-    }
-    
     private func setupLayout() {
         guard let listHeaderView = listHeaderView else { return }
         
@@ -62,7 +55,7 @@ extension RelayListView {
         }
     }
     
-    private func setRelayListHeaderView(_ viewType: ViewType) {
+    private func setRelayListHeaderView(_ viewType: ListViewType) {
         switch viewType {
         case .browse:
             listHeaderView = RelayListHeaderView(frame: .zero, type: .browse)
@@ -74,4 +67,11 @@ extension RelayListView {
             listHeaderView = RelayListHeaderView(frame: .zero, type: .participated)
         }
     }
+}
+
+enum ListViewType {
+    case browse
+    case started
+    case participated
+    case like
 }

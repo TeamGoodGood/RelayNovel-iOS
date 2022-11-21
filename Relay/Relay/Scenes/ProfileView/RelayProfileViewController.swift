@@ -12,7 +12,15 @@ class RelayProfileViewController: UIViewController {
     private var isLogined: Bool = false
     
     private lazy var profileUserInfoView = RelayProfileUserInfoView(frame: .zero)
-    private lazy var profileUserActivityView = RelayProfileUserActivityView(frame: .zero)
+    private lazy var profileUserActivityView: RelayProfileUserActivityView = {
+        let relayProfileUserActivityView = RelayProfileUserActivityView()
+        
+        relayProfileUserActivityView.userActivityCollectionView.delegate = self
+        relayProfileUserActivityView.userActivityCollectionView.dataSource = self
+    
+        return relayProfileUserActivityView
+    }()
+    
     private lazy var nonLoginView = RelayNonLoginView(frame: .zero)
     
     private lazy var separatorView: UIView = {
@@ -47,19 +55,64 @@ class RelayProfileViewController: UIViewController {
     }
 }
 
+extension RelayProfileViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = collectionView.frame.width
+        let height = 100.0
+        
+        return CGSize(width: width, height: height)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        var type: ListViewType?
+        
+        switch indexPath.row {
+        case 0:
+            type = .started
+        case 1:
+            type = .participated
+        case 2:
+            type = .like
+        default:
+            type = .browse
+        }
+        
+        if let type = type {
+            let activityViewController = RelayActivityViewController(type: type)
+            
+            navigationController?.pushViewController(activityViewController, animated: true)
+        }
+    }
+}
+
+extension RelayProfileViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        3
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RelayUserActivityCollectionViewCell.id, for: indexPath) as? RelayUserActivityCollectionViewCell
+        cell?.configure(indexPath.row, 10)
+        
+        return cell ?? UICollectionViewCell()
+    }
+}
+
 extension RelayProfileViewController {
     func checkLoginStatus(_ isLogined: Bool) {
         self.isLogined = isLogined
     }
     
-    //TODO: tappedSettingButton 메소드 동작구현
     @objc func tappedSettingButton() {
-        print("touched SettingButton")
+        let settingViewController = RelaySettingViewController()
+        
+        navigationController?.pushViewController(settingViewController, animated: true)
     }
     
-    //TODO: tappedNoticeButton 메소드 동작구현
     @objc func tappedNoticeButton() {
-        print("touched NoticeButton")
+        let noticeViewController = RelayNoticeViewController()
+        
+        navigationController?.pushViewController(noticeViewController, animated: true)
     }
     
     private func setupLayout() {
