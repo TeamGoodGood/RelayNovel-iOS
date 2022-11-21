@@ -32,13 +32,6 @@ class RelayListView: UIView {
 }
 
 extension RelayListView {
-    enum ViewType {
-        case browse
-        case started
-        case participated
-        case like
-    }
-    
     private func setupLayout() {
         guard let listHeaderView = listHeaderView else { return }
         
@@ -74,4 +67,11 @@ extension RelayListView {
             listHeaderView = RelayListHeaderView(frame: .zero, type: .participated)
         }
     }
+}
+
+enum ViewType {
+    case browse
+    case started
+    case participated
+    case like
 }
