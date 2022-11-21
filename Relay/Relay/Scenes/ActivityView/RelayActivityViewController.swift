@@ -26,5 +26,16 @@ class RelayActivityViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupLayout()
+    }
+}
+
+extension RelayActivityViewController {
+    private func setupLayout() {
+        view.addSubview(relayListView)
+        
+        relayListView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
     }
 }
