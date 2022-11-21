@@ -9,11 +9,11 @@ import UIKit
 import SnapKit
 
 class RelayActivityViewController: UIViewController {
-    var type: ViewType
+    var type: ListViewType
     
     private lazy var relayListView = RelayListView(frame: .zero, type: type)
     
-    init(type: ViewType) {
+    init(type: ListViewType) {
         self.type = type
         
         super.init(nibName: nil, bundle: nil)
