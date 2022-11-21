@@ -13,6 +13,21 @@ class RelayActivityViewController: UIViewController {
     
     private lazy var relayListView = RelayListView(frame: .zero, type: type)
     
+    private lazy var settingButton = UIBarButtonItem(
+        image: UIImage(systemName: "gearshape"),
+        style: .plain,
+        target: self,
+        action: #selector(tappedSettingButton)
+    )
+    
+    //TODO: 알림이 있을 때 Image가 변경되도록 구현
+    private lazy var noticeButton = UIBarButtonItem(
+        image: UIImage(systemName: "bell"),
+        style: .plain,
+        target: self,
+        action: #selector(tappedNoticeButton)
+    )
+    
     init(type: ListViewType) {
         self.type = type
         
@@ -31,6 +46,8 @@ class RelayActivityViewController: UIViewController {
         relayListView.listCollectionView.delegate = self
         relayListView.listCollectionView.dataSource = self
         
+        setupButtonsLayout()
+        setNavigationBar()
         setupLayout()
     }
 }
@@ -79,5 +96,31 @@ extension RelayActivityViewController {
             $0.trailing.equalToSuperview()
             $0.bottom.equalToSuperview()
         }
+    }
+    
+    private func setNavigationBar() {
+        navigationController?.navigationBar.backIndicatorImage = UIImage(systemName: "arrow.left")
+        navigationController?.navigationBar.backIndicatorTransitionMaskImage = UIImage(systemName: "arrow.left")
+        navigationController?.navigationBar.tintColor = .relayBlack
+        navigationController?.navigationBar.topItem?.title = ""
+    }
+    
+    private func setupButtonsLayout() {
+        settingButton.tintColor = .black
+        noticeButton.tintColor = .black
+        
+        navigationItem.rightBarButtonItems = [noticeButton, settingButton]
+    }
+    
+    @objc func tappedSettingButton() {
+        let settingViewController = RelaySettingViewController()
+        
+        navigationController?.pushViewController(settingViewController, animated: true)
+    }
+    
+    @objc func tappedNoticeButton() {
+        let noticeViewController = RelayNoticeViewController()
+        
+        navigationController?.pushViewController(noticeViewController, animated: true)
     }
 }
