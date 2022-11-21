@@ -12,7 +12,6 @@ import Alamofire
 import Moya
 
 enum LoginService {
-    case ping
     case appleLogin(token: String)
     case leave
 }
@@ -25,8 +24,6 @@ extension LoginService: TargetType {
     
     var path: String {
         switch self{
-        case .ping:
-            return "/ping/"
         case .appleLogin(_):
             return "/login/apple/"
         case .leave:
@@ -36,8 +33,6 @@ extension LoginService: TargetType {
     
     var method: Moya.Method {
         switch self {
-        case .ping:
-            return .get
         case .appleLogin:
             return .post
         case .leave:
@@ -47,8 +42,6 @@ extension LoginService: TargetType {
     
     var task: Task {
         switch self {
-        case .ping:
-            return .requestPlain
         case let .appleLogin(token):
             return .requestJSONEncodable(token)
         case .leave:
@@ -70,9 +63,6 @@ class LoginAPI {
     
     static var provider = MoyaProvider<LoginService>()
     
-    static func ping() -> Single<Response> {
-        return provider.rx.request(.ping)
-    }
     static func appleLogin(token: String) -> Single<Response> {
         return provider.rx.request(.appleLogin(token: token))
     }
