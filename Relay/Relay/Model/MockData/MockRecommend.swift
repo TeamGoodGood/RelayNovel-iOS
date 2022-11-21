@@ -8,5 +8,13 @@
 import Foundation
 
 struct MockRecommend {
-    private var recommend: Recommend
+    var recommend: Recommend
+    
+    init() {
+        recommend = Recommend(
+            story1: mockStory.story1,
+            story2: mockStory.story3,
+            story3: mockStory.story5
+        )
+    }
 }
