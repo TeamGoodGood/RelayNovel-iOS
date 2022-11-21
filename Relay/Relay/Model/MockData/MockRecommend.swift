@@ -18,3 +18,5 @@ struct MockRecommend {
         )
     }
 }
+
+var mockRecommend = MockRecommend()

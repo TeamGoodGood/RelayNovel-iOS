@@ -6,6 +6,7 @@ struct PageAnimationView: View {
     @StateObject var page1: Page = .first()
     @StateObject var page2: Page = .first()
     var data = Array(0..<6)
+    var recommend: Recommend
     
     var body: some View {
             ZStack{
@@ -52,48 +53,42 @@ struct PageAnimationView: View {
             if page == 0 {
                 Rectangle()
                     .overlay {
-                        CardView()
-                        
+                        CardView(story: recommend.story1)
                     }
             }
             
             if page == 1 {
                 Rectangle()
                     .overlay {
-                        Image("2")
-                            .resizable()
+                        CardView(story: recommend.story2)
                     }
             }
             
             if page == 2 {
                 Rectangle()
                     .overlay {
-                        Image("3")
-                            .resizable()
+                        CardView(story: recommend.story3)
                     }
             }
             
             if page == 3 {
                 Rectangle()
                     .overlay {
-                        Image("1")
-                            .resizable()
+                        CardView(story: recommend.story1)
                     }
             }
             
             if page == 4 {
                 Rectangle()
                     .overlay {
-                        Image("2")
-                            .resizable()
+                        CardView(story: recommend.story2)
                     }
             }
             
             if page == 5 {
                 Rectangle()
                     .overlay {
-                        Image("3")
-                            .resizable()
+                        CardView(story: recommend.story3)
                     }
             }
         }

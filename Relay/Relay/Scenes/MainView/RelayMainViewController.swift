@@ -10,6 +10,7 @@ import UIKit
 import SnapKit
 
 class RelayMainViewController: UIViewController {
+    private var recommend: Recommend?
     
     //TODO: 알람이 있을때 이미지 변경 필요
     private lazy var noticeButton = UIBarButtonItem(
@@ -55,6 +56,9 @@ class RelayMainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        
+        recommend = mockRecommend.recommend
+        
         self.addAnimationView()
         setNavigationBar()
         setupLayout()
@@ -107,13 +111,17 @@ extension RelayMainViewController {
     }
     
     func addAnimationView() {
-        let hostingController = UIHostingController(rootView: PageAnimationView())
-        
-        hostingController.view.frame = animationView.bounds
-        hostingController.didMove(toParent: self)
-        
-        addChild(hostingController)
-        animationView.addSubview(hostingController.view)
+        if let recommend = recommend {
+            let hostingController = UIHostingController(rootView: PageAnimationView(recommend: recommend))
+            
+            hostingController.view.frame = animationView.bounds
+            hostingController.didMove(toParent: self)
+            
+            addChild(hostingController)
+            animationView.addSubview(hostingController.view)
+        } else {
+            print("Recommend 데이터 호출 실패")
+        }
     }
     
 }
