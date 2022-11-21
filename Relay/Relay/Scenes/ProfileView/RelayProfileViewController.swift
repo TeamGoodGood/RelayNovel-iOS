@@ -64,8 +64,24 @@ extension RelayProfileViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        //TODO: 세부페이지로 이동 구현
-        print("tapped \(indexPath.row) cell")
+        var type: ListViewType?
+        
+        switch indexPath.row {
+        case 0:
+            type = .started
+        case 1:
+            type = .participated
+        case 2:
+            type = .like
+        default:
+            type = .browse
+        }
+        
+        if let type = type {
+            let activityViewController = RelayActivityViewController(type: type)
+            
+            navigationController?.pushViewController(activityViewController, animated: true)
+        }
     }
 }
 
