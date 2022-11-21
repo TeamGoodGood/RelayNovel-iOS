@@ -11,6 +11,7 @@ import RxAlamofire
 import Moya
 
 enum UserService {
+    case updatePenname(user: UpdateUser)
     case getLiked
     case getWrote
     case getContributed
@@ -24,6 +25,8 @@ extension UserService: TargetType {
     
     var path: String {
         switch self {
+        case .updatePenname(_):
+            return "/"
         case .getLiked:
             return "/liked/"
         case .getWrote:
@@ -35,6 +38,8 @@ extension UserService: TargetType {
     
     var method: Moya.Method {
         switch self {
+        case .updatePenname:
+            return .put
         case .getLiked:
             return .get
         case .getWrote:
@@ -46,6 +51,10 @@ extension UserService: TargetType {
     
     var task: Task {
         switch self {
+        case let .updatePenname(user):
+            var pennameData = MultipartFormData(provider: .data(user.penname.data(using: .utf8)!), name: "penname")
+            let multipartData = [pennameData]
+            return .uploadMultipart(multipartData)
         case .getLiked:
             return .requestPlain
         case .getWrote:
@@ -56,7 +65,12 @@ extension UserService: TargetType {
     }
     
     var headers: [String : String]? {
-        return ["Content-type": "application/json"]
+        switch self{
+        case .updatePenname:
+            return ["Content-type": "multipart/form-data"]
+        default:
+            return ["Content-type": "application/json"]
+        }
     }
 }
 
@@ -64,6 +78,10 @@ class UserAPI {
     
     static var authPlugin = AuthPlugin()
     static var provider = MoyaProvider<UserService>(plugins: [authPlugin])
+    
+    static func updatePenname(user: UpdateUser) -> Observable<ProgressResponse> {
+            return provider.rx.requestWithProgress(.updatePenname(user: user))
+    }
     
     static func getLiked() -> Single<Response> {
         return provider.rx.request(.getLiked)

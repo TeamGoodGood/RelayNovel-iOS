@@ -23,3 +23,9 @@ struct UserResponse: Codable {
     var id: Int
     var penname: String?
 }
+
+struct UpdateUser {
+    var email: String?
+    var username: String?
+    var penname: String
+}
