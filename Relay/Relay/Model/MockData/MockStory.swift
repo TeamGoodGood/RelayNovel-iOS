@@ -31,6 +31,7 @@ struct MockStory {
             step_limit: 20,
             current_step: 4,
             finished: false,
+            contributed_users: [mockUserResponse.curryResponse, mockUserResponse.changBroResponse, mockUserResponse.eveResponse],
             created_time: 202211212100,
             user_liked: true
         )
@@ -46,6 +47,7 @@ struct MockStory {
             step_limit: 10,
             current_step: 10,
             finished: true,
+            contributed_users: [mockUserResponse.curryResponse],
             created_time: 202211212200,
             user_liked: true
         )
@@ -61,6 +63,7 @@ struct MockStory {
             step_limit: 30,
             current_step: 4,
             finished: false,
+            contributed_users: [mockUserResponse.curryResponse, mockUserResponse.changBroResponse, mockUserResponse.eveResponse],
             created_time: 202211212300,
             user_liked: false
         )
@@ -76,6 +79,7 @@ struct MockStory {
             step_limit: 10,
             current_step: 10,
             finished: true,
+            contributed_users: [mockUserResponse.curryResponse, mockUserResponse.changBroResponse, mockUserResponse.eveResponse],
             created_time: 202211220000,
             user_liked: true
         )
@@ -91,6 +95,7 @@ struct MockStory {
             step_limit: 20,
             current_step: 4,
             finished: false,
+            contributed_users: [mockUserResponse.curryResponse, mockUserResponse.changBroResponse, mockUserResponse.eveResponse],
             created_time: 202211220100,
             user_liked: true
         )
@@ -106,6 +111,7 @@ struct MockStory {
             step_limit: 10,
             current_step: 4,
             finished: false,
+            contributed_users: [mockUserResponse.curryResponse, mockUserResponse.changBroResponse, mockUserResponse.eveResponse],
             created_time: 202211220200,
             user_liked: true
         )
@@ -121,6 +127,7 @@ struct MockStory {
             step_limit: 20,
             current_step: 4,
             finished: false,
+            contributed_users: [mockUserResponse.curryResponse, mockUserResponse.changBroResponse, mockUserResponse.eveResponse],
             created_time: 202211220300,
             user_liked: false
         )
@@ -151,6 +158,7 @@ struct MockStory {
             step_limit: 20,
             current_step: 4,
             finished: false,
+            contributed_users: [mockUserResponse.curryResponse, mockUserResponse.changBroResponse, mockUserResponse.eveResponse],
             created_time: 202211220500,
             user_liked: true
         )
@@ -166,6 +174,7 @@ struct MockStory {
             step_limit: 20,
             current_step: 4,
             finished: false,
+            contributed_users: [mockUserResponse.curryResponse, mockUserResponse.changBroResponse, mockUserResponse.eveResponse],
             created_time: 202211220600,
             user_liked: true
         )
