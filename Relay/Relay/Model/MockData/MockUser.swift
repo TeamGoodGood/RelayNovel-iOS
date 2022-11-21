@@ -54,3 +54,6 @@ struct MockUserResponse {
         )
     }
 }
+
+var mockUser = MockUser()
+var mockUserResponse = MockUserResponse()
