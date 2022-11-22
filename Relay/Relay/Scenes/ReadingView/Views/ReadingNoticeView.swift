@@ -20,7 +20,6 @@ class ReadingNoticeView: UIView {
     
     private lazy var nameDateLabel: UILabel = {
         let label = UILabel()
-        label.text = "2022. 10. 31  초이"
         label.textColor = .relayGray
         label.setFont(.caption2)
         label.sizeToFit()
@@ -30,10 +29,8 @@ class ReadingNoticeView: UIView {
     
     private lazy var noticeContentLabel: UILabel = {
         let label = UILabel()
-        let text = "릴레이 소설 내용입니다. 릴레이 소설 내용입니다. 릴레이 소설 내용입니다. 릴레이 소설 내용입니다. 릴레이 소설 내용입니다. 릴레이 소설 내용입니다. 릴레이 소설 내용입니다. 릴레이 소설 내용입니다. 릴레이 소설 내용입니다. 릴레이 소설 내용입니다."
         label.font = .systemFont(ofSize: 16.0)
         label.setLineSpacing(spacing: 8.0)
-        label.setLineHeight(text: text, lineHeight: 25.0)
         label.numberOfLines = 0
         label.sizeToFit()
         
@@ -53,6 +50,12 @@ class ReadingNoticeView: UIView {
 }
 
 extension ReadingNoticeView {
+    func configure(name: String, date: String, noticeContent: String) {
+        nameDateLabel.text = "\(date)  \(name)"
+        noticeContentLabel.text = noticeContent
+        noticeContentLabel.setLineHeight(text: noticeContent, lineHeight: 25.0)
+    }
+    
     private func setupLayout() {
         [
             noticeLabel,
