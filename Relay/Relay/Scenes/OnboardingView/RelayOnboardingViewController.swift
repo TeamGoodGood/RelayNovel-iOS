@@ -137,7 +137,9 @@ extension RelayOnboardingViewController{
     }
     
     @objc private func pressedStartButton(_ sender: UIButton) {
-        //시작하기 기능 구현 예정
+        let toRelayLoginView = RelayLoginViewController()
+           toRelayLoginView.modalPresentationStyle = .fullScreen
+           present(toRelayLoginView, animated: false, completion: nil)
     }
     
     func configureViewController() {
