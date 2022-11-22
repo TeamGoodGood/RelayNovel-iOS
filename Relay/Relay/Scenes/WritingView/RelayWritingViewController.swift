@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 
 class RelayWritingViewController: UIViewController, UICollectionViewDelegate {
-    private var selectedCategory: String?
+    private var selectedCategory: Category?
     private var selectedEvenet: String?
     private var selectedTouch: Int?
     
@@ -252,11 +252,11 @@ extension RelayWritingViewController: UIViewControllerTransitioningDelegate {
 }
 
 extension RelayWritingViewController: RelayCategoryDelegate {
-    func didApplyCategory(selectedCategory: String) {
+    func didApplyCategory(selectedCategory: Category) {
         self.selectedCategory = selectedCategory
         
         if let selectedPlaylist = self.selectedCategory {
-            musicListButton.setTitle(selectedPlaylist, for: .normal)
+            musicListButton.setTitle(selectedPlaylist.name, for: .normal)
         }
     }
 }
@@ -358,7 +358,8 @@ extension RelayWritingViewController {
     }
     
     @objc func touchMusicListButton() {
-        let list = ["플레이리스트1", "플레이리스트2", "플레이리스트3", "플레이리스트4", "플레이리스트5", "플레이리스트6", "플레이리스트7", "플레이리스트8", "플레이리스트9", "플레이리스트10"]
+        let playlist = Playlist()
+        let list = playlist.list
         
         let modalViewController = RelayCategoryViewController(list: list)
         
@@ -388,8 +389,11 @@ extension RelayWritingViewController {
             return
         }
         
-        //TODO: Story에 코멘트 추가 후 수정
-//        let comment = commentTextField.text
+        guard let comment = commentTextField.text, comment != "" else {
+            // TODO: 코멘트 입력 없을경우 Alert 또는 알림구현 필요
+            print("코멘트를 작성해주세요.")
+            return
+        }
         
         guard let event = selectedEvenet else {
             // TODO: 장르선택 없을경우 Alert 또는 알림구현 필요
@@ -408,6 +412,8 @@ extension RelayWritingViewController {
         print("플레이리스트 : \(playlist)")
         print("장르 : \(event)")
         print("스텝수 : \(stepLimit)")
+        print("userResponse : (\(loginUser.id), \(loginUser.penname)")
+        
     }
     
     private func updateCountLabel(characterCount: Int) {

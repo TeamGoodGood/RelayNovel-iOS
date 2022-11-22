@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 
 class RelayBrowsingViewController: UIViewController, UICollectionViewDelegate {
-    private var selectedCategory: String?
+    private var selectedCategory: Category?
     
     private var currentHighlightedButton: ButtonName? {
         didSet {
@@ -59,13 +59,13 @@ extension RelayBrowsingViewController: UIViewControllerTransitioningDelegate {
 }
 
 extension RelayBrowsingViewController: RelayCategoryDelegate {
-    func didApplyCategory(selectedCategory: String) {
+    func didApplyCategory(selectedCategory: Category) {
         self.selectedCategory = selectedCategory
         
-        if selectedCategory == "전체" {
+        if selectedCategory.name == "전체" {
             relayListView.listHeaderView?.listFilterButton.setTitle("카테고리 전체", for: .normal)
         } else {
-            relayListView.listHeaderView?.listFilterButton.setTitle(selectedCategory, for: .normal)
+            relayListView.listHeaderView?.listFilterButton.setTitle(selectedCategory.name, for: .normal)
         }
     }
 }
@@ -239,7 +239,8 @@ extension RelayBrowsingViewController {
     }
     
     @objc private func touchListFilterButton() {
-        let list = ["전체", "로맨스", "스릴러/공포", "판타지", "SF", "추리", "무협", "시대극", "일반", "기타"]
+        let genrelist = GenreList()
+        let list = genrelist.list
         let modalViewController = RelayCategoryViewController(list: list)
         
         modalViewController.fetchSelectedCateogry(selectedCategory)
