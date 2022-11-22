@@ -20,6 +20,7 @@ struct GenreList {
     let historical: Genre
     let general: Genre
     let etc: Genre
+    let list: [Genre]
     
     init() {
         all = Genre(id: 0, name: "전체")
@@ -32,5 +33,7 @@ struct GenreList {
         historical = Genre(id: 7, name: "시대극")
         general = Genre(id: 8, name: "일반")
         etc = Genre(id: 9, name: "기타")
+        
+        list = [all, romance, thriller, fantasy, sf, inference, martialArts, historical, general, etc]
     }
 }
