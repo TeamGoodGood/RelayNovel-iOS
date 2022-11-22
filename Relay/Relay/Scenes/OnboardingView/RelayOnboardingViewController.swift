@@ -51,7 +51,7 @@ class RelayOnboardingViewController: UICollectionViewController, UICollectionVie
         
         return button
     }()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -83,13 +83,28 @@ class RelayOnboardingViewController: UICollectionViewController, UICollectionVie
         pageControl.currentPage = Int(x / view.frame.width)
     }
     
+    override func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+            let x = scrollView.contentOffset.x
+            let w = scrollView.bounds.size.width
+            let currentPage = Int(ceil(x/w))
+        if currentPage != 2 {
+            startButton.isHidden = true
+            skipButton.isHidden = false
+            pageControl.isHidden = false
+        }
+        else {
+            startButton.isHidden = false
+            skipButton.isHidden = true
+            pageControl.isHidden = true
+        }
+    }
+    
     func configureViewController() {
         collectionView.isPagingEnabled = true
         collectionView.backgroundColor = .systemBackground
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.register(RelayOnboardingViewCell.self, forCellWithReuseIdentifier: RelayOnboardingViewCell.reuseIdentifier)
     }
-    
 }
 
 extension RelayOnboardingViewController{
@@ -106,7 +121,7 @@ extension RelayOnboardingViewController{
             $0.trailing.equalToSuperview().inset(20.0)
         }
         startButton.snp.makeConstraints {
-            $0.bottom.equalToSuperview().inset(75.0)
+            $0.bottom.equalToSuperview().inset(95.0)
             $0.centerX.equalToSuperview()
             $0.leading.equalToSuperview().inset(20.0)
             $0.trailing.equalToSuperview().inset(20.0)
