@@ -15,9 +15,7 @@ class RelayOnboardingViewController: UICollectionViewController, UICollectionVie
         RelayOnboardingDataModel(image: "onboardingImage", titleLabel: "새로운 플레이리스트", descriptionLabel: "매일 새로운 플레이리스트를 통해 \n소설에 몰입해보세요!"),
         RelayOnboardingDataModel(image: "onboardingImage", titleLabel: "바통을 이어받으세요!", descriptionLabel: "바통을 이어받아 어디로 튈지 모르는 \n릴레이 소설의 매력을 느껴보세요")
     ]
-    
-//    let pageControl = UIPageControl()
-    let bottomStackView = UIStackView()
+
     private var pageControl: UIPageControl = {
         let controller = UIPageControl()
 
@@ -28,6 +26,7 @@ class RelayOnboardingViewController: UICollectionViewController, UICollectionVie
 
         return controller
     }()
+    
     private let skipButton: UIButton = {
         let button = UIButton()
         
@@ -57,6 +56,7 @@ class RelayOnboardingViewController: UICollectionViewController, UICollectionVie
         super.viewDidLoad()
         
         configureViewController()
+        setupLayout()
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -83,32 +83,11 @@ class RelayOnboardingViewController: UICollectionViewController, UICollectionVie
         pageControl.currentPage = Int(x / view.frame.width)
     }
     
-    func configureBottomStackView() {
-        
-        
-                bottomStackView.addArrangedSubview(pageControl)
-        
-                bottomStackView.axis = .horizontal
-                bottomStackView.distribution = .fillEqually
-                bottomStackView.translatesAutoresizingMaskIntoConstraints = false
-        
-                view.addSubview(bottomStackView)
-    }
-    
     func configureViewController() {
         collectionView.isPagingEnabled = true
         collectionView.backgroundColor = .systemBackground
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.register(RelayOnboardingViewCell.self, forCellWithReuseIdentifier: RelayOnboardingViewCell.reuseIdentifier)
-        
-        configureBottomStackView()
-        
-                NSLayoutConstraint.activate([
-                    bottomStackView.heightAnchor.constraint(equalToConstant: 100),
-                    bottomStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-                    bottomStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-                    bottomStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
-                ])
     }
     
 }
@@ -119,7 +98,6 @@ extension RelayOnboardingViewController{
             skipButton,
             startButton,
             pageControl,
-            //            bottomStackView
             
         ].forEach { view.addSubview($0) }
         
@@ -135,10 +113,10 @@ extension RelayOnboardingViewController{
             $0.width.equalTo(350.0)
             $0.height.equalTo(56.0)
         }
-//        pageControl.snp.makeConstraints {
-//            $0.bottom.equalToSuperview().inset(115.0)
-//            $0.centerX.equalToSuperview()
-//        }
+        pageControl.snp.makeConstraints {
+            $0.bottom.equalToSuperview().inset(115.0)
+            $0.centerX.equalToSuperview()
+        }
     }
     @objc private func pressedSkipButton(_ sender: UIButton) {
         //건너뛰기 기능 구현 예정
