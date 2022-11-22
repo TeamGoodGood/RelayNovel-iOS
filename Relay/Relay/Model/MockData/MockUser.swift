@@ -57,3 +57,4 @@ struct MockUserResponse {
 
 var mockUser = MockUser()
 var mockUserResponse = MockUserResponse()
+var loginUser = mockUser.curry
