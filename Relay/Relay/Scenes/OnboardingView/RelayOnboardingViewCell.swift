@@ -36,9 +36,11 @@ class RelayOnboardingViewCell: UICollectionViewCell {
     
     func configure() {
         titleLabel.setFont(.display1)
+        titleLabel.textColor = .black
         
         contentLabel.numberOfLines = 3
         contentLabel.setFont(.body2)
+        contentLabel.textColor = .black
         
     }
     

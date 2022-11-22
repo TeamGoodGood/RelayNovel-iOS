@@ -101,7 +101,7 @@ class RelayOnboardingViewController: UICollectionViewController, UICollectionVie
     
     func configureViewController() {
         collectionView.isPagingEnabled = true
-        collectionView.backgroundColor = .systemBackground
+        collectionView.backgroundColor = .white
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.register(RelayOnboardingViewCell.self, forCellWithReuseIdentifier: RelayOnboardingViewCell.reuseIdentifier)
     }
