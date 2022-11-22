@@ -28,7 +28,6 @@ class RelayReadingFinishFooterView: UIView {
     
     private lazy var penNameLabel: UILabel = {
         let label = UILabel()
-        label.text = "초이 · 레티샤"
         label.font = .systemFont(ofSize: 16.0)
         label.sizeToFit()
         
@@ -40,7 +39,6 @@ class RelayReadingFinishFooterView: UIView {
         let image = UIImage(systemName: "heart.fill")
         
         button.tintColor = .relayPink1
-        button.setTitle("13", for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 17.0, weight: .bold)
         button.setTitleColor(.relayBlack, for: .normal)
         
@@ -67,6 +65,26 @@ class RelayReadingFinishFooterView: UIView {
 }
 
 extension RelayReadingFinishFooterView {
+    func configure(likeCount: Int, isLikedUser: Bool, relays: [Relay]) {
+        if isLikedUser {
+            likeButton.tintColor = .relayPink1
+        } else {
+            likeButton.tintColor = .relayGray
+        }
+        
+        likeButton.setTitle("\(likeCount)", for: .normal)
+        
+        var contributerText = ""
+        for i in 0..<relays.count {
+            if i == 0 {
+                contributerText += relays[i].contributer.penname ?? "필명호출오류"
+            } else {
+                contributerText += (" · " + (relays[i].contributer.penname ?? "필명호출오류"))
+            }
+        }
+        penNameLabel.text = contributerText
+    }
+    
     private func setupLayout() {
         [
             backgroundView,
