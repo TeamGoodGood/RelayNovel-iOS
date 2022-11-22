@@ -80,7 +80,7 @@ class RelayReadingWriteView: UIView {
 
 extension RelayReadingWriteView {
     func configure(touchCount: Int) {
-        touchCountLabel.text = "\(touchCountLabel) 터치"
+        touchCountLabel.text = "\(touchCount) 터치"
     }
     
     private func setupLayout() {
