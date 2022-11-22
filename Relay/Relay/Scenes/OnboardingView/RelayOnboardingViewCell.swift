@@ -35,10 +35,11 @@ class RelayOnboardingViewCell: UICollectionViewCell {
     }
     
     func configure() {
-        titleLabel.font = .boldSystemFont(ofSize: 24)
+        titleLabel.setFont(.display1)
         
         contentLabel.numberOfLines = 3
-        contentLabel.font = .systemFont(ofSize: 16)
+        contentLabel.setFont(.body2)
+        
     }
     
 }
