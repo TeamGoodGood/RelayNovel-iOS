@@ -53,7 +53,7 @@ extension RelayOnboardingViewCell{
         ].forEach { addSubview($0) }
         
         titleLabel.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(160.0)
+            $0.top.equalToSuperview().inset(170.0)
             $0.leading.equalToSuperview().inset(50.0)
         }
         contentLabel.snp.makeConstraints {
