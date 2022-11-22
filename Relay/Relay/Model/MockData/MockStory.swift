@@ -19,6 +19,8 @@ struct MockStory {
     var story9: Story
     var story10: Story
     
+    var allList: [Story]
+    
     init() {
         story1 = Story(
             id: 0,
@@ -188,6 +190,8 @@ struct MockStory {
             created_time: 202211220600,
             user_liked: true
         )
+        
+        allList = [story1, story2, story3, story4, story5, story6, story7, story8, story9, story10]
     }
 }
 

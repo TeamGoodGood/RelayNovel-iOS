@@ -407,13 +407,24 @@ extension RelayWritingViewController {
             return
         }
         
-        print("제목 : \(title)")
-        print("내용 : \(content)")
-        print("플레이리스트 : \(playlist)")
-        print("장르 : \(event)")
-        print("스텝수 : \(stepLimit)")
-        print("userResponse : (\(loginUser.id), \(loginUser.penname)")
+        let userResponse = UserResponse(id: loginUser.id, penname: loginUser.penname)
+        let story = Story(
+            id: 100,
+            original: userResponse,
+            genre: event,
+            header: comment,
+            title: title,
+            content: content,
+            bgm: playlist.id,
+            like_count: 0,
+            step_limit: stepLimit,
+            current_step: 1,
+            finished: false,
+            created_time: 20221201220000,
+            user_liked: false
+        )
         
+        mockStory.allList.append(story)
     }
     
     private func updateCountLabel(characterCount: Int) {
