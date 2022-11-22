@@ -36,7 +36,7 @@ class ReadingBodyView: UIView {
 
 extension ReadingBodyView: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let text = "릴레이 소설 내용입니다. 릴레이 소설 내용입니다. 릴레이 소설 내용입니다. 릴레이 소설 내용입니다. 릴레이 소설 내용입니다. 릴레이 소설 내용입니다. 릴레이 소설 내용입니다. 릴레이 소설 내용입니다. 릴레이 소설 내용입니다. 릴레이 소설 내용입니다."
+        let text = relays[indexPath.row].content
         let width = collectionView.frame.width
 
         let style = NSMutableParagraphStyle()
@@ -71,14 +71,14 @@ extension ReadingBodyView: UICollectionViewDelegateFlowLayout {
 
 extension ReadingBodyView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        3
+        relays.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BodyCollectionViewCell.id, for: indexPath) as? BodyCollectionViewCell else { return UICollectionViewCell() }
         
         let content = relays[indexPath.row]
-        cell.configure(isReadingMode: isReadingModeOn, bodyText: content.content, name: content.name, date: content.date, touchCount: indexPath.row)
+        cell.configure(isReadingMode: isReadingModeOn, bodyText: content.content, name: content.name, date: content.date, touchCount: indexPath.row + 1)
         cell.isReadingModeOn = self.isReadingModeOn
 
         return cell
