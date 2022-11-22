@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct SwipeItem {
+struct RelayOnboardingDataModel {
     let image: String
     let titleLabel: String
     let descriptionLabel: String
