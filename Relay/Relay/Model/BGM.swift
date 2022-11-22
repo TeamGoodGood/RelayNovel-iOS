@@ -39,5 +39,15 @@ struct Playlist {
         list = [bgm1, bgm2, bgm3, bgm4, bgm5, bgm6, bgm7]
     }
     
+    func getBGMName(id: Int) -> String {
+        var bgmName = "플레이리스트 제목 오류"
+        
+        for i in 0..<list.count {
+            if list[i].id == id {
+                bgmName = list[i].name
+            }
+        }
 
+        return bgmName
+    }
 }
