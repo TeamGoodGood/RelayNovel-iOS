@@ -133,7 +133,9 @@ extension RelayOnboardingViewController{
     }
     
     @objc private func pressedSkipButton(_ sender: UIButton) {
-        //건너뛰기 기능 구현 예정
+        let toRelayLoginView = RelayLoginViewController()
+           toRelayLoginView.modalPresentationStyle = .fullScreen
+           present(toRelayLoginView, animated: false, completion: nil)
     }
     
     @objc private func pressedStartButton(_ sender: UIButton) {
