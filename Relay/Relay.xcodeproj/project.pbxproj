@@ -63,6 +63,7 @@
 		55D55305292C9D460013FF5E /* BGM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D55304292C9D460013FF5E /* BGM.swift */; };
 		55D55307292CA0BC0013FF5E /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D55306292CA0BC0013FF5E /* Category.swift */; };
 		55D55309292CA2EC0013FF5E /* Genre.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D55308292CA2EC0013FF5E /* Genre.swift */; };
+		55D5530B292D3CD80013FF5E /* Extension+Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D5530A292D3CD80013FF5E /* Extension+Double.swift */; };
 		55FDCEAF290A5667000AB345 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 55FDCEAE290A5667000AB345 /* SnapKit */; };
 		55FDCEB1290A5DB2000AB345 /* RelayProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FDCEB0290A5DB2000AB345 /* RelayProfileViewController.swift */; };
 		55FDCEB3290A6440000AB345 /* RelayProfileUserInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FDCEB2290A6440000AB345 /* RelayProfileUserInfoView.swift */; };
@@ -159,6 +160,7 @@
 		55D55304292C9D460013FF5E /* BGM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BGM.swift; sourceTree = "<group>"; };
 		55D55306292CA0BC0013FF5E /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		55D55308292CA2EC0013FF5E /* Genre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Genre.swift; sourceTree = "<group>"; };
+		55D5530A292D3CD80013FF5E /* Extension+Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Double.swift"; sourceTree = "<group>"; };
 		55FDCEB0290A5DB2000AB345 /* RelayProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayProfileViewController.swift; sourceTree = "<group>"; };
 		55FDCEB2290A6440000AB345 /* RelayProfileUserInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayProfileUserInfoView.swift; sourceTree = "<group>"; };
 		55FDCEB4290A711C000AB345 /* RelayProfileUserActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayProfileUserActivityView.swift; sourceTree = "<group>"; };
@@ -550,6 +552,7 @@
 				55867E0B29123C8500C79FFC /* Extension+CALayer.swift */,
 				55867E142912B7DA00C79FFC /* Extension+UIColor.swift */,
 				32464EB8291B99E400BDAB7C /* Extension+UIViewController.swift */,
+				55D5530A292D3CD80013FF5E /* Extension+Double.swift */,
 			);
 			path = "Extension+";
 			sourceTree = "<group>";
@@ -738,6 +741,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55D5530B292D3CD80013FF5E /* Extension+Double.swift in Sources */,
 				B533AB4929183A4400B73867 /* RelayMyInfoViewController.swift in Sources */,
 				55867E212914EB3C00C79FFC /* RelayCategoryCollectionViewCell.swift in Sources */,
 				55D55309292CA2EC0013FF5E /* Genre.swift in Sources */,
