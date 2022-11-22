@@ -34,7 +34,6 @@ class BodyCollectionViewCell: UICollectionViewCell {
         
         label.font = .systemFont(ofSize: 16.0)
         label.setLineSpacing(spacing: 8.0)
-        label.setLineHeight(text: text, lineHeight: 25.0)
         label.numberOfLines = 0
         
         return label
@@ -42,7 +41,6 @@ class BodyCollectionViewCell: UICollectionViewCell {
     
     private lazy var nameDateLabel: UILabel = {
         let label = UILabel()
-        label.text = "2022. 10. 31  초이"
         
         label.textColor = UIColor(red: 139/255, green: 139/255, blue: 139/255, alpha: 1.0)
         label.setFont(.caption2)
@@ -52,7 +50,6 @@ class BodyCollectionViewCell: UICollectionViewCell {
     
     private lazy var touchCountLabel: UILabel = {
         let label = UILabel()
-        label.text = "1 터치"
         
         label.textColor = .relayPink1
         label.setFont(.caption2)
@@ -69,7 +66,10 @@ class BodyCollectionViewCell: UICollectionViewCell {
 }
 
 extension BodyCollectionViewCell {
-    func configure(isReadingMode: Bool) {
+    func configure(isReadingMode: Bool, bodyText: String, name: String, date: String, touchCount: Int) {
+        bodyLabel.setLineHeight(text: bodyText, lineHeight: 25.0)
+        nameDateLabel.text = "\(date)  \(name)"
+        touchCountLabel.text = "\(touchCount) 터치"
         
         if isReadingMode {
             setupLayout()

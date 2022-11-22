@@ -10,6 +10,7 @@ import SnapKit
 
 class ReadingBodyView: UIView {
     var isReadingModeOn = true
+    var relays: [(content: String, date: String, name: String)] = []
     
     lazy var bodyCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -75,8 +76,9 @@ extension ReadingBodyView: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BodyCollectionViewCell.id, for: indexPath) as? BodyCollectionViewCell else { return UICollectionViewCell() }
-
-        cell.configure(isReadingMode: isReadingModeOn)
+        
+        let content = relays[indexPath.row]
+        cell.configure(isReadingMode: isReadingModeOn, bodyText: content.content, name: content.name, date: content.date, touchCount: indexPath.row)
         cell.isReadingModeOn = self.isReadingModeOn
 
         return cell
@@ -92,6 +94,16 @@ extension ReadingBodyView {
             $0.leading.equalToSuperview()
             $0.trailing.equalToSuperview()
             $0.bottom.equalToSuperview()
+        }
+    }
+    
+    func configure(firstText: String, firstDate: String, firstName: String, relays: [Relay]) {
+        let firstContent = (content: firstText, date: firstDate, name: firstName)
+        self.relays.append(firstContent)
+        
+        for relay in relays {
+            let content = (content: relay.content, date: relay.created_time.doubleDateToString, name: relay.contributer.penname ?? "필명불명")
+            self.relays.append(content)
         }
     }
 }
