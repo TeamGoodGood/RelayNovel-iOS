@@ -15,15 +15,15 @@ class RelayOnboardingViewController: UICollectionViewController, UICollectionVie
         RelayOnboardingDataModel(image: "onboardingImage", titleLabel: "새로운 플레이리스트", descriptionLabel: "매일 새로운 플레이리스트를 통해 \n소설에 몰입해보세요!"),
         RelayOnboardingDataModel(image: "onboardingImage", titleLabel: "바통을 이어받으세요!", descriptionLabel: "바통을 이어받아 어디로 튈지 모르는 \n릴레이 소설의 매력을 느껴보세요")
     ]
-
+    
     private var pageControl: UIPageControl = {
         let controller = UIPageControl()
-
+        
         controller.currentPage = 0
         controller.numberOfPages = 3
         controller.currentPageIndicatorTintColor = .systemPink
         controller.pageIndicatorTintColor = .systemGray
-
+        
         return controller
     }()
     
@@ -51,7 +51,7 @@ class RelayOnboardingViewController: UICollectionViewController, UICollectionVie
         
         return button
     }()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -60,6 +60,7 @@ class RelayOnboardingViewController: UICollectionViewController, UICollectionVie
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
         return swipeItems.count
     }
     
@@ -67,14 +68,17 @@ class RelayOnboardingViewController: UICollectionViewController, UICollectionVie
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RelayOnboardingViewCell.reuseIdentifier, for: indexPath) as! RelayOnboardingViewCell
         let swipeItem = swipeItems[indexPath.item]
         cell.update(image: swipeItem.image, headline: swipeItem.titleLabel, subheadline: swipeItem.descriptionLabel)
+        
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
         return CGSize(width: view.frame.width, height: view.frame.height)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        
         return 0
     }
     
@@ -84,9 +88,10 @@ class RelayOnboardingViewController: UICollectionViewController, UICollectionVie
     }
     
     override func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-            let x = scrollView.contentOffset.x
-            let w = scrollView.bounds.size.width
-            let currentPage = Int(ceil(x/w))
+        let x = scrollView.contentOffset.x
+        let w = scrollView.bounds.size.width
+        let currentPage = Int(ceil(x/w))
+        
         if currentPage != 2 {
             startButton.isHidden = true
             skipButton.isHidden = false
@@ -97,13 +102,6 @@ class RelayOnboardingViewController: UICollectionViewController, UICollectionVie
             skipButton.isHidden = true
             pageControl.isHidden = true
         }
-    }
-    
-    func configureViewController() {
-        collectionView.isPagingEnabled = true
-        collectionView.backgroundColor = .white
-        collectionView.showsHorizontalScrollIndicator = false
-        collectionView.register(RelayOnboardingViewCell.self, forCellWithReuseIdentifier: RelayOnboardingViewCell.reuseIdentifier)
     }
 }
 
@@ -133,10 +131,19 @@ extension RelayOnboardingViewController{
             $0.centerX.equalToSuperview()
         }
     }
+    
     @objc private func pressedSkipButton(_ sender: UIButton) {
         //건너뛰기 기능 구현 예정
     }
+    
     @objc private func pressedStartButton(_ sender: UIButton) {
         //시작하기 기능 구현 예정
+    }
+    
+    func configureViewController() {
+        collectionView.isPagingEnabled = true
+        collectionView.backgroundColor = .white
+        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.register(RelayOnboardingViewCell.self, forCellWithReuseIdentifier: RelayOnboardingViewCell.reuseIdentifier)
     }
 }

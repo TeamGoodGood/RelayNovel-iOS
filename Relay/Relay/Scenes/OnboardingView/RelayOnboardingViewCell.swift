@@ -41,9 +41,7 @@ class RelayOnboardingViewCell: UICollectionViewCell {
         contentLabel.numberOfLines = 3
         contentLabel.setFont(.body2)
         contentLabel.textColor = .black
-        
     }
-    
 }
 
 extension RelayOnboardingViewCell{
