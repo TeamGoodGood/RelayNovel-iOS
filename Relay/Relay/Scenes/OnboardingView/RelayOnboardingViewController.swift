@@ -16,8 +16,18 @@ class RelayOnboardingViewController: UICollectionViewController, UICollectionVie
         RelayOnboardingDataModel(image: "onboardingImage", titleLabel: "바통을 이어받으세요!", descriptionLabel: "바통을 이어받아 어디로 튈지 모르는 \n릴레이 소설의 매력을 느껴보세요")
     ]
     
-    let pageControl = UIPageControl()
+//    let pageControl = UIPageControl()
     let bottomStackView = UIStackView()
+    private var pageControl: UIPageControl = {
+        let controller = UIPageControl()
+
+        controller.currentPage = 0
+        controller.numberOfPages = 3
+        controller.currentPageIndicatorTintColor = .systemPink
+        controller.pageIndicatorTintColor = .systemGray
+
+        return controller
+    }()
     private let skipButton: UIButton = {
         let button = UIButton()
         
@@ -75,10 +85,6 @@ class RelayOnboardingViewController: UICollectionViewController, UICollectionVie
     
     func configureBottomStackView() {
         
-        pageControl.currentPage = 0
-        pageControl.numberOfPages = swipeItems.count
-        pageControl.currentPageIndicatorTintColor = .systemBlue
-        pageControl.pageIndicatorTintColor = .systemGray
         
                 bottomStackView.addArrangedSubview(pageControl)
         
