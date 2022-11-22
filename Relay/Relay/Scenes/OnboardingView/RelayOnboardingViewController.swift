@@ -8,12 +8,16 @@
 import UIKit
 import SnapKit
 
-class RelayOnboardingViewController: UIPageViewController {
+class RelayOnboardingViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
-    var pages = [UIViewController]()
+    let swipeItems = [
+        RelayOnboardingDataModel(image: "onboardingImage", titleLabel: "함께 완성하는 릴레이 소설", descriptionLabel: "여러명의 주자들과 함께 \n릴레이 소설을 완성해보세요."),
+        RelayOnboardingDataModel(image: "onboardingImage", titleLabel: "새로운 플레이리스트", descriptionLabel: "매일 새로운 플레이리스트를 통해 \n소설에 몰입해보세요!"),
+        RelayOnboardingDataModel(image: "onboardingImage", titleLabel: "바통을 이어받으세요!", descriptionLabel: "바통을 이어받아 어디로 튈지 모르는 \n릴레이 소설의 매력을 느껴보세요")
+    ]
+    
     let pageControl = UIPageControl()
-    let initialPage = 0
-    
+    let bottomStackView = UIStackView()
     private let skipButton: UIButton = {
         let button = UIButton()
         
@@ -39,65 +43,77 @@ class RelayOnboardingViewController: UIPageViewController {
         return button
     }()
     
-    private var pageController: UIPageControl = {
-        let controller = UIPageControl()
-        
-        controller.currentPage = 0
-        controller.numberOfPages = 3
-        controller.currentPageIndicatorTintColor = .systemPink
-        controller.pageIndicatorTintColor = .systemGray
-        
-        return controller
-    }()
-    
-    private var currentpage = 0 {
-        didSet {
-            print("didSet \(currentpage)")
-            pageController.currentPage = currentpage
-            if currentpage != 2 {
-                startButton.isHidden = true
-                skipButton.isHidden = false
-                pageController.isHidden = false
-            }
-            else {
-                startButton.isHidden = false
-                skipButton.isHidden = true
-                pageController.isHidden = true
-            }
-        }
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
         
-        setupView()
-        setupLayout()
+        configureViewController()
     }
-}
-extension RelayOnboardingViewController {
     
-    func setupView() {
-        dataSource = self
-        delegate = self
-        
-        pageControl.addTarget(self, action: #selector(pageControlTapped(_:)), for: .valueChanged)
-        
-        let page1 = RelayFirstViewController()
-        let page2 = RelaySecondViewController()
-        let page3 = RelayThirdViewController()
-        
-        pages.append(page1)
-        pages.append(page2)
-        pages.append(page3)
-        
-        setViewControllers([pages[initialPage]], direction: .reverse, animated: true, completion: nil)
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return swipeItems.count
     }
+    
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RelayOnboardingViewCell.reuseIdentifier, for: indexPath) as! RelayOnboardingViewCell
+        let swipeItem = swipeItems[indexPath.item]
+        cell.update(image: swipeItem.image, headline: swipeItem.titleLabel, subheadline: swipeItem.descriptionLabel)
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: view.frame.width, height: view.frame.height)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+    
+    override func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        let x = targetContentOffset.pointee.x
+        pageControl.currentPage = Int(x / view.frame.width)
+    }
+    
+    func configureBottomStackView() {
+        
+        pageControl.currentPage = 0
+        pageControl.numberOfPages = swipeItems.count
+        pageControl.currentPageIndicatorTintColor = .systemBlue
+        pageControl.pageIndicatorTintColor = .systemGray
+        
+                bottomStackView.addArrangedSubview(pageControl)
+        
+                bottomStackView.axis = .horizontal
+                bottomStackView.distribution = .fillEqually
+                bottomStackView.translatesAutoresizingMaskIntoConstraints = false
+        
+                view.addSubview(bottomStackView)
+    }
+    
+    func configureViewController() {
+        collectionView.isPagingEnabled = true
+        collectionView.backgroundColor = .systemBackground
+        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.register(RelayOnboardingViewCell.self, forCellWithReuseIdentifier: RelayOnboardingViewCell.reuseIdentifier)
+        
+        configureBottomStackView()
+        
+                NSLayoutConstraint.activate([
+                    bottomStackView.heightAnchor.constraint(equalToConstant: 100),
+                    bottomStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+                    bottomStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+                    bottomStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+                ])
+    }
+    
+}
+
+extension RelayOnboardingViewController{
     private func setupLayout(){
         [
             skipButton,
             startButton,
-            pageController
+            pageControl,
+            //            bottomStackView
             
         ].forEach { view.addSubview($0) }
         
@@ -113,72 +129,15 @@ extension RelayOnboardingViewController {
             $0.width.equalTo(350.0)
             $0.height.equalTo(56.0)
         }
-        pageController.snp.makeConstraints {
-            $0.bottom.equalToSuperview().inset(85.0)
-            $0.centerX.equalToSuperview()
-        }
+//        pageControl.snp.makeConstraints {
+//            $0.bottom.equalToSuperview().inset(115.0)
+//            $0.centerX.equalToSuperview()
+//        }
     }
-    
     @objc private func pressedSkipButton(_ sender: UIButton) {
         //건너뛰기 기능 구현 예정
     }
     @objc private func pressedStartButton(_ sender: UIButton) {
         //시작하기 기능 구현 예정
-    }
-    
-}
-
-// MARK: - Actions
-
-extension RelayOnboardingViewController {
-    
-    @objc func pageControlTapped(_ sender: UIPageControl) {
-        setViewControllers([pages[sender.currentPage]], direction: .forward, animated: true, completion: nil)
-    }
-}
-
-// MARK: - DataSources
-
-extension RelayOnboardingViewController: UIPageViewControllerDataSource {
-    
-    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        
-        print("before")
-        guard let currentIndex = pages.firstIndex(of: viewController) else { return nil }
-        currentpage = currentIndex - 1
-        if currentIndex == 0 {
-            return nil
-        } else {
-            currentpage = currentIndex - 1
-            return pages[currentIndex - 1]
-        }
-        
-        
-    }
-    
-    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        
-        print("after")
-        guard let currentIndex = pages.firstIndex(of: viewController) else { return nil }
-        if currentIndex < pages.count - 1 {
-            currentpage = currentIndex + 1
-            return pages[currentIndex + 1]
-        } else {
-            return nil
-        }
-    }
-    
-}
-
-// MARK: - Delegates
-
-extension RelayOnboardingViewController: UIPageViewControllerDelegate {
-    
-    func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
-        
-        guard let viewControllers = pageViewController.viewControllers else { return }
-        guard let currentIndex = pages.firstIndex(of: viewControllers[0]) else { return }
-        
-        pageControl.currentPage = currentIndex
     }
 }
