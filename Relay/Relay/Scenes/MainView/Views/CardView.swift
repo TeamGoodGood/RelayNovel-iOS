@@ -9,6 +9,7 @@ import SwiftUI
 
 struct CardView: View {
     let story: Story
+    let playlist = Playlist()
     
     var body: some View {
         Rectangle()
@@ -17,7 +18,7 @@ struct CardView: View {
                     VStack(spacing: 0){
                         HStack(spacing: 0){
                             
-                            Text("\(story.bgm)번의 제목")
+                            Text(playlist.getBGMName(id: story.bgm))
                                 .font(.title2)
                                 .bold()
                                 .foregroundColor(.white)
@@ -35,7 +36,7 @@ struct CardView: View {
                             .padding(.top, 25)
                         }
                         HStack(spacing: 0){
-                            Text("#\(story.bgm)의 태그")
+                            Text(playlist.getBGMHashTag(id: story.bgm))
                                 .foregroundColor(.white)
                                 .font(.system(size: 13))
                                 .padding(.top, 4)

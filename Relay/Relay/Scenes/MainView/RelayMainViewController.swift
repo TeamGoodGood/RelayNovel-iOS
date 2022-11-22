@@ -10,6 +10,7 @@ import UIKit
 import SnapKit
 
 class RelayMainViewController: UIViewController {
+    @ObservedObject var observable: PageAnimationViewObservable = PageAnimationViewObservable()
     private var recommend: Recommend?
     
     //TODO: 알람이 있을때 이미지 변경 필요
@@ -57,7 +58,25 @@ class RelayMainViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         
+        //TODO: 데이터호출 API로 변경
         recommend = mockRecommend.recommend
+        
+        observable.onTouchAction = { [weak self] in
+            guard let pageNumber = self?.observable.pageNumber else { return}
+            
+            let relayReadingViewController = RelayReadingViewController()
+            
+            switch pageNumber {
+            case 0, 3:
+                self?.navigationController?.pushViewController(relayReadingViewController, animated: true)
+            case 1, 4:
+                self?.navigationController?.pushViewController(relayReadingViewController, animated: true)
+            case 2, 5:
+                self?.navigationController?.pushViewController(relayReadingViewController, animated: true)
+            default:
+                print("Story가 확인되지 않았습니다.")
+            }
+        }
         
         self.addAnimationView()
         setNavigationBar()
@@ -112,7 +131,7 @@ extension RelayMainViewController {
     
     func addAnimationView() {
         if let recommend = recommend {
-            let hostingController = UIHostingController(rootView: PageAnimationView(recommend: recommend))
+            let hostingController = UIHostingController(rootView: PageAnimationView(observable: observable, recommend: recommend))
             
             hostingController.view.frame = animationView.bounds
             hostingController.didMove(toParent: self)

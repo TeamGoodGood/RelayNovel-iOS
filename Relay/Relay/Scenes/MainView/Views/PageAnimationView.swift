@@ -3,8 +3,11 @@ import SwiftUI
 import SwiftUIPager
 
 struct PageAnimationView: View {
+    @ObservedObject var observable: PageAnimationViewObservable
+    
     @StateObject var page1: Page = .first()
     @StateObject var page2: Page = .first()
+
     var data = Array(0..<6)
     var recommend: Recommend
     
@@ -22,8 +25,12 @@ struct PageAnimationView: View {
                     VStack(spacing: 31) {
                         Pager(page: self.page2,
                               data: self.data,
-                              id: \.self) {
-                            self.pageView($0)
+                              id: \.self) { pageNumber in
+                            self.pageView(pageNumber)
+                                .onTapGesture {
+                                    observable.pageNumber = pageNumber
+                                    observable.onTouchAction()
+                                }
                         }
                               .itemSpacing(10)
                               .loopPages(true)
@@ -137,3 +144,7 @@ struct PageAnimationView: View {
     }
 }
 
+class PageAnimationViewObservable: ObservableObject {
+    @Published var pageNumber: Int = 0
+    var onTouchAction: (() -> Void)!
+}
