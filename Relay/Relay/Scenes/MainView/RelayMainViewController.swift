@@ -62,20 +62,23 @@ class RelayMainViewController: UIViewController {
         recommend = mockRecommend.recommend
         
         observable.onTouchAction = { [weak self] in
-            guard let pageNumber = self?.observable.pageNumber else { return}
-            
-            let relayReadingViewController = RelayReadingViewController()
+            guard let pageNumber = self?.observable.pageNumber else { return }
+            var story: Story?
             
             switch pageNumber {
             case 0, 3:
-                self?.navigationController?.pushViewController(relayReadingViewController, animated: true)
+                story = self?.recommend?.story1
             case 1, 4:
-                self?.navigationController?.pushViewController(relayReadingViewController, animated: true)
+                story = self?.recommend?.story2
             case 2, 5:
-                self?.navigationController?.pushViewController(relayReadingViewController, animated: true)
+                story = self?.recommend?.story3
             default:
                 print("Story가 확인되지 않았습니다.")
             }
+            
+            let relayReadingViewController = RelayReadingViewController()
+            relayReadingViewController.requestStory(story)
+            self?.navigationController?.pushViewController(relayReadingViewController, animated: true)
         }
         
         self.addAnimationView()
