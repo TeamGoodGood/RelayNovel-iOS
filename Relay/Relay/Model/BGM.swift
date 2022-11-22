@@ -50,4 +50,16 @@ struct Playlist {
 
         return bgmName
     }
+    
+    func getBGMHashTag(id: Int) -> String {
+        var bgmHashTag = "플레이리스트 해시태그 오류"
+        
+        for i in 0..<list.count {
+            if list[i].id == id {
+                bgmHashTag = list[i].hashTag
+            }
+        }
+
+        return bgmHashTag
+    }
 }
