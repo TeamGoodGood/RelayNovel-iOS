@@ -174,6 +174,7 @@ class RelayReadingViewController: UIViewController {
         setupCustomNavigationButton()
         setupBatonButtonAction()
         setupLikeButtonAction()
+        setupRegisterButtonAction()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -308,6 +309,10 @@ extension RelayReadingViewController {
         readingFinishFooterView.likeButton.addTarget(self, action: #selector(pushLikeButton), for: .touchUpInside)
     }
     
+    func setupRegisterButtonAction() {
+        readingWriteView.registerButton.addTarget(self, action: #selector(pushRegisterButton), for: .touchUpInside)
+    }
+    
     @objc func popViewController() {
         navigationController?.navigationBar.isHidden = false
         navigationController?.popViewController(animated: true)
@@ -315,6 +320,23 @@ extension RelayReadingViewController {
     
     @objc func toggleReadingMode() {
         isReadingModeOn.toggle()
+    }
+    
+    @objc func pushRegisterButton() {
+        guard let text = readingWriteView.writingTextView.text, text != "내용을 작성해주세요." else {
+            print("내용이 있어야합니다.")
+            return
+        }
+        
+        guard !text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
+            print("공백은 등록되지 않습니다.")
+            return
+        }
+        
+        let content = text
+        let user = mockUser.curry
+        //TODO: 시간형식에 맞춰 Date 맵핑 필요
+        let createdTime = Date()
     }
     
     @objc func pushLikeButton() {

@@ -50,7 +50,7 @@ class RelayReadingWriteView: UIView {
         return textView
     }()
     
-    private lazy var registerButton: UIButton = {
+    lazy var registerButton: UIButton = {
         let button = UIButton()
         let image = UIImage(systemName: "checkmark")
         
