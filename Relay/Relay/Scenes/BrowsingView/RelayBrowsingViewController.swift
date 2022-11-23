@@ -10,6 +10,7 @@ import SnapKit
 
 class RelayBrowsingViewController: UIViewController, UICollectionViewDelegate {
     private var selectedCategory: Category?
+    var stories: [Story] = []
     
     private var currentHighlightedButton: ButtonName? {
         didSet {
@@ -40,6 +41,9 @@ class RelayBrowsingViewController: UIViewController, UICollectionViewDelegate {
         super.viewDidLoad()
         
         view.backgroundColor = .systemBackground
+        
+        //TODO: API를 통한 데이터호출로 변경
+        stories = mockStory.allList
         
         currentHighlightedButton = .entire
         
@@ -83,8 +87,8 @@ extension RelayBrowsingViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("tapped \(indexPath.row) cell")
         let readingViewController = RelayReadingViewController()
+        readingViewController.requestStory(stories[indexPath.row])
         
         navigationController?.pushViewController(readingViewController, animated: true)
     }
@@ -92,12 +96,16 @@ extension RelayBrowsingViewController: UICollectionViewDelegateFlowLayout {
 
 extension RelayBrowsingViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        4
+        stories.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RelayListCollectionViewCell.id, for: indexPath) as? RelayListCollectionViewCell else { return UICollectionViewCell() }
-        cell.configure(indexPath.row)
+        let story = stories[indexPath.row]
+        let playlist = Playlist()
+        
+        //TODO: 날짜계산모델 구현필요
+        cell.configure(indexPath.row, title: story.title, stepCount: story.current_step, stepLimit: story.step_limit, hashTag: playlist.getBGMHashTag(id: story.bgm), date: "1일 전", likeCount: story.like_count, isFinished: story.finished)
         
         return cell
     }

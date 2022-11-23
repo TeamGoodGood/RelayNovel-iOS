@@ -66,10 +66,9 @@ class RelayListCollectionViewCell: UICollectionViewCell {
 }
 
 extension RelayListCollectionViewCell {
-    func configure(_ index: Int) {
-        var isCompleted = false
+    func configure(_ index: Int, title: String, stepCount: Int, stepLimit: Int, hashTag: String, date: String, likeCount: Int, isFinished: Bool) {
         
-        if isCompleted {
+        if isFinished {
             statusLabel.text = "완주"
             statusLabel.textColor = .relayPink1
             statusLabel.layer.borderColor = UIColor.relayPink1.cgColor
@@ -79,11 +78,11 @@ extension RelayListCollectionViewCell {
             statusLabel.text = "달리는중"
         }
         
-        stepCountLabel.text = "8/20 터치"
-        relayTitleLabel.text = "릴레이 소설 제목입니다"
-        bgmTagLabel.attributedText = setLabelwithNoteImage("#판타지 #모험 #대항해시대 #해적 #극적인")
-        creationTimeLabel.text = "1일 전"
-        heartCountLabel.attributedText = setLabelwithHeartImage("17")
+        stepCountLabel.text = "\(stepCount)/\(stepLimit) 터치"
+        relayTitleLabel.text = title
+        bgmTagLabel.attributedText = setLabelwithNoteImage(hashTag)
+        creationTimeLabel.text = date
+        heartCountLabel.attributedText = setLabelwithHeartImage("\(likeCount)")
         
         setupComponent(index)
         setupLayout()
