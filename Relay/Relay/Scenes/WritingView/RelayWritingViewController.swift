@@ -354,7 +354,7 @@ extension RelayWritingViewController {
     }
     
     @objc func touchMusicListButton() {
-        let list = ["플레이리스트1", "플레이리스트2", "플레이리스트3", "플레이리스트4", "플레이리스트5", "플레이리스트6", "플레이리스트7", "플레이리스트8", "플레이리스트9", "플레이리스트10"]
+        let list = ["플레이리스트1", "플레이리스트2", "플레이리스트3", "플레이리스트4", "플레이리스트5", "플레이리스트6", "플레이리스트7", "플레이리스트8"]
         
         let modalViewController = RelayCategoryViewController(list: list)
         
