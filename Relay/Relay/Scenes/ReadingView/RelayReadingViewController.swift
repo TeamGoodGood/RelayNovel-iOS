@@ -173,6 +173,7 @@ class RelayReadingViewController: UIViewController {
         setupLayout()
         setupCustomNavigationButton()
         setupBatonButtonAction()
+        setupLikeButtonAction()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -302,6 +303,11 @@ extension RelayReadingViewController {
         scrollView.addGestureRecognizer(singleTapGestureRecognizer)
     }
     
+    func setupLikeButtonAction() {
+        readingFooterView.likeButton.addTarget(self, action: #selector(pushLikeButton), for: .touchUpInside)
+        readingFinishFooterView.likeButton.addTarget(self, action: #selector(pushLikeButton), for: .touchUpInside)
+    }
+    
     @objc func popViewController() {
         navigationController?.navigationBar.isHidden = false
         navigationController?.popViewController(animated: true)
@@ -309,6 +315,17 @@ extension RelayReadingViewController {
     
     @objc func toggleReadingMode() {
         isReadingModeOn.toggle()
+    }
+    
+    @objc func pushLikeButton() {
+        if let story = story {
+            //TODO: 좋아요 추가/해제 전달기능 구현
+            if story.user_liked {
+                print("좋아요 해제")
+            } else {
+                print("좋아요 추가")
+            }
+        }
     }
     
     @objc func touchBatonButton() {

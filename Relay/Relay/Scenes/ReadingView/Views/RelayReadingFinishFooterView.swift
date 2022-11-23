@@ -34,7 +34,7 @@ class RelayReadingFinishFooterView: UIView {
         return label
     }()
     
-    private lazy var likeButton: UIButton = {
+    lazy var likeButton: UIButton = {
         let button = UIButton()
         let image = UIImage(systemName: "heart.fill")
         
