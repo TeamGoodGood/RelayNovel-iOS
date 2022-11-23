@@ -38,7 +38,7 @@ class TabBarController: UITabBarController {
         )
         
         tabBarItem.selectedImage = selectedImage
-
+        
         viewController.view.backgroundColor = .systemBackground
         viewController.tabBarItem = tabBarItem
         
@@ -62,15 +62,13 @@ class TabBarController: UITabBarController {
         return viewController
     }()
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tabBar.backgroundColor = .systemBackground
         setupTabBar()
     }
-    
+    }
 }
 
 extension TabBarController {
@@ -88,5 +86,18 @@ extension TabBarController {
         tabBar.tintColor = .systemPink
         tabBar.layer.borderWidth = 1.0
         tabBar.layer.borderColor = UIColor.systemGray6.cgColor
+    }
+}
+
+extension TabBarController {
+    
+    func checkIsFirst() -> Bool {
+        let defaults = UserDefaults.standard
+        if defaults.object(forKey: "isFirstTime") == nil {
+            defaults.set("No", forKey:"isFirstTime")
+            return true
+        } else {
+            return false
+        }
     }
 }
