@@ -24,6 +24,7 @@ struct Playlist {
     let bgm5: BGM
     let bgm6: BGM
     let bgm7: BGM
+    let bgm8: BGM
     
     let list: [BGM]
     
@@ -35,8 +36,9 @@ struct Playlist {
         bgm5 = BGM(id: 4, name: "사랑 사극 플레이리스트 제목", hashTag: "#사극 #동양풍 #해금 #극적인 #슬픈")
         bgm6 = BGM(id: 5, name: "슬픈 사극 플레이리스트 제목", hashTag: "#사극  #동양풍  #해금  #아련한")
         bgm7 = BGM(id: 6, name: "로맨스 플레이리스트 제목", hashTag: "#로맨스  #슬픈  #상실감  #어제의_너,,")
+        bgm8 = BGM(id: 7, name: "아포칼립스 플레이리스트 제목", hashTag: "#아포칼립스 #좀비 #세계멸망 #바이러스")
         
-        list = [bgm1, bgm2, bgm3, bgm4, bgm5, bgm6, bgm7]
+        list = [bgm1, bgm2, bgm3, bgm4, bgm5, bgm6, bgm7, bgm8]
     }
     
     func getBGMName(id: Int) -> String {
