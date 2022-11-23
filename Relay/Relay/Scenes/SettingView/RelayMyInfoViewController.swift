@@ -35,6 +35,7 @@ class RelayMyInfoViewController: UIViewController, UITableViewDelegate, UITableV
         
         relaySettingViewConfigure()
         tableViewSetupLayout()
+        navigationBarCustom()
         
     }
     
@@ -109,6 +110,12 @@ extension RelayMyInfoViewController {
         tableView.tableFooterView = UIView(frame: CGRect.zero)
         tableView.separatorColor = .relayGray2
         tableView.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+    }
+    private func navigationBarCustom() {
+        navigationController?.navigationBar.backIndicatorImage = UIImage(systemName: "arrow.left")
+        navigationController?.navigationBar.backIndicatorTransitionMaskImage = UIImage(systemName: "arrow.left")
+        navigationController?.navigationBar.tintColor = .relayBlack
+        navigationController?.navigationBar.topItem?.title = ""
     }
 }
 
