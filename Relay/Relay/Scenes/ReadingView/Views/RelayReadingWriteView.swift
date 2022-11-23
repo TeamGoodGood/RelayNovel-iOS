@@ -13,7 +13,6 @@ class RelayReadingWriteView: UIView {
     
     private lazy var touchCountLabel: UILabel = {
         let label = UILabel()
-        label.text = "4 터치"
         
         label.textColor = .relayPink1
         label.setFont(.caption2)
@@ -51,7 +50,7 @@ class RelayReadingWriteView: UIView {
         return textView
     }()
     
-    private lazy var registerButton: UIButton = {
+    lazy var registerButton: UIButton = {
         let button = UIButton()
         let image = UIImage(systemName: "checkmark")
         
@@ -80,6 +79,10 @@ class RelayReadingWriteView: UIView {
 }
 
 extension RelayReadingWriteView {
+    func configure(touchCount: Int) {
+        touchCountLabel.text = "\(touchCount) 터치"
+    }
+    
     private func setupLayout() {
         [
             touchCountLabel,

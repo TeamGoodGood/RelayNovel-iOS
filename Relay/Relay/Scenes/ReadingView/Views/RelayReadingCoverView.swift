@@ -18,7 +18,6 @@ class RelayReadingCoverView: UIView {
     
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "소설 제목입니다"
         label.font = .systemFont(ofSize: 28.0, weight: .bold)
         label.textColor = .white
         
@@ -28,7 +27,6 @@ class RelayReadingCoverView: UIView {
     private lazy var statusLabel: BasePaddingLabel = {
         let label = BasePaddingLabel()
         label.padding = UIEdgeInsets(top: 4.0, left: 10.0, bottom: 4.0, right: 10.0)
-        label.text = "달리는중"
         label.font = .systemFont(ofSize: 12.0, weight: .bold)
         label.textColor = .white
         
@@ -41,33 +39,16 @@ class RelayReadingCoverView: UIView {
     
     private lazy var stepCountCategoryLabel: UILabel = {
         let label = UILabel()
-        label.text = "9 / 10 터치 · SF "
         label.font = .systemFont(ofSize: 16.0, weight: .medium)
         label.textColor = .white
         
         return label
     }()
     
-    private lazy var playlistLabel: UILabel = {
-        let label = UILabel()
-        let attributedString = NSMutableAttributedString(string: "")
-        let imageAttachment = NSTextAttachment()
-        imageAttachment.image = UIImage(systemName: "music.note.list")?.withTintColor(.white) ?? UIImage()
-        imageAttachment.bounds = CGRect(x: 0.0, y: -5.0, width: 22.0, height: 23.0)
-        
-        attributedString.append(NSAttributedString(attachment: imageAttachment))
-        attributedString.append(NSAttributedString(string: " " + "플레이리스트 제목"))
-        
-        label.attributedText = attributedString
-        label.textColor = .white
-        label.font = .systemFont(ofSize: 16.0, weight: .bold)
-        
-        return label
-    }()
+    private lazy var playlistLabel = UILabel()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
         
         setupLayout()
     }
@@ -78,6 +59,36 @@ class RelayReadingCoverView: UIView {
 }
 
 extension RelayReadingCoverView {
+    func configure(title: String, currentStep: Int, stepLimit: Int, genre: String, bgmTitle: String,isFinished: Bool) {
+        titleLabel.text = title
+        stepCountCategoryLabel.text = "\(currentStep) / \(stepLimit) 터치 · \(genre) "
+        setupPlaylistLabel(bgmTitle)
+
+        if isFinished {
+            statusLabel.text = "완주"
+            statusLabel.textColor = .relayPink1
+            statusLabel.layer.borderColor = UIColor.relayPink1.cgColor
+            statusLabel.layer.borderWidth = 1.0
+            statusLabel.backgroundColor = .systemBackground
+        } else {
+            statusLabel.text = "달리는중"
+        }
+    }
+    
+    private func setupPlaylistLabel(_ bgmTitle: String) {
+        let attributedString = NSMutableAttributedString(string: "")
+        let imageAttachment = NSTextAttachment()
+        imageAttachment.image = UIImage(systemName: "music.note.list")?.withTintColor(.white) ?? UIImage()
+        imageAttachment.bounds = CGRect(x: 0.0, y: -5.0, width: 22.0, height: 23.0)
+        
+        attributedString.append(NSAttributedString(attachment: imageAttachment))
+        attributedString.append(NSAttributedString(string: " " + bgmTitle))
+        
+        playlistLabel.attributedText = attributedString
+        playlistLabel.textColor = .white
+        playlistLabel.font = .systemFont(ofSize: 16.0, weight: .bold)
+    }
+    
     private func setupLayout() {
         [
             imageView,

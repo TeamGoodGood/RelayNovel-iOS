@@ -11,6 +11,7 @@ struct Story: Codable {
     var id: Int
     var original: UserResponse
     var genre: String
+    var header: String
     var title: String
     var content: String
     var bgm: Int

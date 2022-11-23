@@ -9,7 +9,10 @@ import UIKit
 import SnapKit
 
 class RelayReadingViewController: UIViewController {
-    //TODO: 전달받은 릴레이의 완주여부 Bool값 받기
+    var playlist = Playlist()
+    var story: Story?
+    var relays: [Relay] = []
+    
     private var isReleyFinished = false
     private var isReadingModeOn = true {
         didSet {
@@ -131,7 +134,38 @@ class RelayReadingViewController: UIViewController {
         super.viewDidLoad()
         
         view.backgroundColor = .systemBackground
-                
+        
+        if let story = story {
+            switch story.id {
+            case 0:
+                relays += mockRelay.story1Relay
+            case 1:
+                relays += mockRelay.story2Relay
+            case 2:
+                relays += mockRelay.story3Relay
+            case 3:
+                relays += mockRelay.story4Relay
+            case 4:
+                relays += mockRelay.story5Relay
+            case 5:
+                relays += mockRelay.story6Relay
+            case 6:
+                relays += mockRelay.story7Relay
+            case 7:
+                relays += mockRelay.story8Relay
+            case 8:
+                relays += mockRelay.story9Relay
+            case 9:
+                relays += mockRelay.story10Relay
+            default:
+                return
+            }
+            
+            isReleyFinished = story.finished
+            configureViews(story: story)
+        }
+        
+        
         readingWriteView.writingTextView.delegate = self
         
         addSingleTapRecognizer()
@@ -139,6 +173,8 @@ class RelayReadingViewController: UIViewController {
         setupLayout()
         setupCustomNavigationButton()
         setupBatonButtonAction()
+        setupLikeButtonAction()
+        setupRegisterButtonAction()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -241,7 +277,22 @@ extension RelayReadingViewController {
             $0.width.equalToSuperview()
             $0.height.equalToSuperview()
         }
-
+    }
+    
+    //TODO: API 호출을 통해 받아오도록 수정
+    func requestStory(_ story: Story?) {
+        self.story = story
+    }
+    
+    func configureViews(story: Story) {
+        let dateString = story.created_time.doubleDateToString
+        
+        readingCoverView.configure(title: story.title, currentStep: story.current_step, stepLimit: story.step_limit, genre: story.genre, bgmTitle: playlist.getBGMName(id: story.bgm), isFinished: story.finished)
+        readingNoticeView.configure(name: story.original.penname ?? "작성자 미상", date: dateString, noticeContent: story.header)
+        readingBodyView.configure(firstText: story.content, firstDate: dateString, firstName: story.original.penname ?? "작성자 미상", relays: relays)
+        readingFooterView.configure(likeCount: story.like_count, isLikedUser: story.user_liked)
+        readingFinishFooterView.configure(likeCount: story.like_count, isLikedUser: story.user_liked, relays: relays)
+        readingWriteView.configure(touchCount: relays.count + 2)
     }
     
     func setupBatonButtonAction() {
@@ -253,6 +304,15 @@ extension RelayReadingViewController {
         scrollView.addGestureRecognizer(singleTapGestureRecognizer)
     }
     
+    func setupLikeButtonAction() {
+        readingFooterView.likeButton.addTarget(self, action: #selector(pushLikeButton), for: .touchUpInside)
+        readingFinishFooterView.likeButton.addTarget(self, action: #selector(pushLikeButton), for: .touchUpInside)
+    }
+    
+    func setupRegisterButtonAction() {
+        readingWriteView.registerButton.addTarget(self, action: #selector(pushRegisterButton), for: .touchUpInside)
+    }
+    
     @objc func popViewController() {
         navigationController?.navigationBar.isHidden = false
         navigationController?.popViewController(animated: true)
@@ -260,6 +320,34 @@ extension RelayReadingViewController {
     
     @objc func toggleReadingMode() {
         isReadingModeOn.toggle()
+    }
+    
+    @objc func pushRegisterButton() {
+        guard let text = readingWriteView.writingTextView.text, text != "내용을 작성해주세요." else {
+            print("내용이 있어야합니다.")
+            return
+        }
+        
+        guard !text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
+            print("공백은 등록되지 않습니다.")
+            return
+        }
+        
+        let content = text
+        let user = mockUser.curry
+        //TODO: 시간형식에 맞춰 Date 맵핑 필요
+        let createdTime = Date()
+    }
+    
+    @objc func pushLikeButton() {
+        if let story = story {
+            //TODO: 좋아요 추가/해제 전달기능 구현
+            if story.user_liked {
+                print("좋아요 해제")
+            } else {
+                print("좋아요 추가")
+            }
+        }
     }
     
     @objc func touchBatonButton() {

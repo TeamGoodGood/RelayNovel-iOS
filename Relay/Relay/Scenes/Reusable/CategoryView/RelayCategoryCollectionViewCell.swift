@@ -53,6 +53,7 @@ extension RelayCategoryCollectionViewCell {
         categoryLabel.snp.makeConstraints {
             $0.top.equalToSuperview().inset(16.0)
             $0.leading.equalToSuperview()
+            $0.trailing.equalTo(checkImageView.snp.leading)
             $0.bottom.equalToSuperview().inset(12.0)
         }
         

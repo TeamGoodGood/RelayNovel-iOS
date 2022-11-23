@@ -10,6 +10,8 @@ import UIKit
 import SnapKit
 
 class RelayMainViewController: UIViewController {
+    @ObservedObject var observable: PageAnimationViewObservable = PageAnimationViewObservable()
+    private var recommend: Recommend?
     
     //TODO: 알람이 있을때 이미지 변경 필요
     private lazy var noticeButton = UIBarButtonItem(
@@ -56,6 +58,30 @@ class RelayMainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        
+        //TODO: 데이터호출 API로 변경
+        recommend = mockRecommend.recommend
+        
+        observable.onTouchAction = { [weak self] in
+            guard let pageNumber = self?.observable.pageNumber else { return }
+            var story: Story?
+            
+            switch pageNumber {
+            case 0, 3:
+                story = self?.recommend?.story1
+            case 1, 4:
+                story = self?.recommend?.story2
+            case 2, 5:
+                story = self?.recommend?.story3
+            default:
+                print("Story가 확인되지 않았습니다.")
+            }
+            
+            let relayReadingViewController = RelayReadingViewController()
+            relayReadingViewController.requestStory(story)
+            self?.navigationController?.pushViewController(relayReadingViewController, animated: true)
+        }
+        
         self.addAnimationView()
         setNavigationBar()
         setupLayout()
@@ -107,13 +133,17 @@ extension RelayMainViewController {
     }
     
     func addAnimationView() {
-        let hostingController = UIHostingController(rootView: PageAnimationView())
-        
-        hostingController.view.frame = animationView.bounds
-        hostingController.didMove(toParent: self)
-        
-        addChild(hostingController)
-        animationView.addSubview(hostingController.view)
+        if let recommend = recommend {
+            let hostingController = UIHostingController(rootView: PageAnimationView(observable: observable, recommend: recommend))
+            
+            hostingController.view.frame = animationView.bounds
+            hostingController.didMove(toParent: self)
+            
+            addChild(hostingController)
+            animationView.addSubview(hostingController.view)
+        } else {
+            print("Recommend 데이터 호출 실패")
+        }
     }
     
 }

@@ -8,17 +8,17 @@
 import SwiftUI
 
 struct CardView: View {
+    let story: Story
+    let playlist = Playlist()
+    
     var body: some View {
         Rectangle()
             .overlay {
                 ZStack{
-                    // TODO: 이미지는 나중에 이미지만 따로 있을 때 적용 하겠습니다. 지금은 글자와 이미지가 같이 있어서 적용하면 겹쳐보입니다.
-//                    Image("1")
-//                        .resizable()
                     VStack(spacing: 0){
                         HStack(spacing: 0){
                             
-                            Text("플레이리스트 제목")
+                            Text(playlist.getBGMName(id: story.bgm))
                                 .font(.title2)
                                 .bold()
                                 .foregroundColor(.white)
@@ -36,7 +36,7 @@ struct CardView: View {
                             .padding(.top, 25)
                         }
                         HStack(spacing: 0){
-                            Text("#곡 무드 태그")
+                            Text(playlist.getBGMHashTag(id: story.bgm))
                                 .foregroundColor(.white)
                                 .font(.system(size: 13))
                                 .padding(.top, 4)
@@ -51,7 +51,7 @@ struct CardView: View {
                         }
                         .padding(.bottom, 10)
                         HStack(spacing: 0){
-                            Text("소설 제목입니다")
+                            Text(story.title)
                                 .font(.system(size: 24))
                                 .bold()
                                 .foregroundColor(.white)
@@ -59,7 +59,7 @@ struct CardView: View {
                         }
                         .padding(.bottom, 8)
                         HStack(spacing: 0){
-                            Text("9 / 10")
+                            Text("\(story.current_step) / \(story.step_limit)")
                                 .font(.system(size: 17))
                                 .bold()
                                 .foregroundColor(.white)
@@ -70,7 +70,7 @@ struct CardView: View {
                             Image(systemName: "circle.fill")
                                 .foregroundColor(.white)
                                 .font(.system(size: 5))
-                            Text(" SF")
+                            Text(" \(story.genre)")
                                 .font(.system(size: 17))
                                 .bold()
                                 .foregroundColor(.white)
@@ -84,8 +84,8 @@ struct CardView: View {
     }
 }
 
-struct CardView_Previews: PreviewProvider {
-    static var previews: some View {
-        CardView()
-    }
-}
+//struct CardView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        CardView()
+//    }
+//}

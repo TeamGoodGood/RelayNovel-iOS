@@ -10,8 +10,8 @@ import SnapKit
 
 // TODO: 플레이리스트 모달로도 재사용 가능하도록 리팩토링 필요
 class RelayCategoryViewController: UIViewController {
-    var categoryList: [String]
-    private var selectedCategory: String?
+    var categoryList: [Category]
+    private var selectedCategory: Category?
     
     weak var delegate: RelayCategoryDelegate?
     
@@ -42,7 +42,7 @@ class RelayCategoryViewController: UIViewController {
         return button
     }()
     
-    init(list: [String]) {
+    init(list: [Category]) {
         categoryList = list
         
         super.init(nibName: nil, bundle: nil)
@@ -85,7 +85,7 @@ extension RelayCategoryViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RelayCategoryCollectionViewCell.id, for: indexPath) as? RelayCategoryCollectionViewCell else { return UICollectionViewCell() }
         
-        cell.configure(categoryList[indexPath.row], index: indexPath.row)
+        cell.configure(categoryList[indexPath.row].name, index: indexPath.row)
         
         if indexPath.row == 0 {
             cell.layer.addBorder([.bottom], color: UIColor(red: 226/255, green: 226/255, blue: 226/255, alpha: 1.0), width: 1.0)
@@ -93,7 +93,7 @@ extension RelayCategoryViewController: UICollectionViewDataSource {
         }
         
         if let category = selectedCategory {
-            if category == "전체" {
+            if category.name == "전체" {
                 let indexPath0 = IndexPath(row: 0, section: 0)
                 collectionView.selectItem(at: indexPath0, animated: false, scrollPosition: .init())
             } else {
@@ -133,7 +133,7 @@ extension RelayCategoryViewController {
         }
     }
     
-    func fetchSelectedCateogry(_ cateogry: String?) {
+    func fetchSelectedCateogry(_ cateogry: Category?) {
         selectedCategory = cateogry
     }
     
@@ -141,7 +141,7 @@ extension RelayCategoryViewController {
         if let selectedCategory = self.selectedCategory {
             delegate?.didApplyCategory(selectedCategory: selectedCategory)
         } else {
-            delegate?.didApplyCategory(selectedCategory: categoryList.first ?? "")
+            delegate?.didApplyCategory(selectedCategory: categoryList.first ?? Category(id: 0, name: "불명확한 카테고리"))
         }
         
         dismiss(animated: true)
@@ -150,5 +150,5 @@ extension RelayCategoryViewController {
 
 
 protocol RelayCategoryDelegate: AnyObject {
-    func didApplyCategory(selectedCategory: String)
+    func didApplyCategory(selectedCategory: Category)
 }

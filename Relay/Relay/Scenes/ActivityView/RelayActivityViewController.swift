@@ -10,6 +10,7 @@ import SnapKit
 
 class RelayActivityViewController: UIViewController {
     var type: ListViewType
+    var stories: [Story] = []
     
     private lazy var relayListView = RelayListView(frame: .zero, type: type)
     
@@ -43,6 +44,9 @@ class RelayActivityViewController: UIViewController {
         
         view.backgroundColor = .systemBackground
         
+        //TODO: API를 통한 데이터호출로 구현필요
+        stories = mockStory.allList
+        
         relayListView.listCollectionView.delegate = self
         relayListView.listCollectionView.dataSource = self
         
@@ -66,6 +70,7 @@ extension RelayActivityViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let readingViewController = RelayReadingViewController()
+        readingViewController.requestStory(stories[indexPath.row])
         
         navigationController?.pushViewController(readingViewController, animated: true)
     }
@@ -73,13 +78,16 @@ extension RelayActivityViewController: UICollectionViewDelegateFlowLayout {
 
 extension RelayActivityViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        //TODO: Story 개수에 따라 변경되도록 수정
-        4
+        stories.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RelayListCollectionViewCell.id, for: indexPath) as? RelayListCollectionViewCell else { return UICollectionViewCell() }
-        cell.configure(indexPath.row)
+        let story = stories[indexPath.row]
+        let playlist = Playlist()
+        
+        //TODO: 날짜계산모델 구현필요
+        cell.configure(indexPath.row, title: story.title, stepCount: story.current_step, stepLimit: story.step_limit, hashTag: playlist.getBGMHashTag(id: story.bgm), date: "1일 전", likeCount: story.like_count, isFinished: story.finished)
         
         return cell
     }

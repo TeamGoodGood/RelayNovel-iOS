@@ -9,7 +9,9 @@ import UIKit
 import SnapKit
 
 class RelayWritingViewController: UIViewController, UICollectionViewDelegate {
-    private var selectedCategory: String?
+    private var selectedCategory: Category?
+    private var selectedEvenet: String?
+    private var selectedTouch: Int?
     
     private let closeButton: UIButton = {
         let button = UIButton(type: .custom)
@@ -29,6 +31,8 @@ class RelayWritingViewController: UIViewController, UICollectionViewDelegate {
         button.setTitle("완료", for: .normal)
         button.setTitleColor(.relayBlack, for: .normal)
         button.titleLabel?.setFont(.caption1)
+        
+        button.addTarget(self, action: #selector(touchCompleteButton), for: .touchUpInside)
         
         return button
     }()
@@ -176,7 +180,7 @@ class RelayWritingViewController: UIViewController, UICollectionViewDelegate {
     }()
     
     let tagList = ["로맨스", "스릴러/공포", "판타지", "SF", "시대극", "무협", "추리", "일반", "기타"]
-    let touchList = ["10", "20", "30", "40", "50"]
+    let touchList = [10, 20, 30, 40, 50]
     
     lazy var eventCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -248,11 +252,11 @@ extension RelayWritingViewController: UIViewControllerTransitioningDelegate {
 }
 
 extension RelayWritingViewController: RelayCategoryDelegate {
-    func didApplyCategory(selectedCategory: String) {
+    func didApplyCategory(selectedCategory: Category) {
         self.selectedCategory = selectedCategory
         
         if let selectedPlaylist = self.selectedCategory {
-            musicListButton.setTitle(selectedPlaylist, for: .normal)
+            musicListButton.setTitle(selectedPlaylist.name, for: .normal)
         }
     }
 }
@@ -354,7 +358,8 @@ extension RelayWritingViewController {
     }
     
     @objc func touchMusicListButton() {
-        let list = ["플레이리스트1", "플레이리스트2", "플레이리스트3", "플레이리스트4", "플레이리스트5", "플레이리스트6", "플레이리스트7", "플레이리스트8"]
+        let playlist = Playlist()
+        let list = playlist.list
         
         let modalViewController = RelayCategoryViewController(list: list)
         
@@ -364,6 +369,62 @@ extension RelayWritingViewController {
         modalViewController.delegate = self
         
         present(modalViewController, animated: true)
+    }
+    
+    @objc func touchCompleteButton() {
+        guard let playlist = selectedCategory else {
+            // TODO: 플레이리스트 선택이 없을경우 Alert 또는 알림구현 필요
+            print("플레이리스트를 선택해주세요.")
+            return
+        }
+        
+        guard let title = titleTextField.text, title != "" else {
+            // TODO: 제목입력 없을경우 Alert 또는 알림구현 필요
+            print("제목을 작성해주세요.")
+            return
+        }
+        guard let content = storyTextView.text, content != textViewPlaceHolder else {
+            // TODO: 본문입력 없을경우 Alert 또는 알림구현 필요
+            print("본문을 작성해주세요.")
+            return
+        }
+        
+        guard let comment = commentTextField.text, comment != "" else {
+            // TODO: 코멘트 입력 없을경우 Alert 또는 알림구현 필요
+            print("코멘트를 작성해주세요.")
+            return
+        }
+        
+        guard let event = selectedEvenet else {
+            // TODO: 장르선택 없을경우 Alert 또는 알림구현 필요
+            print("종목을 선택해주세요.")
+            return
+        }
+        
+        guard let stepLimit = selectedTouch else {
+            // TODO: 스텝수 없을경우 Alert 또는 알림구현 필요
+            print("터치 수를 선택해주세요.")
+            return
+        }
+        
+        let userResponse = UserResponse(id: loginUser.id, penname: loginUser.penname)
+        let story = Story(
+            id: 100,
+            original: userResponse,
+            genre: event,
+            header: comment,
+            title: title,
+            content: content,
+            bgm: playlist.id,
+            like_count: 0,
+            step_limit: stepLimit,
+            current_step: 1,
+            finished: false,
+            created_time: 20221201220000,
+            user_liked: false
+        )
+        
+        mockStory.allList.append(story)
     }
     
     private func updateCountLabel(characterCount: Int) {
@@ -569,6 +630,19 @@ extension RelayWritingViewController: UITextViewDelegate {
     }
 }
 
+extension RelayWritingViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        switch collectionView {
+        case eventCollectionView:
+            selectedEvenet = tagList[indexPath.row]
+        case touchCollectionView:
+            selectedTouch = touchList[indexPath.row]
+        default:
+            print("CollectionView touch Error")
+        }
+    }
+}
+
 
 extension RelayWritingViewController: UICollectionViewDataSource {
     
@@ -597,7 +671,7 @@ extension RelayWritingViewController: UICollectionViewDataSource {
         case touchCollectionView:
             let cell = touchCollectionView.dequeueReusableCell(withReuseIdentifier: touchIdentifier, for: indexPath) as! TouchCollectionViewCell
             
-            cell.touchLabel.text = touchList[indexPath.row]
+            cell.touchLabel.text = "\(touchList[indexPath.row])"
             
             return cell
             

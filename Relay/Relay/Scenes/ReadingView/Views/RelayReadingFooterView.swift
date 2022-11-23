@@ -9,12 +9,11 @@ import UIKit
 import SnapKit
 
 class RelayReadingFooterView: UIView {
-    private lazy var likeButton: UIButton = {
+    lazy var likeButton: UIButton = {
         let button = UIButton()
         let image = UIImage(systemName: "heart.fill")
         
         button.tintColor = .relayPink1
-        button.setTitle("13", for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 17.0, weight: .bold)
         button.setTitleColor(.relayBlack, for: .normal)
         
@@ -53,6 +52,16 @@ class RelayReadingFooterView: UIView {
 }
 
 extension RelayReadingFooterView {
+    func configure(likeCount: Int, isLikedUser: Bool) {
+        if isLikedUser {
+            likeButton.tintColor = .relayPink1
+        } else {
+            likeButton.tintColor = .relayGray
+        }
+        
+        likeButton.setTitle("\(likeCount)", for: .normal)
+    }
+    
     private func setupLayout() {
         [
             likeButton,
