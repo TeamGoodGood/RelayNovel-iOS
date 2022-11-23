@@ -83,10 +83,9 @@
 		B533AB5E291AC52100B73867 /* RelayDeleteAccountAgreementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B533AB5D291AC52100B73867 /* RelayDeleteAccountAgreementView.swift */; };
 		B533AB62291BFB2200B73867 /* RelayTermsAndConditionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B533AB61291BFB2200B73867 /* RelayTermsAndConditionsViewController.swift */; };
 		B533AB64291C107200B73867 /* RelayPrivacyPolicyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B533AB63291C107200B73867 /* RelayPrivacyPolicyViewController.swift */; };
+		B5687A67292C8B7D0077E3F0 /* RelayOnboardingViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5687A66292C8B7D0077E3F0 /* RelayOnboardingViewCell.swift */; };
+		B5687A69292C8BE40077E3F0 /* RelayOnboardingDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5687A68292C8BE40077E3F0 /* RelayOnboardingDataModel.swift */; };
 		B5C0B4BD290F7C9A00077B5F /* RelayOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C0B4BC290F7C9A00077B5F /* RelayOnboardingViewController.swift */; };
-		B5C0B51B29117E2800077B5F /* RelaySecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C0B51A29117E2800077B5F /* RelaySecondViewController.swift */; };
-		B5C0B51D2911854900077B5F /* RelayFirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C0B51C2911854900077B5F /* RelayFirstViewController.swift */; };
-		B5C0B51F2911858800077B5F /* RelayThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C0B51E2911858800077B5F /* RelayThirdViewController.swift */; };
 		B5C0B5252914D8BA00077B5F /* RelaySettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C0B5242914D8BA00077B5F /* RelaySettingViewController.swift */; };
 		B5C0B52B2916A9FA00077B5F /* RelaySettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C0B52A2916A9FA00077B5F /* RelaySettingTableViewCell.swift */; };
 /* End PBXBuildFile section */
@@ -172,10 +171,9 @@
 		B533AB5D291AC52100B73867 /* RelayDeleteAccountAgreementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayDeleteAccountAgreementView.swift; sourceTree = "<group>"; };
 		B533AB61291BFB2200B73867 /* RelayTermsAndConditionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayTermsAndConditionsViewController.swift; sourceTree = "<group>"; };
 		B533AB63291C107200B73867 /* RelayPrivacyPolicyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayPrivacyPolicyViewController.swift; sourceTree = "<group>"; };
+		B5687A66292C8B7D0077E3F0 /* RelayOnboardingViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayOnboardingViewCell.swift; sourceTree = "<group>"; };
+		B5687A68292C8BE40077E3F0 /* RelayOnboardingDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayOnboardingDataModel.swift; sourceTree = "<group>"; };
 		B5C0B4BC290F7C9A00077B5F /* RelayOnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayOnboardingViewController.swift; sourceTree = "<group>"; };
-		B5C0B51A29117E2800077B5F /* RelaySecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelaySecondViewController.swift; sourceTree = "<group>"; };
-		B5C0B51C2911854900077B5F /* RelayFirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayFirstViewController.swift; sourceTree = "<group>"; };
-		B5C0B51E2911858800077B5F /* RelayThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayThirdViewController.swift; sourceTree = "<group>"; };
 		B5C0B5242914D8BA00077B5F /* RelaySettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelaySettingViewController.swift; sourceTree = "<group>"; };
 		B5C0B52A2916A9FA00077B5F /* RelaySettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelaySettingTableViewCell.swift; sourceTree = "<group>"; };
 		BB3686570FE66E0630031A1E /* Pods-Relay.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Relay.release.xcconfig"; path = "Target Support Files/Pods-Relay/Pods-Relay.release.xcconfig"; sourceTree = "<group>"; };
@@ -556,9 +554,8 @@
 		B5C0B4B5290F7B1F00077B5F /* OnboardingView */ = {
 			isa = PBXGroup;
 			children = (
-				B5C0B51C2911854900077B5F /* RelayFirstViewController.swift */,
-				B5C0B51A29117E2800077B5F /* RelaySecondViewController.swift */,
-				B5C0B51E2911858800077B5F /* RelayThirdViewController.swift */,
+				B5687A68292C8BE40077E3F0 /* RelayOnboardingDataModel.swift */,
+				B5687A66292C8B7D0077E3F0 /* RelayOnboardingViewCell.swift */,
 				B5C0B4BC290F7C9A00077B5F /* RelayOnboardingViewController.swift */,
 			);
 			path = OnboardingView;
@@ -711,21 +708,20 @@
 			files = (
 				B533AB4929183A4400B73867 /* RelayMyInfoViewController.swift in Sources */,
 				55867E212914EB3C00C79FFC /* RelayCategoryCollectionViewCell.swift in Sources */,
+				B5687A67292C8B7D0077E3F0 /* RelayOnboardingViewCell.swift in Sources */,
 				B533AB62291BFB2200B73867 /* RelayTermsAndConditionsViewController.swift in Sources */,
 				55745F372919347800414462 /* RelayReadingCoverView.swift in Sources */,
 				55867E172913ABED00C79FFC /* RelayBrowsingViewController.swift in Sources */,
-				B5C0B51F2911858800077B5F /* RelayThirdViewController.swift in Sources */,
 				32DE2B0F291A4729005D1A85 /* EventCollectionViewCell.swift in Sources */,
 				55746033292B503800414462 /* RelayActivityViewController.swift in Sources */,
-				B5C0B51B29117E2800077B5F /* RelaySecondViewController.swift in Sources */,
 				73741CB3291D368100E7F765 /* NoticeAPI.swift in Sources */,
 				32464EB3291B808800BDAB7C /* RelayNoticeViewController.swift in Sources */,
 				B5C0B4BD290F7C9A00077B5F /* RelayOnboardingViewController.swift in Sources */,
-				B5C0B51D2911854900077B5F /* RelayFirstViewController.swift in Sources */,
 				55745F352919340700414462 /* RelayReadingViewController.swift in Sources */,
 				32F835422911571B00E2CC4A /* Extension+UIImage.swift in Sources */,
 				32464EB7291B887D00BDAB7C /* TableCellCustomCell.swift in Sources */,
 				55FDCEB1290A5DB2000AB345 /* RelayProfileViewController.swift in Sources */,
+				B5687A69292C8BE40077E3F0 /* RelayOnboardingDataModel.swift in Sources */,
 				32DE2B0629164291005D1A85 /* RelayWritingViewController.swift in Sources */,
 				B533AB4B2918ACD100B73867 /* RelayAboutRelayViewController.swift in Sources */,
 				73741CAB291D364C00E7F765 /* RelayAPI.swift in Sources */,
