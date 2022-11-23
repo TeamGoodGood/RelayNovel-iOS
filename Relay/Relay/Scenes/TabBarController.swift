@@ -71,8 +71,9 @@ class TabBarController: UITabBarController {
     
     override func viewDidAppear(_ animated: Bool) {
         let isFirst = checkIsFirst()
+        let isLogin = checkIsLoggedIn()
         DispatchQueue.main.asyncAfter(deadline: .now().advanced(by: .seconds(0))) { [weak self] in
-            self?.changeView(isFirst: isFirst)
+            self?.changeView(isFirst: isFirst, isLogin: isLogin)
         }
     }
 }
@@ -96,18 +97,20 @@ extension TabBarController {
 }
 
 extension TabBarController {
-    func changeView(isFirst: Bool) {
+    func changeView(isFirst: Bool, isLogin: Bool) {
         if isFirst {
-            print("first")
+            print("isfirst")
             let layout = UICollectionViewFlowLayout()
             layout.scrollDirection = .horizontal
             let toRelayOnboardingView = RelayOnboardingViewController(collectionViewLayout: layout)
             toRelayOnboardingView.modalPresentationStyle = .fullScreen
             present(toRelayOnboardingView, animated: false, completion: nil)
         }
-        
+        else if isLogin {
+            print("notfirst && isLogin")
+        }
         else {
-            print("else")
+            print("notfirst && notLogin")
             let toRelayLoginView = RelayLoginViewController()
             toRelayLoginView.modalPresentationStyle = .fullScreen
             present(toRelayLoginView, animated: false, completion: nil)
@@ -118,6 +121,16 @@ extension TabBarController {
         let defaults = UserDefaults.standard
         if defaults.object(forKey: "isFirstTime") == nil {
             defaults.set("No", forKey:"isFirstTime")
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    func checkIsLoggedIn() -> Bool {
+        let defaults = UserDefaults.standard
+        if defaults.object(forKey: "isAutoLogin") == nil {
+            defaults.set("No", forKey:"isAutoLogin")
             return true
         } else {
             return false
