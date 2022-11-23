@@ -21,7 +21,7 @@ class RelayMainViewController: UIViewController {
     
     //TODO: 이미지 크기 변경 필요
     private lazy var logoButton = UIBarButtonItem(
-        image: UIImage(named: "RelayLogo")?.resize(newWidth: 56),
+        image: UIImage(named: "RelayLogo")?.resize(newWidth: 56).withRenderingMode(.alwaysOriginal),
         style: .plain,
         target: self,
         action: nil
@@ -65,7 +65,7 @@ class RelayMainViewController: UIViewController {
 extension RelayMainViewController {
     private func setNavigationBar() {
         noticeButton.tintColor = .relayBlack
-        logoButton.tintColor = .relayPink1
+        logoButton.isEnabled = false
         
         navigationItem.leftBarButtonItem = logoButton
         navigationItem.rightBarButtonItem = noticeButton
