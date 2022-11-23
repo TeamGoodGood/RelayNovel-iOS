@@ -90,6 +90,23 @@ extension TabBarController {
 }
 
 extension TabBarController {
+    func changeView(isFirst: Bool) {
+        if isFirst {
+            print("first")
+            let layout = UICollectionViewFlowLayout()
+            layout.scrollDirection = .horizontal
+            let toRelayOnboardingView = RelayOnboardingViewController(collectionViewLayout: layout)
+            toRelayOnboardingView.modalPresentationStyle = .fullScreen
+            present(toRelayOnboardingView, animated: false, completion: nil)
+        }
+        
+        else {
+            print("else")
+            let toRelayLoginView = RelayLoginViewController()
+            toRelayLoginView.modalPresentationStyle = .fullScreen
+            present(toRelayLoginView, animated: false, completion: nil)
+        }
+    }
     
     func checkIsFirst() -> Bool {
         let defaults = UserDefaults.standard
