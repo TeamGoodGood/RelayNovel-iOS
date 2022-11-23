@@ -37,6 +37,7 @@ class RelayAboutRelayViewController: UIViewController, UITableViewDelegate, UITa
         relaySettingViewConfigure()
         setupLayout()
         tableViewSetupLayout()
+        navigationBarCustom()
     }
     
     func relaySettingViewConfigure() {
@@ -113,5 +114,12 @@ extension RelayAboutRelayViewController {
         tableView.backgroundColor = .relayGray2
         tableView.tableFooterView = UIView(frame: CGRect.zero)
         tableView.separatorColor = self.tableView.backgroundColor
+    }
+    
+    private func navigationBarCustom() {
+        navigationController?.navigationBar.backIndicatorImage = UIImage(systemName: "arrow.left")
+        navigationController?.navigationBar.backIndicatorTransitionMaskImage = UIImage(systemName: "arrow.left")
+        navigationController?.navigationBar.tintColor = .relayBlack
+        navigationController?.navigationBar.topItem?.title = ""
     }
 }
