@@ -37,10 +37,12 @@ class EventCollectionViewCell: UICollectionViewCell {
                 print("selected in \(isSelected)")
                 circleView.layer.borderColor = UIColor.relayPink1.cgColor
                 circleView.backgroundColor = .relayPink1
+                eventLabel.textColor = .white
             } else {
                 print("else in")
                 circleView.layer.borderColor = UIColor.relayBlack.cgColor
                 circleView.backgroundColor = .white
+                eventLabel.textColor = .black
             }
         }
     }

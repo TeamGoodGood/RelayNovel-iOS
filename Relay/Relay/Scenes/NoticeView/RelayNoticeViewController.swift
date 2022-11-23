@@ -10,14 +10,6 @@ import SnapKit
 
 class RelayNoticeViewController: UIViewController {
     
-    //TODO: 삭제 기능 구현
-    private lazy var trashBarButtonItem = UIBarButtonItem(
-        image: UIImage(systemName: "trash"),
-        style: .plain,
-        target: self,
-        action: nil
-    )
-    
     private lazy var backBarButtonItem = UIBarButtonItem(
         title: "",
         style: .plain,
@@ -59,7 +51,6 @@ extension RelayNoticeViewController {
         navigationController?.navigationBar.topItem?.title = ""
         
         navigationItem.title = "알림"
-        navigationItem.rightBarButtonItem = trashBarButtonItem
     }
     
     private func setupTableView() {

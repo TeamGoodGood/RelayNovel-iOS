@@ -265,7 +265,7 @@ extension RelayWritingViewController {
     
     @objc
     func dissmissViewController() {
-        self.presentingViewController?.dismiss(animated: false, completion:nil)
+        self.presentingViewController?.dismiss(animated: true, completion:nil)
     }
     
     @objc
