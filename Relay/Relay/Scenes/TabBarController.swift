@@ -68,6 +68,12 @@ class TabBarController: UITabBarController {
         tabBar.backgroundColor = .systemBackground
         setupTabBar()
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        let isFirst = checkIsFirst()
+        DispatchQueue.main.asyncAfter(deadline: .now().advanced(by: .seconds(0))) { [weak self] in
+            self?.changeView(isFirst: isFirst)
+        }
     }
 }
 
