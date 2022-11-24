@@ -10,7 +10,7 @@ import SnapKit
 import AVFoundation
 
 class RelayWritingViewController: UIViewController, UICollectionViewDelegate {
-    private var selectedCategory: Category?
+    private var selectedCategory: BGM?
     private var selectedEvenet: String?
     private var selectedTouch: Int?
     var audioPlayer: AVAudioPlayer?
@@ -255,7 +255,7 @@ extension RelayWritingViewController: UIViewControllerTransitioningDelegate {
 
 extension RelayWritingViewController: RelayCategoryDelegate {
     func didApplyCategory(selectedCategory: Category) {
-        self.selectedCategory = selectedCategory
+        self.selectedCategory = selectedCategory as? BGM
         
         if let selectedPlaylist = self.selectedCategory {
             musicListButton.setTitle(selectedPlaylist.name, for: .normal)
@@ -263,7 +263,16 @@ extension RelayWritingViewController: RelayCategoryDelegate {
     }
     
     func playMusic() {
-        
+        let url = Bundle.main.url(forResource: "PlayList_1", withExtension: "mp3")
+        if let url = url {
+            do {
+                audioPlayer = try AVAudioPlayer(contentsOf: url)
+                audioPlayer?.prepareToPlay()
+                audioPlayer?.play()
+            } catch {
+                print(error)
+            }
+        }
     }
 }
 

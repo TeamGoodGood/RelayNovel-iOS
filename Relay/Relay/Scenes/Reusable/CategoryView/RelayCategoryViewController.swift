@@ -39,6 +39,7 @@ class RelayCategoryViewController: UIViewController {
         
         button.addTarget(self, action: #selector(dismissViewController), for: .touchUpInside)
         
+        
         return button
     }()
     
