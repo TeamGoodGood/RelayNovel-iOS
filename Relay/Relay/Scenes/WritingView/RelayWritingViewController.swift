@@ -265,9 +265,7 @@ extension RelayWritingViewController: RelayCategoryDelegate {
     func playMusic(id: Int) {
         let playlist = Playlist()
         let fileName = playlist.getBGMFileName(id: id)
-    
         let url = Bundle.main.url(forResource: fileName, withExtension: "mp3")
-        
         print(fileName)
         
         if let url = url {
