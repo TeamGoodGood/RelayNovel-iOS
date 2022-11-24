@@ -32,7 +32,7 @@ class RelayReadingCoverView: UIView {
         
         label.clipsToBounds = true
         label.backgroundColor = .relayPink1
-        label.layer.cornerRadius = 12.0
+        label.layer.cornerRadius = 11.0
         
         return label
     }()
@@ -69,7 +69,7 @@ extension RelayReadingCoverView {
             statusLabel.textColor = .relayPink1
             statusLabel.layer.borderColor = UIColor.relayPink1.cgColor
             statusLabel.layer.borderWidth = 1.0
-            statusLabel.backgroundColor = .systemBackground
+            statusLabel.backgroundColor = .none
         } else {
             statusLabel.text = "달리는중"
         }
