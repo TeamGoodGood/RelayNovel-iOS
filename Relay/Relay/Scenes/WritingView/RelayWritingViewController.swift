@@ -7,11 +7,13 @@
 
 import UIKit
 import SnapKit
+import AVFoundation
 
 class RelayWritingViewController: UIViewController, UICollectionViewDelegate {
     private var selectedCategory: Category?
     private var selectedEvenet: String?
     private var selectedTouch: Int?
+    var audioPlayer: AVAudioPlayer?
     
     private let closeButton: UIButton = {
         let button = UIButton(type: .custom)
@@ -258,6 +260,10 @@ extension RelayWritingViewController: RelayCategoryDelegate {
         if let selectedPlaylist = self.selectedCategory {
             musicListButton.setTitle(selectedPlaylist.name, for: .normal)
         }
+    }
+    
+    func playMusic() {
+        
     }
 }
 
@@ -642,7 +648,6 @@ extension RelayWritingViewController: UICollectionViewDelegateFlowLayout {
         }
     }
 }
-
 
 extension RelayWritingViewController: UICollectionViewDataSource {
     
