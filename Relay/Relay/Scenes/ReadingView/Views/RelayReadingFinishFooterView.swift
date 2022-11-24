@@ -69,7 +69,8 @@ extension RelayReadingFinishFooterView {
         if isLikedUser {
             likeButton.tintColor = .relayPink1
         } else {
-            likeButton.tintColor = .relayGray
+            let image = UIImage(systemName: "heart")
+            likeButton.setImage(image, for: .normal)
         }
         
         likeButton.setTitle("\(likeCount)", for: .normal)
