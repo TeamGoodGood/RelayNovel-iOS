@@ -38,7 +38,7 @@ class TabBarController: UITabBarController {
         )
         
         tabBarItem.selectedImage = selectedImage
-
+        
         viewController.view.backgroundColor = .systemBackground
         viewController.tabBarItem = tabBarItem
         
@@ -62,8 +62,6 @@ class TabBarController: UITabBarController {
         return viewController
     }()
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -71,6 +69,13 @@ class TabBarController: UITabBarController {
         setupTabBar()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        let isFirst = checkIsFirst()
+        let isLogin = checkIsLoggedIn()
+        DispatchQueue.main.asyncAfter(deadline: .now().advanced(by: .seconds(0))) { [weak self] in
+            self?.changeView(isFirst: isFirst, isLogin: isLogin)
+        }
+    }
 }
 
 extension TabBarController {
@@ -88,5 +93,47 @@ extension TabBarController {
         tabBar.tintColor = .systemPink
         tabBar.layer.borderWidth = 1.0
         tabBar.layer.borderColor = UIColor.systemGray6.cgColor
+    }
+}
+
+extension TabBarController {
+    func changeView(isFirst: Bool, isLogin: Bool) {
+        if isFirst {
+            print("isfirst")
+            let layout = UICollectionViewFlowLayout()
+            layout.scrollDirection = .horizontal
+            let toRelayOnboardingView = RelayOnboardingViewController(collectionViewLayout: layout)
+            toRelayOnboardingView.modalPresentationStyle = .fullScreen
+            present(toRelayOnboardingView, animated: false, completion: nil)
+        }
+        else if isLogin {
+            print("notfirst && isLogin")
+        }
+        else {
+            print("notfirst && notLogin")
+            let toRelayLoginView = RelayLoginViewController()
+            toRelayLoginView.modalPresentationStyle = .fullScreen
+            present(toRelayLoginView, animated: false, completion: nil)
+        }
+    }
+    
+    func checkIsFirst() -> Bool {
+        let defaults = UserDefaults.standard
+        if defaults.object(forKey: "isFirstTime") == nil {
+            defaults.set("No", forKey:"isFirstTime")
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    func checkIsLoggedIn() -> Bool {
+        let defaults = UserDefaults.standard
+        if defaults.object(forKey: "isAutoLogin") == nil {
+            defaults.set("No", forKey:"isAutoLogin")
+            return true
+        } else {
+            return false
+        }
     }
 }
