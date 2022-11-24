@@ -63,8 +63,8 @@ extension RelayBrowsingViewController: UIViewControllerTransitioningDelegate {
 }
 
 extension RelayBrowsingViewController: RelayCategoryDelegate {
-    func playMusic() {
-        print("ㅇ")
+    func playMusic(id: Int) {
+        print("")
     }
     
     

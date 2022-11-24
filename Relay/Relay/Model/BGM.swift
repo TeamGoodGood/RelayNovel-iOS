@@ -66,4 +66,15 @@ struct Playlist {
 
         return bgmHashTag
     }
+    
+    func getBGMFileName(id: Int) -> String {
+        var bgmFileName = "플레이리스트 파일이름 오류"
+        
+        for i in 0..<list.count {
+            if list[i].id == id {
+                bgmFileName = list[i].fileName
+            }
+        }
+        return bgmFileName
+    }
 }

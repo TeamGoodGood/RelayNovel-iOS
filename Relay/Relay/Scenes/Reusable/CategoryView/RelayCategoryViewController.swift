@@ -75,7 +75,7 @@ extension RelayCategoryViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         selectedCategory = categoryList[indexPath.row]
-        delegate?.playMusic()
+        delegate?.playMusic(id: selectedCategory?.id ?? 0)
     }
 }
 
@@ -154,5 +154,5 @@ extension RelayCategoryViewController {
 protocol RelayCategoryDelegate: AnyObject {
     func didApplyCategory(selectedCategory: Category)
     
-    func playMusic()
+    func playMusic(id: Int)
 }

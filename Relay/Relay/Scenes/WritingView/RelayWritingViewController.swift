@@ -262,17 +262,8 @@ extension RelayWritingViewController: RelayCategoryDelegate {
         }
     }
     
-    func playMusic() {
-        let url = Bundle.main.url(forResource: "PlayList_1", withExtension: "mp3")
-        if let url = url {
-            do {
-                audioPlayer = try AVAudioPlayer(contentsOf: url)
-                audioPlayer?.prepareToPlay()
-                audioPlayer?.play()
-            } catch {
-                print(error)
-            }
-        }
+    func playMusic(id: Int) {
+    
     }
 }
 
