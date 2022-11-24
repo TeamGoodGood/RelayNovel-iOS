@@ -25,6 +25,7 @@ class RelayDeleteAccountViewController: UIViewController {
         
         view.backgroundColor = .white
         setupLayout()
+        navigationBarCustom()
     }
 }
 
@@ -47,5 +48,12 @@ extension RelayDeleteAccountViewController {
             $0.trailing.equalToSuperview()
             $0.bottom.equalToSuperview()
         }
+    }
+    
+    private func navigationBarCustom() {
+        navigationController?.navigationBar.backIndicatorImage = UIImage(systemName: "arrow.left")
+        navigationController?.navigationBar.backIndicatorTransitionMaskImage = UIImage(systemName: "arrow.left")
+        navigationController?.navigationBar.tintColor = .relayBlack
+        navigationController?.navigationBar.topItem?.title = ""
     }
 }
