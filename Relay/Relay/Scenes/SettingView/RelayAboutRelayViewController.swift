@@ -43,7 +43,11 @@ class RelayAboutRelayViewController: UIViewController, UITableViewDelegate, UITa
     func relaySettingViewConfigure() {
         models.append(Section(title: "", details: "", version: "", options: [
             SettingsOption(title: "튜토리얼 다시보기", details: "", version: "") {
-                // 온보딩 뷰 연결
+                let layout = UICollectionViewFlowLayout()
+                layout.scrollDirection = .horizontal
+                let toRelayOnboardingView = RelayOnboardingViewController(collectionViewLayout: layout)
+                toRelayOnboardingView.modalPresentationStyle = .fullScreen
+                self.present(toRelayOnboardingView, animated: false, completion: nil)
             },
             SettingsOption(title: "오픈소스 라이선스", details: "", version: "") {
                 // 오픈소스 라이선스 뷰 연결
