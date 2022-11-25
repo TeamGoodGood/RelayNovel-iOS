@@ -78,7 +78,9 @@ class RelayMainViewController: UIViewController {
             }
             
             let relayReadingViewController = RelayReadingViewController()
+            relayReadingViewController.hidesBottomBarWhenPushed = true
             relayReadingViewController.requestStory(story)
+            
             self?.navigationController?.pushViewController(relayReadingViewController, animated: true)
         }
         
