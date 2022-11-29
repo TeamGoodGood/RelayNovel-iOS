@@ -233,6 +233,7 @@ class RelayWritingViewController: UIViewController, UICollectionViewDelegate {
     override func viewWillDisappear(_ animated: Bool) {
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+        audioPlayer?.stop()
     }
 
     override func viewDidLoad() {
@@ -271,7 +272,6 @@ extension RelayWritingViewController: RelayPlaylistCategoryDelegate {
         let playlist = Playlist()
         let fileName = playlist.getBGMFileName(id: id)
         let url = Bundle.main.url(forResource: fileName, withExtension: "mp3")
-        print(fileName)
         
         if let url = url {
             do {
