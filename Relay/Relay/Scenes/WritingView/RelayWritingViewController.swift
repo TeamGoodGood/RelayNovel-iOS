@@ -261,7 +261,9 @@ extension RelayWritingViewController: RelayCategoryDelegate {
             musicListButton.setTitle(selectedPlaylist.name, for: .normal)
         }
     }
-    
+}
+
+extension RelayWritingViewController: RelayPlaylistCategoryDelegate {
     func playMusic(id: Int) {
         let playlist = Playlist()
         let fileName = playlist.getBGMFileName(id: id)
@@ -386,6 +388,7 @@ extension RelayWritingViewController {
         modalViewController.modalPresentationStyle = .custom
         modalViewController.transitioningDelegate = self
         modalViewController.delegate = self
+        modalViewController.playlistDelegate = self
         
         present(modalViewController, animated: true)
     }
