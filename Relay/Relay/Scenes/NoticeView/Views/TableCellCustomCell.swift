@@ -31,7 +31,7 @@ class TableCellCustomCell: UITableViewCell {
     private let noticeLabel: UILabel = {
         let label = UILabel()
         
-        label.text = "dk"
+        label.text = "안녕하세요"
         label.setFont(.caption1)
         label.textColor = .relayBlack
         
@@ -41,7 +41,7 @@ class TableCellCustomCell: UITableViewCell {
     private let timeLabel: UILabel = {
         let label = UILabel()
         
-        label.text = "아"
+        label.text = "1시간전"
         label.setFont(.caption2)
         label.textColor = .relayGray
         
