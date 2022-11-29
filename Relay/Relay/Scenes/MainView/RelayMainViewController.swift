@@ -21,7 +21,6 @@ class RelayMainViewController: UIViewController {
         action: #selector(goToNoticeView)
     )
     
-    //TODO: 이미지 크기 변경 필요
     private lazy var logoButton = UIBarButtonItem(
         image: UIImage(named: "RelayLogo")?.resize(newWidth: 56).withRenderingMode(.alwaysOriginal),
         style: .plain,
