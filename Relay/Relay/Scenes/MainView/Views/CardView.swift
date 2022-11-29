@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct CardView: View {
+    @State var isPlaying: Bool = false
     let story: Story
     let playlist = Playlist()
     
@@ -27,9 +28,9 @@ struct CardView: View {
                             Spacer()
                             
                             Button{
-                                
+                                isPlaying.toggle()
                             } label: {
-                                Image(systemName: "play.circle")
+                                Image(systemName: isPlaying ? "pause.circle" : "play.circle")
                                     .foregroundColor(.white)
                                     .font(.system(size: 32))
                             }

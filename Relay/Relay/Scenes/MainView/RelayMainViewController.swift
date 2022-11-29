@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 
 class RelayMainViewController: UIViewController {
-    @ObservedObject var observable: PageAnimationViewObservable = PageAnimationViewObservable()
+    @ObservedObject var observable: RelayMainViewControllerObservable = RelayMainViewControllerObservable()
     private var recommend: Recommend?
     
     //TODO: 알람이 있을때 이미지 변경 필요
@@ -148,4 +148,10 @@ extension RelayMainViewController {
         }
     }
     
+}
+
+class RelayMainViewControllerObservable: ObservableObject {
+    @Published var pageNumber: Int = 0
+    
+    var onTouchAction: (() -> Void)!
 }

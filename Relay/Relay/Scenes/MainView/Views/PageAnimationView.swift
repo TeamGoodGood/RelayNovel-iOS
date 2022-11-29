@@ -3,7 +3,7 @@ import SwiftUI
 import SwiftUIPager
 
 struct PageAnimationView: View {
-    @ObservedObject var observable: PageAnimationViewObservable
+    @ObservedObject var observable: RelayMainViewControllerObservable
     
     @StateObject var page1: Page = .first()
     @StateObject var page2: Page = .first()
@@ -142,9 +142,4 @@ struct PageAnimationView: View {
             }
         }
     }
-}
-
-class PageAnimationViewObservable: ObservableObject {
-    @Published var pageNumber: Int = 0
-    var onTouchAction: (() -> Void)!
 }
