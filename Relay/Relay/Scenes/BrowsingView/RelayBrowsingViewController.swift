@@ -89,6 +89,7 @@ extension RelayBrowsingViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let readingViewController = RelayReadingViewController()
         readingViewController.requestStory(stories[indexPath.row])
+        readingViewController.hidesBottomBarWhenPushed = true
         
         navigationController?.pushViewController(readingViewController, animated: true)
     }
