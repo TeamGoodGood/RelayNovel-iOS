@@ -249,7 +249,10 @@ class RelayWritingViewController: UIViewController, UICollectionViewDelegate {
 
 extension RelayWritingViewController: UIViewControllerTransitioningDelegate {
     func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
-        CategoryModalPresentationController(presentedViewController: presented, presenting: presenting)
+        let modal = CategoryModalPresentationController(presentedViewController: presented, presenting: presenting)
+        modal.dismissDelegate = self
+        
+        return modal
         }
 }
 
@@ -278,6 +281,16 @@ extension RelayWritingViewController: RelayPlaylistCategoryDelegate {
             } catch {
                 print(error)
             }
+        }
+    }
+}
+
+extension RelayWritingViewController: CategoryModalDismissDelegate {
+    func dismissByTouchingBackground() {
+        if let bgm = selectedCategory {
+            playMusic(id: bgm.id)
+        } else {
+            audioPlayer?.stop()
         }
     }
 }
