@@ -60,42 +60,42 @@ struct PageAnimationView: View {
             if page == 0 {
                 Rectangle()
                     .overlay {
-                        CardView(story: recommend.story1)
+                        CardView(observable: observable, story: recommend.story1, page: 0)
                     }
             }
             
             if page == 1 {
                 Rectangle()
                     .overlay {
-                        CardView(story: recommend.story2)
+                        CardView(observable: observable, story: recommend.story2, page: 1)
                     }
             }
             
             if page == 2 {
                 Rectangle()
                     .overlay {
-                        CardView(story: recommend.story3)
+                        CardView(observable: observable, story: recommend.story3, page: 2)
                     }
             }
             
             if page == 3 {
                 Rectangle()
                     .overlay {
-                        CardView(story: recommend.story1)
+                        CardView(observable: observable, story: recommend.story1, page: 0)
                     }
             }
             
             if page == 4 {
                 Rectangle()
                     .overlay {
-                        CardView(story: recommend.story2)
+                        CardView(observable: observable, story: recommend.story2, page: 1)
                     }
             }
             
             if page == 5 {
                 Rectangle()
                     .overlay {
-                        CardView(story: recommend.story3)
+                        CardView(observable: observable, story: recommend.story3, page: 2)
                     }
             }
         }

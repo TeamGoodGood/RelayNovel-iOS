@@ -152,6 +152,7 @@ extension RelayMainViewController {
 
 class RelayMainViewControllerObservable: ObservableObject {
     @Published var pageNumber: Int = 0
+    @Published var nowPlayingPage: Int?
     
     var onTouchAction: (() -> Void)!
 }

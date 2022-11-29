@@ -8,10 +8,22 @@
 import SwiftUI
 
 struct CardView: View {
-    @State var isPlaying: Bool = false
+    @ObservedObject var observable: RelayMainViewControllerObservable
+    
     let story: Story
+    let page: Int
     let playlist = Playlist()
     
+    var isPlaying: Bool {
+        get {
+            if observable.nowPlayingPage == page {
+                return true
+            } else {
+                return false
+            }
+        }
+    }
+
     var body: some View {
         Rectangle()
             .overlay {
@@ -28,7 +40,11 @@ struct CardView: View {
                             Spacer()
                             
                             Button{
-                                isPlaying.toggle()
+                                if isPlaying {
+                                    observable.nowPlayingPage = nil
+                                } else {
+                                    observable.nowPlayingPage = page
+                                }
                             } label: {
                                 Image(systemName: isPlaying ? "pause.circle" : "play.circle")
                                     .foregroundColor(.white)
