@@ -51,6 +51,10 @@ struct MockNotice {
             created_time: 202211092224, noti_type: 5, related_story: story
         )
     }
+    
+    func getNoticeArray() -> [Notice] {
+        [notice1, notice2, notice3, notice4, notice5, notice6]
+    }
 }
 
 var mockNotice = MockNotice()

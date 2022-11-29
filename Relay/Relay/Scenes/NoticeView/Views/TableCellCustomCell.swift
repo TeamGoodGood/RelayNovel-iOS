@@ -10,6 +10,8 @@ import SnapKit
 
 class TableCellCustomCell: UITableViewCell {
     
+    var notice: Notice?
+    
     static let reuseIdentifier: String = "MainTableViewCell"
     
     private let dividerBottom: UIView = {
@@ -30,8 +32,7 @@ class TableCellCustomCell: UITableViewCell {
     
     private let noticeLabel: UILabel = {
         let label = UILabel()
-        
-        label.text = "안녕하세요"
+//        label.text = "안녕하세요"
         label.setFont(.caption1)
         label.textColor = .relayBlack
         
@@ -41,23 +42,23 @@ class TableCellCustomCell: UITableViewCell {
     private let timeLabel: UILabel = {
         let label = UILabel()
         
-        label.text = "1시간전"
+//        label.text = "\(MockNotice().notice1.created_time)"
         label.setFont(.caption2)
         label.textColor = .relayGray
         
         return label
     }()
     
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
+    func configure(_ notice: Notice) {
+        self.notice = notice
+        
+        noticeLabel.text = setNoticeText(noticeType: notice.noti_type)
+//        timeLabel.text = notice.created_time
+        
         setupLayout()
     }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
 
-    func setupLayout() {
+    private func setupLayout() {
         [
             lillaImageView,
             noticeLabel,
@@ -85,6 +86,27 @@ class TableCellCustomCell: UITableViewCell {
             $0.trailing.equalToSuperview()
             $0.bottom.equalToSuperview()
             $0.height.equalTo(1.0)
+        }
+    }
+}
+
+extension TableCellCustomCell {
+    func setNoticeText(noticeType: Int) -> String{
+        switch noticeType {
+        case 0:
+            return ""
+        case 1:
+            return ""
+        case 2:
+            return ""
+        case 3:
+            return ""
+        case 4:
+            return ""
+        case 5:
+            return ""
+        default:
+            return ""
         }
     }
 }
