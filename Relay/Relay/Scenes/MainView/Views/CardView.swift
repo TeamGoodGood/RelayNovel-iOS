@@ -9,20 +9,11 @@ import SwiftUI
 
 struct CardView: View {
     @ObservedObject var observable: RelayMainViewControllerObservable
+    @State var isPlaying: Bool = false
     
     let story: Story
     let page: Int
     let playlist = Playlist()
-    
-    var isPlaying: Bool {
-        get {
-            if observable.nowPlayingPage == page {
-                return true
-            } else {
-                return false
-            }
-        }
-    }
 
     var body: some View {
         Rectangle()
@@ -41,13 +32,24 @@ struct CardView: View {
                             
                             Button{
                                 if isPlaying {
-                                    observable.nowPlayingPage = nil
+                                    if page == observable.nowPlayingPage {
+                                        observable.pauseMusic()
+                                    } else {
+                                        observable.nowPlayingPage = nil
+                                        observable.stopMusic()
+                                    }
+                                    isPlaying = false
                                 } else {
-                                    observable.nowPlayingPage = page
-                                    observable.playMusic(bgmID: story.bgm)
+                                    if page == observable.nowPlayingPage {
+                                        observable.playMusic()
+                                    } else {
+                                        observable.nowPlayingPage = page
+                                        observable.playMusic(bgmID: story.bgm)
+                                    }
+                                    isPlaying = true
                                 }
                             } label: {
-                                Image(systemName: isPlaying ? "pause.circle" : "play.circle")
+                                Image(systemName: (isPlaying && page == observable.nowPlayingPage)  ? "pause.circle" : "play.circle")
                                     .foregroundColor(.white)
                                     .font(.system(size: 32))
                             }
@@ -101,9 +103,3 @@ struct CardView: View {
             }
     }
 }
-
-//struct CardView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        CardView()
-//    }
-//}

@@ -159,12 +159,30 @@ class RelayMainViewControllerObservable: ObservableObject {
     var onTouchAction: (() -> Void)!
     
     func playMusic(bgmID: Int) {
-        //TODO: 음악실행 구현
-        print("\(bgmID)번 음악 실행")
+        let playlist = Playlist()
+        let fileName = playlist.getBGMFileName(id: bgmID)
+        let url = Bundle.main.url(forResource: fileName, withExtension: "mp3")
+        
+        if let url = url {
+            do {
+                audioPlayer = try AVAudioPlayer(contentsOf: url)
+                audioPlayer?.prepareToPlay()
+                audioPlayer?.play()
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    func playMusic() {
+        audioPlayer?.play()
     }
     
     func stopMusic() {
-        //TODO: 음악정지 구현
-        print("음악 정지")
+        audioPlayer?.stop()
+    }
+    
+    func pauseMusic() {
+        audioPlayer?.pause()
     }
 }
