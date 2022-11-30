@@ -14,6 +14,7 @@ class RelayCategoryViewController: UIViewController {
     private var selectedCategory: Category?
     
     weak var delegate: RelayCategoryDelegate?
+    weak var playlistDelegate: RelayPlaylistCategoryDelegate?
     
     private lazy var categoryCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -38,6 +39,7 @@ class RelayCategoryViewController: UIViewController {
         button.backgroundColor = .relayPink1
         
         button.addTarget(self, action: #selector(dismissViewController), for: .touchUpInside)
+        
         
         return button
     }()
@@ -74,6 +76,7 @@ extension RelayCategoryViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         selectedCategory = categoryList[indexPath.row]
+        playlistDelegate?.playMusic(id: selectedCategory?.id ?? 0)
     }
 }
 
@@ -151,4 +154,8 @@ extension RelayCategoryViewController {
 
 protocol RelayCategoryDelegate: AnyObject {
     func didApplyCategory(selectedCategory: Category)
+}
+
+protocol RelayPlaylistCategoryDelegate: AnyObject {
+    func playMusic(id: Int)
 }

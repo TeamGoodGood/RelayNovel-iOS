@@ -7,11 +7,13 @@
 
 import UIKit
 import SnapKit
+import AVFoundation
 
 class RelayWritingViewController: UIViewController, UICollectionViewDelegate {
-    private var selectedCategory: Category?
-    private var selectedEvenet: String?
+    private var selectedCategory: BGM?
+    private var selectedEvent: String?
     private var selectedTouch: Int?
+    var audioPlayer: AVAudioPlayer?
     
     private let closeButton: UIButton = {
         let button = UIButton(type: .custom)
@@ -231,6 +233,7 @@ class RelayWritingViewController: UIViewController, UICollectionViewDelegate {
     override func viewWillDisappear(_ animated: Bool) {
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+        audioPlayer?.stop()
     }
 
     override func viewDidLoad() {
@@ -247,16 +250,47 @@ class RelayWritingViewController: UIViewController, UICollectionViewDelegate {
 
 extension RelayWritingViewController: UIViewControllerTransitioningDelegate {
     func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
-        CategoryModalPresentationController(presentedViewController: presented, presenting: presenting)
+        let modal = CategoryModalPresentationController(presentedViewController: presented, presenting: presenting)
+        modal.dismissDelegate = self
+        
+        return modal
         }
 }
 
 extension RelayWritingViewController: RelayCategoryDelegate {
     func didApplyCategory(selectedCategory: Category) {
-        self.selectedCategory = selectedCategory
+        self.selectedCategory = selectedCategory as? BGM
         
         if let selectedPlaylist = self.selectedCategory {
             musicListButton.setTitle(selectedPlaylist.name, for: .normal)
+        }
+    }
+}
+
+extension RelayWritingViewController: RelayPlaylistCategoryDelegate {
+    func playMusic(id: Int) {
+        let playlist = Playlist()
+        let fileName = playlist.getBGMFileName(id: id)
+        let url = Bundle.main.url(forResource: fileName, withExtension: "mp3")
+        
+        if let url = url {
+            do {
+                audioPlayer = try AVAudioPlayer(contentsOf: url)
+                audioPlayer?.prepareToPlay()
+                audioPlayer?.play()
+            } catch {
+                print(error)
+            }
+        }
+    }
+}
+
+extension RelayWritingViewController: CategoryModalDismissDelegate {
+    func dismissByTouchingBackground() {
+        if let bgm = selectedCategory {
+            playMusic(id: bgm.id)
+        } else {
+            audioPlayer?.stop()
         }
     }
 }
@@ -367,6 +401,7 @@ extension RelayWritingViewController {
         modalViewController.modalPresentationStyle = .custom
         modalViewController.transitioningDelegate = self
         modalViewController.delegate = self
+        modalViewController.playlistDelegate = self
         
         present(modalViewController, animated: true)
     }
@@ -395,7 +430,7 @@ extension RelayWritingViewController {
             return
         }
         
-        guard let event = selectedEvenet else {
+        guard let event = selectedEvent else {
             // TODO: 장르선택 없을경우 Alert 또는 알림구현 필요
             print("종목을 선택해주세요.")
             return
@@ -634,7 +669,7 @@ extension RelayWritingViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch collectionView {
         case eventCollectionView:
-            selectedEvenet = tagList[indexPath.row]
+            selectedEvent = tagList[indexPath.row]
         case touchCollectionView:
             selectedTouch = touchList[indexPath.row]
         default:
@@ -642,7 +677,6 @@ extension RelayWritingViewController: UICollectionViewDelegateFlowLayout {
         }
     }
 }
-
 
 extension RelayWritingViewController: UICollectionViewDataSource {
     
