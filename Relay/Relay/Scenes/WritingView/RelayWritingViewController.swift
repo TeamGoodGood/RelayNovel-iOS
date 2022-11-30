@@ -276,6 +276,7 @@ extension RelayWritingViewController: RelayPlaylistCategoryDelegate {
         if let url = url {
             do {
                 audioPlayer = try AVAudioPlayer(contentsOf: url)
+                audioPlayer?.numberOfLoops = -1
                 audioPlayer?.prepareToPlay()
                 audioPlayer?.play()
             } catch {
