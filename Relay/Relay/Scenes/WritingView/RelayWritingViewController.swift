@@ -11,7 +11,7 @@ import AVFoundation
 
 class RelayWritingViewController: UIViewController, UICollectionViewDelegate {
     private var selectedCategory: BGM?
-    private var selectedEvenet: String?
+    private var selectedEvent: String?
     private var selectedTouch: Int?
     var audioPlayer: AVAudioPlayer?
     
@@ -430,7 +430,7 @@ extension RelayWritingViewController {
             return
         }
         
-        guard let event = selectedEvenet else {
+        guard let event = selectedEvent else {
             // TODO: 장르선택 없을경우 Alert 또는 알림구현 필요
             print("종목을 선택해주세요.")
             return
@@ -669,7 +669,7 @@ extension RelayWritingViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch collectionView {
         case eventCollectionView:
-            selectedEvenet = tagList[indexPath.row]
+            selectedEvent = tagList[indexPath.row]
         case touchCollectionView:
             selectedTouch = touchList[indexPath.row]
         default:
