@@ -44,6 +44,7 @@ struct CardView: View {
                                     observable.nowPlayingPage = nil
                                 } else {
                                     observable.nowPlayingPage = page
+                                    observable.playMusic(bgmID: story.bgm)
                                 }
                             } label: {
                                 Image(systemName: isPlaying ? "pause.circle" : "play.circle")

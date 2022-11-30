@@ -8,6 +8,7 @@
 import SwiftUI
 import UIKit
 import SnapKit
+import AVFoundation
 
 class RelayMainViewController: UIViewController {
     @ObservedObject var observable: RelayMainViewControllerObservable = RelayMainViewControllerObservable()
@@ -150,8 +151,20 @@ extension RelayMainViewController {
 }
 
 class RelayMainViewControllerObservable: ObservableObject {
+    private var audioPlayer: AVAudioPlayer?
+    
     @Published var pageNumber: Int = 0
     @Published var nowPlayingPage: Int?
     
     var onTouchAction: (() -> Void)!
+    
+    func playMusic(bgmID: Int) {
+        //TODO: 음악실행 구현
+        print("\(bgmID)번 음악 실행")
+    }
+    
+    func stopMusic() {
+        //TODO: 음악정지 구현
+        print("음악 정지")
+    }
 }
