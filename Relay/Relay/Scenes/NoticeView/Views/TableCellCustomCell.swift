@@ -31,10 +31,12 @@ class TableCellCustomCell: UITableViewCell {
     
     private let noticeLabel: UILabel = {
         let label = UILabel()
+        
         label.setFont(.caption1)
         label.numberOfLines = 0
         label.textColor = .relayBlack
-        
+        label.lineBreakMode = .byCharWrapping
+
         return label
     }()
     
