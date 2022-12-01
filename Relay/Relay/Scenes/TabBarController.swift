@@ -70,6 +70,8 @@ class TabBarController: UITabBarController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
         let isFirst = checkIsFirst()
         let isLogin = checkIsLoggedIn()
         DispatchQueue.main.asyncAfter(deadline: .now().advanced(by: .seconds(0))) { [weak self] in

@@ -12,6 +12,7 @@ class CategoryModalPresentationController: UIPresentationController {
     let shadowView: UIView!
     var tapGestureRecognizer: UITapGestureRecognizer = UITapGestureRecognizer()
     var check: Bool = false
+    weak var dismissDelegate: CategoryModalDismissDelegate?
     
     override init(presentedViewController: UIViewController, presenting presentingViewController: UIViewController?) {
         shadowView = UIView()
@@ -55,5 +56,10 @@ class CategoryModalPresentationController: UIPresentationController {
     
     @objc func dismissController() {
         self.presentedViewController.dismiss(animated: true, completion: nil)
+        dismissDelegate?.dismissByTouchingBackground()
     }
+}
+
+protocol CategoryModalDismissDelegate: AnyObject {
+    func dismissByTouchingBackground()
 }
