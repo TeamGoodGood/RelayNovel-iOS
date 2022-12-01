@@ -21,11 +21,10 @@ class TableCellCustomCell: UITableViewCell {
         return view
     }()
     
-    private let lillaImageView: UIImageView = {
+    private let noticeImageView: UIImageView = {
        let imageView = UIImageView()
-       let image = UIImage(named: "onboardingImage")
         
-       imageView.image = image
+        imageView.tintColor = .relayPink1
         
        return imageView
     }()
@@ -42,7 +41,6 @@ class TableCellCustomCell: UITableViewCell {
     private let timeLabel: UILabel = {
         let label = UILabel()
         
-//        label.text = "\(MockNotice().notice1.created_time)"
         label.setFont(.caption2)
         label.textColor = .relayGray
         
@@ -55,31 +53,34 @@ class TableCellCustomCell: UITableViewCell {
         noticeLabel.text = setNoticeText(noticeType: notice.noti_type)
         timeLabel.text = String(notice.created_time)
         
+        noticeImageView.image = setNoticeImage(noticeType: notice.noti_type)
+        noticeImageView.image?.withTintColor(.relayPink1)
+        
         setupLayout()
     }
 
     private func setupLayout() {
         [
-            lillaImageView,
+            noticeImageView,
             noticeLabel,
             timeLabel,
             dividerBottom
         ].forEach { addSubview($0) }
         
-        lillaImageView.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(16.0)
-            $0.leading.equalToSuperview().inset(20.0)
-            $0.width.equalTo(40.0)
-            $0.height.equalTo(43.0)
+        noticeImageView.snp.makeConstraints {
+            $0.top.equalToSuperview().inset(35.0)
+            $0.leading.equalToSuperview().inset(30.0)
+            $0.width.equalTo(27.0)
+            $0.height.equalTo(26.0)
         }
         noticeLabel.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(20.0)
-            $0.leading.equalTo(lillaImageView.snp.trailing).offset(17.0)
+            $0.top.equalToSuperview().inset(30.0)
+            $0.leading.equalTo(noticeImageView.snp.trailing).offset(21.0)
             $0.trailing.equalToSuperview().inset(30.0)
         }
         timeLabel.snp.makeConstraints {
-            $0.top.equalTo(noticeLabel.snp.bottom).offset(8.0)
-            $0.leading.equalTo(lillaImageView.snp.trailing).offset(24.0)
+            $0.top.equalTo(noticeLabel.snp.bottom).offset(4.0)
+            $0.leading.equalTo(noticeImageView.snp.trailing).offset(21.0)
         }
         dividerBottom.snp.makeConstraints {
             $0.leading.equalToSuperview()
@@ -107,6 +108,19 @@ extension TableCellCustomCell {
             return "내가 참여한 릴레이가 완주되었어요"
         default:
             return "error"
+        }
+    }
+    
+    func setNoticeImage(noticeType: Int) -> UIImage{
+        switch noticeType {
+        case 0,3:
+            return (UIImage(systemName: "heart"))!
+        case 1,4:
+            return (UIImage(systemName: "hands.clap"))!
+        case 2,5:
+            return (UIImage(systemName: "flag"))!
+        default:
+            return (UIImage(systemName: "exclamationmark"))!
         }
     }
 }
