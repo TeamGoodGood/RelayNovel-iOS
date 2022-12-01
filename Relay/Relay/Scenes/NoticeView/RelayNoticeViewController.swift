@@ -37,6 +37,9 @@ class RelayNoticeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        
+        noticeArray = mockNotice.getNoticeArray()
+        
         setupTableView()
         setupLayout()
         setNavigationBar()

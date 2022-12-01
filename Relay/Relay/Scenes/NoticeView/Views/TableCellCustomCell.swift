@@ -32,8 +32,8 @@ class TableCellCustomCell: UITableViewCell {
     
     private let noticeLabel: UILabel = {
         let label = UILabel()
-//        label.text = "안녕하세요"
         label.setFont(.caption1)
+        label.numberOfLines = 0
         label.textColor = .relayBlack
         
         return label
@@ -53,7 +53,7 @@ class TableCellCustomCell: UITableViewCell {
         self.notice = notice
         
         noticeLabel.text = setNoticeText(noticeType: notice.noti_type)
-//        timeLabel.text = notice.created_time
+        timeLabel.text = String(notice.created_time)
         
         setupLayout()
     }
@@ -74,8 +74,8 @@ class TableCellCustomCell: UITableViewCell {
         }
         noticeLabel.snp.makeConstraints {
             $0.top.equalToSuperview().inset(20.0)
-            $0.leading.equalTo(lillaImageView.snp.trailing).offset(24.0)
-            $0.trailing.equalToSuperview().inset(20.0)
+            $0.leading.equalTo(lillaImageView.snp.trailing).offset(17.0)
+            $0.trailing.equalToSuperview().inset(30.0)
         }
         timeLabel.snp.makeConstraints {
             $0.top.equalTo(noticeLabel.snp.bottom).offset(8.0)
@@ -94,19 +94,19 @@ extension TableCellCustomCell {
     func setNoticeText(noticeType: Int) -> String{
         switch noticeType {
         case 0:
-            return ""
+            return "내가 시작한 릴레이에 좋아요를 남겼어요"
         case 1:
-            return ""
+            return "내가 시작한 릴레이에 새로운 터치가 추가되었어요"
         case 2:
-            return ""
+            return "내가 시작한 릴레이가 완주되었어요"
         case 3:
-            return ""
+            return "내가 참여한 릴레이에 좋아요를 남겼어요"
         case 4:
-            return ""
+            return "내가 참여한 릴레이에 새로운 터치가 추가되었어요"
         case 5:
-            return ""
+            return "내가 참여한 릴레이가 완주되었어요"
         default:
-            return ""
+            return "error"
         }
     }
 }
