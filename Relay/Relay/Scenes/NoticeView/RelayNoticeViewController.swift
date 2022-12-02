@@ -9,6 +9,7 @@ import UIKit
 import SnapKit
 
 class RelayNoticeViewController: UIViewController {
+    var noticeArray: [Notice]?
     
     private lazy var backBarButtonItem = UIBarButtonItem(
         title: "",
@@ -36,6 +37,10 @@ class RelayNoticeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        
+        //TODO: API 호출을 통한 데이터 요청으로 수정
+        noticeArray = mockNotice.getNoticeArray()
+        
         setupTableView()
         setupLayout()
         setNavigationBar()
@@ -83,7 +88,12 @@ extension RelayNoticeViewController {
 extension RelayNoticeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 20
+        if let noticeArray = noticeArray {
+            return noticeArray.count
+        } else {
+            //TODO: 알림(noticeArray)이 없을 경우 보여줄 뷰 구현 필요
+            return 0
+        }
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -93,10 +103,16 @@ extension RelayNoticeViewController: UITableViewDelegate, UITableViewDataSource 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: TableCellCustomCell.reuseIdentifier, for: indexPath) as! TableCellCustomCell
         
+        if let notice = noticeArray?[indexPath.row] {
+            cell.configure(notice)
+        } else {
+            //TODO: 알림(noticeArray)이 없을 경우 보여줄 뷰 구현 필요
+        }
+        
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 82
+        return 98
     }
 }
