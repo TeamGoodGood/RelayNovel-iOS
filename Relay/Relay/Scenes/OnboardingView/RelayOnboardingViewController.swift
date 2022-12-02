@@ -137,14 +137,14 @@ extension RelayOnboardingViewController{
     
     @objc private func pressedSkipButton(_ sender: UIButton) {
         let toRelayLoginView = RelayLoginViewController()
-           toRelayLoginView.modalPresentationStyle = .fullScreen
-           present(toRelayLoginView, animated: false, completion: nil)
+        toRelayLoginView.modalPresentationStyle = .fullScreen
+        present(toRelayLoginView, animated: false, completion: nil)
     }
     
     @objc private func pressedStartButton(_ sender: UIButton) {
         let toRelayLoginView = RelayLoginViewController()
-           toRelayLoginView.modalPresentationStyle = .fullScreen
-           present(toRelayLoginView, animated: false, completion: nil)
+        toRelayLoginView.modalPresentationStyle = .fullScreen
+        present(toRelayLoginView, animated: false, completion: nil)
     }
     
     @objc private func pressedReturnButton(_ sender: UIButton) {
