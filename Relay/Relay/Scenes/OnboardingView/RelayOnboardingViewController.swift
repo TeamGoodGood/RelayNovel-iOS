@@ -158,6 +158,10 @@ extension RelayOnboardingViewController{
            present(toRelayLoginView, animated: false, completion: nil)
     }
     
+    @objc private func pressedReturnButton(_ sender: UIButton) {
+        self.dismiss(animated: false, completion: nil)
+    }
+    
     func configureViewController() {
         collectionView.isPagingEnabled = true
         collectionView.backgroundColor = .white
