@@ -27,7 +27,7 @@ class RelayOnboardingViewController: UICollectionViewController, UICollectionVie
         return controller
     }()
     
-    private let skipButton: UIButton = {
+    let skipButton: UIButton = {
         let button = UIButton()
         
         button.setTitle("건너뛰기", for: .normal)
@@ -71,7 +71,7 @@ class RelayOnboardingViewController: UICollectionViewController, UICollectionVie
         
         configureViewController()
         setupLayout()
-        setupButtonTitleLayout(.tutorial)
+        setupButtonTitleLayout(.onboarding)
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -167,7 +167,7 @@ extension RelayOnboardingViewController {
         case tutorial = "돌아가기"
     }
     
-    private func setupButtonTitleLayout(_ buttonType: ButtonType) {
+    func setupButtonTitleLayout(_ buttonType: ButtonType) {
         switch buttonType {
         case .tutorial:
             [

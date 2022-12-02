@@ -48,6 +48,7 @@ class RelayAboutRelayViewController: UIViewController, UITableViewDelegate, UITa
                 let toRelayOnboardingView = RelayOnboardingViewController(collectionViewLayout: layout)
                 toRelayOnboardingView.modalPresentationStyle = .fullScreen
                 self.present(toRelayOnboardingView, animated: false, completion: nil)
+                toRelayOnboardingView.setupButtonTitleLayout(.tutorial)
             },
             SettingsOption(title: "오픈소스 라이선스", details: "", version: "") {
                 // 오픈소스 라이선스 뷰 연결
