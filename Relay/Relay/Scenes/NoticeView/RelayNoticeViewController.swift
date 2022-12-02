@@ -38,6 +38,7 @@ class RelayNoticeViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         
+        //TODO: API 호출을 통한 데이터 요청으로 수정
         noticeArray = mockNotice.getNoticeArray()
         
         setupTableView()
