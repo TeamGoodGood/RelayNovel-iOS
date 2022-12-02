@@ -52,6 +52,20 @@ class RelayOnboardingViewController: UICollectionViewController, UICollectionVie
         return button
     }()
     
+    private let returnButton: UIButton = {
+        let button = UIButton()
+        
+        button.setTitle("돌아가기", for: .normal)
+        button.backgroundColor = .black
+        button.setTitleColor(.white, for: .normal)
+        button.layer.cornerRadius = 16
+        button.titleLabel?.font = UIFont(name: "SF Pro", size: 16)
+        button.addTarget(self, action: #selector(pressedReturnButton), for: .touchUpInside)
+        button.isHidden = true
+        
+        return button
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
