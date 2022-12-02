@@ -71,6 +71,7 @@ class RelayOnboardingViewController: UICollectionViewController, UICollectionVie
         
         configureViewController()
         setupLayout()
+        setupButtonTitleLayout(.tutorial)
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
