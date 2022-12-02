@@ -27,7 +27,7 @@ class RelayOnboardingViewController: UICollectionViewController, UICollectionVie
         return controller
     }()
     
-    let skipButton: UIButton = {
+    private let skipButton: UIButton = {
         let button = UIButton()
         
         button.setTitle("건너뛰기", for: .normal)
@@ -171,10 +171,14 @@ extension RelayOnboardingViewController {
         switch buttonType {
         case .tutorial:
             [
+                skipButton,
                 returnButton
                 
             ].forEach { view.addSubview($0) }
             
+            skipButton.snp.makeConstraints {
+                $0.top.equalToSuperview().inset(-100.0)
+            }
             returnButton.snp.makeConstraints {
                 $0.bottom.equalToSuperview().inset(95.0)
                 $0.centerX.equalToSuperview()
@@ -183,7 +187,6 @@ extension RelayOnboardingViewController {
                 $0.width.equalTo(350.0)
                 $0.height.equalTo(56.0)
             }
-            
         default:
             [
                 skipButton,
