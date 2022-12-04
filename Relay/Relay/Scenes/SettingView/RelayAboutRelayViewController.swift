@@ -44,8 +44,9 @@ class RelayAboutRelayViewController: UIViewController, UITableViewDelegate, UITa
         models.append(Section(title: "", details: "", version: "", options: [
             SettingsOption(title: "튜토리얼 다시보기", details: "", version: "") {
                 let layout = UICollectionViewFlowLayout()
-                layout.scrollDirection = .horizontal
                 let toRelayOnboardingView = RelayOnboardingViewController(collectionViewLayout: layout)
+                
+                layout.scrollDirection = .horizontal
                 toRelayOnboardingView.modalPresentationStyle = .fullScreen
                 self.present(toRelayOnboardingView, animated: false, completion: nil)
                 toRelayOnboardingView.setupButtonTitleLayout(.tutorial)
