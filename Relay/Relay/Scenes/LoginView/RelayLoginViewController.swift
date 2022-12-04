@@ -106,8 +106,9 @@ class RelayLoginViewController: UIViewController {
             subTitleLabel,
             titleLabel,
             loginImageView,
+            loginButton,
             noLoginButton,
-            loginButton
+            noLoginLabel
         ].forEach { view.addSubview($0) }
         
         noLoginButton.addSubview(noLoginLabel)
@@ -124,8 +125,7 @@ class RelayLoginViewController: UIViewController {
         }
         loginImageView.snp.makeConstraints {
             $0.top.equalTo(titleLabel.snp.bottom).offset(64.3)
-            $0.leading.equalToSuperview().inset(55.0)
-            $0.trailing.equalToSuperview().inset(55.0)
+            $0.centerX.equalToSuperview()
             $0.width.equalTo(167.0)
             $0.height.equalTo(179.99)
         }
@@ -138,8 +138,12 @@ class RelayLoginViewController: UIViewController {
         }
         noLoginButton.snp.makeConstraints {
             $0.top.equalTo(loginButton.snp.bottom).offset(24.0)
-            $0.leading.equalToSuperview().inset(128.0)
-            $0.trailing.equalToSuperview().inset(129.0)
+            $0.centerX.equalToSuperview()
+            $0.width.equalTo(133.0)
+        }
+        noLoginLabel.snp.makeConstraints {
+            $0.top.equalTo(loginButton.snp.bottom).offset(24.0)
+            $0.centerX.equalToSuperview()
         }
 }
     
