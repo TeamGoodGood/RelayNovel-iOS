@@ -84,11 +84,9 @@ class RelayLoginViewController: UIViewController {
         return button
     }()
     
-    
-    // button 액션 추가 예정
     private let noLoginButton: UIButton = {
         let button = UIButton()
-        
+        button.addTarget(self, action: #selector(pressedWithoutLoginButton), for: .touchUpInside)
         return button
     }()
     
@@ -170,6 +168,12 @@ class RelayLoginViewController: UIViewController {
         controller.delegate = self
         controller.presentationContextProvider = self as? ASAuthorizationControllerPresentationContextProviding
         controller.performRequests()
+    }
+    
+    @objc private func pressedWithoutLoginButton(_ sender: UIButton) {
+        let toMainVC = TabBarController()
+        toMainVC.modalPresentationStyle = .fullScreen
+           present(toMainVC, animated: false, completion: nil)
     }
 
 }
