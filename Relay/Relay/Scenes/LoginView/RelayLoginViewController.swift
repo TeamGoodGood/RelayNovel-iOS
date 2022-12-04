@@ -12,16 +12,6 @@ import RxSwift
 
 class RelayLoginViewController: UIViewController {
     
-    private let backButton: UIButton = {
-        let button = UIButton(type: .custom)
-        let image = UIImage(systemName: "arrow.left")
-        
-        button.setImage(image: image!)
-        button.tintColor = .black
-        
-        return button
-    }()
-    
     private let loginButtonImageView: UIImageView = {
         let imageView = UIImageView(frame: .zero)
         let myImage: UIImage = UIImage(named: "AppleLogo")!
@@ -113,7 +103,6 @@ class RelayLoginViewController: UIViewController {
     
     private func setupLayout() {
         [
-            backButton,
             subTitleLabel,
             titleLabel,
             loginImageView,
@@ -122,12 +111,6 @@ class RelayLoginViewController: UIViewController {
         ].forEach { view.addSubview($0) }
         
         noLoginButton.addSubview(noLoginLabel)
-        
-        backButton.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(59.0)
-            $0.leading.equalToSuperview().inset(18.0)
-            $0.width.height.equalTo(26.0)
-        }
         
         subTitleLabel.snp.makeConstraints {
             $0.top.equalToSuperview().inset(188.0)
