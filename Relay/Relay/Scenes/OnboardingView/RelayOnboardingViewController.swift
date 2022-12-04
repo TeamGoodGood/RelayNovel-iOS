@@ -52,11 +52,26 @@ class RelayOnboardingViewController: UICollectionViewController, UICollectionVie
         return button
     }()
     
+    private let returnButton: UIButton = {
+        let button = UIButton()
+        
+        button.setTitle("돌아가기", for: .normal)
+        button.backgroundColor = .black
+        button.setTitleColor(.white, for: .normal)
+        button.layer.cornerRadius = 16
+        button.titleLabel?.font = UIFont(name: "SF Pro", size: 16)
+        button.addTarget(self, action: #selector(pressedReturnButton), for: .touchUpInside)
+        button.isHidden = true
+        
+        return button
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         configureViewController()
         setupLayout()
+        setupButtonTitleLayout(.onboarding)
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -94,11 +109,13 @@ class RelayOnboardingViewController: UICollectionViewController, UICollectionVie
         
         if currentPage != 2 {
             startButton.isHidden = true
+            returnButton.isHidden = true
             skipButton.isHidden = false
             pageControl.isHidden = false
         }
         else {
             startButton.isHidden = false
+            returnButton.isHidden = false
             skipButton.isHidden = true
             pageControl.isHidden = true
         }
@@ -108,24 +125,10 @@ class RelayOnboardingViewController: UICollectionViewController, UICollectionVie
 extension RelayOnboardingViewController{
     private func setupLayout(){
         [
-            skipButton,
-            startButton,
-            pageControl,
+            pageControl
             
         ].forEach { view.addSubview($0) }
         
-        skipButton.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(64.0)
-            $0.trailing.equalToSuperview().inset(20.0)
-        }
-        startButton.snp.makeConstraints {
-            $0.bottom.equalToSuperview().inset(95.0)
-            $0.centerX.equalToSuperview()
-            $0.leading.equalToSuperview().inset(20.0)
-            $0.trailing.equalToSuperview().inset(20.0)
-            $0.width.equalTo(350.0)
-            $0.height.equalTo(56.0)
-        }
         pageControl.snp.makeConstraints {
             $0.bottom.equalToSuperview().inset(115.0)
             $0.centerX.equalToSuperview()
@@ -134,14 +137,18 @@ extension RelayOnboardingViewController{
     
     @objc private func pressedSkipButton(_ sender: UIButton) {
         let toRelayLoginView = RelayLoginViewController()
-           toRelayLoginView.modalPresentationStyle = .fullScreen
-           present(toRelayLoginView, animated: false, completion: nil)
+        toRelayLoginView.modalPresentationStyle = .fullScreen
+        present(toRelayLoginView, animated: false, completion: nil)
     }
     
     @objc private func pressedStartButton(_ sender: UIButton) {
         let toRelayLoginView = RelayLoginViewController()
-           toRelayLoginView.modalPresentationStyle = .fullScreen
-           present(toRelayLoginView, animated: false, completion: nil)
+        toRelayLoginView.modalPresentationStyle = .fullScreen
+        present(toRelayLoginView, animated: false, completion: nil)
+    }
+    
+    @objc private func pressedReturnButton(_ sender: UIButton) {
+        self.dismiss(animated: false, completion: nil)
     }
     
     func configureViewController() {
@@ -149,5 +156,56 @@ extension RelayOnboardingViewController{
         collectionView.backgroundColor = .white
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.register(RelayOnboardingViewCell.self, forCellWithReuseIdentifier: RelayOnboardingViewCell.reuseIdentifier)
+    }
+}
+
+extension RelayOnboardingViewController {
+    
+    enum ButtonType: String {
+        case real
+        case onboarding = "시작하기"
+        case tutorial = "돌아가기"
+    }
+    
+    func setupButtonTitleLayout(_ buttonType: ButtonType) {
+        switch buttonType {
+        case .tutorial:
+            [
+                skipButton,
+                returnButton
+                
+            ].forEach { view.addSubview($0) }
+            
+            skipButton.snp.makeConstraints {
+                $0.top.equalToSuperview().inset(-100.0)
+            }
+            returnButton.snp.makeConstraints {
+                $0.bottom.equalToSuperview().inset(95.0)
+                $0.centerX.equalToSuperview()
+                $0.leading.equalToSuperview().inset(20.0)
+                $0.trailing.equalToSuperview().inset(20.0)
+                $0.width.equalTo(350.0)
+                $0.height.equalTo(56.0)
+            }
+        default:
+            [
+                skipButton,
+                startButton
+                
+            ].forEach { view.addSubview($0) }
+            
+            skipButton.snp.makeConstraints {
+                $0.top.equalToSuperview().inset(64.0)
+                $0.trailing.equalToSuperview().inset(20.0)
+            }
+            startButton.snp.makeConstraints {
+                $0.bottom.equalToSuperview().inset(95.0)
+                $0.centerX.equalToSuperview()
+                $0.leading.equalToSuperview().inset(20.0)
+                $0.trailing.equalToSuperview().inset(20.0)
+                $0.width.equalTo(350.0)
+                $0.height.equalTo(56.0)
+            }
+        }
     }
 }
