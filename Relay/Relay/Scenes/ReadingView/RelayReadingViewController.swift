@@ -162,7 +162,7 @@ class RelayReadingViewController: UIViewController {
             case 9:
                 relays += mockRelay.story10Relay
             default:
-                return
+                relays += []
             }
             
             isReleyFinished = story.finished
@@ -386,7 +386,7 @@ extension RelayReadingViewController {
             case 9:
                 mockRelay.story10Relay.append(relay)
             default:
-                return
+                print("새로운 게시글의 릴레이추가")
             }
         }
         

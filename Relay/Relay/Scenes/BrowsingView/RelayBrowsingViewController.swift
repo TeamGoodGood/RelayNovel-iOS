@@ -43,6 +43,10 @@ class RelayBrowsingViewController: UIViewController, UICollectionViewDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        //TODO: API를 통한 데이터호출로 변경
+        stories = mockStory.allList
+        relayListView.listCollectionView.reloadData()
+        
         audioPlayer?.stop()
         audioPlayer = nil
     }
@@ -51,9 +55,6 @@ class RelayBrowsingViewController: UIViewController, UICollectionViewDelegate {
         super.viewDidLoad()
         
         view.backgroundColor = .systemBackground
-        
-        //TODO: API를 통한 데이터호출로 변경
-        stories = mockStory.allList
         
         currentHighlightedButton = .entire
         
