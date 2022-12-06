@@ -53,7 +53,7 @@ class TableCellCustomCell: UITableViewCell {
         self.notice = notice
         
         noticeLabel.text = setNoticeText(noticeType: notice.noti_type)
-        timeLabel.text = String(notice.created_time)
+        timeLabel.text = String(notice.created_time.dateDifferenceToString)
         
         noticeImageView.image = setNoticeImage(noticeType: notice.noti_type)
         noticeImageView.image?.withTintColor(.relayPink1)
