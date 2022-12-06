@@ -485,7 +485,7 @@ extension RelayWritingViewController {
             user_liked: false
         )
         
-        mockStory.allList.append(story)
+        mockStory.allList = [story] + mockStory.allList
         
         alert.message = "릴레이가 시작되었습니다!"
         let dismissAction = UIAlertAction(title: "확인", style: .default) { [weak self] _ in
