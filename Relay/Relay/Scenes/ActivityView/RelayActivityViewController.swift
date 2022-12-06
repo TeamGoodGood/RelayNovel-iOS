@@ -7,8 +7,10 @@
 
 import UIKit
 import SnapKit
+import AVFoundation
 
 class RelayActivityViewController: UIViewController {
+    var audioPlayer: AVAudioPlayer?
     var type: ListViewType
     var stories: [Story] = []
     
@@ -37,6 +39,13 @@ class RelayActivityViewController: UIViewController {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        audioPlayer?.stop()
+        audioPlayer = nil
     }
     
     override func viewDidLoad() {
@@ -73,6 +82,8 @@ extension RelayActivityViewController: UICollectionViewDelegateFlowLayout {
         readingViewController.requestStory(stories[indexPath.row])
         readingViewController.hidesBottomBarWhenPushed = true
         
+        playMusic(bgmID: stories[indexPath.row].bgm)
+        readingViewController.audioPlayer = audioPlayer
         navigationController?.pushViewController(readingViewController, animated: true)
     }
 }
@@ -118,6 +129,23 @@ extension RelayActivityViewController {
         noticeButton.tintColor = .black
         
         navigationItem.rightBarButtonItems = [noticeButton, settingButton]
+    }
+    
+    private func playMusic(bgmID: Int) {
+        let playlist = Playlist()
+        let fileName = playlist.getBGMFileName(id: bgmID)
+        let url = Bundle.main.url(forResource: fileName, withExtension: "mp3")
+        
+        if let url = url {
+            do {
+                audioPlayer = try AVAudioPlayer(contentsOf: url)
+                audioPlayer?.numberOfLoops = -1
+                audioPlayer?.prepareToPlay()
+                audioPlayer?.play()
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
     }
     
     @objc func tappedSettingButton() {
