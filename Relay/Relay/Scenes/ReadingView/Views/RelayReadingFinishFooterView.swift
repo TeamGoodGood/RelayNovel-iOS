@@ -7,7 +7,6 @@
 
 import UIKit
 import SnapKit
-import Foundation
 
 class RelayReadingFinishFooterView: UIView {
     private lazy var backgroundView: UIView = {
