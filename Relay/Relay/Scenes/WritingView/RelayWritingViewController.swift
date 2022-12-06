@@ -476,6 +476,16 @@ extension RelayWritingViewController {
         )
         
         mockStory.allList.append(story)
+        
+        alert.message = "릴레이가 시작되었습니다!"
+        let dismissAction = UIAlertAction(title: "확인", style: .default) { [weak self] _ in
+            self?.dismiss(animated: true)
+        }
+        
+        alert.addAction(dismissAction)
+
+        present(alert, animated: true)
+
     }
     
     private func updateCountLabel(characterCount: Int) {
