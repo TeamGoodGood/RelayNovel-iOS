@@ -292,7 +292,7 @@ extension RelayReadingViewController {
     func configureViews(story: Story) {
         let dateString = story.created_time.doubleDateToString
         
-        readingCoverView.configure(title: story.title, currentStep: story.current_step, stepLimit: story.step_limit, genre: story.genre, bgmTitle: playlist.getBGMName(id: story.bgm), isFinished: story.finished)
+        readingCoverView.configure(title: story.title, currentStep: story.current_step, stepLimit: story.step_limit, genre: story.genre, bgmTitle: playlist.getBGMName(id: story.bgm), bgmID: story.bgm,isFinished: story.finished)
         readingNoticeView.configure(name: story.original.penname ?? "작성자 미상", date: dateString, noticeContent: story.header)
         readingBodyView.configure(firstText: story.content, firstDate: dateString, firstName: story.original.penname ?? "작성자 미상", relays: relays)
         readingFooterView.configure(likeCount: story.like_count, isLikedUser: story.user_liked)
