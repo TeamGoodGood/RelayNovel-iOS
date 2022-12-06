@@ -408,38 +408,53 @@ extension RelayWritingViewController {
     }
     
     @objc func touchCompleteButton() {
+        lazy var alert = UIAlertController(title: nil, message: nil, preferredStyle: .alert)
+        lazy var action = UIAlertAction(title: "확인", style: .default)
+        
         guard let playlist = selectedCategory else {
-            // TODO: 플레이리스트 선택이 없을경우 Alert 또는 알림구현 필요
-            print("플레이리스트를 선택해주세요.")
+            alert.message = "플레이리스트를 선택해주세요."
+            alert.addAction(action)
+            present(alert, animated: true)
+            
             return
         }
         
         guard let title = titleTextField.text, title != "" else {
-            // TODO: 제목입력 없을경우 Alert 또는 알림구현 필요
-            print("제목을 작성해주세요.")
+            alert.message = "제목을 작성해주세요."
+            alert.addAction(action)
+            present(alert, animated: true)
+            
             return
         }
         guard let content = storyTextView.text, content != textViewPlaceHolder else {
-            // TODO: 본문입력 없을경우 Alert 또는 알림구현 필요
-            print("본문을 작성해주세요.")
+            alert.message = "본문을 작성해주세요."
+            alert.addAction(action)
+            present(alert, animated: true)
+            
             return
         }
         
         guard let comment = commentTextField.text, comment != "" else {
-            // TODO: 코멘트 입력 없을경우 Alert 또는 알림구현 필요
-            print("코멘트를 작성해주세요.")
+            alert.message = "코멘트를 작성해주세요."
+            alert.addAction(action)
+            present(alert, animated: true)
+            
             return
         }
         
         guard let event = selectedEvent else {
-            // TODO: 장르선택 없을경우 Alert 또는 알림구현 필요
-            print("종목을 선택해주세요.")
+            alert.message = "종목을 선택해주세요."
+            alert.addAction(action)
+            present(alert, animated: true)
+
             return
         }
         
         guard let stepLimit = selectedTouch else {
-            // TODO: 스텝수 없을경우 Alert 또는 알림구현 필요
-            print("터치 수를 선택해주세요.")
+            alert.message = "터치 수를 선택해주세요."
+            alert.addAction(action)
+            present(alert, animated: true)
+            
             return
         }
         
