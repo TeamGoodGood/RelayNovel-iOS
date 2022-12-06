@@ -7,8 +7,11 @@
 
 import UIKit
 import SnapKit
+import AVFoundation
 
 class RelayBrowsingViewController: UIViewController, UICollectionViewDelegate {
+    var audioPlayer: AVAudioPlayer?
+    
     private var selectedCategory: Category?
     var stories: [Story] = []
     
@@ -36,6 +39,13 @@ class RelayBrowsingViewController: UIViewController, UICollectionViewDelegate {
         target: self,
         action: nil
     )
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        audioPlayer?.stop()
+        audioPlayer = nil
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -91,6 +101,7 @@ extension RelayBrowsingViewController: UICollectionViewDelegateFlowLayout {
         readingViewController.requestStory(stories[indexPath.row])
         readingViewController.hidesBottomBarWhenPushed = true
         
+        playMusic(bgmID: stories[indexPath.row].bgm)
         navigationController?.pushViewController(readingViewController, animated: true)
     }
 }
@@ -244,6 +255,23 @@ extension RelayBrowsingViewController {
             currentHighlightedButton = .running
         default:
             break
+        }
+    }
+    
+    private func playMusic(bgmID: Int) {
+        let playlist = Playlist()
+        let fileName = playlist.getBGMFileName(id: bgmID)
+        let url = Bundle.main.url(forResource: fileName, withExtension: "mp3")
+        
+        if let url = url {
+            do {
+                audioPlayer = try AVAudioPlayer(contentsOf: url)
+                audioPlayer?.numberOfLoops = -1
+                audioPlayer?.prepareToPlay()
+                audioPlayer?.play()
+            } catch {
+                print(error.localizedDescription)
+            }
         }
     }
     
