@@ -7,11 +7,15 @@
 
 import UIKit
 import SnapKit
+import AVFoundation
 
 class RelayReadingViewController: UIViewController {
     var playlist = Playlist()
-    var story: Story?
     var relays: [Relay] = []
+    var isPlaying = true
+    
+    var story: Story?
+    var audioPlayer: AVAudioPlayer?
     
     private var isReleyFinished = false
     private var isReadingModeOn = true {
@@ -122,7 +126,7 @@ class RelayReadingViewController: UIViewController {
     
     private lazy var musicButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(systemName: "speaker.wave.2"), for: .normal)
+        button.setImage(UIImage(systemName: "speaker.slash"), for: .normal)
         button.tintColor = .white
         button.backgroundColor = UIColor(red: 35/255, green: 46/255, blue: 57/255, alpha: 0.5)
         button.layer.cornerRadius = 20.0
@@ -174,6 +178,7 @@ class RelayReadingViewController: UIViewController {
         setupCustomNavigationButton()
         setupBatonButtonAction()
         setupLikeButtonAction()
+        setupMusicButtonAction()
         setupRegisterButtonAction()
     }
     
@@ -309,6 +314,10 @@ extension RelayReadingViewController {
         readingFinishFooterView.likeButton.addTarget(self, action: #selector(pushLikeButton), for: .touchUpInside)
     }
     
+    func setupMusicButtonAction() {
+        musicButton.addTarget(self, action: #selector(touchMusicButton), for: .touchUpInside)
+    }
+    
     func setupRegisterButtonAction() {
         readingWriteView.registerButton.addTarget(self, action: #selector(pushRegisterButton), for: .touchUpInside)
     }
@@ -355,6 +364,21 @@ extension RelayReadingViewController {
         stackView.addArrangedSubview(readingWriteView)
         
         readingFooterView.isHidden = true
+    }
+    
+    
+    @objc func touchMusicButton() {
+        if isPlaying {
+            musicButton.setImage(UIImage(systemName: "speaker.wave.2"), for: .normal)
+            
+            audioPlayer?.pause()
+            isPlaying.toggle()
+        } else {
+            musicButton.setImage(UIImage(systemName: "speaker.slash"), for: .normal)
+            
+            audioPlayer?.play()
+            isPlaying.toggle()
+        }
     }
     
     @objc func touchViewEndEditing(sender: UITapGestureRecognizer) {

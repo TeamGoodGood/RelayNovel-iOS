@@ -102,6 +102,7 @@ extension RelayBrowsingViewController: UICollectionViewDelegateFlowLayout {
         readingViewController.hidesBottomBarWhenPushed = true
         
         playMusic(bgmID: stories[indexPath.row].bgm)
+        readingViewController.audioPlayer = audioPlayer
         navigationController?.pushViewController(readingViewController, animated: true)
     }
 }
