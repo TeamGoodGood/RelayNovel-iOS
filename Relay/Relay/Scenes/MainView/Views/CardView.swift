@@ -8,9 +8,13 @@
 import SwiftUI
 
 struct CardView: View {
-    let story: Story
-    let playlist = Playlist()
+    @ObservedObject var observable: RelayMainViewControllerObservable
+    @State var isPlaying: Bool = false
     
+    let story: Story
+    let page: Int
+    let playlist = Playlist()
+
     var body: some View {
         Rectangle()
             .overlay {
@@ -27,9 +31,25 @@ struct CardView: View {
                             Spacer()
                             
                             Button{
-                                
+                                if isPlaying {
+                                    if page == observable.nowPlayingPage {
+                                        observable.pauseMusic()
+                                    } else {
+                                        observable.nowPlayingPage = nil
+                                        observable.stopMusic()
+                                    }
+                                    isPlaying = false
+                                } else {
+                                    if page == observable.nowPlayingPage {
+                                        observable.playMusic()
+                                    } else {
+                                        observable.nowPlayingPage = page
+                                        observable.playMusic(bgmID: story.bgm)
+                                    }
+                                    isPlaying = true
+                                }
                             } label: {
-                                Image(systemName: "play.circle")
+                                Image(systemName: (isPlaying && page == observable.nowPlayingPage) ? "pause.circle" : "play.circle")
                                     .foregroundColor(.white)
                                     .font(.system(size: 32))
                             }
@@ -83,9 +103,3 @@ struct CardView: View {
             }
     }
 }
-
-//struct CardView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        CardView()
-//    }
-//}

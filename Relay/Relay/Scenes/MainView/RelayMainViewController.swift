@@ -8,9 +8,10 @@
 import SwiftUI
 import UIKit
 import SnapKit
+import AVFoundation
 
 class RelayMainViewController: UIViewController {
-    @ObservedObject var observable: PageAnimationViewObservable = PageAnimationViewObservable()
+    @ObservedObject var observable: RelayMainViewControllerObservable = RelayMainViewControllerObservable()
     private var recommend: Recommend?
     
     //TODO: 알람이 있을때 이미지 변경 필요
@@ -21,7 +22,6 @@ class RelayMainViewController: UIViewController {
         action: #selector(goToNoticeView)
     )
     
-    //TODO: 이미지 크기 변경 필요
     private lazy var logoButton = UIBarButtonItem(
         image: UIImage(named: "RelayLogo")?.resize(newWidth: 56).withRenderingMode(.alwaysOriginal),
         style: .plain,
@@ -55,6 +55,14 @@ class RelayMainViewController: UIViewController {
         return button
     }()
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        observable.nowPlayingPage = nil
+        observable.playingPlaylistID = nil
+        observable.stopMusic()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -69,15 +77,33 @@ class RelayMainViewController: UIViewController {
             switch pageNumber {
             case 0, 3:
                 story = self?.recommend?.story1
+                self?.observable.nowPlayingPage = 0
             case 1, 4:
                 story = self?.recommend?.story2
+                self?.observable.nowPlayingPage = 1
             case 2, 5:
                 story = self?.recommend?.story3
+                self?.observable.nowPlayingPage = 2
             default:
                 print("Story가 확인되지 않았습니다.")
             }
             
             let relayReadingViewController = RelayReadingViewController()
+            
+            if let playlistID = self?.observable.playingPlaylistID {
+                if let storyBGM = story?.bgm {
+                    if storyBGM != playlistID {
+                        self?.observable.playMusic(bgmID: storyBGM)
+                        relayReadingViewController.audioPlayer = self?.observable.audioPlayer
+                    }
+                }
+            } else {
+                if let storyBGM = story?.bgm {
+                        self?.observable.playMusic(bgmID: storyBGM)
+                        relayReadingViewController.audioPlayer = self?.observable.audioPlayer
+                }
+            }
+            
             relayReadingViewController.hidesBottomBarWhenPushed = true
             relayReadingViewController.requestStory(story)
             
@@ -108,6 +134,8 @@ extension RelayMainViewController {
     
     @objc
     func goToWritingView(_ sender: UIButton!) {
+        observable.audioPlayer = nil
+        
         let vc = RelayWritingViewController()
         
         vc.modalPresentationStyle = UIModalPresentationStyle.fullScreen
@@ -148,4 +176,45 @@ extension RelayMainViewController {
         }
     }
     
+}
+
+class RelayMainViewControllerObservable: ObservableObject {
+    var audioPlayer: AVAudioPlayer?
+    
+    @Published var pageNumber: Int = 0
+    @Published var nowPlayingPage: Int?
+    @Published var playingPlaylistID: Int?
+    
+    var onTouchAction: (() -> Void)!
+    
+    func playMusic(bgmID: Int) {
+        playingPlaylistID = bgmID
+        
+        let playlist = Playlist()
+        let fileName = playlist.getBGMFileName(id: bgmID)
+        let url = Bundle.main.url(forResource: fileName, withExtension: "mp3")
+        
+        if let url = url {
+            do {
+                audioPlayer = try AVAudioPlayer(contentsOf: url)
+                audioPlayer?.numberOfLoops = -1
+                audioPlayer?.prepareToPlay()
+                audioPlayer?.play()
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    func playMusic() {
+        audioPlayer?.play()
+    }
+    
+    func stopMusic() {
+        audioPlayer?.stop()
+    }
+    
+    func pauseMusic() {
+        audioPlayer?.pause()
+    }
 }
