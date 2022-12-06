@@ -54,6 +54,9 @@ extension Double {
         } else if nowMinute - minute > 0 {
             
             dateDifference = "\(nowMinute - minute)분 전"
+        } else if (nowMinute - minute) == 0 {
+            
+            dateDifference = "1분 전"
         }
         
         return dateDifference ?? "오류"
