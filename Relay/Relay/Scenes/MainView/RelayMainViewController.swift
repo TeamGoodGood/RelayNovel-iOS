@@ -59,6 +59,7 @@ class RelayMainViewController: UIViewController {
         super.viewWillAppear(animated)
         
         observable.nowPlayingPage = nil
+        observable.playingPlaylistID = nil
         observable.stopMusic()
     }
     
@@ -87,15 +88,22 @@ class RelayMainViewController: UIViewController {
                 print("Story가 확인되지 않았습니다.")
             }
             
+            let relayReadingViewController = RelayReadingViewController()
+            
             if let playlistID = self?.observable.playingPlaylistID {
                 if let storyBGM = story?.bgm {
                     if storyBGM != playlistID {
                         self?.observable.playMusic(bgmID: storyBGM)
+                        relayReadingViewController.audioPlayer = self?.observable.audioPlayer
                     }
+                }
+            } else {
+                if let storyBGM = story?.bgm {
+                        self?.observable.playMusic(bgmID: storyBGM)
+                        relayReadingViewController.audioPlayer = self?.observable.audioPlayer
                 }
             }
             
-            let relayReadingViewController = RelayReadingViewController()
             relayReadingViewController.hidesBottomBarWhenPushed = true
             relayReadingViewController.requestStory(story)
             
@@ -169,7 +177,7 @@ extension RelayMainViewController {
 }
 
 class RelayMainViewControllerObservable: ObservableObject {
-    private var audioPlayer: AVAudioPlayer?
+    var audioPlayer: AVAudioPlayer?
     
     @Published var pageNumber: Int = 0
     @Published var nowPlayingPage: Int?
