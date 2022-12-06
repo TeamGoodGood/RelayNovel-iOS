@@ -458,6 +458,16 @@ extension RelayWritingViewController {
             return
         }
         
+        let now: Double = {
+            let formatter = DateFormatter()
+            formatter.dateFormat = "YYYYMMddHHmm"
+            
+            let nowDate = Double(formatter.string(from: Date())) ?? 20221225000000
+            
+            return nowDate
+        }()
+        
+        
         let userResponse = UserResponse(id: loginUser.id, penname: loginUser.penname)
         let story = Story(
             id: 100,
@@ -471,7 +481,7 @@ extension RelayWritingViewController {
             step_limit: stepLimit,
             current_step: 1,
             finished: false,
-            created_time: 20221201220000,
+            created_time: now,
             user_liked: false
         )
         
