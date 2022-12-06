@@ -470,7 +470,7 @@ extension RelayWritingViewController {
         
         let userResponse = UserResponse(id: loginUser.id, penname: loginUser.penname)
         let story = Story(
-            id: 100,
+            id: mockStory.allList.count,
             original: userResponse,
             genre: event,
             header: comment,
