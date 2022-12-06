@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import Foundation
 
 class RelayReadingFinishFooterView: UIView {
     private lazy var backgroundView: UIView = {
@@ -119,5 +120,19 @@ extension RelayReadingFinishFooterView {
             $0.width.equalTo(81.0)
             $0.height.equalTo(56.0)
         }
+    }
+}
+
+extension RelayReadingFinishFooterView{
+    func uniqueElementsFrom<T: Hashable>(array: [T]) -> [T] {
+      var set = Set<T>()
+      let result = array.filter {
+        guard !set.contains($0) else {
+          return false
+        }
+        set.insert($0)
+        return true
+      }
+      return result
     }
 }
