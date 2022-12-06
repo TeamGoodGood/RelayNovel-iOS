@@ -88,7 +88,7 @@ extension RelayActivityViewController: UICollectionViewDataSource {
         let playlist = Playlist()
         
         //TODO: 날짜계산모델 구현필요
-        cell.configure(indexPath.row, title: story.title, stepCount: story.current_step, stepLimit: story.step_limit, hashTag: playlist.getBGMHashTag(id: story.bgm), date: "1일 전", likeCount: story.like_count, isFinished: story.finished)
+        cell.configure(indexPath.row, title: story.title, stepCount: story.current_step, stepLimit: story.step_limit, hashTag: playlist.getBGMHashTag(id: story.bgm), date: story.created_time.dateDifferenceToString, likeCount: story.like_count, isFinished: story.finished)
         
         return cell
     }
