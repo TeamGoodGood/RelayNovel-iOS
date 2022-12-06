@@ -134,6 +134,8 @@ extension RelayMainViewController {
     
     @objc
     func goToWritingView(_ sender: UIButton!) {
+        observable.audioPlayer = nil
+        
         let vc = RelayWritingViewController()
         
         vc.modalPresentationStyle = UIModalPresentationStyle.fullScreen
