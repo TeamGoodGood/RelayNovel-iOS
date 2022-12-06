@@ -84,7 +84,11 @@ extension RelayReadingFinishFooterView {
                 contributerText += (" · " + (relays[i].contributer.penname ?? "필명호출오류"))
             }
         }
-        penNameLabel.text = contributerText
+        let contributerArray = contributerText.split(separator: " · ")
+        let removeDuplicates = uniqueElementsFrom(array:contributerArray)
+        let returnContributerText = removeDuplicates.joined(separator: " · ")
+        
+        penNameLabel.text = returnContributerText
     }
     
     private func setupLayout() {
