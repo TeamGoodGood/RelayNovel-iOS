@@ -49,7 +49,7 @@ struct CardView: View {
                                     isPlaying = true
                                 }
                             } label: {
-                                Image(systemName: (isPlaying && page == observable.nowPlayingPage)  ? "pause.circle" : "play.circle")
+                                Image(systemName: (isPlaying && page == observable.nowPlayingPage) ? "pause.circle" : "play.circle")
                                     .foregroundColor(.white)
                                     .font(.system(size: 32))
                             }

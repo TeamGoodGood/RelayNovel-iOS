@@ -55,6 +55,13 @@ class RelayMainViewController: UIViewController {
         return button
     }()
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        observable.nowPlayingPage = nil
+        observable.stopMusic()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -69,12 +76,23 @@ class RelayMainViewController: UIViewController {
             switch pageNumber {
             case 0, 3:
                 story = self?.recommend?.story1
+                self?.observable.nowPlayingPage = 0
             case 1, 4:
                 story = self?.recommend?.story2
+                self?.observable.nowPlayingPage = 1
             case 2, 5:
                 story = self?.recommend?.story3
+                self?.observable.nowPlayingPage = 2
             default:
                 print("Story가 확인되지 않았습니다.")
+            }
+            
+            if let playlistID = self?.observable.playingPlaylistID {
+                if let storyBGM = story?.bgm {
+                    if storyBGM != playlistID {
+                        self?.observable.playMusic(bgmID: storyBGM)
+                    }
+                }
             }
             
             let relayReadingViewController = RelayReadingViewController()
@@ -155,10 +173,13 @@ class RelayMainViewControllerObservable: ObservableObject {
     
     @Published var pageNumber: Int = 0
     @Published var nowPlayingPage: Int?
+    @Published var playingPlaylistID: Int?
     
     var onTouchAction: (() -> Void)!
     
     func playMusic(bgmID: Int) {
+        playingPlaylistID = bgmID
+        
         let playlist = Playlist()
         let fileName = playlist.getBGMFileName(id: bgmID)
         let url = Bundle.main.url(forResource: fileName, withExtension: "mp3")
