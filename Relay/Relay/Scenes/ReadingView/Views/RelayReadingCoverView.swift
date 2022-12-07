@@ -11,7 +11,7 @@ import SnapKit
 class RelayReadingCoverView: UIView {
     private lazy var imageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.backgroundColor = .relayBlack
+        imageView.contentMode = .scaleAspectFill
         
         return imageView
     }()
@@ -59,8 +59,9 @@ class RelayReadingCoverView: UIView {
 }
 
 extension RelayReadingCoverView {
-    func configure(title: String, currentStep: Int, stepLimit: Int, genre: String, bgmTitle: String,isFinished: Bool) {
+    func configure(title: String, currentStep: Int, stepLimit: Int, genre: String, bgmTitle: String, bgmID: Int, isFinished: Bool) {
         titleLabel.text = title
+        imageView.image = UIImage(named: "playlistBackgroundImage\(bgmID + 1)")
         stepCountCategoryLabel.text = "\(currentStep) / \(stepLimit) 터치 · \(genre) "
         setupPlaylistLabel(bgmTitle)
 
@@ -69,7 +70,7 @@ extension RelayReadingCoverView {
             statusLabel.textColor = .relayPink1
             statusLabel.layer.borderColor = UIColor.relayPink1.cgColor
             statusLabel.layer.borderWidth = 1.0
-            statusLabel.backgroundColor = .none
+            statusLabel.backgroundColor = .clear
         } else {
             statusLabel.text = "달리는중"
         }

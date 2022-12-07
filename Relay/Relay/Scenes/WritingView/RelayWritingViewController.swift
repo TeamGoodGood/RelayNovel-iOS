@@ -408,44 +408,69 @@ extension RelayWritingViewController {
     }
     
     @objc func touchCompleteButton() {
+        lazy var alert = UIAlertController(title: nil, message: nil, preferredStyle: .alert)
+        lazy var action = UIAlertAction(title: "확인", style: .default)
+        
         guard let playlist = selectedCategory else {
-            // TODO: 플레이리스트 선택이 없을경우 Alert 또는 알림구현 필요
-            print("플레이리스트를 선택해주세요.")
+            alert.message = "플레이리스트를 선택해주세요."
+            alert.addAction(action)
+            present(alert, animated: true)
+            
             return
         }
         
         guard let title = titleTextField.text, title != "" else {
-            // TODO: 제목입력 없을경우 Alert 또는 알림구현 필요
-            print("제목을 작성해주세요.")
+            alert.message = "제목을 작성해주세요."
+            alert.addAction(action)
+            present(alert, animated: true)
+            
             return
         }
         guard let content = storyTextView.text, content != textViewPlaceHolder else {
-            // TODO: 본문입력 없을경우 Alert 또는 알림구현 필요
-            print("본문을 작성해주세요.")
+            alert.message = "본문을 작성해주세요."
+            alert.addAction(action)
+            present(alert, animated: true)
+            
             return
         }
         
         guard let comment = commentTextField.text, comment != "" else {
-            // TODO: 코멘트 입력 없을경우 Alert 또는 알림구현 필요
-            print("코멘트를 작성해주세요.")
+            alert.message = "코멘트를 작성해주세요."
+            alert.addAction(action)
+            present(alert, animated: true)
+            
             return
         }
         
         guard let event = selectedEvent else {
-            // TODO: 장르선택 없을경우 Alert 또는 알림구현 필요
-            print("종목을 선택해주세요.")
+            alert.message = "종목을 선택해주세요."
+            alert.addAction(action)
+            present(alert, animated: true)
+
             return
         }
         
         guard let stepLimit = selectedTouch else {
-            // TODO: 스텝수 없을경우 Alert 또는 알림구현 필요
-            print("터치 수를 선택해주세요.")
+            alert.message = "터치 수를 선택해주세요."
+            alert.addAction(action)
+            present(alert, animated: true)
+            
             return
         }
         
+        let now: Double = {
+            let formatter = DateFormatter()
+            formatter.dateFormat = "YYYYMMddHHmm"
+            
+            let nowDate = Double(formatter.string(from: Date())) ?? 20221225000000
+            
+            return nowDate
+        }()
+        
+        
         let userResponse = UserResponse(id: loginUser.id, penname: loginUser.penname)
         let story = Story(
-            id: 100,
+            id: mockStory.allList.count,
             original: userResponse,
             genre: event,
             header: comment,
@@ -456,11 +481,21 @@ extension RelayWritingViewController {
             step_limit: stepLimit,
             current_step: 1,
             finished: false,
-            created_time: 20221201220000,
+            created_time: now,
             user_liked: false
         )
         
-        mockStory.allList.append(story)
+        mockStory.allList = [story] + mockStory.allList
+        
+        alert.message = "릴레이가 시작되었습니다!"
+        let dismissAction = UIAlertAction(title: "확인", style: .default) { [weak self] _ in
+            self?.dismiss(animated: true)
+        }
+        
+        alert.addAction(dismissAction)
+
+        present(alert, animated: true)
+
     }
     
     private func updateCountLabel(characterCount: Int) {

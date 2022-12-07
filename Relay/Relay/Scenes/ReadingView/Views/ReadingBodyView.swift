@@ -106,4 +106,10 @@ extension ReadingBodyView {
             self.relays.append(content)
         }
     }
+    
+    func addRelay(relay: Relay) {
+        let content = (content: relay.content, date: relay.created_time.doubleDateToString, name: relay.contributer.penname ?? "필명불명")
+        self.relays.append(content)
+    }
+    
 }

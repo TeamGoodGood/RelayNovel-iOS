@@ -134,6 +134,13 @@ class RelayReadingViewController: UIViewController {
         return button
     }()
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardUp), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDown), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -162,7 +169,7 @@ class RelayReadingViewController: UIViewController {
             case 9:
                 relays += mockRelay.story10Relay
             default:
-                return
+                relays += []
             }
             
             isReleyFinished = story.finished
@@ -292,7 +299,7 @@ extension RelayReadingViewController {
     func configureViews(story: Story) {
         let dateString = story.created_time.doubleDateToString
         
-        readingCoverView.configure(title: story.title, currentStep: story.current_step, stepLimit: story.step_limit, genre: story.genre, bgmTitle: playlist.getBGMName(id: story.bgm), isFinished: story.finished)
+        readingCoverView.configure(title: story.title, currentStep: story.current_step, stepLimit: story.step_limit, genre: story.genre, bgmTitle: playlist.getBGMName(id: story.bgm), bgmID: story.bgm,isFinished: story.finished)
         readingNoticeView.configure(name: story.original.penname ?? "작성자 미상", date: dateString, noticeContent: story.header)
         readingBodyView.configure(firstText: story.content, firstDate: dateString, firstName: story.original.penname ?? "작성자 미상", relays: relays)
         readingFooterView.configure(likeCount: story.like_count, isLikedUser: story.user_liked)
@@ -332,20 +339,83 @@ extension RelayReadingViewController {
     }
     
     @objc func pushRegisterButton() {
+        lazy var alert = UIAlertController(title: nil, message: nil, preferredStyle: .alert)
+        lazy var action = UIAlertAction(title: "확인", style: .default)
+        
         guard let text = readingWriteView.writingTextView.text, text != "내용을 작성해주세요." else {
-            print("내용이 있어야합니다.")
+            alert.message = "내용이 있어야합니다."
+            alert.addAction(action)
+            present(alert, animated: true)
+
             return
         }
         
         guard !text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
-            print("공백은 등록되지 않습니다.")
+            alert.message = "공백은 등록되지 않습니다."
+            alert.addAction(action)
+            present(alert, animated: true)
+            
             return
         }
         
-        let content = text
-        let user = mockUser.curry
-        //TODO: 시간형식에 맞춰 Date 맵핑 필요
-        let createdTime = Date()
+        let createdTime: Double = {
+            let formatter = DateFormatter()
+            formatter.dateFormat = "YYYYMMddHHmm"
+            
+            let nowDate = Double(formatter.string(from: Date())) ?? 20221225000000
+            
+            return nowDate
+        }()
+        
+        
+        let relay = Relay(contributer: mockUser.curry, content: text, created_time: createdTime)
+        
+        if let story = story {
+            switch story.id {
+            case 0:
+                mockRelay.story1Relay.append(relay)
+            case 1:
+                mockRelay.story2Relay.append(relay)
+            case 2:
+                mockRelay.story3Relay.append(relay)
+            case 3:
+                mockRelay.story4Relay.append(relay)
+            case 4:
+                mockRelay.story5Relay.append(relay)
+            case 5:
+                mockRelay.story6Relay.append(relay)
+            case 6:
+                mockRelay.story7Relay.append(relay)
+            case 7:
+                mockRelay.story8Relay.append(relay)
+            case 8:
+                mockRelay.story9Relay.append(relay)
+            case 9:
+                mockRelay.story10Relay.append(relay)
+            default:
+                print("새로운 게시글의 릴레이추가")
+            }
+        }
+        
+        alert.message = "새로운 터치가 추가되었습니다!"
+        alert.addAction(action)
+        present(alert, animated: true)
+        
+        relays.append(relay)
+        readingBodyView.addRelay(relay: relay)
+        readingBodyView.bodyCollectionView.reloadData()
+        
+        readingBodyView.snp.updateConstraints {
+            $0.width.equalTo(UIScreen.main.bounds.width)
+            $0.height.equalTo(readingBodyView.bodyCollectionView.collectionViewLayout.collectionViewContentSize.height)
+        }
+        
+        stackView.removeArrangedSubview(readingWriteView)
+        stackView.addArrangedSubview(readingFooterView)
+        
+        readingWriteView.configure(touchCount: relays.count + 2)
+        
+        readingFooterView.isHidden = false
     }
     
     @objc func pushLikeButton() {
@@ -383,5 +453,20 @@ extension RelayReadingViewController {
     
     @objc func touchViewEndEditing(sender: UITapGestureRecognizer) {
         view.endEditing(true)
+    }
+    
+    @objc func keyboardUp(notification:NSNotification) {
+        guard let userInfo = notification.userInfo else { return }
+          var keyboardFrame:CGRect = (userInfo[UIResponder.keyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
+          keyboardFrame = self.view.convert(keyboardFrame, from: nil)
+
+          var contentInset:UIEdgeInsets = self.scrollView.contentInset
+          contentInset.bottom = keyboardFrame.size.height + 20
+        scrollView.contentInset = contentInset
+    }
+    
+    @objc func keyboardDown() {
+        let contentInset:UIEdgeInsets = UIEdgeInsets.zero
+        scrollView.contentInset = contentInset
     }
 }

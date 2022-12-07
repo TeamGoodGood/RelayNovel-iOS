@@ -19,9 +19,11 @@ struct CardView: View {
         Rectangle()
             .overlay {
                 ZStack{
+                    Image("playlistBackgroundImage\(story.bgm + 1)")
+                        .resizable()
+                    
                     VStack(spacing: 0){
                         HStack(spacing: 0){
-                            
                             Text(playlist.getBGMName(id: story.bgm))
                                 .font(.title2)
                                 .bold()
