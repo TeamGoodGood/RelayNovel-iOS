@@ -83,7 +83,11 @@ extension RelayReadingFinishFooterView {
                 contributerText += (" · " + (relays[i].contributer.penname ?? "필명호출오류"))
             }
         }
-        penNameLabel.text = contributerText
+        let contributerArray = contributerText.split(separator: " · ")
+        let removeDuplicates = uniqueElementsFrom(array:contributerArray)
+        let returnContributerText = removeDuplicates.joined(separator: " · ")
+        
+        penNameLabel.text = returnContributerText
     }
     
     private func setupLayout() {
@@ -119,5 +123,19 @@ extension RelayReadingFinishFooterView {
             $0.width.equalTo(81.0)
             $0.height.equalTo(56.0)
         }
+    }
+}
+
+extension RelayReadingFinishFooterView{
+    func uniqueElementsFrom<T: Hashable>(array: [T]) -> [T] {
+      var set = Set<T>()
+      let result = array.filter {
+        guard !set.contains($0) else {
+          return false
+        }
+        set.insert($0)
+        return true
+      }
+      return result
     }
 }
