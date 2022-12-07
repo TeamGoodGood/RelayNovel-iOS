@@ -13,8 +13,8 @@ struct MockRecommend {
     init() {
         recommend = Recommend(
             story1: mockStory.story1,
-            story2: mockStory.story3,
-            story3: mockStory.story5
+            story2: mockStory.story2,
+            story3: mockStory.story3
         )
     }
 }
