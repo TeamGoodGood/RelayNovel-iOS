@@ -134,6 +134,13 @@ class RelayReadingViewController: UIViewController {
         return button
     }()
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardUp), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDown), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -446,5 +453,20 @@ extension RelayReadingViewController {
     
     @objc func touchViewEndEditing(sender: UITapGestureRecognizer) {
         view.endEditing(true)
+    }
+    
+    @objc func keyboardUp(notification:NSNotification) {
+        guard let userInfo = notification.userInfo else { return }
+          var keyboardFrame:CGRect = (userInfo[UIResponder.keyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
+          keyboardFrame = self.view.convert(keyboardFrame, from: nil)
+
+          var contentInset:UIEdgeInsets = self.scrollView.contentInset
+          contentInset.bottom = keyboardFrame.size.height + 20
+        scrollView.contentInset = contentInset
+    }
+    
+    @objc func keyboardDown() {
+        let contentInset:UIEdgeInsets = UIEdgeInsets.zero
+        scrollView.contentInset = contentInset
     }
 }
