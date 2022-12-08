@@ -420,11 +420,16 @@ extension RelayReadingViewController {
     
     @objc func pushLikeButton() {
         if let story = story {
-            //TODO: 좋아요 추가/해제 전달기능 구현
             if story.user_liked {
                 print("좋아요 해제")
+                let image = UIImage(systemName: "heart")
+                readingFooterView.likeButton.setImage(image, for: .normal)
+                readingFinishFooterView.likeButton.setImage(image, for: .normal)
             } else {
                 print("좋아요 추가")
+                let image = UIImage(systemName: "heart.fill")
+                readingFooterView.likeButton.setImage(image, for: .normal)
+                readingFinishFooterView.likeButton.setImage(image, for: .normal)
             }
         }
     }
