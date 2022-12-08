@@ -419,17 +419,26 @@ extension RelayReadingViewController {
     }
     
     @objc func pushLikeButton() {
-        if let story = story {
+        if var story = story {
             if story.user_liked {
                 print("좋아요 해제")
                 let image = UIImage(systemName: "heart")
                 readingFooterView.likeButton.setImage(image, for: .normal)
                 readingFinishFooterView.likeButton.setImage(image, for: .normal)
+                    print("\(story.like_count)")
+                mockStory.story1.like_count -= 1
+                    print("\(story.like_count)")
+                
+                    print("\(story.user_liked)")
+                story.user_liked.toggle()
+                    print("\(story.user_liked)")
             } else {
                 print("좋아요 추가")
                 let image = UIImage(systemName: "heart.fill")
                 readingFooterView.likeButton.setImage(image, for: .normal)
                 readingFinishFooterView.likeButton.setImage(image, for: .normal)
+                story.like_count += 1
+                story.user_liked.toggle()
             }
         }
     }
