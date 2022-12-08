@@ -58,6 +58,7 @@ class RelayMainViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        observable.pageNumber = nil
         observable.nowPlayingPage = nil
         observable.playingPlaylistID = nil
         observable.stopMusic()
@@ -181,7 +182,7 @@ extension RelayMainViewController {
 class RelayMainViewControllerObservable: ObservableObject {
     var audioPlayer: AVAudioPlayer?
     
-    @Published var pageNumber: Int = 0
+    @Published var pageNumber: Int?
     @Published var nowPlayingPage: Int?
     @Published var playingPlaylistID: Int?
     
