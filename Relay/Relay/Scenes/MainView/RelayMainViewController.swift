@@ -58,6 +58,7 @@ class RelayMainViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        observable.pageNumber = nil
         observable.nowPlayingPage = nil
         observable.playingPlaylistID = nil
         observable.stopMusic()
@@ -89,18 +90,24 @@ class RelayMainViewController: UIViewController {
             }
             
             let relayReadingViewController = RelayReadingViewController()
+            relayReadingViewController.audioPlayer = self?.observable.audioPlayer
             
             if let playlistID = self?.observable.playingPlaylistID {
                 if let storyBGM = story?.bgm {
                     if storyBGM != playlistID {
+                        self?.observable.stopMusic()
                         self?.observable.playMusic(bgmID: storyBGM)
-                        relayReadingViewController.audioPlayer = self?.observable.audioPlayer
+                    } else {
+                        if let player = self?.observable.audioPlayer {
+                            if !player.isPlaying {
+                                self?.observable.playMusic(bgmID: playlistID)
+                            }
+                        }
                     }
                 }
             } else {
                 if let storyBGM = story?.bgm {
                         self?.observable.playMusic(bgmID: storyBGM)
-                        relayReadingViewController.audioPlayer = self?.observable.audioPlayer
                 }
             }
             
@@ -181,7 +188,7 @@ extension RelayMainViewController {
 class RelayMainViewControllerObservable: ObservableObject {
     var audioPlayer: AVAudioPlayer?
     
-    @Published var pageNumber: Int = 0
+    @Published var pageNumber: Int?
     @Published var nowPlayingPage: Int?
     @Published var playingPlaylistID: Int?
     
