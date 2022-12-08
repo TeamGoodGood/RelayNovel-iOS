@@ -12,7 +12,8 @@ import Alamofire
 import Moya
 
 enum LoginService {
-    case appleLogin(token: String)
+    case signup(user: UserRequest)
+    case appleLogin(access_token: String, code: String, id_token: String)
     case leave
 }
 
@@ -24,7 +25,9 @@ extension LoginService: TargetType {
     
     var path: String {
         switch self{
-        case .appleLogin(_):
+        case .signup(_):
+            return "/signup/"
+        case .appleLogin:
             return "/login/apple/"
         case .leave:
             return "/leave/"
@@ -33,6 +36,8 @@ extension LoginService: TargetType {
     
     var method: Moya.Method {
         switch self {
+        case .signup:
+            return .post
         case .appleLogin:
             return .post
         case .leave:
@@ -42,8 +47,10 @@ extension LoginService: TargetType {
     
     var task: Task {
         switch self {
-        case let .appleLogin(token):
-            return .requestJSONEncodable(token)
+        case let .signup(user):
+            return .requestJSONEncodable(["password": user.token, "email": user.email, "username": user.username])
+        case let .appleLogin(access_token, code, id_token):
+            return .requestJSONEncodable(["access_token": access_token, "code": code, "id_token": id_token])
         case .leave:
             return .requestPlain
         }
@@ -62,9 +69,11 @@ extension LoginService: TargetType {
 class LoginAPI {
     
     static var provider = MoyaProvider<LoginService>()
-    
-    static func appleLogin(token: String) -> Single<Response> {
-        return provider.rx.request(.appleLogin(token: token))
+    static func signup(user: UserRequest) -> Single<Response> {
+        return provider.rx.request(.signup(user: user))
+    }
+    static func appleLogin(access_token: String, code: String, id_token: String) -> Single<Response> {
+        return provider.rx.request(.appleLogin(access_token: access_token, code: code, id_token: id_token))
     }
     static func leave() -> Single<Response> {
         return provider.rx.request(.leave)

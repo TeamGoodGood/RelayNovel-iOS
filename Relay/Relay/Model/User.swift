@@ -19,6 +19,12 @@ struct LoginResponse: Codable {
     let userId: String
 }
 
+struct UserRequest {
+    let token: String
+    let email: String
+    let username: String
+}
+
 struct UserResponse: Codable {
     var id: Int
     var penname: String?

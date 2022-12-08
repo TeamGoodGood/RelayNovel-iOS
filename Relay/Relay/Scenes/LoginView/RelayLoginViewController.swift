@@ -191,14 +191,19 @@ extension RelayLoginViewController : ASAuthorizationControllerDelegate {
 
     private func loginWithApple(successResult: ASAuthorization) async {
         guard let credential = successResult.credential as? ASAuthorizationAppleIDCredential,
-        let tokenData = credential.identityToken,
-        let token = String(data: tokenData, encoding: .utf8)
+              let tokenData = credential.identityToken,
+              let codeData = credential.authorizationCode,
+              let token = String(data: tokenData, encoding: .utf8),
+              let code = String(data: codeData, encoding: .utf8)
         else {
             print("error")
             return
         }
         do {
-            try await LoginAPI.appleLogin(token: token)
+            LoginAPI.appleLogin(access_token: token, code: code, id_token: token).subscribe { response in print(response) }
+//            LoginAPI.signup(user: user).subscribe { response in
+//                print(response)
+//            }
             let loginResponse = LoginResponse(token: token, userId: credential.user)
             AccountManager.login(disposeBag: DisposeBag(), loginResponse, autologin: true)
         } catch {
