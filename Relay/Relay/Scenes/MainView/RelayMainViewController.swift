@@ -90,18 +90,24 @@ class RelayMainViewController: UIViewController {
             }
             
             let relayReadingViewController = RelayReadingViewController()
+            relayReadingViewController.audioPlayer = self?.observable.audioPlayer
             
             if let playlistID = self?.observable.playingPlaylistID {
                 if let storyBGM = story?.bgm {
                     if storyBGM != playlistID {
+                        self?.observable.stopMusic()
                         self?.observable.playMusic(bgmID: storyBGM)
-                        relayReadingViewController.audioPlayer = self?.observable.audioPlayer
+                    } else {
+                        if let player = self?.observable.audioPlayer {
+                            if !player.isPlaying {
+                                self?.observable.playMusic(bgmID: playlistID)
+                            }
+                        }
                     }
                 }
             } else {
                 if let storyBGM = story?.bgm {
                         self?.observable.playMusic(bgmID: storyBGM)
-                        relayReadingViewController.audioPlayer = self?.observable.audioPlayer
                 }
             }
             
