@@ -8,9 +8,10 @@
 import UIKit
 import SnapKit
 
-// TODO: 플레이리스트 모달로도 재사용 가능하도록 리팩토링 필요
 class RelayCategoryViewController: UIViewController {
     var categoryList: [Category]
+    var isHiddenFirstCellUnderline = false
+    
     private var selectedCategory: Category?
     
     weak var delegate: RelayCategoryDelegate?
@@ -91,7 +92,10 @@ extension RelayCategoryViewController: UICollectionViewDataSource {
         cell.configure(categoryList[indexPath.row].name, index: indexPath.row)
         
         if indexPath.row == 0 {
-            cell.layer.addBorder([.bottom], color: UIColor(red: 226/255, green: 226/255, blue: 226/255, alpha: 1.0), width: 1.0)
+            if !isHiddenFirstCellUnderline {
+                cell.layer.addBorder([.bottom], color: UIColor(red: 226/255, green: 226/255, blue: 226/255, alpha: 1.0), width: 1.0)
+            }
+            
             collectionView.selectItem(at: indexPath, animated: false, scrollPosition: .init())
         }
         

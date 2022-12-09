@@ -399,6 +399,7 @@ extension RelayWritingViewController {
         let modalViewController = RelayCategoryViewController(list: list)
         
         modalViewController.fetchSelectedCateogry(selectedCategory)
+        modalViewController.isHiddenFirstCellUnderline = true
         modalViewController.modalPresentationStyle = .custom
         modalViewController.transitioningDelegate = self
         modalViewController.delegate = self
