@@ -11,6 +11,7 @@ import SnapKit
 class RelayCategoryViewController: UIViewController {
     var categoryList: [Category]
     var isHiddenFirstCellUnderline = false
+    var isSelectedFirstCell = false
     
     private var selectedCategory: Category?
     
@@ -95,8 +96,6 @@ extension RelayCategoryViewController: UICollectionViewDataSource {
             if !isHiddenFirstCellUnderline {
                 cell.layer.addBorder([.bottom], color: UIColor(red: 226/255, green: 226/255, blue: 226/255, alpha: 1.0), width: 1.0)
             }
-            
-            collectionView.selectItem(at: indexPath, animated: false, scrollPosition: .init())
         }
         
         if let category = selectedCategory {
@@ -108,8 +107,10 @@ extension RelayCategoryViewController: UICollectionViewDataSource {
                 collectionView.selectItem(at: categoryIndexPath, animated: false, scrollPosition: .init())
             }
         } else {
-            let indexPath0 = IndexPath(row: 0, section: 0)
-            collectionView.selectItem(at: indexPath0, animated: false, scrollPosition: .init())
+            if isSelectedFirstCell {
+                let indexPath0 = IndexPath(row: 0, section: 0)
+                collectionView.selectItem(at: indexPath0, animated: false, scrollPosition: .init())
+            }
         }
         
         return cell
@@ -147,8 +148,6 @@ extension RelayCategoryViewController {
     @objc private func dismissViewController() {
         if let selectedCategory = self.selectedCategory {
             delegate?.didApplyCategory(selectedCategory: selectedCategory)
-        } else {
-            delegate?.didApplyCategory(selectedCategory: categoryList.first ?? Category(id: 0, name: "불명확한 카테고리"))
         }
         
         dismiss(animated: true)
