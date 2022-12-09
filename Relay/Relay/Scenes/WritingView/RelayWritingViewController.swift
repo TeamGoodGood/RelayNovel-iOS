@@ -138,7 +138,7 @@ class RelayWritingViewController: UIViewController, UICollectionViewDelegate {
         return label
     }()
     
-    let textViewPlaceHolder = "내용을 입력하세요."
+    let textViewPlaceHolder = "터치1의 내용을 작성해주세요."
     
     // TODO: TextView에는 addTarget이 안되서 한국어 받침 설정을 못했습니다
     lazy var storyTextView: UITextView = {
