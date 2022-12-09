@@ -557,6 +557,7 @@ extension RelayWritingViewController {
         [
             muteButton,
             musicListButton,
+            playListLabel,
             titleLabel,
             titleTextField,
             titleTextCountLabel,
@@ -589,12 +590,16 @@ extension RelayWritingViewController {
             $0.width.equalToSuperview()
         }
         muteButton.snp.makeConstraints {
-            $0.top.equalToSuperview()
+            $0.top.equalToSuperview().inset(62.0)
             $0.trailing.equalTo(view.snp.trailing).inset(20.0)
             $0.width.equalTo(22.0)
         }
+        playListLabel.snp.makeConstraints {
+            $0.top.equalToSuperview().inset(20.0)
+            $0.leading.equalToSuperview().inset(20.0)
+        }
         musicListButton.snp.makeConstraints {
-            $0.top.equalToSuperview()
+            $0.top.equalToSuperview().inset(49.0)
             $0.leading.equalToSuperview().inset(20.0)
             $0.trailing.equalTo(muteButton.snp.leading).inset(-20.0)
             $0.height.equalTo(47.0)
