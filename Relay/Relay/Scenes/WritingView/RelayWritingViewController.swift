@@ -240,6 +240,8 @@ class RelayWritingViewController: UIViewController, UICollectionViewDelegate {
         super.viewDidLoad()
         self.hideKeyboardWhenTapped()
         view.backgroundColor = .white
+        setupTopBar()
+        
         view.addSubview(writeScrollView)
         setupLayout()
         setupCollectionView()
@@ -509,12 +511,22 @@ extension RelayWritingViewController {
         touchTitleView.titleLabel.text = "터치"
     }
     
+    private func setupTopBar() {
+        [
+            closeButton,
+            
+        ].forEach { view.addSubview($0) }
+        closeButton.snp.makeConstraints {
+            $0.top.equalToSuperview().inset(64.0)
+            $0.leading.equalToSuperview().inset(20)
+        }
+    }
+        
+    
     private func setupLayout() {
         writeScrollView.addSubview(contentView)
         writeScrollView.delaysContentTouches = false
         [
-            closeButton,
-            completeButton,
             muteButton,
             musicListButton,
             titleLabel,
@@ -534,7 +546,7 @@ extension RelayWritingViewController {
             touchCollectionView
         ].forEach { contentView.addSubview($0) }
         writeScrollView.snp.makeConstraints {
-            $0.top.equalToSuperview()
+            $0.top.equalToSuperview().inset(110)
             $0.leading.equalToSuperview()
             $0.trailing.equalToSuperview()
             $0.bottom.equalToSuperview()
@@ -548,21 +560,13 @@ extension RelayWritingViewController {
             $0.height.equalTo(writeScrollView.contentLayoutGuide.snp.height)
             $0.width.equalToSuperview()
         }
-        closeButton.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(17.0)
-            $0.leading.equalToSuperview().inset(20.0)
-        }
-        completeButton.snp.makeConstraints {
-            $0.top.equalTo(closeButton.snp.top)
-            $0.trailing.equalToSuperview().inset(20)
-        }
         muteButton.snp.makeConstraints {
-            $0.top.equalTo(closeButton.snp.bottom).offset(39.0)
+            $0.top.equalToSuperview()
             $0.trailing.equalTo(view.snp.trailing).inset(20.0)
             $0.width.equalTo(22.0)
         }
         musicListButton.snp.makeConstraints {
-            $0.top.equalTo(closeButton.snp.bottom).offset(28.0)
+            $0.top.equalToSuperview()
             $0.leading.equalToSuperview().inset(20.0)
             $0.trailing.equalTo(muteButton.snp.leading).inset(-20.0)
             $0.height.equalTo(47.0)

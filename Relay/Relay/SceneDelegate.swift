@@ -24,7 +24,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         
         // 위에서 만든 viewController를 첫 화면으로 띄우기
-        window?.rootViewController = TabBarController()
+        window?.rootViewController = RelayWritingViewController()
         
         // 화면에 보이게끔
         window?.makeKeyAndVisible()
