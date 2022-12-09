@@ -415,6 +415,7 @@ extension RelayReadingViewController {
         
         readingWriteView.configure(touchCount: relays.count + 2)
         
+        readingWriteView.isHidden = true
         readingFooterView.isHidden = false
     }
     
@@ -433,6 +434,7 @@ extension RelayReadingViewController {
         stackView.removeArrangedSubview(readingFooterView)
         stackView.addArrangedSubview(readingWriteView)
         
+        readingWriteView.isHidden = false
         readingFooterView.isHidden = true
     }
     
