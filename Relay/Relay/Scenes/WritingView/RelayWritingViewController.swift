@@ -29,11 +29,11 @@ class RelayWritingViewController: UIViewController, UICollectionViewDelegate {
     
     private let completeButton: UIButton = {
         let button = UIButton()
+        let config = UIImage.SymbolConfiguration(pointSize: 22)
+        let image = UIImage(systemName: "checkmark", withConfiguration: config)
         
-        button.setTitle("완료", for: .normal)
-        button.setTitleColor(.relayBlack, for: .normal)
-        button.titleLabel?.setFont(.caption1)
-        
+        button.setImage(image: image!)
+        button.tintColor = .relayPink1
         button.addTarget(self, action: #selector(touchCompleteButton), for: .touchUpInside)
         
         return button
