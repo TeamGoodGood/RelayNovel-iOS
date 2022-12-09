@@ -203,17 +203,17 @@ extension RelayReadingViewController: UITextViewDelegate {
     func textViewDidBeginEditing(_ textView: UITextView) {
         if textView.text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
             textView.textColor = .relayGray
-            textView.text = "내용을 작성해주세요."
-        } else if textView.text == "내용을 작성해주세요." {
+            textView.text = readingWriteView.textViewPlaceHolder
+        } else if textView.text == readingWriteView.textViewPlaceHolder {
             textView.textColor = .relayBlack
             textView.text = nil
         }
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
-        if textView.text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty || textView.text == "내용을 작성해주세요." {
+        if textView.text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty || textView.text == readingWriteView.textViewPlaceHolder {
             textView.textColor = .relayGray
-            textView.text = "내용을 작성해주세요."
+            textView.text = readingWriteView.textViewPlaceHolder
             readingWriteView.textCountLabel.text = "0/500자"
         }
     }
@@ -342,7 +342,7 @@ extension RelayReadingViewController {
         lazy var alert = UIAlertController(title: nil, message: nil, preferredStyle: .alert)
         lazy var action = UIAlertAction(title: "확인", style: .default)
         
-        guard let text = readingWriteView.writingTextView.text, text != "내용을 작성해주세요." else {
+        guard let text = readingWriteView.writingTextView.text, text != readingWriteView.textViewPlaceHolder else {
             alert.message = "내용이 있어야합니다."
             alert.addAction(action)
             present(alert, animated: true)
@@ -414,7 +414,11 @@ extension RelayReadingViewController {
         stackView.addArrangedSubview(readingFooterView)
         
         readingWriteView.configure(touchCount: relays.count + 2)
+        readingWriteView.writingTextView.text = readingWriteView.textViewPlaceHolder
+        readingWriteView.writingTextView.textColor = .relayGray
+        readingWriteView.writingTextView.selectedTextRange = nil
         
+        readingWriteView.isHidden = true
         readingFooterView.isHidden = false
     }
     
@@ -433,6 +437,7 @@ extension RelayReadingViewController {
         stackView.removeArrangedSubview(readingFooterView)
         stackView.addArrangedSubview(readingWriteView)
         
+        readingWriteView.isHidden = false
         readingFooterView.isHidden = true
     }
     
