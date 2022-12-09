@@ -10,8 +10,10 @@ import UIKit
 class CategoryModalPresentationController: UIPresentationController {
     
     let shadowView: UIView!
+    
     var tapGestureRecognizer: UITapGestureRecognizer = UITapGestureRecognizer()
-    var check: Bool = false
+    var modalHeight: CGFloat = 646.0
+
     weak var dismissDelegate: CategoryModalDismissDelegate?
     
     override init(presentedViewController: UIViewController, presenting presentingViewController: UIViewController?) {
@@ -26,9 +28,9 @@ class CategoryModalPresentationController: UIPresentationController {
     
     override var frameOfPresentedViewInContainerView: CGRect {
         CGRect(origin: CGPoint(x: 0,
-                               y: self.containerView!.frame.height * 198 / 844),
+                               y: self.containerView!.frame.height * (844 - modalHeight) / 844),
                size: CGSize(width: self.containerView!.frame.width,
-                            height: self.containerView!.frame.height * 646 / 844))
+                            height: self.containerView!.frame.height * modalHeight / 844))
     }
     
     // 모달이 올라갈 때 뒤에 있는 배경을 검은색 처리해주는 용도
