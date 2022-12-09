@@ -534,7 +534,7 @@ extension RelayWritingViewController {
         }
         relayLabel.snp.makeConstraints {
             $0.top.equalTo(closeButton)
-            $0.centerY.equalToSuperview()
+            $0.centerX.equalToSuperview()
         }
         completeButton.snp.makeConstraints {
             $0.top.equalTo(closeButton)
