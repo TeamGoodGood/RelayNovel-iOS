@@ -425,20 +425,33 @@ extension RelayReadingViewController {
                 let image = UIImage(systemName: "heart")
                 readingFooterView.likeButton.setImage(image, for: .normal)
                 readingFinishFooterView.likeButton.setImage(image, for: .normal)
-                    print("\(story.like_count)")
-                mockStory.story1.like_count -= 1
-                    print("\(story.like_count)")
-                
-                    print("\(story.user_liked)")
-                story.user_liked.toggle()
-                    print("\(story.user_liked)")
+                for i in 0..<mockStory.allList.count {
+                    if mockStory.allList[i].id == story.id {
+                        print("\(mockStory.allList[i].like_count)")
+                        mockStory.allList[i].like_count -= 1
+                        print("\(mockStory.allList[i].like_count)")
+                        
+                        print("\(mockStory.allList[i].user_liked)")
+                        mockStory.allList[i].user_liked.toggle()
+                        print("\(mockStory.allList[i].user_liked)")
+                    }
+                }
             } else {
                 print("좋아요 추가")
                 let image = UIImage(systemName: "heart.fill")
                 readingFooterView.likeButton.setImage(image, for: .normal)
                 readingFinishFooterView.likeButton.setImage(image, for: .normal)
-                story.like_count += 1
-                story.user_liked.toggle()
+                for i in 0..<mockStory.allList.count {
+                    if mockStory.allList[i].id == story.id {
+                        print("\(mockStory.allList[i].like_count)")
+                        mockStory.allList[i].like_count += 1
+                        print("\(mockStory.allList[i].like_count)")
+                        
+                        print("\(mockStory.allList[i].user_liked)")
+                        mockStory.allList[i].user_liked.toggle()
+                        print("\(mockStory.allList[i].user_liked)")
+                    }
+                }
             }
         }
     }
