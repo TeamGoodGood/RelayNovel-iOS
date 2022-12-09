@@ -179,7 +179,7 @@ class RelayWritingViewController: UIViewController, UICollectionViewDelegate {
         
         textField.layer.cornerRadius = 8.0
         textField.backgroundColor = .relayGray2
-        textField.placeholder = "코멘트를 입력해주세요."
+        textField.placeholder = "이 릴레이의 소개를 입력해주세요."
         
         textField.addTarget(self, action: #selector(commentTextFieldDidChange), for: .editingChanged)
         
@@ -455,7 +455,7 @@ extension RelayWritingViewController {
         }
         
         guard let comment = commentTextField.text, comment != "" else {
-            alert.message = "코멘트를 작성해주세요."
+            alert.message = "공지를 작성해주세요."
             alert.addAction(action)
             present(alert, animated: true)
             
@@ -524,9 +524,10 @@ extension RelayWritingViewController {
     }
     
     private func setupTitleButton() {
-        commentTitleView.titleLabel.text = "코멘트"
+        commentTitleView.titleLabel.text = "공지"
         eventTitleView.titleLabel.text = "종목"
         touchTitleView.titleLabel.text = "터치"
+        touchTitleView.discriptionLabel.text = "(릴레이 소설 횟수)"
     }
     
     private func setupTopBar() {
@@ -661,7 +662,7 @@ extension RelayWritingViewController {
             $0.height.equalTo(20)
         }
         eventCollectionView.snp.makeConstraints {
-            $0.top.equalTo(eventTitleView.snp.bottom).offset(20.0)
+            $0.top.equalTo(eventTitleView.snp.bottom).offset(12.0)
             $0.leading.equalTo(musicListButton.snp.leading)
             $0.trailing.equalToSuperview().inset(56.0)
             $0.height.equalTo(74.0)
@@ -679,7 +680,7 @@ extension RelayWritingViewController {
             $0.height.equalTo(20.0)
         }
         touchCollectionView.snp.makeConstraints {
-            $0.top.equalTo(touchTitleView.snp.bottom).offset(28.0)
+            $0.top.equalTo(touchTitleView.snp.bottom).offset(12.0)
             $0.leading.equalTo(musicListButton.snp.leading)
             $0.trailing.equalTo(storyTextView.snp.trailing)
             $0.height.equalTo(48.0)

@@ -19,19 +19,28 @@ class WritingTitleView: UIView, UISheetPresentationControllerDelegate {
         return label
     }()
     
-    lazy var questionButton: UIButton = {
-        let button = UIButton()
-        let config = UIImage.SymbolConfiguration(pointSize: 17)
-        let tag = 0
+    lazy var discriptionLabel: UILabel = {
+        let label = UILabel()
         
-        button.setImage(UIImage(systemName: "questionmark.circle.fill", withConfiguration: config), for: .normal)
-        button.tintColor = .relayGray2
+        label.setFont(.caption2)
+        label.textColor = .relayGray
         
-        button.addTarget(self, action: #selector(goToDetailView(sender:)), for: .touchUpInside)
-        
-        return button
+        return label
     }()
     
+//    lazy var questionButton: UIButton = {
+//        let button = UIButton()
+//        let config = UIImage.SymbolConfiguration(pointSize: 17)
+//        let tag = 0
+//
+//        button.setImage(UIImage(systemName: "questionmark.circle.fill", withConfiguration: config), for: .normal)
+//        button.tintColor = .relayGray2
+//
+//        button.addTarget(self, action: #selector(goToDetailView(sender:)), for: .touchUpInside)
+//
+//        return button
+//    }()
+//
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -42,25 +51,23 @@ class WritingTitleView: UIView, UISheetPresentationControllerDelegate {
         fatalError("init(coder:) has not been implemented")
     }
     
-    @objc func goToDetailView(sender: UIButton) {
-        print("하이")
-    }
+//    @objc func goToDetailView(sender: UIButton) {
+//        print("하이")
+//    }
     
     private func setupLayout() {
         [
             titleLabel,
-            questionButton
+            discriptionLabel
         ].forEach { addSubview($0) }
 
         titleLabel.snp.makeConstraints {
             $0.leading.equalToSuperview()
             $0.bottom.equalToSuperview()
         }
-        questionButton.snp.makeConstraints {
-            $0.leading.equalTo(titleLabel.snp.trailing).offset(4.0)
-            $0.bottom.equalToSuperview()
-            $0.height.equalTo(20)
-            $0.width.equalTo(20)
+        discriptionLabel.snp.makeConstraints {
+            $0.leading.equalTo(titleLabel.snp.trailing).offset(8.0)
+            $0.bottom.equalTo(titleLabel.snp.bottom).inset(2.0)
         }
     }
 }
