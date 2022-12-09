@@ -27,10 +27,17 @@ class CategoryModalPresentationController: UIPresentationController {
     }
     
     override var frameOfPresentedViewInContainerView: CGRect {
-        CGRect(origin: CGPoint(x: 0,
-                               y: self.containerView!.frame.height * (844 - modalHeight) / 844),
-               size: CGSize(width: self.containerView!.frame.width,
-                            height: self.containerView!.frame.height * modalHeight / 844))
+        if modalHeight > 844 || modalHeight < 0 {
+            return CGRect(origin: CGPoint(x: 0,
+                                          y: self.containerView!.frame.height * 198 / 844),
+                   size: CGSize(width: self.containerView!.frame.width,
+                                height: self.containerView!.frame.height * 646.0 / 844))
+        } else {
+            return CGRect(origin: CGPoint(x: 0,
+                                   y: self.containerView!.frame.height * (844 - modalHeight) / 844),
+                   size: CGSize(width: self.containerView!.frame.width,
+                                height: self.containerView!.frame.height * modalHeight / 844))
+        }
     }
     
     // 모달이 올라갈 때 뒤에 있는 배경을 검은색 처리해주는 용도
