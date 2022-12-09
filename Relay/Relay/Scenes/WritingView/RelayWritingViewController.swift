@@ -84,6 +84,14 @@ class RelayWritingViewController: UIViewController, UICollectionViewDelegate {
         
         return button
     }()
+    private let playListLabel: UILabel = {
+        let label = UILabel()
+        
+        label.text = "플레이리스트"
+        label.setFont(.body1)
+        
+        return label
+    }()
     
     private let titleLabel: UILabel = {
         let label = UILabel()
