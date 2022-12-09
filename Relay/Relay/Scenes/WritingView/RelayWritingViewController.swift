@@ -27,6 +27,16 @@ class RelayWritingViewController: UIViewController, UICollectionViewDelegate {
         return button
     }()
     
+    private let relayLabel: UILabel = {
+        let label = UILabel()
+        
+        label.text = "새 릴레이"
+        label.setFont(.body2)
+        label.textColor = .relayBlack
+        
+        return label
+    }()
+    
     private let completeButton: UIButton = {
         let button = UIButton()
         let config = UIImage.SymbolConfiguration(pointSize: 22)
@@ -514,11 +524,21 @@ extension RelayWritingViewController {
     private func setupTopBar() {
         [
             closeButton,
+            relayLabel,
+            completeButton
             
         ].forEach { view.addSubview($0) }
         closeButton.snp.makeConstraints {
             $0.top.equalToSuperview().inset(64.0)
-            $0.leading.equalToSuperview().inset(20)
+            $0.leading.equalToSuperview().inset(20.0)
+        }
+        relayLabel.snp.makeConstraints {
+            $0.top.equalTo(closeButton)
+            $0.centerY.equalToSuperview()
+        }
+        completeButton.snp.makeConstraints {
+            $0.top.equalTo(closeButton)
+            $0.trailing.equalToSuperview().inset(20.0)
         }
     }
         
