@@ -17,7 +17,7 @@ class RelayReadingViewController: UIViewController {
     var story: Story?
     var audioPlayer: AVAudioPlayer?
     
-    private var isReleyFinished = false
+    private var isRelayFinished = false
     private var isReadingModeOn = true {
         didSet {
             if isReadingModeOn {
@@ -89,7 +89,7 @@ class RelayReadingViewController: UIViewController {
             readingBodyView
         ].forEach { stackView.addArrangedSubview($0) }
         
-        if isReleyFinished {
+        if isRelayFinished {
             stackView.addArrangedSubview(readingFinishFooterView)
         } else {
             stackView.addArrangedSubview(readingFooterView)
@@ -172,13 +172,12 @@ class RelayReadingViewController: UIViewController {
                 relays += []
             }
             
-            isReleyFinished = story.finished
+            isRelayFinished = story.finished
             configureViews(story: story)
         }
         
         
         readingWriteView.writingTextView.delegate = self
-        
         addSingleTapRecognizer()
         setupNavigationController()
         setupLayout()
@@ -326,6 +325,8 @@ extension RelayReadingViewController {
     }
     
     func setupRegisterButtonAction() {
+        readingWriteView.registerButton.addTarget(self, action: #selector(touchViewEndEditing), for: .touchUpInside)
+        readingWriteView.writingTextView.becomeFirstResponder()
         readingWriteView.registerButton.addTarget(self, action: #selector(pushRegisterButton), for: .touchUpInside)
     }
     
@@ -460,14 +461,16 @@ extension RelayReadingViewController {
         view.endEditing(true)
     }
     
+    
     @objc func keyboardUp(notification:NSNotification) {
         guard let userInfo = notification.userInfo else { return }
-          var keyboardFrame:CGRect = (userInfo[UIResponder.keyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
+          var keyboardFrame:CGRect = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
           keyboardFrame = self.view.convert(keyboardFrame, from: nil)
-
+        scrollView.reloadInputViews()
           var contentInset:UIEdgeInsets = self.scrollView.contentInset
-          contentInset.bottom = keyboardFrame.size.height + 20
+          contentInset.bottom = keyboardFrame.size.height - 20
         scrollView.contentInset = contentInset
+        self.scrollView.scrollRectToVisible(CGRect(x: 0, y: scrollView.contentSize.height - scrollView.bounds.height, width: scrollView.bounds.size.width, height: scrollView.bounds.size.height), animated: true)
     }
     
     @objc func keyboardDown() {
