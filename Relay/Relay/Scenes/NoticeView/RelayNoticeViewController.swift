@@ -103,6 +103,8 @@ extension RelayNoticeViewController: UITableViewDelegate, UITableViewDataSource 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: TableCellCustomCell.reuseIdentifier, for: indexPath) as! TableCellCustomCell
         
+        cell.selectionStyle = .none
+        
         if let notice = noticeArray?[indexPath.row] {
             cell.configure(notice)
         } else {
