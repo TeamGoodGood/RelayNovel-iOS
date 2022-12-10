@@ -343,7 +343,13 @@ extension RelayReadingViewController {
         lazy var alert = UIAlertController(title: nil, message: nil, preferredStyle: .alert)
         lazy var action = UIAlertAction(title: "확인", style: .default)
         
+<<<<<<< HEAD
         guard let text = readingWriteView.writingTextView.text, text != readingWriteView.textViewPlaceHolder else {
+=======
+
+        guard let text = readingWriteView.writingTextView.text, text != readingWriteView.textViewPlaceHolder else {
+        
+>>>>>>> keyboardScroll
             alert.message = "내용이 있어야합니다."
             alert.addAction(action)
             present(alert, animated: true)
