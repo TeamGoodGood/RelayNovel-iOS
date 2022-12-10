@@ -178,7 +178,6 @@ class RelayReadingViewController: UIViewController {
         
         
         readingWriteView.writingTextView.delegate = self
-        
         addSingleTapRecognizer()
         setupNavigationController()
         setupLayout()
@@ -326,9 +325,9 @@ extension RelayReadingViewController {
     }
     
     func setupRegisterButtonAction() {
+        readingWriteView.registerButton.addTarget(self, action: #selector(touchViewEndEditing), for: .touchUpInside)
         readingWriteView.writingTextView.becomeFirstResponder()
         readingWriteView.registerButton.addTarget(self, action: #selector(pushRegisterButton), for: .touchUpInside)
-        
     }
     
     @objc func popViewController() {
@@ -458,13 +457,18 @@ extension RelayReadingViewController {
         view.endEditing(true)
     }
     
+    
     @objc func keyboardUp(notification:NSNotification) {
         guard let userInfo = notification.userInfo else { return }
-          var keyboardFrame:CGRect = (userInfo[UIResponder.keyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
+          var keyboardFrame:CGRect = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
           keyboardFrame = self.view.convert(keyboardFrame, from: nil)
+        scrollView.reloadInputViews()
           var contentInset:UIEdgeInsets = self.scrollView.contentInset
           contentInset.bottom = keyboardFrame.size.height - 20
+        print(keyboardFrame)
         scrollView.contentInset = contentInset
+        print(scrollView.contentInset)
+        print("DEBUG>>>>>>>>>>>>>>>>")
         self.scrollView.scrollRectToVisible(CGRect(x: 0, y: scrollView.contentSize.height - scrollView.bounds.height, width: scrollView.bounds.size.width, height: scrollView.bounds.size.height), animated: true)
     }
     
