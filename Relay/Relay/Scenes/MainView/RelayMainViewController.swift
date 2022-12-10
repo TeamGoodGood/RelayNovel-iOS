@@ -90,7 +90,6 @@ class RelayMainViewController: UIViewController {
             }
             
             let relayReadingViewController = RelayReadingViewController()
-            relayReadingViewController.audioPlayer = self?.observable.audioPlayer
             
             if let playlistID = self?.observable.playingPlaylistID {
                 if let storyBGM = story?.bgm {
@@ -111,6 +110,7 @@ class RelayMainViewController: UIViewController {
                 }
             }
             
+            relayReadingViewController.audioPlayer = self?.observable.audioPlayer
             relayReadingViewController.hidesBottomBarWhenPushed = true
             relayReadingViewController.requestStory(story)
             

@@ -19,7 +19,7 @@ struct PageAnimationView: View {
                         .resizable()
                         .scaledToFit()
                     Rectangle()
-                        .frame(width: UIScreen.main.bounds.width, height: 70)
+                        .frame(width: UIScreen.main.bounds.width, height: 90)
                 }
                 GeometryReader { proxy in
                     VStack(spacing: 31) {
@@ -49,7 +49,7 @@ struct PageAnimationView: View {
                             .horizontal(.startToEnd)
                             .interactive(scale: 0.6)
                             .itemAspectRatio(0.4)
-                            .frame(height: 100)
+                            .frame(height: 120)
                     }
                 }
             }
@@ -108,37 +108,37 @@ struct PageAnimationView: View {
             if page == 0 {
                 Image("4")
                     .resizable()
-                    .frame(width: 80, height: 86.22)
+                    .frame(width: 85, height: 109)
             }
             
             if page == 1 {
                 Image("5")
                     .resizable()
-                    .frame(width: 80, height: 86.22)
+                    .frame(width: 85, height: 109)
             }
             
             if page == 2 {
                 Image("6")
                     .resizable()
-                    .frame(width: 80, height: 86.22)
+                    .frame(width: 85, height: 109)
             }
             
             if page == 3 {
                 Image("4")
                     .resizable()
-                    .frame(width: 80, height: 86.22)
+                    .frame(width: 85, height: 109)
             }
             
             if page == 4 {
                 Image("5")
                     .resizable()
-                    .frame(width: 80, height: 86.22)
+                    .frame(width: 85, height: 109)
             }
             
             if page == 5 {
                 Image("6")
                     .resizable()
-                    .frame(width: 80, height: 86.22)
+                    .frame(width: 85, height: 109)
             }
         }
     }
