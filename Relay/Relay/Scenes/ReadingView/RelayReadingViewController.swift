@@ -343,13 +343,7 @@ extension RelayReadingViewController {
         lazy var alert = UIAlertController(title: nil, message: nil, preferredStyle: .alert)
         lazy var action = UIAlertAction(title: "확인", style: .default)
         
-<<<<<<< HEAD
         guard let text = readingWriteView.writingTextView.text, text != readingWriteView.textViewPlaceHolder else {
-=======
-
-        guard let text = readingWriteView.writingTextView.text, text != readingWriteView.textViewPlaceHolder else {
-        
->>>>>>> keyboardScroll
             alert.message = "내용이 있어야합니다."
             alert.addAction(action)
             present(alert, animated: true)
@@ -475,10 +469,7 @@ extension RelayReadingViewController {
         scrollView.reloadInputViews()
           var contentInset:UIEdgeInsets = self.scrollView.contentInset
           contentInset.bottom = keyboardFrame.size.height - 20
-        print(keyboardFrame)
         scrollView.contentInset = contentInset
-        print(scrollView.contentInset)
-        print("DEBUG>>>>>>>>>>>>>>>>")
         self.scrollView.scrollRectToVisible(CGRect(x: 0, y: scrollView.contentSize.height - scrollView.bounds.height, width: scrollView.bounds.size.width, height: scrollView.bounds.size.height), animated: true)
     }
     
