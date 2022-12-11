@@ -67,6 +67,16 @@ struct MockStory {
         return olderStories
     }
     
+    func fetchMostLikeStories() -> [Story] {
+        var mostLikeStories: [Story] = []
+        
+        mostLikeStories = allList.sorted {
+            $0.like_count > $1.like_count
+        }
+        
+        return mostLikeStories
+    }
+    
     init() {
         story1 = Story(
             id: 0,
