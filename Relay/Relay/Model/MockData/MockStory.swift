@@ -215,8 +215,20 @@ struct MockStory {
         return stories
     }
     
+    func fetchUserLikedStories() -> [Story] {
+        var stories: [Story] = []
+        
+        for story in allList {
+            if story.user_liked {
+                stories.append(story)
+            }
+        }
+        
+        return stories
+    }
+    
     init() {
-        story1 = Story(
+            story1 = Story(
             id: 0,
             original: mockUserResponse.curryResponse,
             genre: "로맨스",
