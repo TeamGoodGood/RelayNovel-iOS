@@ -22,7 +22,7 @@ final class RelayUserActivityCollectionViewCell: UICollectionViewCell {
     
     private lazy var relayActivityLabel: UILabel = {
         let label = UILabel()
-        label.setFont(.body1)
+        label.setFont(.body2)
         
         return label
     }()
@@ -82,7 +82,7 @@ extension RelayUserActivityCollectionViewCell {
     }
     
     private func setRelayActivityNumberLabel(_ relayCount: Int) {
-        let numberAttributes: [NSAttributedString.Key: Any] = [.foregroundColor: UIColor.relayPink1]
+        let numberAttributes: [NSAttributedString.Key: Any] = [.foregroundColor: UIColor.relayGray]
         
         let countStr = "\(relayCount)"
         let postPosition = "개"
