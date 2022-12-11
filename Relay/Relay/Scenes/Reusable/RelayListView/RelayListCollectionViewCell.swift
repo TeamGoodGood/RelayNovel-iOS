@@ -16,10 +16,8 @@ class RelayListCollectionViewCell: UICollectionViewCell {
     private lazy var statusLabel: BasePaddingLabel = {
         let label = BasePaddingLabel()
         label.setFont(.caption2)
-        label.textColor = .white
         
         label.clipsToBounds = true
-        label.backgroundColor = .relayPink1
         label.layer.cornerRadius = 12.0
         
         return label
@@ -76,6 +74,8 @@ extension RelayListCollectionViewCell {
             statusLabel.backgroundColor = .systemBackground
         } else {
             statusLabel.text = "달리는중"
+            statusLabel.textColor = .white
+            statusLabel.backgroundColor = .relayPink1
         }
         
         stepCountLabel.text = "\(stepCount)/\(stepLimit) 터치"
