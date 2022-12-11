@@ -347,7 +347,7 @@ extension RelayReadingViewController {
             alert.message = "내용이 있어야합니다."
             alert.addAction(action)
             present(alert, animated: true)
-
+            
             return
         }
         
@@ -425,11 +425,42 @@ extension RelayReadingViewController {
     
     @objc func pushLikeButton() {
         if let story = story {
-            //TODO: 좋아요 추가/해제 전달기능 구현
             if story.user_liked {
                 print("좋아요 해제")
+                let image = UIImage(systemName: "heart")
+                readingFooterView.likeButton.setImage(image, for: .normal)
+                readingFinishFooterView.likeButton.setImage(image, for: .normal)
+                for i in 0..<mockStory.allList.count {
+                    if mockStory.allList[i].id == story.id {
+                        
+                        mockStory.allList[i].like_count -= 1
+                        self.story?.like_count -= 1
+                        
+                        mockStory.allList[i].user_liked.toggle()
+                        self.story?.user_liked.toggle()
+                        
+                        readingFooterView.likeButton.setTitle("\(self.story!.like_count)", for: .normal)
+                        readingFinishFooterView.likeButton.setTitle("\(self.story!.like_count)", for: .normal)
+                    }
+                }
             } else {
                 print("좋아요 추가")
+                let image = UIImage(systemName: "heart.fill")
+                readingFooterView.likeButton.setImage(image, for: .normal)
+                readingFinishFooterView.likeButton.setImage(image, for: .normal)
+                for i in 0..<mockStory.allList.count {
+                    if mockStory.allList[i].id == story.id {
+                        
+                        mockStory.allList[i].like_count += 1
+                        self.story?.like_count += 1
+                        
+                        readingFooterView.likeButton.setTitle("\(self.story!.like_count)", for: .normal)
+                        readingFinishFooterView.likeButton.setTitle("\(self.story!.like_count)", for: .normal)
+                        
+                        mockStory.allList[i].user_liked.toggle()
+                        self.story?.user_liked.toggle()
+                    }
+                }
             }
         }
     }
@@ -464,11 +495,12 @@ extension RelayReadingViewController {
     
     @objc func keyboardUp(notification:NSNotification) {
         guard let userInfo = notification.userInfo else { return }
-          var keyboardFrame:CGRect = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
-          keyboardFrame = self.view.convert(keyboardFrame, from: nil)
+        var keyboardFrame:CGRect = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+        keyboardFrame = self.view.convert(keyboardFrame, from: nil)
         scrollView.reloadInputViews()
-          var contentInset:UIEdgeInsets = self.scrollView.contentInset
-          contentInset.bottom = keyboardFrame.size.height - 20
+        var contentInset:UIEdgeInsets = self.scrollView.contentInset
+        contentInset.bottom = keyboardFrame.size.height - 20
+
         scrollView.contentInset = contentInset
         self.scrollView.scrollRectToVisible(CGRect(x: 0, y: scrollView.contentSize.height - scrollView.bounds.height, width: scrollView.bounds.size.width, height: scrollView.bounds.size.height), animated: true)
     }
