@@ -101,6 +101,18 @@ struct MockStory {
         return stories
     }
     
+    func fetchFantasyStories() -> [Story] {
+        var stories: [Story] = []
+        
+        for story in allList {
+            if story.genre == "판타지" {
+                stories.append(story)
+            }
+        }
+        
+        return stories
+    }
+    
     init() {
         story1 = Story(
             id: 0,
