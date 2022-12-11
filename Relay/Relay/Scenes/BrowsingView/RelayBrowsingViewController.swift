@@ -251,10 +251,16 @@ extension RelayBrowsingViewController {
         switch sender.tag {
         case 0:
             currentHighlightedButton = .entire
+            stories = mockStory.allList
+            relayListView.listCollectionView.reloadData()
         case 1:
             currentHighlightedButton = .completed
+            stories = mockStory.fetchFinishStories()
+            relayListView.listCollectionView.reloadData()
         case 2:
             currentHighlightedButton = .running
+            stories = mockStory.fetchRunningStories()
+            relayListView.listCollectionView.reloadData()
         default:
             break
         }
