@@ -89,6 +89,18 @@ struct MockStory {
         return stories
     }
     
+    func fetchThrillerStories() -> [Story] {
+        var stories: [Story] = []
+        
+        for story in allList {
+            if story.genre == "스릴러/공포" {
+                stories.append(story)
+            }
+        }
+        
+        return stories
+    }
+    
     init() {
         story1 = Story(
             id: 0,
