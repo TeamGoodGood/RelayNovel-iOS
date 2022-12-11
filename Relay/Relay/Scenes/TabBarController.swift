@@ -135,7 +135,7 @@ extension TabBarController {
             defaults.set("No", forKey:"isAutoLogin")
             return true
         } else {
-            return true
+            return false
         }
     }
 }
