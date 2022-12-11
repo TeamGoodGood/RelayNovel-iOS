@@ -14,6 +14,7 @@ class RelayWritingViewController: UIViewController, UICollectionViewDelegate {
     private var selectedEvent: String?
     private var selectedTouch: Int?
     var audioPlayer: AVAudioPlayer?
+    var mute = true
     
     private let closeButton: UIButton = {
         let button = UIButton(type: .custom)
@@ -27,13 +28,23 @@ class RelayWritingViewController: UIViewController, UICollectionViewDelegate {
         return button
     }()
     
+    private let relayLabel: UILabel = {
+        let label = UILabel()
+        
+        label.text = "새 릴레이"
+        label.setFont(.body2)
+        label.textColor = .relayBlack
+        
+        return label
+    }()
+    
     private let completeButton: UIButton = {
         let button = UIButton()
+        let config = UIImage.SymbolConfiguration(pointSize: 22)
+        let image = UIImage(systemName: "checkmark", withConfiguration: config)
         
-        button.setTitle("완료", for: .normal)
-        button.setTitleColor(.relayBlack, for: .normal)
-        button.titleLabel?.setFont(.caption1)
-        
+        button.setImage(image: image!)
+        button.tintColor = .relayPink1
         button.addTarget(self, action: #selector(touchCompleteButton), for: .touchUpInside)
         
         return button
@@ -67,12 +78,22 @@ class RelayWritingViewController: UIViewController, UICollectionViewDelegate {
     private let muteButton: UIButton = {
         let button = UIButton(type: .custom)
         let config = UIImage.SymbolConfiguration(pointSize: 22)
-        let image = UIImage(systemName: "speaker.slash.fill")
+        let image = UIImage(systemName: "speaker.slash.fill", withConfiguration: config)
         
         button.setImage(image: image!)
         button.tintColor = .relayBlack
         
+        button.addTarget(self, action: #selector(muteMusic), for: .touchUpInside)
+        
         return button
+    }()
+    private let playListLabel: UILabel = {
+        let label = UILabel()
+        
+        label.text = "플레이리스트"
+        label.setFont(.body1)
+        
+        return label
     }()
     
     private let titleLabel: UILabel = {
@@ -120,7 +141,7 @@ class RelayWritingViewController: UIViewController, UICollectionViewDelegate {
         return label
     }()
     
-    let textViewPlaceHolder = "내용을 입력하세요."
+    let textViewPlaceHolder = "터치1의 내용을 작성해주세요."
     
     // TODO: TextView에는 addTarget이 안되서 한국어 받침 설정을 못했습니다
     lazy var storyTextView: UITextView = {
@@ -161,7 +182,7 @@ class RelayWritingViewController: UIViewController, UICollectionViewDelegate {
         
         textField.layer.cornerRadius = 8.0
         textField.backgroundColor = .relayGray2
-        textField.placeholder = "코멘트를 입력해주세요."
+        textField.placeholder = "이 릴레이의 소개를 입력해주세요."
         
         textField.addTarget(self, action: #selector(commentTextFieldDidChange), for: .editingChanged)
         
@@ -240,6 +261,8 @@ class RelayWritingViewController: UIViewController, UICollectionViewDelegate {
         super.viewDidLoad()
         self.hideKeyboardWhenTapped()
         view.backgroundColor = .white
+        setupTopBar()
+        
         view.addSubview(writeScrollView)
         setupLayout()
         setupCollectionView()
@@ -280,6 +303,12 @@ extension RelayWritingViewController: RelayPlaylistCategoryDelegate {
                 audioPlayer?.numberOfLoops = -1
                 audioPlayer?.prepareToPlay()
                 audioPlayer?.play()
+                if mute {
+                    audioPlayer?.volume = 1
+                    
+                } else {
+                    audioPlayer?.volume = 0
+                }
             } catch {
                 print(error)
             }
@@ -291,6 +320,12 @@ extension RelayWritingViewController: CategoryModalDismissDelegate {
     func dismissByTouchingBackground() {
         if let bgm = selectedCategory {
             playMusic(id: bgm.id)
+            if mute {
+                audioPlayer?.volume = 1
+                
+            } else {
+                audioPlayer?.volume = 0
+            }
         } else {
             audioPlayer?.stop()
         }
@@ -298,6 +333,27 @@ extension RelayWritingViewController: CategoryModalDismissDelegate {
 }
 
 extension RelayWritingViewController {
+    
+    @objc
+    func muteMusic() {
+        mute.toggle()
+        if mute {
+            let config = UIImage.SymbolConfiguration(pointSize: 22)
+            let image = UIImage(systemName: "speaker.slash.fill", withConfiguration: config)
+            
+            muteButton.setImage(image: image!)
+            audioPlayer?.volume = 1
+            
+        } else {
+            let config = UIImage.SymbolConfiguration(pointSize: 22)
+            let image = UIImage(systemName: "speaker.fill", withConfiguration: config)
+            
+            muteButton.setImage(image: image!)
+            audioPlayer?.volume = 0
+        }
+        print(mute)
+        // mute가 false일때 소리 0
+    }
     
     @objc
     func dissmissViewController() {
@@ -437,7 +493,7 @@ extension RelayWritingViewController {
         }
         
         guard let comment = commentTextField.text, comment != "" else {
-            alert.message = "코멘트를 작성해주세요."
+            alert.message = "공지를 작성해주세요."
             alert.addAction(action)
             present(alert, animated: true)
             
@@ -506,19 +562,41 @@ extension RelayWritingViewController {
     }
     
     private func setupTitleButton() {
-        commentTitleView.titleLabel.text = "코멘트"
+        commentTitleView.titleLabel.text = "공지"
         eventTitleView.titleLabel.text = "종목"
         touchTitleView.titleLabel.text = "터치"
+        touchTitleView.discriptionLabel.text = "(릴레이 소설 횟수)"
     }
+    
+    private func setupTopBar() {
+        [
+            closeButton,
+            relayLabel,
+            completeButton
+            
+        ].forEach { view.addSubview($0) }
+        closeButton.snp.makeConstraints {
+            $0.top.equalToSuperview().inset(64.0)
+            $0.leading.equalToSuperview().inset(20.0)
+        }
+        relayLabel.snp.makeConstraints {
+            $0.top.equalTo(closeButton)
+            $0.centerX.equalToSuperview()
+        }
+        completeButton.snp.makeConstraints {
+            $0.top.equalTo(closeButton)
+            $0.trailing.equalToSuperview().inset(20.0)
+        }
+    }
+        
     
     private func setupLayout() {
         writeScrollView.addSubview(contentView)
         writeScrollView.delaysContentTouches = false
         [
-            closeButton,
-            completeButton,
             muteButton,
             musicListButton,
+            playListLabel,
             titleLabel,
             titleTextField,
             titleTextCountLabel,
@@ -536,7 +614,7 @@ extension RelayWritingViewController {
             touchCollectionView
         ].forEach { contentView.addSubview($0) }
         writeScrollView.snp.makeConstraints {
-            $0.top.equalToSuperview()
+            $0.top.equalToSuperview().inset(110)
             $0.leading.equalToSuperview()
             $0.trailing.equalToSuperview()
             $0.bottom.equalToSuperview()
@@ -550,21 +628,17 @@ extension RelayWritingViewController {
             $0.height.equalTo(writeScrollView.contentLayoutGuide.snp.height)
             $0.width.equalToSuperview()
         }
-        closeButton.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(17.0)
-            $0.leading.equalToSuperview().inset(20.0)
-        }
-        completeButton.snp.makeConstraints {
-            $0.top.equalTo(closeButton.snp.top)
-            $0.trailing.equalToSuperview().inset(20)
-        }
         muteButton.snp.makeConstraints {
-            $0.top.equalTo(closeButton.snp.bottom).offset(39.0)
+            $0.top.equalToSuperview().inset(62.0)
             $0.trailing.equalTo(view.snp.trailing).inset(20.0)
             $0.width.equalTo(22.0)
         }
+        playListLabel.snp.makeConstraints {
+            $0.top.equalToSuperview().inset(20.0)
+            $0.leading.equalToSuperview().inset(20.0)
+        }
         musicListButton.snp.makeConstraints {
-            $0.top.equalTo(closeButton.snp.bottom).offset(28.0)
+            $0.top.equalToSuperview().inset(49.0)
             $0.leading.equalToSuperview().inset(20.0)
             $0.trailing.equalTo(muteButton.snp.leading).inset(-20.0)
             $0.height.equalTo(47.0)
@@ -626,7 +700,7 @@ extension RelayWritingViewController {
             $0.height.equalTo(20)
         }
         eventCollectionView.snp.makeConstraints {
-            $0.top.equalTo(eventTitleView.snp.bottom).offset(20.0)
+            $0.top.equalTo(eventTitleView.snp.bottom).offset(12.0)
             $0.leading.equalTo(musicListButton.snp.leading)
             $0.trailing.equalToSuperview().inset(56.0)
             $0.height.equalTo(74.0)
@@ -644,7 +718,7 @@ extension RelayWritingViewController {
             $0.height.equalTo(20.0)
         }
         touchCollectionView.snp.makeConstraints {
-            $0.top.equalTo(touchTitleView.snp.bottom).offset(28.0)
+            $0.top.equalTo(touchTitleView.snp.bottom).offset(12.0)
             $0.leading.equalTo(musicListButton.snp.leading)
             $0.trailing.equalTo(storyTextView.snp.trailing)
             $0.height.equalTo(48.0)
