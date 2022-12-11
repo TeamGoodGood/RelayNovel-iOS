@@ -242,10 +242,10 @@ struct MockStory {
             bgm: 0,
             like_count: 2,
             step_limit: 20,
-            current_step: 4,
+            current_step: 15,
             finished: false,
             contributed_users: [mockUserResponse.curryResponse, mockUserResponse.changBroResponse, mockUserResponse.eveResponse],
-            created_time: 202211212100,
+            created_time: 202212102100,
             user_liked: true
         )
         
@@ -264,7 +264,7 @@ struct MockStory {
             current_step: 10,
             finished: true,
             contributed_users: [mockUserResponse.curryResponse],
-            created_time: 202211212200,
+            created_time: 202212092100,
             user_liked: true
         )
         
@@ -288,10 +288,10 @@ struct MockStory {
             bgm: 2,
             like_count: 5,
             step_limit: 30,
-            current_step: 4,
+            current_step: 5,
             finished: false,
             contributed_users: [mockUserResponse.curryResponse, mockUserResponse.changBroResponse, mockUserResponse.eveResponse],
-            created_time: 202211212300,
+            created_time: 202212082100,
             user_liked: false
         )
         
@@ -334,7 +334,7 @@ struct MockStory {
             original: mockUserResponse.changBroResponse,
             genre: "판타지",
             header: "판타지아",
-            title: "나 이창형, 때리다.",
+            title: "현실에선 취준생이 이세계에선?",
             content: "26남 이창형이였다. 그것은 바로 26 남 이창형인 것이다. 그렇기 때문에 26 남 이창형인 것이고 26살의 남자인 것이다. 그는 울산의 이창형이다. 그렇다.26남 이창형이였다. 그것은 바로 26 남 이창형인 것이다. 그렇기 때문에 26 남 이창형인 것이고 26살의 남자인 것이다. 그는 울산의 이창형이다. 그렇다.26남 이창형이였다. 그것은 바로 26 남 이창형인 것이다. 그렇기 때문에 26 남 이창형인 것이고 26살의 남자인 것이다. 그는 울산의 이창형이다. 그렇다.26남 이창형이였다. 그것은 바로 26 남 이창형인 것이다. 그렇기 때문에 26 남 이창형인 것이고 26살의 남자인 것이다. 그는 울산의 이창형이다. 그렇다.26남 이창형이였다. 그것은 바로 26 남 이창형인 것이다. 그렇기 때문에 26 남 이창형인 것이고 26살의 남자인 것이다. 그는 울산의 이창형이다. 그렇다.26남 이창형이였다. 그것은 바로 26 남 이창형인 것이다. 그렇기 때문에 26 남 이창형인 것이고 26살의 남자인 것이다. 그는 울산의 이창형이다. 그렇다.26남 이창형이였다. 그것은 바로 26 남 이창형인 것이다. 그렇기 때문에 26 남 이창형인 것이고 26살의 남자인 것이다. 그는 울산의 이창형이다. 그렇다.",
             bgm: 5,
             like_count: 5,
