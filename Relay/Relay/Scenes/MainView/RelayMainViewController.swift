@@ -62,6 +62,8 @@ class RelayMainViewController: UIViewController {
         observable.nowPlayingPage = nil
         observable.playingPlaylistID = nil
         observable.stopMusic()
+        
+        recommend = mockRecommend.recommend
     }
     
     override func viewDidLoad() {
