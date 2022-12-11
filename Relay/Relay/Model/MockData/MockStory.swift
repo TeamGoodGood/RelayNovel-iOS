@@ -113,6 +113,18 @@ struct MockStory {
         return stories
     }
     
+    func fetchSFStories() -> [Story] {
+        var stories: [Story] = []
+        
+        for story in allList {
+            if story.genre == "SF" {
+                stories.append(story)
+            }
+        }
+        
+        return stories
+    }
+    
     init() {
         story1 = Story(
             id: 0,
