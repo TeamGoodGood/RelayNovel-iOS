@@ -173,6 +173,18 @@ struct MockStory {
         return stories
     }
     
+    func fetchETCStories() -> [Story] {
+        var stories: [Story] = []
+        
+        for story in allList {
+            if story.genre == "기타" {
+                stories.append(story)
+            }
+        }
+        
+        return stories
+    }
+    
     init() {
         story1 = Story(
             id: 0,
