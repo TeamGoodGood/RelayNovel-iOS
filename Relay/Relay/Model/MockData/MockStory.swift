@@ -21,6 +21,19 @@ struct MockStory {
     
     var allList: [Story]
     
+    func fetchRunningStories() -> [Story] {
+        let stories = allList
+        var runningStories: [Story] = []
+        
+        for story in stories {
+            if !story.finished {
+                runningStories.append(story)
+            }
+        }
+        
+        return runningStories
+    }
+    
     init() {
         story1 = Story(
             id: 0,
