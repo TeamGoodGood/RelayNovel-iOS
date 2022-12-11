@@ -161,6 +161,18 @@ struct MockStory {
         return stories
     }
     
+    func fetchGeneralStories() -> [Story] {
+        var stories: [Story] = []
+        
+        for story in allList {
+            if story.genre == "일반" {
+                stories.append(story)
+            }
+        }
+        
+        return stories
+    }
+    
     init() {
         story1 = Story(
             id: 0,
