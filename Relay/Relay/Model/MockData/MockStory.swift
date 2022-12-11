@@ -197,6 +197,24 @@ struct MockStory {
         return stories
     }
     
+    func fetchUserParticipatedStories() -> [Story] {
+        var stories: [Story] = []
+        
+        for story in allList {
+            if story.original.penname != "커리" {
+                if let contributedUsers = story.contributed_users {
+                    for user in contributedUsers {
+                        if user.penname == "커리" {
+                            stories.append(story)
+                        }
+                    }
+                }
+            }
+        }
+        
+        return stories
+    }
+    
     init() {
         story1 = Story(
             id: 0,
