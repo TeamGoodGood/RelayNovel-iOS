@@ -47,6 +47,16 @@ struct MockStory {
         return finishStories
     }
     
+    func fetchNewerStories() -> [Story] {
+        var newerStories: [Story] = []
+        
+        newerStories = allList.sorted {
+            $0.created_time > $1.created_time
+        }
+        
+        return newerStories
+    }
+    
     init() {
         story1 = Story(
             id: 0,
