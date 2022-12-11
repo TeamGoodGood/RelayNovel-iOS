@@ -91,6 +91,33 @@ extension RelayBrowsingViewController: RelayCategoryDelegate {
         } else {
             relayListView.listHeaderView?.listFilterButton.setTitle(selectedCategory.name, for: .normal)
         }
+        
+        switch selectedCategory.name {
+        case "전체":
+            stories = mockStory.fetchNewerStories()
+        case "로맨스":
+            stories = mockStory.fetchRomanceStories()
+        case "스릴러/공포":
+            stories = mockStory.fetchThrillerStories()
+        case "판타지":
+            stories = mockStory.fetchFantasyStories()
+        case "SF":
+            stories = mockStory.fetchSFStories()
+        case "추리":
+            stories = mockStory.fetchInferenceStories()
+        case "무협":
+            stories = mockStory.fetchMartialArtsStories()
+        case "시대극":
+            stories = mockStory.fetchHistoricalStories()
+        case "일반":
+            stories = mockStory.fetchGeneralStories()
+        case "기타":
+            stories = mockStory.fetchETCStories()
+        default:
+            stories = mockStory.fetchNewerStories()
+        }
+        
+        relayListView.listCollectionView.reloadData()
     }
 }
 
