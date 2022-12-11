@@ -14,6 +14,7 @@ class RelayWritingViewController: UIViewController, UICollectionViewDelegate {
     private var selectedEvent: String?
     private var selectedTouch: Int?
     var audioPlayer: AVAudioPlayer?
+    var mute = true
     
     private let closeButton: UIButton = {
         let button = UIButton(type: .custom)
@@ -77,10 +78,12 @@ class RelayWritingViewController: UIViewController, UICollectionViewDelegate {
     private let muteButton: UIButton = {
         let button = UIButton(type: .custom)
         let config = UIImage.SymbolConfiguration(pointSize: 22)
-        let image = UIImage(systemName: "speaker.slash.fill")
+        let image = UIImage(systemName: "speaker.slash.fill", withConfiguration: config)
         
         button.setImage(image: image!)
         button.tintColor = .relayBlack
+        
+        button.addTarget(self, action: #selector(muteMusic), for: .touchUpInside)
         
         return button
     }()
@@ -299,6 +302,12 @@ extension RelayWritingViewController: RelayPlaylistCategoryDelegate {
                 audioPlayer?.numberOfLoops = -1
                 audioPlayer?.prepareToPlay()
                 audioPlayer?.play()
+                if mute {
+                    audioPlayer?.volume = 1
+                    
+                } else {
+                    audioPlayer?.volume = 0
+                }
             } catch {
                 print(error)
             }
@@ -310,6 +319,12 @@ extension RelayWritingViewController: CategoryModalDismissDelegate {
     func dismissByTouchingBackground() {
         if let bgm = selectedCategory {
             playMusic(id: bgm.id)
+            if mute {
+                audioPlayer?.volume = 1
+                
+            } else {
+                audioPlayer?.volume = 0
+            }
         } else {
             audioPlayer?.stop()
         }
@@ -317,6 +332,27 @@ extension RelayWritingViewController: CategoryModalDismissDelegate {
 }
 
 extension RelayWritingViewController {
+    
+    @objc
+    func muteMusic() {
+        mute.toggle()
+        if mute {
+            let config = UIImage.SymbolConfiguration(pointSize: 22)
+            let image = UIImage(systemName: "speaker.slash.fill", withConfiguration: config)
+            
+            muteButton.setImage(image: image!)
+            audioPlayer?.volume = 1
+            
+        } else {
+            let config = UIImage.SymbolConfiguration(pointSize: 22)
+            let image = UIImage(systemName: "speaker.fill", withConfiguration: config)
+            
+            muteButton.setImage(image: image!)
+            audioPlayer?.volume = 0
+        }
+        print(mute)
+        // mute가 false일때 소리 0
+    }
     
     @objc
     func dissmissViewController() {
