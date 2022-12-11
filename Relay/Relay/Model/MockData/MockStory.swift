@@ -77,6 +77,18 @@ struct MockStory {
         return mostLikeStories
     }
     
+    func fetchRomanceStories() -> [Story] {
+        var stories: [Story] = []
+        
+        for story in allList {
+            if story.genre == "로맨스" {
+                stories.append(story)
+            }
+        }
+        
+        return stories
+    }
+    
     init() {
         story1 = Story(
             id: 0,
