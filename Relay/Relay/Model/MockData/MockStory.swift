@@ -137,6 +137,18 @@ struct MockStory {
         return stories
     }
     
+    func fetchMartialArtsStories() -> [Story] {
+        var stories: [Story] = []
+        
+        for story in allList {
+            if story.genre == "무협" {
+                stories.append(story)
+            }
+        }
+        
+        return stories
+    }
+    
     init() {
         story1 = Story(
             id: 0,
