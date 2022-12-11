@@ -167,9 +167,9 @@ extension RelayBrowsingViewController {
         relayBrowsingHeaderView.completedTitleView.titleButton.tag = 1
         relayBrowsingHeaderView.runningTitleView.titleButton.tag = 2
         
-        relayBrowsingHeaderView.entireTitleView.titleButton.addTarget(self, action: #selector(touchButton), for: .touchUpInside)
-        relayBrowsingHeaderView.completedTitleView.titleButton.addTarget(self, action: #selector(touchButton), for: .touchUpInside)
-        relayBrowsingHeaderView.runningTitleView.titleButton.addTarget(self, action: #selector(touchButton), for: .touchUpInside)
+        relayBrowsingHeaderView.entireTitleView.titleButton.addTarget(self, action: #selector(touchHeaderViewButton), for: .touchUpInside)
+        relayBrowsingHeaderView.completedTitleView.titleButton.addTarget(self, action: #selector(touchHeaderViewButton), for: .touchUpInside)
+        relayBrowsingHeaderView.runningTitleView.titleButton.addTarget(self, action: #selector(touchHeaderViewButton), for: .touchUpInside)
         
         relayListView.listHeaderView?.listFilterButton.addTarget(self, action: #selector(touchListFilterButton), for: .touchUpInside)
     }
@@ -247,7 +247,7 @@ extension RelayBrowsingViewController {
         button.setAttributedTitle(NSAttributedString(titleAttribute), for: .normal)
     }
     
-    @objc private func touchButton(_ sender: UIButton) {
+    @objc private func touchHeaderViewButton(_ sender: UIButton) {
         switch sender.tag {
         case 0:
             currentHighlightedButton = .entire
