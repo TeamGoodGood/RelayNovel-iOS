@@ -21,8 +21,214 @@ struct MockStory {
     
     var allList: [Story]
     
+    func fetchRunningStories() -> [Story] {
+        let stories = allList
+        var runningStories: [Story] = []
+        
+        for story in stories {
+            if !story.finished {
+                runningStories.append(story)
+            }
+        }
+        
+        return runningStories
+    }
+    
+    func fetchFinishStories() -> [Story] {
+        let stories = allList
+        var finishStories: [Story] = []
+        
+        for story in stories {
+            if story.finished {
+                finishStories.append(story)
+            }
+        }
+        
+        return finishStories
+    }
+    
+    func fetchNewerStories() -> [Story] {
+        var newerStories: [Story] = []
+        
+        newerStories = allList.sorted {
+            $0.created_time > $1.created_time
+        }
+        
+        return newerStories
+    }
+    
+    func fetchOlderStories() -> [Story] {
+        var olderStories: [Story] = []
+        
+        olderStories = allList.sorted {
+            $0.created_time < $1.created_time
+        }
+        
+        return olderStories
+    }
+    
+    func fetchMostLikeStories() -> [Story] {
+        var mostLikeStories: [Story] = []
+        
+        mostLikeStories = allList.sorted {
+            $0.like_count > $1.like_count
+        }
+        
+        return mostLikeStories
+    }
+    
+    func fetchRomanceStories() -> [Story] {
+        var stories: [Story] = []
+        
+        for story in allList {
+            if story.genre == "로맨스" {
+                stories.append(story)
+            }
+        }
+        
+        return stories
+    }
+    
+    func fetchThrillerStories() -> [Story] {
+        var stories: [Story] = []
+        
+        for story in allList {
+            if story.genre == "스릴러/공포" {
+                stories.append(story)
+            }
+        }
+        
+        return stories
+    }
+    
+    func fetchFantasyStories() -> [Story] {
+        var stories: [Story] = []
+        
+        for story in allList {
+            if story.genre == "판타지" {
+                stories.append(story)
+            }
+        }
+        
+        return stories
+    }
+    
+    func fetchSFStories() -> [Story] {
+        var stories: [Story] = []
+        
+        for story in allList {
+            if story.genre == "SF" {
+                stories.append(story)
+            }
+        }
+        
+        return stories
+    }
+    
+    func fetchInferenceStories() -> [Story] {
+        var stories: [Story] = []
+        
+        for story in allList {
+            if story.genre == "추리" {
+                stories.append(story)
+            }
+        }
+        
+        return stories
+    }
+    
+    func fetchMartialArtsStories() -> [Story] {
+        var stories: [Story] = []
+        
+        for story in allList {
+            if story.genre == "무협" {
+                stories.append(story)
+            }
+        }
+        
+        return stories
+    }
+    
+    func fetchHistoricalStories() -> [Story] {
+        var stories: [Story] = []
+        
+        for story in allList {
+            if story.genre == "시대극" {
+                stories.append(story)
+            }
+        }
+        
+        return stories
+    }
+    
+    func fetchGeneralStories() -> [Story] {
+        var stories: [Story] = []
+        
+        for story in allList {
+            if story.genre == "일반" {
+                stories.append(story)
+            }
+        }
+        
+        return stories
+    }
+    
+    func fetchETCStories() -> [Story] {
+        var stories: [Story] = []
+        
+        for story in allList {
+            if story.genre == "기타" {
+                stories.append(story)
+            }
+        }
+        
+        return stories
+    }
+    
+    func fetchUserStartedStories() -> [Story] {
+        var stories: [Story] = []
+        
+        for story in allList {
+            if story.original.penname == "커리" {
+                stories.append(story)
+            }
+        }
+        
+        return stories
+    }
+    
+    func fetchUserParticipatedStories() -> [Story] {
+        var stories: [Story] = []
+        
+        for story in allList {
+            if story.original.penname != "커리" {
+                if let contributedUsers = story.contributed_users {
+                    for user in contributedUsers {
+                        if user.penname == "커리" {
+                            stories.append(story)
+                        }
+                    }
+                }
+            }
+        }
+        
+        return stories
+    }
+    
+    func fetchUserLikedStories() -> [Story] {
+        var stories: [Story] = []
+        
+        for story in allList {
+            if story.user_liked {
+                stories.append(story)
+            }
+        }
+        
+        return stories
+    }
+    
     init() {
-        story1 = Story(
+            story1 = Story(
             id: 0,
             original: mockUserResponse.curryResponse,
             genre: "로맨스",
@@ -36,10 +242,10 @@ struct MockStory {
             bgm: 0,
             like_count: 2,
             step_limit: 20,
-            current_step: 4,
+            current_step: 15,
             finished: false,
             contributed_users: [mockUserResponse.curryResponse, mockUserResponse.changBroResponse, mockUserResponse.eveResponse],
-            created_time: 202211212100,
+            created_time: 202212102100,
             user_liked: true
         )
         
@@ -58,7 +264,7 @@ struct MockStory {
             current_step: 10,
             finished: true,
             contributed_users: [mockUserResponse.curryResponse],
-            created_time: 202211212200,
+            created_time: 202212092100,
             user_liked: true
         )
         
@@ -82,10 +288,10 @@ struct MockStory {
             bgm: 2,
             like_count: 5,
             step_limit: 30,
-            current_step: 4,
+            current_step: 5,
             finished: false,
             contributed_users: [mockUserResponse.curryResponse, mockUserResponse.changBroResponse, mockUserResponse.eveResponse],
-            created_time: 202211212300,
+            created_time: 202212082100,
             user_liked: false
         )
         
@@ -128,7 +334,7 @@ struct MockStory {
             original: mockUserResponse.changBroResponse,
             genre: "판타지",
             header: "판타지아",
-            title: "나 이창형, 때리다.",
+            title: "현실에선 취준생이 이세계에선?",
             content: "26남 이창형이였다. 그것은 바로 26 남 이창형인 것이다. 그렇기 때문에 26 남 이창형인 것이고 26살의 남자인 것이다. 그는 울산의 이창형이다. 그렇다.26남 이창형이였다. 그것은 바로 26 남 이창형인 것이다. 그렇기 때문에 26 남 이창형인 것이고 26살의 남자인 것이다. 그는 울산의 이창형이다. 그렇다.26남 이창형이였다. 그것은 바로 26 남 이창형인 것이다. 그렇기 때문에 26 남 이창형인 것이고 26살의 남자인 것이다. 그는 울산의 이창형이다. 그렇다.26남 이창형이였다. 그것은 바로 26 남 이창형인 것이다. 그렇기 때문에 26 남 이창형인 것이고 26살의 남자인 것이다. 그는 울산의 이창형이다. 그렇다.26남 이창형이였다. 그것은 바로 26 남 이창형인 것이다. 그렇기 때문에 26 남 이창형인 것이고 26살의 남자인 것이다. 그는 울산의 이창형이다. 그렇다.26남 이창형이였다. 그것은 바로 26 남 이창형인 것이다. 그렇기 때문에 26 남 이창형인 것이고 26살의 남자인 것이다. 그는 울산의 이창형이다. 그렇다.26남 이창형이였다. 그것은 바로 26 남 이창형인 것이다. 그렇기 때문에 26 남 이창형인 것이고 26살의 남자인 것이다. 그는 울산의 이창형이다. 그렇다.",
             bgm: 5,
             like_count: 5,

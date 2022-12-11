@@ -57,7 +57,7 @@ extension ReadingBodyView: UICollectionViewDelegateFlowLayout {
         )
         
         if isReadingModeOn {
-            return CGSize(width: width, height: cellSize.height + 10.0)
+            return CGSize(width: width, height: cellSize.height + 25.0)
         } else {
             return CGSize(width: width, height: cellSize.height + 65.0)
         }

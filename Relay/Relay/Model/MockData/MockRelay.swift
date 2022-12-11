@@ -24,7 +24,7 @@ struct MockRelay {
             Relay(
                 contributer: mockUser.curry,
             content: "그 날은 다른 날과 다름없는 날이었다. 그냥 아침에 계란 후라이 한 장을 더 먹었다는 점만 다를 뿐. 내가 이런 일에 휘말리게 될 줄은 추호도 생각하지 못 했다.",
-            created_time: 202211212105
+            created_time: 202212102100
         ),
             Relay(
                 contributer: mockUser.changBro,
@@ -33,7 +33,7 @@ struct MockRelay {
                 
 갑자기 창밖에서 유리가 깨지는 소리가 들렸다. 26남 이창형. 소리가 궁금해 마당으로 다가간다.
 """,
-            created_time: 202211212110
+            created_time: 202212102100
         ),
             Relay(
                 contributer: mockUser.eve,
@@ -43,19 +43,19 @@ struct MockRelay {
 “무슨일 있으신가요?? 뭐야!!”
 
 """,
-            created_time: 202211212115
+            created_time: 202212102100
         ),    Relay(
             contributer: mockUser.curry,
             content: "칼로 찌르듯 날카로운 비명이 내 귀를 훑고 지나갔다. 그 곳에는 마치 선악과를 먹은 태초의 이브처럼 범죄에 빠질 듯한 프레셔를 뿜고 있는 사람이 있었다. 이 사람, 내거다. 단박에 내 머릿속을 스쳐 지나갔다. 이 사람은 지금 이 곳에 왜 있는거지? 설명할 수 없는 의문점만이 떠올랐다.",
-            created_time: 202211212120
+            created_time: 202212102100
         ), Relay(
             contributer: mockUser.curry,
             content: "나는 조심스럽게 다가가 그 사람의 얼굴을 봤다.",
-            created_time: 202211212120
+            created_time: 202212102100
         ), Relay(
             contributer: mockUser.curry,
             content: "앗. 여성분인줄 알았지만 자세히 다가가서 보니 남자였다. 하지만 이 사람, 내거다.",
-            created_time: 202211212120
+            created_time: 202212102100
         ), Relay(
             contributer: mockUser.curry,
             content: """
@@ -63,7 +63,7 @@ struct MockRelay {
             
 “혹시… 괜찮으신가요? 무슨일 있으세요?”
 """,
-            created_time: 202211212120
+            created_time: 202212102100
         ), Relay(
             contributer: mockUser.curry,
             content: """
@@ -71,7 +71,7 @@ struct MockRelay {
 
 “안녕하세요, 27남 이재웅입니다. 깔끔하고 매너있는 스타일입니다.”
 """,
-            created_time: 202211212120
+            created_time: 202212102100
         ),
             Relay(
                 contributer: mockUser.curry,
@@ -84,7 +84,7 @@ struct MockRelay {
 
 지금이구나. 여자친구를 만나 느끼지 못했던, 내가 지금 울부짖고 소리쳤던 이유가 이거였구나. 이사람을 만나기 위해서였구나…
 """,
-                created_time: 202211212120
+                created_time: 202212102100
             ), Relay(
                 contributer: mockUser.curry,
                 content: """
@@ -92,19 +92,19 @@ struct MockRelay {
 
 26남 이창형의 눈을 바라볼수록 익숙한 감정이 떠올랐다. 어쩌면 우린.. 이어질 수 없는 사이인것만 같았다.
 """,
-                created_time: 202211212120
+                created_time: 202212102100
             ), Relay(
                 contributer: mockUser.curry,
                 content: """
 이런 생각을 하던 도중 식장에서 여러 명의 찢어질듯한 비명소리가 들렸다. 고개를 돌린 나는, 오늘 나와 웨딩마치를 올릴 예정이었던 나의 신부와 눈이 마주쳤다. 하지만 내가 알던 그녀가 아니다. 그녀의 피인지 남의 피인지 모를 피를 온 몸에 묻히고 있는 그녀는 괴상한 소리를 내며 내쪽으로 다가오고 있다.
 """,
-                created_time: 202211212120
+                created_time: 202212102100
             ) , Relay(
                 contributer: mockUser.curry,
                 content: """
 그녀와 드디어 마주쳤다.
 """,
-                created_time: 202211212120
+                created_time: 202212102100
             ) , Relay(
                 contributer: mockUser.curry,
                 content: """
@@ -112,7 +112,7 @@ struct MockRelay {
 
 재웅이 말하는 순간 영희가 재웅의 목을 물어 뜯었다.
 """,
-                created_time: 202211212120
+                created_time: 202212102100
             ) , Relay(
                 contributer: mockUser.curry,
                 content: """
@@ -126,7 +126,7 @@ struct MockRelay {
 
 여긴 어디지?
 """,
-                created_time: 202211212120
+                created_time: 202212102100
             )
         ]
         
@@ -136,13 +136,13 @@ struct MockRelay {
                 content: """
 혹시 나 말고 다른 사람이 있는지 주위를 둘러보기로 결심했다
 """,
-                created_time: 202211212205
+                created_time: 202212092100
             ), Relay(
                 contributer: mockUser.curry,
                 content: """
 처음에는 아무것도 보이지 않았지만 손을 더듬어 열려있는 공간을 찾아 나아갔다. 미끌거림을 헤쳐나가자 문 손잡이가 잡혔고 힘주어 밀어 나가봤다
 """,
-                created_time: 202211212205
+                created_time: 202212092100
             ), Relay(
                 contributer: mockUser.curry,
                 content: """
@@ -151,34 +151,57 @@ struct MockRelay {
 여느때와 같이 시끄러운 알람소리와 함께 아침을 시작한다
 무료하다… 사는게 힘들다. 언제까지 백수로 지내야지.. 이렇게 살아선 안되겠다. 무언가 바뀌어야된다
 """,
-                created_time: 202211212205
+                created_time: 202212092100
             ), Relay(
                 contributer: mockUser.curry,
                 content: """
 갑자기 밖에서 누가 노크를 한다.
 똑똑똑
 """,
-                created_time: 202211212205
+                created_time: 202212092100
             ), Relay(
                 contributer: mockUser.curry,
                 content: """
 아들~ 엄마는 아들을 믿어~
 """,
-                created_time: 202211212205
+                created_time: 202212092100
             ), Relay(
                 contributer: mockUser.curry,
                 content: """
 문앞에 먹을거 놨으니까 꼭 챙겨먹고 아들 사랑해~~
 """,
-                created_time: 202211212205
+                created_time: 202212092100
             ), Relay(
                 contributer: mockUser.curry,
                 content: """
 엄마 어디가…?
 불안한 예감에 문을 열고 뛰쳐나갔다
 """,
-                created_time: 202211212205
-            )
+                created_time: 202212092100
+            ),
+            Relay(
+               contributer: mockUser.curry,
+               content: """
+문을 열어보니 아무도 없었다.
+
+아... 맞다...
+엄마 작년에 돌아가셨지..?
+
+내가 보고 들었던건 모두 환청과 환상이었다.
+""",
+               created_time: 202212092100
+           ),
+            Relay(
+               contributer: mockUser.curry,
+               content: """
+다시 침대로 돌아와 눕는다. 다시 눈을 감는다.
+
+어쩌면 내가 우주에서 홀로 남겨진 꿈을 꾼 것이
+
+지금의 내 현실과 비슷했기 때문에 아무렇지 않게 느꼈던 것은 아닐까
+""",
+               created_time: 202212092100
+           )
         ]
         
         story3Relay = [
@@ -195,7 +218,7 @@ struct MockRelay {
 
 그러다 문득, 어저께 택배로 시킨 라면이 도착했다는 문자가 왔던게 생각이 났다. 얼마나 갇혀있어야 하는 지도 모르는데, 일단 내 방 앞에 도착해 있을 라면을 가지고 들어오기로 결정했다.
 """,
-                created_time: 202211212205
+                created_time: 202212082100
             ),
             Relay(
                 contributer: mockUser.curry,
@@ -216,7 +239,7 @@ struct MockRelay {
 
 ‘아니, 이게 뭐야. 이거 왜이래…!’
 """,
-                created_time: 202211212210
+                created_time: 202212082100
             ),
             Relay(
                 contributer: mockUser.curry,
@@ -225,7 +248,7 @@ struct MockRelay {
 
 “지금 뉴스 봐봤자 소용 없어.”
 """,
-                created_time: 202211212215
+                created_time: 202212082100
             ),
             Relay(
                 contributer: mockUser.curry,
@@ -234,7 +257,7 @@ struct MockRelay {
 
 화가 난 나머지 티비를 박살냈다.
 """,
-                created_time: 202211212220
+                created_time: 202212082100
             )
         ]
         

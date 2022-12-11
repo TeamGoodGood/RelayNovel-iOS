@@ -9,15 +9,20 @@ import UIKit
 import SnapKit
 
 class RelayListHeaderView: UIView {
+    weak var delegate: RelayListHeaderViewMenuDelegate?
+    
     private lazy var menuItems: [UIAction] = {
         let latest = UIAction(title: "최신순", state: .on) { [weak self] _ in
             self?.checkMenu(.latest)
+            self?.delegate?.selectedNewerMenu()
         }
         let oldest = UIAction(title: "오래된순") { [weak self] _ in
             self?.checkMenu(.oldest)
+            self?.delegate?.selectedOlderMenu()
         }
         let popularity = UIAction(title: "인기순") { [weak self] _ in
             self?.checkMenu(.popularity)
+            self?.delegate?.selectedMostLikeMenu()
         }
         
         return [latest, oldest, popularity]
@@ -163,12 +168,15 @@ extension RelayListHeaderView {
         let menuItems: [UIAction] = {
             let latest = UIAction(title: "최신순", state: state.latest) { [weak self] _ in
                 self?.checkMenu(.latest)
+                self?.delegate?.selectedNewerMenu()
             }
             let oldest = UIAction(title: "오래된순", state: state.oldest) { [weak self] _ in
                 self?.checkMenu(.oldest)
+                self?.delegate?.selectedOlderMenu()
             }
             let popularity = UIAction(title: "인기순", state: state.popularity) { [weak self] _ in
                 self?.checkMenu(.popularity)
+                self?.delegate?.selectedMostLikeMenu()
             }
             
             return [latest, oldest, popularity]
@@ -180,3 +188,8 @@ extension RelayListHeaderView {
 
 }
 
+protocol RelayListHeaderViewMenuDelegate: AnyObject {
+    func selectedNewerMenu()
+    func selectedOlderMenu()
+    func selectedMostLikeMenu()
+}

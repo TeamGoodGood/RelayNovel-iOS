@@ -11,9 +11,10 @@ import AVFoundation
 
 class RelayBrowsingViewController: UIViewController, UICollectionViewDelegate {
     var audioPlayer: AVAudioPlayer?
+    var stories: [Story] = []
     
     private var selectedCategory: Category?
-    var stories: [Story] = []
+    private var sortedType: SortedType = .newer
     
     private var currentHighlightedButton: ButtonName? {
         didSet {
@@ -44,7 +45,14 @@ class RelayBrowsingViewController: UIViewController, UICollectionViewDelegate {
         super.viewWillAppear(animated)
         
         //TODO: API를 통한 데이터호출로 변경
-        stories = mockStory.allList
+        switch sortedType {
+        case .newer:
+            stories = mockStory.fetchNewerStories()
+        case .older:
+            stories = mockStory.fetchOlderStories()
+        case .mostLike:
+            stories = mockStory.fetchMostLikeStories()
+        }
         relayListView.listCollectionView.reloadData()
         
         audioPlayer?.stop()
@@ -58,6 +66,7 @@ class RelayBrowsingViewController: UIViewController, UICollectionViewDelegate {
         
         currentHighlightedButton = .entire
         
+        relayListView.listHeaderView?.delegate = self
         relayListView.listCollectionView.delegate = self
         relayListView.listCollectionView.dataSource = self
         
@@ -82,6 +91,53 @@ extension RelayBrowsingViewController: RelayCategoryDelegate {
         } else {
             relayListView.listHeaderView?.listFilterButton.setTitle(selectedCategory.name, for: .normal)
         }
+        
+        switch selectedCategory.name {
+        case "전체":
+            stories = mockStory.fetchNewerStories()
+        case "로맨스":
+            stories = mockStory.fetchRomanceStories()
+        case "스릴러/공포":
+            stories = mockStory.fetchThrillerStories()
+        case "판타지":
+            stories = mockStory.fetchFantasyStories()
+        case "SF":
+            stories = mockStory.fetchSFStories()
+        case "추리":
+            stories = mockStory.fetchInferenceStories()
+        case "무협":
+            stories = mockStory.fetchMartialArtsStories()
+        case "시대극":
+            stories = mockStory.fetchHistoricalStories()
+        case "일반":
+            stories = mockStory.fetchGeneralStories()
+        case "기타":
+            stories = mockStory.fetchETCStories()
+        default:
+            stories = mockStory.fetchNewerStories()
+        }
+        
+        relayListView.listCollectionView.reloadData()
+    }
+}
+
+extension RelayBrowsingViewController: RelayListHeaderViewMenuDelegate {
+    func selectedNewerMenu() {
+        sortedType = .newer
+        stories = mockStory.fetchNewerStories()
+        relayListView.listCollectionView.reloadData()
+    }
+    
+    func selectedOlderMenu() {
+        sortedType = .older
+        stories = mockStory.fetchOlderStories()
+        relayListView.listCollectionView.reloadData()
+    }
+    
+    func selectedMostLikeMenu() {
+        sortedType = .mostLike
+        stories = mockStory.fetchMostLikeStories()
+        relayListView.listCollectionView.reloadData()
     }
 }
 
@@ -133,6 +189,12 @@ extension RelayBrowsingViewController {
         case completed = "완주"
     }
     
+    enum SortedType {
+        case newer
+        case older
+        case mostLike
+    }
+    
     private func setupLayout() {
         [
             relayBrowsingHeaderView,
@@ -167,9 +229,9 @@ extension RelayBrowsingViewController {
         relayBrowsingHeaderView.completedTitleView.titleButton.tag = 1
         relayBrowsingHeaderView.runningTitleView.titleButton.tag = 2
         
-        relayBrowsingHeaderView.entireTitleView.titleButton.addTarget(self, action: #selector(touchButton), for: .touchUpInside)
-        relayBrowsingHeaderView.completedTitleView.titleButton.addTarget(self, action: #selector(touchButton), for: .touchUpInside)
-        relayBrowsingHeaderView.runningTitleView.titleButton.addTarget(self, action: #selector(touchButton), for: .touchUpInside)
+        relayBrowsingHeaderView.entireTitleView.titleButton.addTarget(self, action: #selector(touchHeaderViewButton), for: .touchUpInside)
+        relayBrowsingHeaderView.completedTitleView.titleButton.addTarget(self, action: #selector(touchHeaderViewButton), for: .touchUpInside)
+        relayBrowsingHeaderView.runningTitleView.titleButton.addTarget(self, action: #selector(touchHeaderViewButton), for: .touchUpInside)
         
         relayListView.listHeaderView?.listFilterButton.addTarget(self, action: #selector(touchListFilterButton), for: .touchUpInside)
     }
@@ -247,14 +309,20 @@ extension RelayBrowsingViewController {
         button.setAttributedTitle(NSAttributedString(titleAttribute), for: .normal)
     }
     
-    @objc private func touchButton(_ sender: UIButton) {
+    @objc private func touchHeaderViewButton(_ sender: UIButton) {
         switch sender.tag {
         case 0:
             currentHighlightedButton = .entire
+            stories = mockStory.allList
+            relayListView.listCollectionView.reloadData()
         case 1:
             currentHighlightedButton = .completed
+            stories = mockStory.fetchFinishStories()
+            relayListView.listCollectionView.reloadData()
         case 2:
             currentHighlightedButton = .running
+            stories = mockStory.fetchRunningStories()
+            relayListView.listCollectionView.reloadData()
         default:
             break
         }
