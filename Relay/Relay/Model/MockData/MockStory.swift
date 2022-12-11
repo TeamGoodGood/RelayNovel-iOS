@@ -185,6 +185,18 @@ struct MockStory {
         return stories
     }
     
+    func fetchUserStartedStories() -> [Story] {
+        var stories: [Story] = []
+        
+        for story in allList {
+            if story.original.penname == "커리" {
+                stories.append(story)
+            }
+        }
+        
+        return stories
+    }
+    
     init() {
         story1 = Story(
             id: 0,
