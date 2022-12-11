@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 
 class RelayReadingWriteView: UIView {
-    private let textViewPlaceHolder = "내용을 작성해주세요."
+    var textViewPlaceHolder = "내용을 작성해주세요."
     
     private lazy var touchCountLabel: UILabel = {
         let label = UILabel()

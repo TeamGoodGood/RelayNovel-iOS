@@ -283,6 +283,7 @@ extension RelayBrowsingViewController {
         let modalViewController = RelayCategoryViewController(list: list)
         
         modalViewController.fetchSelectedCateogry(selectedCategory)
+        modalViewController.isSelectedFirstCell = true
         modalViewController.modalPresentationStyle = .custom
         modalViewController.transitioningDelegate = self
         modalViewController.delegate = self

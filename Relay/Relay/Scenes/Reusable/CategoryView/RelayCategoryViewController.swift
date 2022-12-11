@@ -8,9 +8,11 @@
 import UIKit
 import SnapKit
 
-// TODO: 플레이리스트 모달로도 재사용 가능하도록 리팩토링 필요
 class RelayCategoryViewController: UIViewController {
     var categoryList: [Category]
+    var isHiddenFirstCellUnderline = false
+    var isSelectedFirstCell = false
+    
     private var selectedCategory: Category?
     
     weak var delegate: RelayCategoryDelegate?
@@ -91,8 +93,9 @@ extension RelayCategoryViewController: UICollectionViewDataSource {
         cell.configure(categoryList[indexPath.row].name, index: indexPath.row)
         
         if indexPath.row == 0 {
-            cell.layer.addBorder([.bottom], color: UIColor(red: 226/255, green: 226/255, blue: 226/255, alpha: 1.0), width: 1.0)
-            collectionView.selectItem(at: indexPath, animated: false, scrollPosition: .init())
+            if !isHiddenFirstCellUnderline {
+                cell.layer.addBorder([.bottom], color: UIColor(red: 226/255, green: 226/255, blue: 226/255, alpha: 1.0), width: 1.0)
+            }
         }
         
         if let category = selectedCategory {
@@ -104,8 +107,10 @@ extension RelayCategoryViewController: UICollectionViewDataSource {
                 collectionView.selectItem(at: categoryIndexPath, animated: false, scrollPosition: .init())
             }
         } else {
-            let indexPath0 = IndexPath(row: 0, section: 0)
-            collectionView.selectItem(at: indexPath0, animated: false, scrollPosition: .init())
+            if isSelectedFirstCell {
+                let indexPath0 = IndexPath(row: 0, section: 0)
+                collectionView.selectItem(at: indexPath0, animated: false, scrollPosition: .init())
+            }
         }
         
         return cell
@@ -143,8 +148,6 @@ extension RelayCategoryViewController {
     @objc private func dismissViewController() {
         if let selectedCategory = self.selectedCategory {
             delegate?.didApplyCategory(selectedCategory: selectedCategory)
-        } else {
-            delegate?.didApplyCategory(selectedCategory: categoryList.first ?? Category(id: 0, name: "불명확한 카테고리"))
         }
         
         dismiss(animated: true)

@@ -17,7 +17,7 @@ class RelayReadingViewController: UIViewController {
     var story: Story?
     var audioPlayer: AVAudioPlayer?
     
-    private var isReleyFinished = false
+    private var isRelayFinished = false
     private var isReadingModeOn = true {
         didSet {
             if isReadingModeOn {
@@ -89,7 +89,7 @@ class RelayReadingViewController: UIViewController {
             readingBodyView
         ].forEach { stackView.addArrangedSubview($0) }
         
-        if isReleyFinished {
+        if isRelayFinished {
             stackView.addArrangedSubview(readingFinishFooterView)
         } else {
             stackView.addArrangedSubview(readingFooterView)
@@ -172,13 +172,12 @@ class RelayReadingViewController: UIViewController {
                 relays += []
             }
             
-            isReleyFinished = story.finished
+            isRelayFinished = story.finished
             configureViews(story: story)
         }
         
         
         readingWriteView.writingTextView.delegate = self
-        
         addSingleTapRecognizer()
         setupNavigationController()
         setupLayout()
@@ -203,17 +202,17 @@ extension RelayReadingViewController: UITextViewDelegate {
     func textViewDidBeginEditing(_ textView: UITextView) {
         if textView.text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
             textView.textColor = .relayGray
-            textView.text = "내용을 작성해주세요."
-        } else if textView.text == "내용을 작성해주세요." {
+            textView.text = readingWriteView.textViewPlaceHolder
+        } else if textView.text == readingWriteView.textViewPlaceHolder {
             textView.textColor = .relayBlack
             textView.text = nil
         }
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
-        if textView.text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty || textView.text == "내용을 작성해주세요." {
+        if textView.text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty || textView.text == readingWriteView.textViewPlaceHolder {
             textView.textColor = .relayGray
-            textView.text = "내용을 작성해주세요."
+            textView.text = readingWriteView.textViewPlaceHolder
             readingWriteView.textCountLabel.text = "0/500자"
         }
     }
@@ -326,6 +325,8 @@ extension RelayReadingViewController {
     }
     
     func setupRegisterButtonAction() {
+        readingWriteView.registerButton.addTarget(self, action: #selector(touchViewEndEditing), for: .touchUpInside)
+        readingWriteView.writingTextView.becomeFirstResponder()
         readingWriteView.registerButton.addTarget(self, action: #selector(pushRegisterButton), for: .touchUpInside)
     }
     
@@ -342,7 +343,7 @@ extension RelayReadingViewController {
         lazy var alert = UIAlertController(title: nil, message: nil, preferredStyle: .alert)
         lazy var action = UIAlertAction(title: "확인", style: .default)
         
-        guard let text = readingWriteView.writingTextView.text, text != "내용을 작성해주세요." else {
+        guard let text = readingWriteView.writingTextView.text, text != readingWriteView.textViewPlaceHolder else {
             alert.message = "내용이 있어야합니다."
             alert.addAction(action)
             present(alert, animated: true)
@@ -414,7 +415,11 @@ extension RelayReadingViewController {
         stackView.addArrangedSubview(readingFooterView)
         
         readingWriteView.configure(touchCount: relays.count + 2)
+        readingWriteView.writingTextView.text = readingWriteView.textViewPlaceHolder
+        readingWriteView.writingTextView.textColor = .relayGray
+        readingWriteView.writingTextView.selectedTextRange = nil
         
+        readingWriteView.isHidden = true
         readingFooterView.isHidden = false
     }
     
@@ -464,6 +469,7 @@ extension RelayReadingViewController {
         stackView.removeArrangedSubview(readingFooterView)
         stackView.addArrangedSubview(readingWriteView)
         
+        readingWriteView.isHidden = false
         readingFooterView.isHidden = true
     }
     
@@ -486,14 +492,17 @@ extension RelayReadingViewController {
         view.endEditing(true)
     }
     
+    
     @objc func keyboardUp(notification:NSNotification) {
         guard let userInfo = notification.userInfo else { return }
-        var keyboardFrame:CGRect = (userInfo[UIResponder.keyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
+        var keyboardFrame:CGRect = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
         keyboardFrame = self.view.convert(keyboardFrame, from: nil)
-        
+        scrollView.reloadInputViews()
         var contentInset:UIEdgeInsets = self.scrollView.contentInset
-        contentInset.bottom = keyboardFrame.size.height + 20
+        contentInset.bottom = keyboardFrame.size.height - 20
+
         scrollView.contentInset = contentInset
+        self.scrollView.scrollRectToVisible(CGRect(x: 0, y: scrollView.contentSize.height - scrollView.bounds.height, width: scrollView.bounds.size.width, height: scrollView.bounds.size.height), animated: true)
     }
     
     @objc func keyboardDown() {

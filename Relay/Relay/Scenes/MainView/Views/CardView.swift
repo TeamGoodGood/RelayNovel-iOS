@@ -14,8 +14,9 @@ struct CardView: View {
     let story: Story
     let page: Int
     let playlist = Playlist()
-
+    
     var body: some View {
+        
         Rectangle()
             .overlay {
                 ZStack{
@@ -24,11 +25,10 @@ struct CardView: View {
                     
                     VStack(spacing: 0){
                         HStack(spacing: 0){
-                            Text(playlist.getBGMName(id: story.bgm))
-                                .font(.title2)
+                            Text("\(Image(systemName: "music.note")) \(playlist.getBGMHashTag(id: story.bgm))")
+                                .font(.system(size: 17))
                                 .bold()
                                 .foregroundColor(.white)
-                                .padding(.top, 25)
                             
                             Spacer()
                             
@@ -36,11 +36,12 @@ struct CardView: View {
                                 if isPlaying {
                                     if page == observable.nowPlayingPage {
                                         observable.pauseMusic()
+                                        isPlaying = false
                                     } else {
-                                        observable.nowPlayingPage = nil
-                                        observable.stopMusic()
+                                        observable.nowPlayingPage = page
+                                        observable.playMusic(bgmID: story.bgm)
+                                        isPlaying = true
                                     }
-                                    isPlaying = false
                                 } else {
                                     if page == observable.nowPlayingPage {
                                         observable.playMusic()
@@ -55,15 +56,9 @@ struct CardView: View {
                                     .foregroundColor(.white)
                                     .font(.system(size: 32))
                             }
-                            .padding(.top, 25)
                         }
-                        HStack(spacing: 0){
-                            Text(playlist.getBGMHashTag(id: story.bgm))
-                                .foregroundColor(.white)
-                                .font(.system(size: 13))
-                                .padding(.top, 4)
-                            Spacer()
-                        }
+                        .padding(.top, 25)
+                        
                         Spacer()
                         HStack(spacing: 0){
                             Text("바통을 이어받으세요")
@@ -104,4 +99,5 @@ struct CardView: View {
                 }
             }
     }
+    
 }
