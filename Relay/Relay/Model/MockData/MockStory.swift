@@ -149,6 +149,18 @@ struct MockStory {
         return stories
     }
     
+    func fetchHistoricalStories() -> [Story] {
+        var stories: [Story] = []
+        
+        for story in allList {
+            if story.genre == "시대극" {
+                stories.append(story)
+            }
+        }
+        
+        return stories
+    }
+    
     init() {
         story1 = Story(
             id: 0,
