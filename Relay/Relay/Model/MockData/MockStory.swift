@@ -125,7 +125,7 @@ struct MockStory {
         return stories
     }
     
-    func fetchSFStories() -> [Story] {
+    func fetchInferenceStories() -> [Story] {
         var stories: [Story] = []
         
         for story in allList {
