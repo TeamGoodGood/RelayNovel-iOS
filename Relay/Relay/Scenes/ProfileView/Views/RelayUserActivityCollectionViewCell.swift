@@ -15,7 +15,6 @@ final class RelayUserActivityCollectionViewCell: UICollectionViewCell {
     
     private lazy var imageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "Lilla")
         
         return imageView
     }()
@@ -41,6 +40,7 @@ final class RelayUserActivityCollectionViewCell: UICollectionViewCell {
 extension RelayUserActivityCollectionViewCell {
     func configure(_ index: Int, _ relayCount: Int) {
         setRelayActivityLabel(index)
+        setRelayActivityImage(index)
         setRelayActivityNumberLabel(relayCount)
         setupLayout()
     }
@@ -104,6 +104,16 @@ extension RelayUserActivityCollectionViewCell {
             relayActivityLabel.text = "내가 참여한 릴레이"
         } else {
             relayActivityLabel.text = "좋아요한 릴레이"
+        }
+    }
+    
+    private func setRelayActivityImage(_ index: Int) {
+        if index == 0 {
+            imageView.image = UIImage(named: "6")
+        } else if index == 1{
+            imageView.image = UIImage(named: "4")
+        } else {
+            imageView.image = UIImage(named: "5")
         }
     }
 }
