@@ -252,6 +252,7 @@ extension RelayWritingViewController: UIViewControllerTransitioningDelegate {
     func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
         let modal = CategoryModalPresentationController(presentedViewController: presented, presenting: presenting)
         modal.dismissDelegate = self
+        modal.modalHeight = 551.0
         
         return modal
         }
@@ -399,6 +400,7 @@ extension RelayWritingViewController {
         let modalViewController = RelayCategoryViewController(list: list)
         
         modalViewController.fetchSelectedCateogry(selectedCategory)
+        modalViewController.isHiddenFirstCellUnderline = true
         modalViewController.modalPresentationStyle = .custom
         modalViewController.transitioningDelegate = self
         modalViewController.delegate = self
