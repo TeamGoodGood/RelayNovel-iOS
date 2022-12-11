@@ -54,7 +54,16 @@ class RelayActivityViewController: UIViewController {
         view.backgroundColor = .systemBackground
         
         //TODO: API를 통한 데이터호출로 구현필요
-        stories = mockStory.allList
+        switch type {
+        case .like:
+            stories = mockStory.fetchUserLikedStories()
+        case .participated:
+            stories = mockStory.fetchUserParticipatedStories()
+        case .started:
+            stories = mockStory.fetchUserStartedStories()
+        default:
+            stories = mockStory.allList
+        }
         
         relayListView.listCollectionView.delegate = self
         relayListView.listCollectionView.dataSource = self
