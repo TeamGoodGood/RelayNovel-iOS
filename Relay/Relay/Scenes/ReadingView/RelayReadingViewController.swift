@@ -428,8 +428,6 @@ extension RelayReadingViewController {
             if story.user_liked {
                 print("좋아요 해제")
                 let image = UIImage(systemName: "heart")
-                readingFooterView.likeButton.setImage(image, for: .normal)
-                readingFinishFooterView.likeButton.setImage(image, for: .normal)
                 
                 for i in 0..<mockStory.allList.count {
                     if mockStory.allList[i].id == story.id {
@@ -442,17 +440,21 @@ extension RelayReadingViewController {
                         
                         mockStory.allList[i].user_liked.toggle()
                         self.story?.user_liked.toggle()
-                        mockRecommend.recommend.story1.user_liked.toggle()
+                        
+                        mockRecommend.recommend.story1.user_liked = mockStory.allList[0].user_liked
+                        mockRecommend.recommend.story2.user_liked = mockStory.allList[1].user_liked
+                        mockRecommend.recommend.story3.user_liked = mockStory.allList[2].user_liked
                         
                         readingFooterView.likeButton.setTitle("\(self.story!.like_count)", for: .normal)
                         readingFinishFooterView.likeButton.setTitle("\(self.story!.like_count)", for: .normal)
+
+                        readingFooterView.likeButton.setImage(image, for: .normal)
+                        readingFinishFooterView.likeButton.setImage(image, for: .normal)
                     }
                 }
             } else {
                 print("좋아요 추가")
                 let image = UIImage(systemName: "heart.fill")
-                readingFooterView.likeButton.setImage(image, for: .normal)
-                readingFinishFooterView.likeButton.setImage(image, for: .normal)
                 
                 for i in 0..<mockStory.allList.count {
                     if mockStory.allList[i].id == story.id {
@@ -465,10 +467,16 @@ extension RelayReadingViewController {
                         
                         mockStory.allList[i].user_liked.toggle()
                         self.story?.user_liked.toggle()
-                        mockRecommend.recommend.story1.user_liked.toggle()
+                        
+                        mockRecommend.recommend.story1.user_liked = mockStory.allList[0].user_liked
+                        mockRecommend.recommend.story2.user_liked = mockStory.allList[1].user_liked
+                        mockRecommend.recommend.story3.user_liked = mockStory.allList[2].user_liked
                         
                         readingFooterView.likeButton.setTitle("\(self.story!.like_count)", for: .normal)
                         readingFinishFooterView.likeButton.setTitle("\(self.story!.like_count)", for: .normal)
+                        
+                        readingFooterView.likeButton.setImage(image, for: .normal)
+                        readingFinishFooterView.likeButton.setImage(image, for: .normal)
                         
                     }
                 }
