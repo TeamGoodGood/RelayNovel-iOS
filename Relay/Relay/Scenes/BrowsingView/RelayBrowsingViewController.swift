@@ -11,9 +11,10 @@ import AVFoundation
 
 class RelayBrowsingViewController: UIViewController, UICollectionViewDelegate {
     var audioPlayer: AVAudioPlayer?
+    var stories: [Story] = []
     
     private var selectedCategory: Category?
-    var stories: [Story] = []
+    private var sortedType: SortedType = .newer
     
     private var currentHighlightedButton: ButtonName? {
         didSet {
@@ -44,7 +45,14 @@ class RelayBrowsingViewController: UIViewController, UICollectionViewDelegate {
         super.viewWillAppear(animated)
         
         //TODO: API를 통한 데이터호출로 변경
-        stories = mockStory.allList
+        switch sortedType {
+        case .newer:
+            stories = mockStory.fetchNewerStories()
+        case .older:
+            stories = mockStory.fetchOlderStories()
+        case .mostLike:
+            stories = mockStory.fetchMostLikeStories()
+        }
         relayListView.listCollectionView.reloadData()
         
         audioPlayer?.stop()
@@ -58,6 +66,7 @@ class RelayBrowsingViewController: UIViewController, UICollectionViewDelegate {
         
         currentHighlightedButton = .entire
         
+        relayListView.listHeaderView?.delegate = self
         relayListView.listCollectionView.delegate = self
         relayListView.listCollectionView.dataSource = self
         
@@ -82,6 +91,26 @@ extension RelayBrowsingViewController: RelayCategoryDelegate {
         } else {
             relayListView.listHeaderView?.listFilterButton.setTitle(selectedCategory.name, for: .normal)
         }
+    }
+}
+
+extension RelayBrowsingViewController: RelayListHeaderViewMenuDelegate {
+    func selectedNewerMenu() {
+        sortedType = .newer
+        stories = mockStory.fetchNewerStories()
+        relayListView.listCollectionView.reloadData()
+    }
+    
+    func selectedOlderMenu() {
+        sortedType = .older
+        stories = mockStory.fetchOlderStories()
+        relayListView.listCollectionView.reloadData()
+    }
+    
+    func selectedMostLikeMenu() {
+        sortedType = .mostLike
+        stories = mockStory.fetchMostLikeStories()
+        relayListView.listCollectionView.reloadData()
     }
 }
 
@@ -131,6 +160,12 @@ extension RelayBrowsingViewController {
         case entire = "전체"
         case running = "달리는중"
         case completed = "완주"
+    }
+    
+    enum SortedType {
+        case newer
+        case older
+        case mostLike
     }
     
     private func setupLayout() {
