@@ -123,6 +123,12 @@ class RelayMainViewController: UIViewController {
         setNavigationBar()
         setupLayout()
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        observable.audioPlayer = nil
+    }
 }
 
 extension RelayMainViewController {

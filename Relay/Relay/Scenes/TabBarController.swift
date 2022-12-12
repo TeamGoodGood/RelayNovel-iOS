@@ -73,7 +73,7 @@ class TabBarController: UITabBarController {
         super.viewDidAppear(animated)
         
         let isFirst = checkIsFirst()
-        let isLogin = checkIsLoggedIn()
+        let isLogin = !checkIsLoggedIn()
         DispatchQueue.main.asyncAfter(deadline: .now().advanced(by: .seconds(0))) { [weak self] in
             self?.changeView(isFirst: isFirst, isLogin: isLogin)
         }
