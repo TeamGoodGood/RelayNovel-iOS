@@ -74,6 +74,8 @@ class RelayLoginViewController: UIViewController {
         
         button.layer.cornerRadius = 8
         
+        button.addTarget(self, action: #selector(goToSelfLoginView), for: .touchUpInside)
+        
         return button
     }()
 // TODO: 애플 로그인 구현시 다시 주석 풀기
@@ -183,16 +185,22 @@ class RelayLoginViewController: UIViewController {
             $0.trailing.equalToSuperview().inset(129.0)
         }
 }
-    
-
-    @objc func addLoginHandler() {
-        let request = ASAuthorizationAppleIDProvider().createRequest()
-        request.requestedScopes = [.fullName, .email]
-        let controller = ASAuthorizationController(authorizationRequests: [request])
-        controller.delegate = self
-        controller.presentationContextProvider = self as? ASAuthorizationControllerPresentationContextProviding
-        controller.performRequests()
+    @objc
+    private func goToSelfLoginView() {
+        let selfLoginViewController = RelaySelfLoginViewController()
+        navigationController?.pushViewController(selfLoginViewController, animated: true)
+        print("g")
     }
+    
+// TODO: 애플로그인 구현시 주석 제거
+//    @objc func addLoginHandler() {
+//        let request = ASAuthorizationAppleIDProvider().createRequest()
+//        request.requestedScopes = [.fullName, .email]
+//        let controller = ASAuthorizationController(authorizationRequests: [request])
+//        controller.delegate = self
+//        controller.presentationContextProvider = self as? ASAuthorizationControllerPresentationContextProviding
+//        controller.performRequests()
+//    }
 
 }
 
