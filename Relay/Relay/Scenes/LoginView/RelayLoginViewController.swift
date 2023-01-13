@@ -64,6 +64,18 @@ class RelayLoginViewController: UIViewController {
         return imageView
     }()
     
+    private let selfLoginButton: UIButton = {
+        let button = UIButton()
+        
+        button.backgroundColor = .relayBlack
+        
+        button.setTitle("이메일로 회원가입", for: .normal)
+        button.titleLabel?.font = .boldSystemFont(ofSize: 17)
+        
+        button.layer.cornerRadius = 8
+        
+        return button
+    }()
 // TODO: 애플 로그인 구현시 다시 주석 풀기
 //    private let loginButton: UIButton = {
 //        let button = UIButton(type: .custom)
@@ -121,6 +133,7 @@ class RelayLoginViewController: UIViewController {
             subTitleLabel,
             titleLabel,
             loginImageView,
+            selfLoginButton,
             noLoginButton
             // TODO: 애플 로그인 구현시 다시 복구
 //            loginButton
@@ -157,12 +170,17 @@ class RelayLoginViewController: UIViewController {
 //            $0.leading.equalToSuperview().inset(25.0)
 //            $0.trailing.equalToSuperview().inset(26.0)
 //            $0.top.equalTo(loginImageView.snp.bottom).offset(129.7)
-//
 //        }
+        selfLoginButton.snp.makeConstraints {
+            $0.height.equalTo(56.0)
+            $0.top.equalTo(loginImageView.snp.bottom).offset(129.7)
+            $0.leading.equalToSuperview().inset(26.0)
+            $0.trailing.equalToSuperview().inset(26.0)
+        }
         noLoginButton.snp.makeConstraints {
+            $0.top.equalTo(selfLoginButton.snp.bottom).offset(30.0)
             $0.leading.equalToSuperview().inset(128.0)
             $0.trailing.equalToSuperview().inset(129.0)
-            $0.bottom.equalToSuperview().inset(104.0)
         }
 }
     
