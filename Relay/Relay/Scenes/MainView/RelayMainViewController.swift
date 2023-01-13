@@ -136,7 +136,7 @@ extension RelayMainViewController {
     
     @objc
     private func goToNoticeView() {
-        let noticeViewController = RelayNoticeViewController()
+        let noticeViewController = RelaySelfLoginViewController()
         
         navigationController?.pushViewController(noticeViewController, animated: true)
     }
