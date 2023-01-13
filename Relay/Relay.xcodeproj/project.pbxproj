@@ -19,6 +19,7 @@
 		3265BA2C290925DD00532CA4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3265BA2B290925DD00532CA4 /* SceneDelegate.swift */; };
 		3265BA33290925DE00532CA4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3265BA32290925DE00532CA4 /* Assets.xcassets */; };
 		3265BA36290925DE00532CA4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3265BA34290925DE00532CA4 /* LaunchScreen.storyboard */; };
+		327AFF3D2970EEBC008B5CB7 /* SelfLoginViewEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327AFF3C2970EEBC008B5CB7 /* SelfLoginViewEmail.swift */; };
 		329918A0290A5D8800372C13 /* RelayLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3299189F290A5D8800372C13 /* RelayLoginViewController.swift */; };
 		329FA02D292CBE820063981A /* PlayList_5.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 329FA025292CBE810063981A /* PlayList_5.mp3 */; };
 		329FA02E292CBE820063981A /* PlayList_3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 329FA026292CBE810063981A /* PlayList_3.mp3 */; };
@@ -122,6 +123,7 @@
 		3265BA32290925DE00532CA4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3265BA35290925DE00532CA4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3265BA37290925DE00532CA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		327AFF3C2970EEBC008B5CB7 /* SelfLoginViewEmail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfLoginViewEmail.swift; sourceTree = "<group>"; };
 		3299189F290A5D8800372C13 /* RelayLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayLoginViewController.swift; sourceTree = "<group>"; };
 		329FA025292CBE810063981A /* PlayList_5.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = PlayList_5.mp3; sourceTree = "<group>"; };
 		329FA026292CBE810063981A /* PlayList_3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = PlayList_3.mp3; sourceTree = "<group>"; };
@@ -296,10 +298,19 @@
 			path = Relay;
 			sourceTree = "<group>";
 		};
+		327AFF372970EE85008B5CB7 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				327AFF3C2970EEBC008B5CB7 /* SelfLoginViewEmail.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		3299189B290A5C8500372C13 /* LoginView */ = {
 			isa = PBXGroup;
 			children = (
 				3299189F290A5D8800372C13 /* RelayLoginViewController.swift */,
+				327AFF372970EE85008B5CB7 /* Views */,
 			);
 			path = LoginView;
 			sourceTree = "<group>";
@@ -861,6 +872,7 @@
 				556F309729102F83005D7AF4 /* RelayListView.swift in Sources */,
 				32DE2B0929190A7E005D1A85 /* WritingTitleView.swift in Sources */,
 				556F3091290F9A09005D7AF4 /* RelayNonLoginView.swift in Sources */,
+				327AFF3D2970EEBC008B5CB7 /* SelfLoginViewEmail.swift in Sources */,
 				3265BA2C290925DD00532CA4 /* SceneDelegate.swift in Sources */,
 				3201622E2912A7950054803C /* RelayPenNameViewController.swift in Sources */,
 				73741CA9291D363100E7F765 /* StoryAPI.swift in Sources */,
