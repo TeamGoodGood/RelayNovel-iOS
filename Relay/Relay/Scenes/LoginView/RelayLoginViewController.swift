@@ -68,10 +68,8 @@ class RelayLoginViewController: UIViewController {
         let button = UIButton()
         
         button.backgroundColor = .relayBlack
-        
         button.setTitle("이메일로 회원가입", for: .normal)
         button.titleLabel?.font = .boldSystemFont(ofSize: 17)
-        
         button.layer.cornerRadius = 8
         
         button.addTarget(self, action: #selector(goToSelfLoginView), for: .touchUpInside)
