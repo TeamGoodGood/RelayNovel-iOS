@@ -25,12 +25,8 @@ class RelaySelfLoginViewController: UIViewController {
         textField.layer.cornerRadius = 8.0
         textField.backgroundColor = .relayGray2
         textField.placeholder = "relay@relay.com"
-        
-        // TODO: 다음 스프린트때 제목 확인
-        //        textField.addTarget(self, action: #selector(checkText), for: .editingChanged)
-        
-//        textField.leftView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: 20.0, height: 0.0))
-//        textField.leftViewMode = .always
+        textField.leftView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: 10.0, height: 0.0))
+        textField.leftViewMode = .always
         
         return textField
     }()
@@ -52,13 +48,20 @@ class RelaySelfLoginViewController: UIViewController {
     
     private func setupLayout() {
         [
-         titleLabel
+         titleLabel,
+         titleTextField
         ].forEach { view.addSubview($0) }
         
         titleLabel.snp.makeConstraints {
             $0.top.equalToSuperview().inset(136.0)
             $0.leading.equalToSuperview().inset(20.0)
             
+        }
+        titleTextField.snp.makeConstraints {
+            $0.height.equalTo(40)
+            $0.top.equalTo(titleLabel.snp.bottom).offset(30.0)
+            $0.leading.equalToSuperview().inset(20.0)
+            $0.trailing.equalToSuperview().inset(20.0)
         }
 //        closeButton.snp.makeConstraints {
 //            $0.top.equalToSuperview().inset(59.0)
