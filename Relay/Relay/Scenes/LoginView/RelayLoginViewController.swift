@@ -187,9 +187,9 @@ class RelayLoginViewController: UIViewController {
 }
     @objc
     private func goToSelfLoginView() {
-        let selfLoginViewController = RelaySelfLoginViewController()
-        navigationController?.pushViewController(selfLoginViewController, animated: true)
-        print("g")
+        let toRelayLoginView = RelaySelfLoginViewController()
+        toRelayLoginView.modalPresentationStyle = .fullScreen
+        present(toRelayLoginView, animated: true, completion: nil)
     }
     
 // TODO: 애플로그인 구현시 주석 제거

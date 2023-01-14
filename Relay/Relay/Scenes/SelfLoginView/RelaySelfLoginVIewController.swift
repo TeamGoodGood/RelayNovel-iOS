@@ -9,6 +9,17 @@ import UIKit
 import SnapKit
 
 class RelaySelfLoginViewController: UIViewController {
+    private let backButton: UIButton = {
+        let button = UIButton(type: .custom)
+        let image = UIImage(systemName: "arrow.left")
+        
+        button.setImage(image: image!)
+        button.tintColor = .black
+        button.addTarget(self, action: #selector(dissmissViewController), for: .touchUpInside)
+        
+        return button
+    }()
+    
     private let titleLabel: UILabel = {
         let label = UILabel()
         
@@ -35,22 +46,25 @@ class RelaySelfLoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        setNavigationBar()
         setupLayout()
     }
     
-    private func setNavigationBar() {
-        navigationController?.navigationBar.backIndicatorImage = UIImage(systemName: "arrow.left")
-        navigationController?.navigationBar.backIndicatorTransitionMaskImage = UIImage(systemName: "arrow.left")
-        navigationController?.navigationBar.tintColor = .relayBlack
-        navigationController?.navigationBar.topItem?.title = ""
+    @objc
+    func dissmissViewController() {
+        self.presentingViewController?.dismiss(animated: true, completion:nil)
     }
     
     private func setupLayout() {
         [
+         backButton,
          titleLabel,
          titleTextField
         ].forEach { view.addSubview($0) }
+        
+        backButton.snp.makeConstraints{
+            $0.top.equalToSuperview().inset(60.0)
+            $0.leading.equalToSuperview().inset(20.0)
+        }
         
         titleLabel.snp.makeConstraints {
             $0.top.equalToSuperview().inset(136.0)
