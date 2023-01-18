@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class RelaySelfLoginViewController: UIViewController {
+class RelaySelfLoginEmailViewController: UIViewController {
     private let backButton: UIButton = {
         let button = UIButton(type: .custom)
         let image = UIImage(systemName: "arrow.left")
@@ -30,6 +30,7 @@ class RelaySelfLoginViewController: UIViewController {
         return label
     }()
     
+    // TODO: 서버랑 연동시 같은 이메일이면 안되도록 예외처리 해야함
     private let titleTextField: UITextField = {
         let textField = UITextField()
         
@@ -38,7 +39,6 @@ class RelaySelfLoginViewController: UIViewController {
         textField.placeholder = "relay@relay.com"
         textField.leftView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: 10.0, height: 0.0))
         textField.leftViewMode = .always
-        
         textField.addTarget(self, action: #selector(titleTextFieldDidChange), for: .editingChanged)
         
         return textField
@@ -52,6 +52,7 @@ class RelaySelfLoginViewController: UIViewController {
         button.titleLabel?.font = .boldSystemFont(ofSize: 17)
         button.layer.cornerRadius = 8
         button.isEnabled = false
+        button.addTarget(self, action: #selector(goToPassWordView), for: .touchUpInside)
         
         return button
     }()
@@ -69,6 +70,13 @@ class RelaySelfLoginViewController: UIViewController {
     @objc
     func dissmissViewController() {
         self.presentingViewController?.dismiss(animated: true, completion:nil)
+    }
+    
+    @objc
+    func goToPassWordView() {
+        let password = RelaySelfLoginPassWordViewController()
+        navigationController?.pushViewController(password, animated: true)
+        print("ㅎㅇ")
     }
     
     @objc
