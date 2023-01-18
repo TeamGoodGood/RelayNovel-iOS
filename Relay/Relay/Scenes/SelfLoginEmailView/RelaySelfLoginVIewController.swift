@@ -9,6 +9,7 @@ import UIKit
 import SnapKit
 
 class RelaySelfLoginEmailViewController: UIViewController {
+    
     private let backButton: UIButton = {
         let button = UIButton(type: .custom)
         let image = UIImage(systemName: "arrow.left")
@@ -77,6 +78,9 @@ class RelaySelfLoginEmailViewController: UIViewController {
         let password = RelaySelfLoginPassWordViewController()
         navigationController?.pushViewController(password, animated: true)
         print("ㅎㅇ")
+//        let toRelayLoginView = RelaySelfLoginPassWordViewController()
+//        toRelayLoginView.modalPresentationStyle = .fullScreen
+//        present(toRelayLoginView, animated: true, completion: nil)
     }
     
     @objc

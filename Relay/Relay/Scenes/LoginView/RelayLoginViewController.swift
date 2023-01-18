@@ -185,7 +185,7 @@ class RelayLoginViewController: UIViewController {
 }
     @objc
     private func goToSelfLoginView() {
-        let toRelayLoginView = RelaySelfLoginPassWordViewController()
+        let toRelayLoginView = UINavigationController(rootViewController: RelaySelfLoginEmailViewController())
         toRelayLoginView.modalPresentationStyle = .fullScreen
         present(toRelayLoginView, animated: true, completion: nil)
     }
