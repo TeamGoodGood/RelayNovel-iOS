@@ -109,7 +109,7 @@ extension RelayReadingWriteView {
         ].forEach { addSubview($0) }
         
         touchCountLabel.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(30.0)
+            $0.top.equalToSuperview().inset(20.0)
             $0.leading.equalToSuperview().inset(44.0)
         }
         
@@ -129,7 +129,7 @@ extension RelayReadingWriteView {
             $0.top.equalTo(touchCountLabel.snp.bottom).offset(16.0)
             $0.leading.equalToSuperview().inset(20.0)
             $0.trailing.equalToSuperview().inset(20.0)
-            $0.height.equalTo(293.0)
+            $0.height.equalTo(300.0)
         }
         
         //하이파이 1차디자인
