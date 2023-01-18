@@ -10,6 +10,7 @@
 		3201622E2912A7950054803C /* RelayPenNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3201622D2912A7950054803C /* RelayPenNameViewController.swift */; };
 		3212D6F82935EF1B0080F3E0 /* MockNotice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3212D6F72935EF1B0080F3E0 /* MockNotice.swift */; };
 		321F591F291CE77700FEE6DD /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321F591E291CE77700FEE6DD /* CardView.swift */; };
+		324247BE2977C5F500382F74 /* RelaySelfLoginPassWordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324247BD2977C5F500382F74 /* RelaySelfLoginPassWordView.swift */; };
 		32464EB3291B808800BDAB7C /* RelayNoticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32464EB2291B808800BDAB7C /* RelayNoticeViewController.swift */; };
 		32464EB7291B887D00BDAB7C /* TableCellCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32464EB6291B887D00BDAB7C /* TableCellCustomCell.swift */; };
 		32464EB9291B99E400BDAB7C /* Extension+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32464EB8291B99E400BDAB7C /* Extension+UIViewController.swift */; };
@@ -113,6 +114,7 @@
 		3212D6F72935EF1B0080F3E0 /* MockNotice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNotice.swift; sourceTree = "<group>"; };
 		321F591E291CE77700FEE6DD /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		32308E43290F983E0012B5A2 /* Relay.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Relay.entitlements; sourceTree = "<group>"; };
+		324247BD2977C5F500382F74 /* RelaySelfLoginPassWordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelaySelfLoginPassWordView.swift; sourceTree = "<group>"; };
 		32464EB2291B808800BDAB7C /* RelayNoticeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayNoticeViewController.swift; sourceTree = "<group>"; };
 		32464EB6291B887D00BDAB7C /* TableCellCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCellCustomCell.swift; sourceTree = "<group>"; };
 		32464EB8291B99E400BDAB7C /* Extension+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIViewController.swift"; sourceTree = "<group>"; };
@@ -237,6 +239,14 @@
 			path = PenNameView;
 			sourceTree = "<group>";
 		};
+		324247BC2977C5D200382F74 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				324247BD2977C5F500382F74 /* RelaySelfLoginPassWordView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		32464EB1291B806300BDAB7C /* NoticeView */ = {
 			isa = PBXGroup;
 			children = (
@@ -301,6 +311,7 @@
 		327AFF3F2970FF5E008B5CB7 /* SelfLoginView */ = {
 			isa = PBXGroup;
 			children = (
+				324247BC2977C5D200382F74 /* View */,
 				327AFF402970FF74008B5CB7 /* RelaySelfLoginVIewController.swift */,
 			);
 			path = SelfLoginView;
@@ -844,6 +855,7 @@
 				55867E192913AC8D00C79FFC /* RelayBrowsingHeaderView.swift in Sources */,
 				73741CB9291D371100E7F765 /* Relay.swift in Sources */,
 				55745FC6291B9B9F00414462 /* RelayReadingFinishFooterView.swift in Sources */,
+				324247BE2977C5F500382F74 /* RelaySelfLoginPassWordView.swift in Sources */,
 				3212D6F82935EF1B0080F3E0 /* MockNotice.swift in Sources */,
 				55745F3F2919446D00414462 /* ReadingBodyView.swift in Sources */,
 				55867E1129128C7400C79FFC /* TabBarController.swift in Sources */,
