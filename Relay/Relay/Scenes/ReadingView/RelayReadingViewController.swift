@@ -218,6 +218,12 @@ class RelayReadingViewController: UIViewController {
             $0.height.equalTo(readingBodyView.bodyCollectionView.collectionViewLayout.collectionViewContentSize.height)
         }
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        navigationController?.navigationBar.isHidden = false
+    }
 }
 
 extension RelayReadingViewController: UITextViewDelegate {
