@@ -50,20 +50,36 @@ class RelayReadingWriteView: UIView {
         return textView
     }()
     
+    // 하이파이 1차 디자인
+//    lazy var registerButton: UIButton = {
+//        let button = UIButton()
+//        let image = UIImage(systemName: "checkmark")
+//
+//        button.tintColor = .relayPink1
+//        button.setTitle("등록하기", for: .normal)
+//        button.titleLabel?.setFont(.caption1)
+//        button.setTitleColor(.relayBlack, for: .normal)
+//
+//        button.setImage(image, for: .normal)
+//        button.contentHorizontalAlignment = .center
+//        button.semanticContentAttribute = .forceLeftToRight
+//        button.imageEdgeInsets = UIEdgeInsets(top: 0.0, left: -4.0, bottom: 0.0, right: 0.0)
+//
+//        return button
+//    }()
+    
+    // 하이파이 1.5차 디자인
     lazy var registerButton: UIButton = {
         let button = UIButton()
         let image = UIImage(systemName: "checkmark")
-        
-        button.tintColor = .relayPink1
+
         button.setTitle("등록하기", for: .normal)
-        button.titleLabel?.setFont(.caption1)
-        button.setTitleColor(.relayBlack, for: .normal)
-        
-        button.setImage(image, for: .normal)
-        button.contentHorizontalAlignment = .center
-        button.semanticContentAttribute = .forceLeftToRight
-        button.imageEdgeInsets = UIEdgeInsets(top: 0.0, left: -4.0, bottom: 0.0, right: 0.0)
-        
+        button.titleLabel?.setFont(.body1)
+        button.setTitleColor(.white, for: .normal)
+        button.backgroundColor = .relayPink1
+
+        button.layer.cornerRadius = 8.0
+
         return button
     }()
     
@@ -93,7 +109,7 @@ extension RelayReadingWriteView {
         ].forEach { addSubview($0) }
         
         touchCountLabel.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(30.0)
+            $0.top.equalToSuperview().inset(20.0)
             $0.leading.equalToSuperview().inset(44.0)
         }
         
@@ -113,12 +129,21 @@ extension RelayReadingWriteView {
             $0.top.equalTo(touchCountLabel.snp.bottom).offset(16.0)
             $0.leading.equalToSuperview().inset(20.0)
             $0.trailing.equalToSuperview().inset(20.0)
-            $0.height.equalTo(293.0)
+            $0.height.equalTo(300.0)
         }
         
+        //하이파이 1차디자인
+//        registerButton.snp.makeConstraints {
+//            $0.top.equalTo(writingTextView.snp.bottom).offset(15.0)
+//            $0.trailing.equalToSuperview().inset(20.0)
+//        }
+        
+        //하이파이 1.5차 디자인
         registerButton.snp.makeConstraints {
-            $0.top.equalTo(writingTextView.snp.bottom).offset(15.0)
+            $0.top.equalTo(writingTextView.snp.bottom).offset(10.0)
+            $0.leading.equalToSuperview().inset(20.0)
             $0.trailing.equalToSuperview().inset(20.0)
+            $0.height.equalTo(56.0)
         }
     }
 }

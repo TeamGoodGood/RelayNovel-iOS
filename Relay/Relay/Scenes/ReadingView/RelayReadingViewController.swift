@@ -17,6 +17,10 @@ class RelayReadingViewController: UIViewController {
     var story: Story?
     var audioPlayer: AVAudioPlayer?
     
+    private var keyboardHeight: CGFloat = 0.0
+    
+    private var isTouchedBatonButton = false
+    private var isKeyboardUp = false
     private var isRelayFinished = false
     private var isReadingModeOn = true {
         didSet {
@@ -64,12 +68,12 @@ class RelayReadingViewController: UIViewController {
         
         readingFooterView.snp.makeConstraints {
             $0.width.equalTo(width)
-            $0.height.equalTo(86.0)
+            $0.height.equalTo(151.0)
         }
         
         readingWriteView.snp.makeConstraints {
             $0.width.equalTo(width)
-            $0.height.equalTo(402)
+            $0.height.equalTo(452.0)
         }
         
         readingFinishFooterView.snp.makeConstraints {
@@ -134,6 +138,20 @@ class RelayReadingViewController: UIViewController {
         return button
     }()
     
+    private lazy var stickyRegisterButton: UIButton = {
+        let button = UIButton()
+        let image = UIImage(systemName: "checkmark")
+
+        button.setTitle("등록하기", for: .normal)
+        button.titleLabel?.setFont(.body1)
+        button.setTitleColor(.white, for: .normal)
+        button.backgroundColor = .relayPink1
+
+        button.layer.cornerRadius = 8.0
+
+        return button
+    }()
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -176,6 +194,10 @@ class RelayReadingViewController: UIViewController {
             configureViews(story: story)
         }
         
+        stickyRegisterButton.isHidden = true
+        scrollView.delegate = self
+        scrollView.contentInsetAdjustmentBehavior = .never
+        self.edgesForExtendedLayout = UIRectEdge()
         
         readingWriteView.writingTextView.delegate = self
         addSingleTapRecognizer()
@@ -226,6 +248,23 @@ extension RelayReadingViewController: UITextViewDelegate {
     }
 }
 
+extension RelayReadingViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+        if !isTouchedBatonButton { return }
+        if !isKeyboardUp { return }
+        
+        if (scrollView.contentOffset.y + view.window!.windowScene!.screen.bounds.height) < contentView.bounds.height + keyboardHeight - 20 - readingWriteView.registerButton.bounds.height {
+            stickyRegisterButton.snp.makeConstraints {
+                $0.bottom.equalToSuperview().inset(keyboardHeight + 20)
+            }
+            stickyRegisterButton.isHidden = false
+        } else {
+            stickyRegisterButton.isHidden = true
+        }
+    }
+}
+
 extension RelayReadingViewController {
     private func setupNavigationController() {
         navigationController?.navigationBar.isHidden = true
@@ -262,9 +301,16 @@ extension RelayReadingViewController {
     
     private func setupLayout() {
         view.addSubview(scrollView)
+        view.addSubview(stickyRegisterButton)
+        
+        stickyRegisterButton.snp.makeConstraints {
+            $0.leading.equalToSuperview().inset(20.0)
+            $0.trailing.equalToSuperview().inset(20.0)
+            $0.height.equalTo(56.0)
+        }
         
         scrollView.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(-44.0)
+            $0.top.equalToSuperview()
             $0.leading.equalToSuperview()
             $0.trailing.equalToSuperview()
             $0.bottom.equalToSuperview()
@@ -286,7 +332,6 @@ extension RelayReadingViewController {
             $0.top.equalToSuperview()
             $0.bottom.equalToSuperview()
             $0.width.equalToSuperview()
-            $0.height.equalToSuperview()
         }
     }
     
@@ -325,9 +370,12 @@ extension RelayReadingViewController {
     }
     
     func setupRegisterButtonAction() {
-        readingWriteView.registerButton.addTarget(self, action: #selector(touchViewEndEditing), for: .touchUpInside)
         readingWriteView.writingTextView.becomeFirstResponder()
+        readingWriteView.registerButton.addTarget(self, action: #selector(touchViewEndEditing), for: .touchUpInside)
         readingWriteView.registerButton.addTarget(self, action: #selector(pushRegisterButton), for: .touchUpInside)
+        
+        stickyRegisterButton.addTarget(self, action: #selector(touchViewEndEditing), for: .touchUpInside)
+        stickyRegisterButton.addTarget(self, action: #selector(pushRegisterButton), for: .touchUpInside)
     }
     
     @objc func popViewController() {
@@ -488,6 +536,7 @@ extension RelayReadingViewController {
         stackView.removeArrangedSubview(readingFooterView)
         stackView.addArrangedSubview(readingWriteView)
         
+        isTouchedBatonButton = true
         readingWriteView.isHidden = false
         readingFooterView.isHidden = true
     }
@@ -513,18 +562,24 @@ extension RelayReadingViewController {
     
     
     @objc func keyboardUp(notification:NSNotification) {
+        isKeyboardUp = true
+        
         guard let userInfo = notification.userInfo else { return }
         var keyboardFrame:CGRect = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
         keyboardFrame = self.view.convert(keyboardFrame, from: nil)
         scrollView.reloadInputViews()
         var contentInset:UIEdgeInsets = self.scrollView.contentInset
         contentInset.bottom = keyboardFrame.size.height - 20
+        keyboardHeight = keyboardFrame.size.height
 
         scrollView.contentInset = contentInset
         self.scrollView.scrollRectToVisible(CGRect(x: 0, y: scrollView.contentSize.height - scrollView.bounds.height, width: scrollView.bounds.size.width, height: scrollView.bounds.size.height), animated: true)
     }
     
     @objc func keyboardDown() {
+        isKeyboardUp = false
+        stickyRegisterButton.isHidden = true
+        
         let contentInset:UIEdgeInsets = UIEdgeInsets.zero
         scrollView.contentInset = contentInset
     }
