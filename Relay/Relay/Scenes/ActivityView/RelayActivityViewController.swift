@@ -44,6 +44,8 @@ class RelayActivityViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        setNavigationBar()
+        
         audioPlayer?.stop()
         audioPlayer = nil
     }
@@ -69,7 +71,6 @@ class RelayActivityViewController: UIViewController {
         relayListView.listCollectionView.dataSource = self
         
         setupButtonsLayout()
-        setNavigationBar()
         setupLayout()
     }
 }

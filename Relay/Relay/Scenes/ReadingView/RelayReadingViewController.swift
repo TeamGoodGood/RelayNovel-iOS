@@ -274,6 +274,9 @@ extension RelayReadingViewController: UIScrollViewDelegate {
 extension RelayReadingViewController {
     private func setupNavigationController() {
         navigationController?.navigationBar.isHidden = true
+        navigationController?.navigationBar.backIndicatorImage = UIImage()
+        navigationController?.navigationBar.backIndicatorTransitionMaskImage = UIImage()
+        navigationController?.navigationBar.topItem?.title = ""
     }
     
     private func setupCustomNavigationButton() {
