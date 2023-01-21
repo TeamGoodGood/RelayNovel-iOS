@@ -13,6 +13,9 @@ import Moya
 
 enum LoginService {
     case appleLogin(token: String)
+    case signUp(phone_number: String, username: String)
+    case authenticate(phone_number: String)
+    case logout
     case leave
 }
 
@@ -26,6 +29,12 @@ extension LoginService: TargetType {
         switch self{
         case .appleLogin(_):
             return "/login/apple/"
+        case .signUp(_,_):
+            return "/signup/"
+        case .authenticate(_):
+            return "/authenticate/"
+        case .logout:
+            return "/logout/"
         case .leave:
             return "/leave/"
         }
@@ -35,6 +44,12 @@ extension LoginService: TargetType {
         switch self {
         case .appleLogin:
             return .post
+        case .signUp:
+            return .post
+        case .authenticate:
+            return .post
+        case .logout:
+            return .put
         case .leave:
             return .delete
         }
@@ -44,6 +59,15 @@ extension LoginService: TargetType {
         switch self {
         case let .appleLogin(token):
             return .requestJSONEncodable(token)
+        case let .signUp(phone_number, username):
+            var dict: [String: String] = [:]
+            dict["phone_number"] = "\(phone_number)"
+            dict["username"] = "\(username)"
+            return .requestParameters(parameters: dict, encoding: URLEncoding.queryString)
+        case let .authenticate(phone_number):
+            return .requestJSONEncodable(phone_number)
+        case .logout:
+            return .requestPlain
         case .leave:
             return .requestPlain
         }
@@ -66,6 +90,19 @@ class LoginAPI {
     static func appleLogin(token: String) -> Single<Response> {
         return provider.rx.request(.appleLogin(token: token))
     }
+    
+    static func signUp(phone_number: String, username: String) -> Single<Response> {
+        return provider.rx.request(.signUp(phone_number: phone_number, username: username))
+    }
+    
+    static func authenticate(phone_number: String) -> Single<Response> {
+        return provider.rx.request(.authenticate(phone_number: phone_number))
+    }
+    
+    static func logout() -> Single<Response> {
+        return provider.rx.request(.logout)
+    }
+    
     static func leave() -> Single<Response> {
         return provider.rx.request(.leave)
     }

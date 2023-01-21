@@ -111,6 +111,19 @@ class RelayLoginViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         setupLayout()
+        Task {
+            try await sendAuthAPI()
+        }
+    }
+    
+    private func sendAuthAPI() async {
+        do {
+            try await LoginAPI.authenticate(phone_number: "01022875783")
+            try await LoginAPI.signUp(phone_number: "01022875783", username: "mbsoo")
+            print("ddd")
+        } catch {
+            print("error")
+        }
     }
     
     private func setupLayout() {
