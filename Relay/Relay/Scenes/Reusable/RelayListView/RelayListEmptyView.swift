@@ -17,7 +17,16 @@ class RelayListEmptyView: UIView {
         
         return image
     }
-  
+    private lazy var emptyViewLabel: UILabel = {
+        let label = UILabel()
+        
+        label.text = "현재 시작된 릴레이가 없습니다."
+        label.setFont(.body1)
+        label.textColor = .relayGray
+        
+        return label
+    }()
+    
     init(frame: CGRect, type: ListViewType) {
         super.init(frame: frame)
         
