@@ -30,7 +30,7 @@ class RelayListEmptyView: UIView {
     init(frame: CGRect, type: ListViewType) {
         super.init(frame: frame)
         
-
+        setupLayout()
     }
     
     required init?(coder: NSCoder) {
@@ -38,3 +38,21 @@ class RelayListEmptyView: UIView {
     }
 }
 
+extension RelayListEmptyView{
+    private func setupLayout() {
+        [
+            emptyViewImage,
+            emptyViewLabel
+            
+        ].forEach { addSubview($0) }
+        
+        emptyViewImage.snp.makeConstraints {
+            $0.centerX.equalToSuperview()
+            $0.bottom.equalTo(emptyViewLabel.snp.top).offset(30)
+        }
+        emptyViewLabel.snp.makeConstraints {
+            $0.centerX.equalToSuperview()
+            $0.centerY.equalToSuperview()
+        }
+    }
+}
