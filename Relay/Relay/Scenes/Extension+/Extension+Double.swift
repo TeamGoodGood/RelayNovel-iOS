@@ -51,7 +51,7 @@ extension Double {
         } else if nowMonth - month > 1 && nowDay - day < 0 {
             dateDifference = "\(nowMonth - month - 1)달 전"
             
-        } else if nowMonth - month < 0 {
+        } else if nowMonth - month < 0 && nowDay - day >= 0 {
             dateDifference = "\(nowMonth - month + 12)달 전"
             
         } else if nowDay - day > 0 && nowHour - hour >= 0 {
