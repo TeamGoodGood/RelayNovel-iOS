@@ -39,26 +39,52 @@ extension Double {
         
         var dateDifference: String?
         
-        if nowYear - year > 0 {
-            
+        if nowYear - year > 0 && nowMonth - month >= 0 {
             dateDifference = "\(nowYear - year)년 전"
-        } else if nowMonth - month > 0 {
             
+        } else if nowYear - year > 1 && nowMonth - month < 0 {
+            dateDifference = "\(nowYear - year - 1)년 전"
+            
+        } else if nowMonth - month > 0 && nowDay - day >= 0 {
             dateDifference = "\(nowMonth - month)달 전"
-        } else if nowDay - day > 0 {
             
+        } else if nowMonth - month > 1 && nowDay - day < 0 {
+            dateDifference = "\(nowMonth - month - 1)달 전"
+            
+        } else if nowMonth - month < 0 {
+            dateDifference = "\(nowMonth - month + 12)달 전"
+            
+        } else if nowDay - day > 0 && nowHour - hour >= 0 {
             dateDifference = "\(nowDay - day)일 전"
-        } else if nowHour - hour > 0 {
             
+        } else if nowDay - day > 1 && nowHour - hour < 0 {
+            dateDifference = "\(nowDay - day - 1)일 전"
+            
+        } else if nowDay - day < 0 {
+            dateDifference = "\(nowDay - day + 31)일 전"
+            
+        } else if nowHour - hour > 0 && nowMinute - minute >= 0  {
             dateDifference = "\(nowHour - hour)시간 전"
+            
+        } else if nowHour - hour > 1 && nowMinute - minute < 0 {
+            dateDifference = "\(nowHour - hour - 1)시간 전"
+            
+        } else if nowHour - hour < 0 {
+            dateDifference = "\(nowHour - hour + 24)시간 전"
+            
         } else if nowMinute - minute > 0 {
-            
             dateDifference = "\(nowMinute - minute)분 전"
-        } else if (nowMinute - minute) == 0 {
             
-            dateDifference = "1분 전"
+        } else if nowHour - hour == 1 && nowMinute - minute < 0 {
+            dateDifference = "\(nowMinute - minute + 60)분 전"
+            
+        } else if (nowMinute - minute) == 0 {
+            dateDifference = "방금 전"
+            
         }
         
         return dateDifference ?? "오류"
     }
 }
+
+
