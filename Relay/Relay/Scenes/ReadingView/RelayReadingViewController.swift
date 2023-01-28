@@ -218,6 +218,12 @@ class RelayReadingViewController: UIViewController {
             $0.height.equalTo(readingBodyView.bodyCollectionView.collectionViewLayout.collectionViewContentSize.height)
         }
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        navigationController?.navigationBar.isHidden = false
+    }
 }
 
 extension RelayReadingViewController: UITextViewDelegate {
@@ -268,6 +274,9 @@ extension RelayReadingViewController: UIScrollViewDelegate {
 extension RelayReadingViewController {
     private func setupNavigationController() {
         navigationController?.navigationBar.isHidden = true
+        navigationController?.navigationBar.backIndicatorImage = UIImage()
+        navigationController?.navigationBar.backIndicatorTransitionMaskImage = UIImage()
+        navigationController?.navigationBar.topItem?.title = ""
     }
     
     private func setupCustomNavigationButton() {
