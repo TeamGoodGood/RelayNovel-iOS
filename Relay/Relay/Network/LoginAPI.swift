@@ -15,6 +15,7 @@ enum LoginService {
     case appleLogin(token: String)
     case signUp(phone_number: String, username: String)
     case authenticate(phone_number: String)
+    case completeAuth(phone_number: String, auth_number: String)
     case logout
     case leave
 }
@@ -33,6 +34,8 @@ extension LoginService: TargetType {
             return "/signup/"
         case .authenticate(_):
             return "/authenticate/"
+        case .completeAuth(_, _):
+            return "/authenticate/"
         case .logout:
             return "/logout/"
         case .leave:
@@ -48,6 +51,8 @@ extension LoginService: TargetType {
             return .post
         case .authenticate:
             return .post
+        case .completeAuth:
+            return .put
         case .logout:
             return .put
         case .leave:
@@ -65,7 +70,9 @@ extension LoginService: TargetType {
             dict["username"] = "\(username)"
             return .requestParameters(parameters: dict, encoding: URLEncoding.queryString)
         case let .authenticate(phone_number):
-            return .requestJSONEncodable(phone_number)
+            return .requestJSONEncodable(["phone_number": phone_number])
+        case let .completeAuth(phoneNumber, authNumber):
+            return .requestJSONEncodable(["phone_number": phoneNumber, "auth_number": authNumber])
         case .logout:
             return .requestPlain
         case .leave:
@@ -97,6 +104,10 @@ class LoginAPI {
     
     static func authenticate(phone_number: String) -> Single<Response> {
         return provider.rx.request(.authenticate(phone_number: phone_number))
+    }
+    
+    static func completeAuth(phone_number: String, auth_number: String) -> Single<Response> {
+        return provider.rx.request(.completeAuth(phone_number: phone_number, auth_number: auth_number))
     }
     
     static func logout() -> Single<Response> {

@@ -118,7 +118,9 @@ class RelayLoginViewController: UIViewController {
     
     private func sendAuthAPI() async {
         do {
-            try await LoginAPI.authenticate(phone_number: "01022875783")
+            try await LoginAPI.authenticate(phone_number: "01022875783").subscribe {
+                response in print(response)
+            }
             try await LoginAPI.signUp(phone_number: "01022875783", username: "mbsoo")
             print("ddd")
         } catch {
