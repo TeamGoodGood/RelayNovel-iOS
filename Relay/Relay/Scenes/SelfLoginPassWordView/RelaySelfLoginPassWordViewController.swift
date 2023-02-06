@@ -9,18 +9,7 @@ import UIKit
 import SnapKit
 
 class RelaySelfLoginPassWordViewController: UIViewController {
-    
-//    private let backButton: UIButton = {
-//        let button = UIButton(type: .custom)
-//        let image = UIImage(systemName: "arrow.left")
-//
-//        button.setImage(image: image!)
-//        button.tintColor = .black
-//        button.addTarget(self, action: #selector(dissmissViewController), for: .touchUpInside)
-//
-//        return button
-//    }()
-    
+
     private let backbutton = UIBarButtonItem(image: UIImage(systemName: "arrow.left"), style: .done, target: self, action: #selector(back))
     
     private let titleLabel: UILabel = {
@@ -74,6 +63,7 @@ class RelaySelfLoginPassWordViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         setupLayout()
+        backbutton.tintColor = .relayBlack
         self.navigationItem.leftBarButtonItem = backbutton
     }
     
