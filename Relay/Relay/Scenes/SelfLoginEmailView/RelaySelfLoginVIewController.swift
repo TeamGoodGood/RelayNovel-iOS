@@ -10,16 +10,30 @@ import SnapKit
 
 class RelaySelfLoginEmailViewController: UIViewController {
     
-    private let backButton: UIButton = {
-        let button = UIButton(type: .custom)
-        let image = UIImage(systemName: "arrow.left")
-        
-        button.setImage(image: image!)
-        button.tintColor = .black
-        button.addTarget(self, action: #selector(dissmissViewController), for: .touchUpInside)
-        
-        return button
-    }()
+//    private let backButton: UIButton = {
+//        let button = UIButton(type: .custom)
+//        let image = UIImage(systemName: "arrow.left")
+//
+//        button.setImage(image: image!)
+//        button.tintColor = .black
+//        button.addTarget(self, action: #selector(dissmissViewController), for: .touchUpInside)
+//
+//        return button
+//    }()
+    
+//    private let backButton: UIButton = {
+//        let button = UIButton()
+//        let image = UIImage(systemName: "arrow.left")
+//
+//        button.setImage(image: image!)
+//        button.tintColor = .black
+//        button.addTarget(self, action: #selector(dissmissViewController), for: .touchUpInside)
+//
+//        return button
+//    }()
+    
+    private let backbutton = UIBarButtonItem(image: UIImage(systemName: "arrow.left"), style: .done, target: self, action: #selector(back))
+    
     
     private let titleLabel: UILabel = {
         let label = UILabel()
@@ -65,14 +79,22 @@ class RelaySelfLoginEmailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        self.navigationItem.leftBarButtonItem = backbutton
+        navigationItem.leftBarButtonItem?.tintColor = .relayBlack
         setupLayout()
     }
 
-    @objc
-    func dissmissViewController() {
+    @objc func back() {
         self.presentingViewController?.dismiss(animated: true, completion:nil)
-    }
+       }
     
+    
+//    @objc
+//    func dissmissViewController() {
+//        self.presentingViewController?.dismiss(animated: true, completion:nil)
+//        print("하이")
+//    }
+//    
     @objc
     func goToPassWordView() {
         let password = RelaySelfLoginPassWordViewController()
@@ -97,7 +119,7 @@ class RelaySelfLoginEmailViewController: UIViewController {
         if let keyboardFrame: NSValue = noti.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
             let keyboardRectangle = keyboardFrame.cgRectValue
             let keyboardHeight = keyboardRectangle.height
-            
+
             selfLoginButton.snp.makeConstraints {
                 $0.height.equalTo(56.0)
                 $0.bottom.equalToSuperview().inset(20.0 + keyboardHeight)
@@ -114,16 +136,10 @@ class RelaySelfLoginEmailViewController: UIViewController {
     
     private func setupLayout() {
         [
-         backButton,
          titleLabel,
          titleTextField,
          selfLoginButton
         ].forEach { view.addSubview($0) }
-        
-        backButton.snp.makeConstraints{
-            $0.top.equalToSuperview().inset(60.0)
-            $0.leading.equalToSuperview().inset(20.0)
-        }
         
         titleLabel.snp.makeConstraints {
             $0.top.equalToSuperview().inset(136.0)

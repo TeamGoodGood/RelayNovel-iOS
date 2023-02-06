@@ -72,7 +72,8 @@ class RelaySelfLoginPassWordViewController: UIViewController {
     }
 
     @objc func back() {
-           self.navigationController?.popViewController(animated: true)
+        navigationController?.navigationBar.isHidden = false
+        navigationController?.popViewController(animated: true)
        }
     
     @objc func keyboardWillShow(_ noti: NSNotification){
