@@ -169,3 +169,4 @@ extension RelayActivityViewController {
         navigationController?.pushViewController(noticeViewController, animated: true)
     }
 }
+

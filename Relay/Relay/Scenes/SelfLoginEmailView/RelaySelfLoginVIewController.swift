@@ -67,7 +67,7 @@ class RelaySelfLoginEmailViewController: UIViewController {
         view.backgroundColor = .white
         setupLayout()
     }
-    
+
     @objc
     func dissmissViewController() {
         self.presentingViewController?.dismiss(animated: true, completion:nil)
@@ -77,10 +77,6 @@ class RelaySelfLoginEmailViewController: UIViewController {
     func goToPassWordView() {
         let password = RelaySelfLoginPassWordViewController()
         navigationController?.pushViewController(password, animated: true)
-        print("ㅎㅇ")
-//        let toRelayLoginView = RelaySelfLoginPassWordViewController()
-//        toRelayLoginView.modalPresentationStyle = .fullScreen
-//        present(toRelayLoginView, animated: true, completion: nil)
     }
     
     @objc

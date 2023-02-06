@@ -10,6 +10,19 @@ import SnapKit
 
 class RelaySelfLoginPassWordViewController: UIViewController {
     
+//    private let backButton: UIButton = {
+//        let button = UIButton(type: .custom)
+//        let image = UIImage(systemName: "arrow.left")
+//
+//        button.setImage(image: image!)
+//        button.tintColor = .black
+//        button.addTarget(self, action: #selector(dissmissViewController), for: .touchUpInside)
+//
+//        return button
+//    }()
+    
+    private let backbutton = UIBarButtonItem(image: UIImage(systemName: "arrow.left"), style: .done, target: self, action: #selector(back))
+    
     private let titleLabel: UILabel = {
         let label = UILabel()
         
@@ -61,6 +74,34 @@ class RelaySelfLoginPassWordViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         setupLayout()
+        self.navigationItem.leftBarButtonItem = backbutton
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        addKeyboardNotifications()
+    }
+
+    @objc func back() {
+           self.navigationController?.popViewController(animated: true)
+       }
+    
+    @objc func keyboardWillShow(_ noti: NSNotification){
+        if let keyboardFrame: NSValue = noti.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
+            let keyboardRectangle = keyboardFrame.cgRectValue
+            let keyboardHeight = keyboardRectangle.height
+            
+            selfLoginButton.snp.makeConstraints {
+                $0.height.equalTo(56.0)
+                $0.bottom.equalToSuperview().inset(20.0 + keyboardHeight)
+                $0.leading.equalToSuperview().inset(26.0)
+                $0.trailing.equalToSuperview().inset(26.0)
+            }
+        }
+    }
+    
+    func addKeyboardNotifications(){
+        // 키보드가 나타날 때 앱에게 알리는 메소드 추가
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification , object: nil)
     }
     
     private func setupLayout() {
