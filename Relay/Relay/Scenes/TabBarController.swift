@@ -9,8 +9,12 @@ import UIKit
 import SnapKit
 
 class TabBarController: UITabBarController {
-    private lazy var mainViewController: UIViewController = {
-        let viewController = UINavigationController(rootViewController: RelayMainViewController())
+    private lazy var mainViewController = RelayMainViewController()
+    private lazy var browsingViewController = RelayBrowsingViewController()
+    private lazy var profileViewContorller = RelayProfileViewController()
+    
+    private lazy var mainTap: UIViewController = {
+        let viewController = UINavigationController(rootViewController: mainViewController)
         let image = UIImage(systemName: "flag")?.resize(newWidth: 19.0)
         let selectedImage = UIImage(systemName: "flag.fill")?.resize(newWidth: 19.0)
         let tabBarItem = UITabBarItem(
@@ -27,8 +31,8 @@ class TabBarController: UITabBarController {
         return viewController
     }()
     
-    private lazy var browsingViewController: UIViewController = {
-        let viewController = UINavigationController(rootViewController: RelayBrowsingViewController())
+    private lazy var browsingTap: UIViewController = {
+        let viewController = UINavigationController(rootViewController: browsingViewController)
         let image = UIImage(systemName: "book")?.resize(newWidth: 23.0)
         let selectedImage = UIImage(systemName: "book.fill")?.resize(newWidth: 19.0)
         let tabBarItem = UITabBarItem(
@@ -45,8 +49,8 @@ class TabBarController: UITabBarController {
         return viewController
     }()
     
-    private lazy var profileViewController: UIViewController = {
-        let viewController = UINavigationController(rootViewController: RelayProfileViewController())
+    private lazy var profileTap: UIViewController = {
+        let viewController = UINavigationController(rootViewController: profileViewContorller)
         let image = UIImage(systemName: "person")?.resize(newWidth: 18.0)
         let selectedImage = UIImage(systemName: "person.fill")?.resize(newWidth: 19.0)
         let tabBarItem = UITabBarItem(
@@ -65,6 +69,7 @@ class TabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tabBarController?.delegate = self
         tabBar.backgroundColor = .systemBackground
         setupTabBar()
     }
@@ -80,12 +85,20 @@ class TabBarController: UITabBarController {
     }
 }
 
+extension TabBarController: UITabBarControllerDelegate {
+    override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+        if item.tag != 0 {
+            mainViewController.observable.resetPlayer()
+        }
+    }
+}
+
 extension TabBarController {
     private func setupTabBar() {
         viewControllers = [
-            mainViewController,
-            browsingViewController,
-            profileViewController
+            mainTap,
+            browsingTap,
+            profileTap
         ]
         
         let systemFontAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 11.0, weight: .bold)]

@@ -58,10 +58,7 @@ class RelayMainViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        observable.pageNumber = nil
-        observable.nowPlayingPage = nil
-        observable.playingPlaylistID = nil
-        observable.stopMusic()
+        observable.resetPlayer()
         
         recommend = mockRecommend.recommend
     }
@@ -225,5 +222,12 @@ class RelayMainViewControllerObservable: ObservableObject {
     
     func pauseMusic() {
         audioPlayer?.pause()
+    }
+    
+    func resetPlayer() {
+        self.pageNumber = nil
+        self.nowPlayingPage = nil
+        self.playingPlaylistID = nil
+        self.stopMusic()
     }
 }
