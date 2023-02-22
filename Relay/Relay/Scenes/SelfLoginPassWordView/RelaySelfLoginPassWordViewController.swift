@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 
 class RelaySelfLoginPassWordViewController: UIViewController {
-
+    
     private let backbutton = UIBarButtonItem(image: UIImage(systemName: "arrow.left"), style: .done, target: self, action: #selector(back))
     
     private let titleLabel: UILabel = {
@@ -30,6 +30,7 @@ class RelaySelfLoginPassWordViewController: UIViewController {
         textField.placeholder = "문자+숫자/20자 이내"
         textField.leftView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: 10.0, height: 0.0))
         textField.leftViewMode = .always
+        textField.addTarget(self, action: #selector(TFdidChanged), for: .editingChanged)
         
         return textField
     }()
@@ -42,6 +43,7 @@ class RelaySelfLoginPassWordViewController: UIViewController {
         textField.placeholder = "문자+숫자/20자 이내"
         textField.leftView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: 10.0, height: 0.0))
         textField.leftViewMode = .always
+        textField.addTarget(self, action: #selector(TFdidChanged), for: .editingChanged)
         
         return textField
     }()
@@ -70,11 +72,12 @@ class RelaySelfLoginPassWordViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         addKeyboardNotifications()
     }
-
+    
+    
     @objc func back() {
         navigationController?.navigationBar.isHidden = false
         navigationController?.popViewController(animated: true)
-       }
+    }
     
     @objc func keyboardWillShow(_ noti: NSNotification){
         if let keyboardFrame: NSValue = noti.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
@@ -90,9 +93,43 @@ class RelaySelfLoginPassWordViewController: UIViewController {
         }
     }
     
+    @objc func TFdidChanged(_ sender: UITextField) {
+        
+        print("텍스트 변경 감지")
+        print("text :", sender.text)
+        
+        //비밀번호가 일치하는 지 확인.
+        if isSameBothTextField(passWordTextField, checkTextField) {
+            updateButton(willActive: true)
+        }
+        else {
+            updateButton(willActive: false)
+        }
+    }
+    
+    func updateButton(willActive: Bool) {
+        if(willActive == true) {
+            selfLoginButton.backgroundColor = .relayBlack
+            selfLoginButton.isEnabled = true
+            
+        } else {
+            selfLoginButton.backgroundColor = .relayGray
+            selfLoginButton.isEnabled = false
+        }
+    }
+    
+    
     func addKeyboardNotifications(){
         // 키보드가 나타날 때 앱에게 알리는 메소드 추가
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification , object: nil)
+    }
+    
+    func isSameBothTextField(_ first: UITextField,_ second: UITextField) -> Bool {
+        if(first.text == second.text) {
+            return true
+        } else {
+            return false
+        }
     }
     
     private func setupLayout() {
@@ -125,7 +162,5 @@ class RelaySelfLoginPassWordViewController: UIViewController {
             $0.leading.equalToSuperview().inset(26.0)
             $0.trailing.equalToSuperview().inset(26.0)
         }
-        
-        
     }
 }
