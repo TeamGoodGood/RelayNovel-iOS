@@ -40,14 +40,28 @@ struct CardView: View {
                                         isPlaying = false
                                     } else {
                                         observable.nowPlayingPage = page
-                                        observable.playMusic(bgmID: story.bgm)
+                                        
+                                        if observable.latestPlayinngPage != page {
+                                            observable.playMusic(bgmID: story.bgm)
+                                            observable.latestPlayinngPage = page
+                                        } else {
+                                            observable.playMusic()
+                                        }
                                     }
                                 } else {
                                     if page == observable.nowPlayingPage {
-                                        observable.playMusic()
+                                        observable.pauseMusic()
+                                        observable.nowPlayingPage = nil
+                                        isPlaying = false
                                     } else {
                                         observable.nowPlayingPage = page
-                                        observable.playMusic(bgmID: story.bgm)
+                                        
+                                        if observable.latestPlayinngPage != page {
+                                            observable.playMusic(bgmID: story.bgm)
+                                            observable.latestPlayinngPage = page
+                                        } else {
+                                            observable.playMusic()
+                                        }
                                     }
                                     isPlaying = true
                                 }
