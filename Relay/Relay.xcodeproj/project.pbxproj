@@ -101,6 +101,7 @@
 		B533AB62291BFB2200B73867 /* RelayTermsAndConditionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B533AB61291BFB2200B73867 /* RelayTermsAndConditionsViewController.swift */; };
 		B533AB64291C107200B73867 /* RelayPrivacyPolicyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B533AB63291C107200B73867 /* RelayPrivacyPolicyViewController.swift */; };
 		B534447C29AF40BF0064634E /* Extension+UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B534447B29AF40BF0064634E /* Extension+UICollectionView.swift */; };
+		B534447E29AF42640064634E /* Extension+UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B534447D29AF42640064634E /* Extension+UITableView.swift */; };
 		B5687A67292C8B7D0077E3F0 /* RelayOnboardingViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5687A66292C8B7D0077E3F0 /* RelayOnboardingViewCell.swift */; };
 		B5687A69292C8BE40077E3F0 /* RelayOnboardingDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5687A68292C8BE40077E3F0 /* RelayOnboardingDataModel.swift */; };
 		B5C0B4BD290F7C9A00077B5F /* RelayOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C0B4BC290F7C9A00077B5F /* RelayOnboardingViewController.swift */; };
@@ -207,6 +208,7 @@
 		B533AB61291BFB2200B73867 /* RelayTermsAndConditionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayTermsAndConditionsViewController.swift; sourceTree = "<group>"; };
 		B533AB63291C107200B73867 /* RelayPrivacyPolicyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayPrivacyPolicyViewController.swift; sourceTree = "<group>"; };
 		B534447B29AF40BF0064634E /* Extension+UICollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UICollectionView.swift"; sourceTree = "<group>"; };
+		B534447D29AF42640064634E /* Extension+UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UITableView.swift"; sourceTree = "<group>"; };
 		B5687A66292C8B7D0077E3F0 /* RelayOnboardingViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayOnboardingViewCell.swift; sourceTree = "<group>"; };
 		B5687A68292C8BE40077E3F0 /* RelayOnboardingDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayOnboardingDataModel.swift; sourceTree = "<group>"; };
 		B5C0B4BC290F7C9A00077B5F /* RelayOnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayOnboardingViewController.swift; sourceTree = "<group>"; };
@@ -588,6 +590,7 @@
 				32464EB8291B99E400BDAB7C /* Extension+UIViewController.swift */,
 				55D5530A292D3CD80013FF5E /* Extension+Double.swift */,
 				B534447B29AF40BF0064634E /* Extension+UICollectionView.swift */,
+				B534447D29AF42640064634E /* Extension+UITableView.swift */,
 			);
 			path = "Extension+";
 			sourceTree = "<group>";
@@ -829,6 +832,7 @@
 				73741CB1291D367500E7F765 /* RecommendAPI.swift in Sources */,
 				55D55301292BA0480013FF5E /* MockStory.swift in Sources */,
 				55867E1F2914E77100C79FFC /* RelayCategoryViewController.swift in Sources */,
+				B534447E29AF42640064634E /* Extension+UITableView.swift in Sources */,
 				73741CB5291D369C00E7F765 /* AuthPlugin.swift in Sources */,
 				73741CBF291D37AF00E7F765 /* Notice.swift in Sources */,
 				73741CAD291D365B00E7F765 /* UserAPI.swift in Sources */,
