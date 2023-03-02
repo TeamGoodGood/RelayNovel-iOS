@@ -36,23 +36,37 @@ struct CardView: View {
                                 if isPlaying {
                                     if page == observable.nowPlayingPage {
                                         observable.pauseMusic()
+                                        observable.nowPlayingPage = nil
                                         isPlaying = false
                                     } else {
                                         observable.nowPlayingPage = page
-                                        observable.playMusic(bgmID: story.bgm)
-                                        isPlaying = true
+                                        
+                                        if observable.latestPlayinngPage != page {
+                                            observable.playMusic(bgmID: story.bgm)
+                                            observable.latestPlayinngPage = page
+                                        } else {
+                                            observable.playMusic()
+                                        }
                                     }
                                 } else {
                                     if page == observable.nowPlayingPage {
-                                        observable.playMusic()
+                                        observable.pauseMusic()
+                                        observable.nowPlayingPage = nil
+                                        isPlaying = false
                                     } else {
                                         observable.nowPlayingPage = page
-                                        observable.playMusic(bgmID: story.bgm)
+                                        
+                                        if observable.latestPlayinngPage != page {
+                                            observable.playMusic(bgmID: story.bgm)
+                                            observable.latestPlayinngPage = page
+                                        } else {
+                                            observable.playMusic()
+                                        }
                                     }
                                     isPlaying = true
                                 }
                             } label: {
-                                Image(systemName: (isPlaying && page == observable.nowPlayingPage) ? "pause.circle" : "play.circle")
+                                Image(systemName: page == observable.nowPlayingPage ? "pause.circle" : "play.circle")
                                     .foregroundColor(.white)
                                     .font(.system(size: 32))
                             }

@@ -58,10 +58,7 @@ class RelayMainViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        observable.pageNumber = nil
-        observable.nowPlayingPage = nil
-        observable.playingPlaylistID = nil
-        observable.stopMusic()
+        observable.resetPlayer()
         
         recommend = mockRecommend.recommend
     }
@@ -193,10 +190,12 @@ class RelayMainViewControllerObservable: ObservableObject {
     @Published var pageNumber: Int?
     @Published var nowPlayingPage: Int?
     @Published var playingPlaylistID: Int?
+    @Published var latestPlayinngPage: Int?
     
     var onTouchAction: (() -> Void)!
     
     func playMusic(bgmID: Int) {
+        latestPlayinngPage = bgmID
         playingPlaylistID = bgmID
         
         let playlist = Playlist()
@@ -225,5 +224,13 @@ class RelayMainViewControllerObservable: ObservableObject {
     
     func pauseMusic() {
         audioPlayer?.pause()
+    }
+    
+    func resetPlayer() {
+        self.pageNumber = nil
+        self.nowPlayingPage = nil
+        self.latestPlayinngPage = nil
+        self.playingPlaylistID = nil
+        self.stopMusic()
     }
 }
