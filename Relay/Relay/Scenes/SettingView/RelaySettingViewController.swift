@@ -47,7 +47,7 @@ class RelaySettingViewController: UIViewController, UITableViewDelegate, UITable
                 self.toMyInfoView()
             },
             SettingsOption(title: "알림 설정", details: "", version: "") {
-                //추후 로컬 디바이스 알림설정과 연결
+                UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
             }
         ]))
         models.append(Section(title: "", details: "", version: "", options: [
