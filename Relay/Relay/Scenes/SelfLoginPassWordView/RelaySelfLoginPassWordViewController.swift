@@ -15,7 +15,7 @@ class RelaySelfLoginPassWordViewController: UIViewController {
     private let titleLabel: UILabel = {
         let label = UILabel()
         
-        label.text = "로그인에 사용할\n이메일을 입력해주세요"
+        label.text = "로그인에 사용할\n비밀번호를 입력해주세요"
         label.numberOfLines = 0
         label.setFont(.display1)
         
@@ -75,8 +75,9 @@ class RelaySelfLoginPassWordViewController: UIViewController {
     
     
     @objc func back() {
-        navigationController?.navigationBar.isHidden = false
-        navigationController?.popViewController(animated: true)
+//        navigationController?.navigationBar.isHidden = false
+//        navigationController?.popViewController(animated: true)
+        print("dd")
     }
     
     @objc func keyboardWillShow(_ noti: NSNotification){
