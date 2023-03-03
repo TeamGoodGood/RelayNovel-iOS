@@ -32,7 +32,7 @@ class RelaySelfLoginEmailViewController: UIViewController {
 //        return button
 //    }()
     
-    private let backbutton = UIBarButtonItem(image: UIImage(systemName: "arrow.left"), style: .done, target: self, action: #selector(back))
+    private lazy var backbutton = UIBarButtonItem(image: UIImage(systemName: "arrow.left"), style: .done, target: self, action: #selector(back))
     
     
     private let titleLabel: UILabel = {

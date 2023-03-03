@@ -10,7 +10,7 @@ import SnapKit
 
 class RelaySelfLoginPassWordViewController: UIViewController {
     
-    private let backbutton = UIBarButtonItem(image: UIImage(systemName: "arrow.left"), style: .done, target: self, action: #selector(back))
+    private lazy var backbutton = UIBarButtonItem(image: UIImage(systemName: "arrow.left"), style: .done, target: self, action: #selector(back))
     
     private let titleLabel: UILabel = {
         let label = UILabel()
@@ -75,9 +75,8 @@ class RelaySelfLoginPassWordViewController: UIViewController {
     
     
     @objc func back() {
-//        navigationController?.navigationBar.isHidden = false
-//        navigationController?.popViewController(animated: true)
-        print("dd")
+        navigationController?.navigationBar.isHidden = false
+        navigationController?.popViewController(animated: true)
     }
     
     @objc func keyboardWillShow(_ noti: NSNotification){
