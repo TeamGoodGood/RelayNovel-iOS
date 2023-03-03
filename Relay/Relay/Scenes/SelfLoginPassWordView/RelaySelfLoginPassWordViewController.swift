@@ -95,12 +95,11 @@ class RelaySelfLoginPassWordViewController: UIViewController {
     }
     
     @objc func TFdidChanged(_ sender: UITextField) {
-        
-        print("텍스트 변경 감지")
-        print("text :", sender.text)
+        var pass = passWordTextField.text
+        var pass2 = checkTextField.text
         
         //비밀번호가 일치하는 지 확인.
-        if isSameBothTextField(passWordTextField, checkTextField) {
+        if isSameBothTextField(passWordTextField, checkTextField) && isValidPassword(pwd: pass ?? "") && isValidPassword(pwd: pass2 ?? "")  {
             updateButton(willActive: true)
         }
         else {
@@ -132,6 +131,13 @@ class RelaySelfLoginPassWordViewController: UIViewController {
             return false
         }
     }
+    
+    // 비밀번호 형식 검사
+        func isValidPassword(pwd: String) -> Bool {
+            let passwordRegEx = "^[a-zA-Z0-9]{8,12}$"
+            let passwordTest = NSPredicate(format: "SELF MATCHES %@", passwordRegEx)
+            return passwordTest.evaluate(with: pwd)
+        }
     
     private func setupLayout() {
         [
