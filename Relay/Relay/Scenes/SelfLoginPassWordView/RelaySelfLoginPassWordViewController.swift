@@ -27,7 +27,7 @@ class RelaySelfLoginPassWordViewController: UIViewController {
         
         textField.layer.cornerRadius = 8.0
         textField.backgroundColor = .relayGray2
-        textField.placeholder = "문자+숫자/20자 이내"
+        textField.placeholder = "대문자+숫자+특수문자/8~12자 이내"
         textField.leftView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: 10.0, height: 0.0))
         textField.leftViewMode = .always
         textField.addTarget(self, action: #selector(TFdidChanged), for: .editingChanged)
@@ -40,7 +40,7 @@ class RelaySelfLoginPassWordViewController: UIViewController {
         
         textField.layer.cornerRadius = 8.0
         textField.backgroundColor = .relayGray2
-        textField.placeholder = "문자+숫자/20자 이내"
+        textField.placeholder = "대문자+숫자+특수문자/8~12자 이내"
         textField.leftView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: 10.0, height: 0.0))
         textField.leftViewMode = .always
         textField.addTarget(self, action: #selector(TFdidChanged), for: .editingChanged)
@@ -133,7 +133,7 @@ class RelaySelfLoginPassWordViewController: UIViewController {
     
     // 비밀번호 형식 검사
         func isValidPassword(pwd: String) -> Bool {
-            let passwordRegEx = "^[a-zA-Z0-9]{8,12}$"
+            let passwordRegEx = "^(?=.*[A-Za-z])(?=.*[0-9])(?=.*[!@#$%^&*()_+=-]).{8,12}$"
             let passwordTest = NSPredicate(format: "SELF MATCHES %@", passwordRegEx)
             return passwordTest.evaluate(with: pwd)
         }
