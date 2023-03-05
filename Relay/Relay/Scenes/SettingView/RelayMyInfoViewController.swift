@@ -29,6 +29,7 @@ class RelayMyInfoViewController: UIViewController, UITableViewDelegate, UITableV
     }()
     
     var models = [Section]()
+    var userAccount = "nickname@gmail.com"
     
     override func viewDidLoad() {
         super.viewDidLoad()
