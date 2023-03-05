@@ -42,7 +42,7 @@ class RelayMyInfoViewController: UIViewController, UITableViewDelegate, UITableV
     
     func relaySettingViewConfigure() {
         models.append(Section(title: "", details: "", version: "", options: [
-            SettingsOption(title: "계정", details: "nickname@gmail.com", version: "") {
+            SettingsOption(title: "계정", details: "\(userAccount)", version: "") {
                 
             },
             SettingsOption(title: "로그아웃", details: "", version: "") {
