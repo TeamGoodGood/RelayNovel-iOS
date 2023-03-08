@@ -115,10 +115,6 @@ extension RelayNoticeViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if noticeArray != nil {
             return 98
-        } else {
-            return 0
-        }
     }
 }
