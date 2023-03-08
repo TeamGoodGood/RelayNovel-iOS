@@ -89,7 +89,7 @@ extension RelayNoticeViewController: UITableViewDelegate, UITableViewDataSource 
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let noticeArray = noticeArray {
-            if noticeArray.count == 0 {
+            if noticeArray.isEmpty {
                 tableView.setEmptyView(message: "받은 알림이 없습니다.")
             }
             return noticeArray.count
