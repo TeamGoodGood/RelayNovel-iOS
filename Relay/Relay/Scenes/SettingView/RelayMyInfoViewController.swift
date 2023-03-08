@@ -29,6 +29,7 @@ class RelayMyInfoViewController: UIViewController, UITableViewDelegate, UITableV
     }()
     
     var models = [Section]()
+    var userAccount = "nickname@gmail.com"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,7 +42,7 @@ class RelayMyInfoViewController: UIViewController, UITableViewDelegate, UITableV
     
     func relaySettingViewConfigure() {
         models.append(Section(title: "", details: "", version: "", options: [
-            SettingsOption(title: "계정", details: "nickname@gmail.com", version: "") {
+            SettingsOption(title: "계정", details: "\(userAccount)", version: "") {
                 
             },
             SettingsOption(title: "로그아웃", details: "", version: "") {
