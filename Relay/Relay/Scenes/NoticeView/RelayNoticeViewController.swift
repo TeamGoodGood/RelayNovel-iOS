@@ -89,9 +89,11 @@ extension RelayNoticeViewController: UITableViewDelegate, UITableViewDataSource 
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let noticeArray = noticeArray {
+            if noticeArray.isEmpty {
+                tableView.setEmptyView(message: "받은 알림이 없습니다.")
+            }
             return noticeArray.count
         } else {
-            //TODO: 알림(noticeArray)이 없을 경우 보여줄 뷰 구현 필요
             return 0
         }
     }
@@ -107,14 +109,12 @@ extension RelayNoticeViewController: UITableViewDelegate, UITableViewDataSource 
         
         if let notice = noticeArray?[indexPath.row] {
             cell.configure(notice)
-        } else {
-            //TODO: 알림(noticeArray)이 없을 경우 보여줄 뷰 구현 필요
         }
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 98
+            return 98
     }
 }

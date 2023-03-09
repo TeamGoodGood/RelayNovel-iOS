@@ -100,7 +100,22 @@ extension RelayActivityViewController: UICollectionViewDelegateFlowLayout {
 
 extension RelayActivityViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        stories.count
+        if stories.count == 0 {
+            switch type {
+            case .like:
+                collectionView.setEmptyView(message: "좋아요한 릴레이가 없습니다.")
+            case .participated:
+                collectionView.setEmptyView(message: "참여한 릴레이가 없습니다.")
+            case .started:
+                collectionView.setEmptyView(message: "시작한 릴레이가 없습니다.")
+            default:
+                collectionView.setEmptyView(message: "디폴트.")
+            }
+        }
+        else {
+            collectionView.restore()
+        }
+        return stories.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

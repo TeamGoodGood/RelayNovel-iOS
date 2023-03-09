@@ -166,7 +166,13 @@ extension RelayBrowsingViewController: UICollectionViewDelegateFlowLayout {
 
 extension RelayBrowsingViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        stories.count
+        if stories.count == 0 {
+            collectionView.setEmptyView(message: "현재 시작된 릴레이가 없습니다.")
+        }
+        else {
+            collectionView.restore()
+        }
+        return stories.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
