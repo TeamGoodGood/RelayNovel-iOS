@@ -22,14 +22,15 @@ class RelayLoginViewController: UIViewController {
         return button
     }()
     
-    private let loginButtonImageView: UIImageView = {
-        let imageView = UIImageView(frame: .zero)
-        let myImage: UIImage = UIImage(named: "AppleLogo")!
-        
-        imageView.image = myImage
-        
-        return imageView
-    }()
+// TODO: 애플 로그인 구현시 다시 주석 풀기
+//    private let loginButtonImageView: UIImageView = {
+//        let imageView = UIImageView(frame: .zero)
+//        let myImage: UIImage = UIImage(named: "AppleLogo")!
+//
+//        imageView.image = myImage
+//
+//        return imageView
+//    }()
 
     private let subTitleLabel: UILabel = {
         let label = UILabel()
@@ -62,28 +63,41 @@ class RelayLoginViewController: UIViewController {
         
         return imageView
     }()
-
-    private let loginButton: UIButton = {
-        let button = UIButton(type: .custom)
-        let image = UIImage(named: "AppleLogo")
+    
+    private let selfLoginButton: UIButton = {
+        let button = UIButton()
         
-        button.backgroundColor = .black
+        button.backgroundColor = .relayBlack
+        button.setTitle("이메일로 회원가입", for: .normal)
+        button.titleLabel?.font = .boldSystemFont(ofSize: 17)
+        button.layer.cornerRadius = 8
         
-        button.setTitle("Apple로 로그인", for: .normal)
-        button.titleLabel?.font = .boldSystemFont(ofSize: 16)
-        
-        button.setImage(UIImage(named: "AppleLogo"), for: .normal)
-        button.contentHorizontalAlignment = .center
-        button.semanticContentAttribute = .forceLeftToRight
-        button.imageEdgeInsets = .init(top: 0, left: 0, bottom: 0, right: 170)
-        
-        button.layer.cornerRadius = 16
-        
-        button.addTarget(self, action: #selector(addLoginHandler), for: .touchUpInside)
+        button.addTarget(self, action: #selector(goToSelfLoginView), for: .touchUpInside)
         
         return button
     }()
-    
+// TODO: 애플 로그인 구현시 다시 주석 풀기
+//    private let loginButton: UIButton = {
+//        let button = UIButton(type: .custom)
+//        let image = UIImage(named: "AppleLogo")
+//
+//        button.backgroundColor = .black
+//
+//        button.setTitle("Apple로 로그인", for: .normal)
+//        button.titleLabel?.font = .boldSystemFont(ofSize: 16)
+//
+//        button.setImage(UIImage(named: "AppleLogo"), for: .normal)
+//        button.contentHorizontalAlignment = .center
+//        button.semanticContentAttribute = .forceLeftToRight
+//        button.imageEdgeInsets = .init(top: 0, left: 0, bottom: 0, right: 170)
+//
+//        button.layer.cornerRadius = 16
+//
+//        button.addTarget(self, action: #selector(addLoginHandler), for: .touchUpInside)
+//
+//        return button
+//    }()
+//
     
     // button 액션 추가 예정
     private let noLoginButton: UIButton = {
@@ -119,8 +133,10 @@ class RelayLoginViewController: UIViewController {
             subTitleLabel,
             titleLabel,
             loginImageView,
-            noLoginButton,
-            loginButton
+            selfLoginButton,
+            noLoginButton
+            // TODO: 애플 로그인 구현시 다시 복구
+//            loginButton
         ].forEach { view.addSubview($0) }
         
         noLoginButton.addSubview(noLoginLabel)
@@ -148,29 +164,41 @@ class RelayLoginViewController: UIViewController {
             $0.width.equalTo(167.0)
             $0.height.equalTo(179.99)
         }
-        loginButton.snp.makeConstraints {
+        // TODO: 애플 로그인 구현시 다시 주석 풀기
+//        loginButton.snp.makeConstraints {
+//            $0.height.equalTo(56.0)
+//            $0.leading.equalToSuperview().inset(25.0)
+//            $0.trailing.equalToSuperview().inset(26.0)
+//            $0.top.equalTo(loginImageView.snp.bottom).offset(129.7)
+//        }
+        selfLoginButton.snp.makeConstraints {
             $0.height.equalTo(56.0)
-            $0.leading.equalToSuperview().inset(25.0)
-            $0.trailing.equalToSuperview().inset(26.0)
             $0.top.equalTo(loginImageView.snp.bottom).offset(129.7)
-           
+            $0.leading.equalToSuperview().inset(26.0)
+            $0.trailing.equalToSuperview().inset(26.0)
         }
         noLoginButton.snp.makeConstraints {
-            $0.top.equalTo(loginButton.snp.bottom).offset(24.0)
+            $0.top.equalTo(selfLoginButton.snp.bottom).offset(30.0)
             $0.leading.equalToSuperview().inset(128.0)
             $0.trailing.equalToSuperview().inset(129.0)
         }
 }
-    
-
-    @objc func addLoginHandler() {
-        let request = ASAuthorizationAppleIDProvider().createRequest()
-        request.requestedScopes = [.fullName, .email]
-        let controller = ASAuthorizationController(authorizationRequests: [request])
-        controller.delegate = self
-        controller.presentationContextProvider = self as? ASAuthorizationControllerPresentationContextProviding
-        controller.performRequests()
+    @objc
+    private func goToSelfLoginView() {
+        let toRelayLoginView = UINavigationController(rootViewController: RelaySelfLoginEmailViewController())
+        toRelayLoginView.modalPresentationStyle = .fullScreen
+        present(toRelayLoginView, animated: true, completion: nil)
     }
+    
+// TODO: 애플로그인 구현시 주석 제거
+//    @objc func addLoginHandler() {
+//        let request = ASAuthorizationAppleIDProvider().createRequest()
+//        request.requestedScopes = [.fullName, .email]
+//        let controller = ASAuthorizationController(authorizationRequests: [request])
+//        controller.delegate = self
+//        controller.presentationContextProvider = self as? ASAuthorizationControllerPresentationContextProviding
+//        controller.performRequests()
+//    }
 
 }
 

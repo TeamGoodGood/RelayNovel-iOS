@@ -10,6 +10,7 @@
 		3201622E2912A7950054803C /* RelayPenNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3201622D2912A7950054803C /* RelayPenNameViewController.swift */; };
 		3212D6F82935EF1B0080F3E0 /* MockNotice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3212D6F72935EF1B0080F3E0 /* MockNotice.swift */; };
 		321F591F291CE77700FEE6DD /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321F591E291CE77700FEE6DD /* CardView.swift */; };
+		324247C12977CFF100382F74 /* RelaySelfLoginPassWordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324247C02977CFF100382F74 /* RelaySelfLoginPassWordViewController.swift */; };
 		32464EB3291B808800BDAB7C /* RelayNoticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32464EB2291B808800BDAB7C /* RelayNoticeViewController.swift */; };
 		32464EB7291B887D00BDAB7C /* TableCellCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32464EB6291B887D00BDAB7C /* TableCellCustomCell.swift */; };
 		32464EB9291B99E400BDAB7C /* Extension+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32464EB8291B99E400BDAB7C /* Extension+UIViewController.swift */; };
@@ -19,6 +20,7 @@
 		3265BA2C290925DD00532CA4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3265BA2B290925DD00532CA4 /* SceneDelegate.swift */; };
 		3265BA33290925DE00532CA4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3265BA32290925DE00532CA4 /* Assets.xcassets */; };
 		3265BA36290925DE00532CA4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3265BA34290925DE00532CA4 /* LaunchScreen.storyboard */; };
+		327AFF412970FF74008B5CB7 /* RelaySelfLoginVIewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327AFF402970FF74008B5CB7 /* RelaySelfLoginVIewController.swift */; };
 		329918A0290A5D8800372C13 /* RelayLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3299189F290A5D8800372C13 /* RelayLoginViewController.swift */; };
 		329FA02D292CBE820063981A /* PlayList_5.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 329FA025292CBE810063981A /* PlayList_5.mp3 */; };
 		329FA02E292CBE820063981A /* PlayList_3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 329FA026292CBE810063981A /* PlayList_3.mp3 */; };
@@ -114,6 +116,7 @@
 		3212D6F72935EF1B0080F3E0 /* MockNotice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNotice.swift; sourceTree = "<group>"; };
 		321F591E291CE77700FEE6DD /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		32308E43290F983E0012B5A2 /* Relay.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Relay.entitlements; sourceTree = "<group>"; };
+		324247C02977CFF100382F74 /* RelaySelfLoginPassWordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelaySelfLoginPassWordViewController.swift; sourceTree = "<group>"; };
 		32464EB2291B808800BDAB7C /* RelayNoticeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayNoticeViewController.swift; sourceTree = "<group>"; };
 		32464EB6291B887D00BDAB7C /* TableCellCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCellCustomCell.swift; sourceTree = "<group>"; };
 		32464EB8291B99E400BDAB7C /* Extension+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIViewController.swift"; sourceTree = "<group>"; };
@@ -124,6 +127,7 @@
 		3265BA32290925DE00532CA4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3265BA35290925DE00532CA4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3265BA37290925DE00532CA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		327AFF402970FF74008B5CB7 /* RelaySelfLoginVIewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelaySelfLoginVIewController.swift; sourceTree = "<group>"; };
 		3299189F290A5D8800372C13 /* RelayLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayLoginViewController.swift; sourceTree = "<group>"; };
 		329FA025292CBE810063981A /* PlayList_5.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = PlayList_5.mp3; sourceTree = "<group>"; };
 		329FA026292CBE810063981A /* PlayList_3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = PlayList_3.mp3; sourceTree = "<group>"; };
@@ -239,6 +243,14 @@
 			path = PenNameView;
 			sourceTree = "<group>";
 		};
+		324247BF2977CFC300382F74 /* SelfLoginPassWordView */ = {
+			isa = PBXGroup;
+			children = (
+				324247C02977CFF100382F74 /* RelaySelfLoginPassWordViewController.swift */,
+			);
+			path = SelfLoginPassWordView;
+			sourceTree = "<group>";
+		};
 		32464EB1291B806300BDAB7C /* NoticeView */ = {
 			isa = PBXGroup;
 			children = (
@@ -298,6 +310,14 @@
 				3265BA37290925DE00532CA4 /* Info.plist */,
 			);
 			path = Relay;
+			sourceTree = "<group>";
+		};
+		327AFF3F2970FF5E008B5CB7 /* SelfLoginEmailView */ = {
+			isa = PBXGroup;
+			children = (
+				327AFF402970FF74008B5CB7 /* RelaySelfLoginVIewController.swift */,
+			);
+			path = SelfLoginEmailView;
 			sourceTree = "<group>";
 		};
 		3299189B290A5C8500372C13 /* LoginView */ = {
@@ -500,6 +520,8 @@
 				55867E1029128C7400C79FFC /* TabBarController.swift */,
 				B5C0B4B5290F7B1F00077B5F /* OnboardingView */,
 				3299189B290A5C8500372C13 /* LoginView */,
+				327AFF3F2970FF5E008B5CB7 /* SelfLoginEmailView */,
+				324247BF2977CFC300382F74 /* SelfLoginPassWordView */,
 				32F8353729113F4500E2CC4A /* AgreementView */,
 				3201622C2912A77B0054803C /* PenNameView */,
 				32517E122913B71D005E0F69 /* AllReadyView */,
@@ -788,6 +810,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				55D5530B292D3CD80013FF5E /* Extension+Double.swift in Sources */,
+				327AFF412970FF74008B5CB7 /* RelaySelfLoginVIewController.swift in Sources */,
 				B533AB4929183A4400B73867 /* RelayMyInfoViewController.swift in Sources */,
 				55867E212914EB3C00C79FFC /* RelayCategoryCollectionViewCell.swift in Sources */,
 				55D55309292CA2EC0013FF5E /* Genre.swift in Sources */,
@@ -801,6 +824,7 @@
 				73741CB3291D368100E7F765 /* NoticeAPI.swift in Sources */,
 				32464EB3291B808800BDAB7C /* RelayNoticeViewController.swift in Sources */,
 				B5C0B4BD290F7C9A00077B5F /* RelayOnboardingViewController.swift in Sources */,
+				324247C12977CFF100382F74 /* RelaySelfLoginPassWordViewController.swift in Sources */,
 				55745F352919340700414462 /* RelayReadingViewController.swift in Sources */,
 				32F835422911571B00E2CC4A /* Extension+UIImage.swift in Sources */,
 				32464EB7291B887D00BDAB7C /* TableCellCustomCell.swift in Sources */,
